@@ -1,0 +1,4498 @@
+{
+  "schemaVersion": 1,
+  "sampleCount": 10,
+  "labelled": 8,
+  "compared": 0,
+  "catalogueBacked": 8,
+  "catalogueAgreements": 8,
+  "agreements": 0,
+  "disagreements": [],
+  "unobserved": [],
+  "timeMismatches": [],
+  "missingLabels": [],
+  "groups": ["cloudflare", "google", "quad9"],
+  "classes": ["public-service"],
+  "calibrationReady": false,
+  "calibrationLimit": "This pilot has no representative, independent labelled train/validation set or numerical risk outcomes. Do not fit or claim calibrated weights.",
+  "rows": [
+    {
+      "id": "1.1.1.1",
+      "ip": "1.1.1.1",
+      "collectedAt": "2026-09-18T16:54:45.499Z",
+      "observedAt": "2026-09-18T16:54:45.480Z",
+      "score": 80,
+      "kind": "public-service",
+      "limited": true,
+      "evidence": {
+        "abuse": ["coffee", "dnsbl", "ipregistry"],
+        "fraud": ["ip2location", "scamalytics", "proxycheck"],
+        "anonymity": ["coffee", "ipinfo", "ipapi", "proxycheck", "torexit", "ipregistry"],
+        "usage": ["coffee", "ip2location", "ipapi", "proxycheck", "ipregistry"],
+        "network": ["coffee", "ipinfo", "ip2location", "ipapi", "proxycheck", "ipregistry"],
+        "geo": ["coffee", "ipregistry"],
+        "integrity": ["rdap"],
+        "reputation": ["coffee", "dnsbl", "ipregistry", "ip2location", "scamalytics", "proxycheck"]
+      },
+      "scoreStatus": "provisional",
+      "missingSources": ["ippure"],
+      "scoreProfile": "ipv4-five-source",
+      "publicService": {
+        "id": "cloudflare-public-dns-v4-primary",
+        "provider": "Cloudflare",
+        "label": "Cloudflare Public DNS",
+        "href": "https://developers.cloudflare.com/1.1.1.1/ip-addresses/",
+        "verifiedAt": "2026-09-18T16:52:12Z",
+        "expiresAt": "2027-03-17T16:52:12.000Z"
+      },
+      "label": {
+        "id": "cloudflare-public-dns-v4-primary",
+        "ip": "1.1.1.1",
+        "group": "cloudflare",
+        "expectedKind": "public-service",
+        "scope": "usage",
+        "confidence": "official",
+        "observedAt": "2026-09-18T16:52:12Z",
+        "source": {
+          "url": "https://developers.cloudflare.com/1.1.1.1/ip-addresses/",
+          "excerpt": "Cloudflare documents 1.1.1.1 as a standard resolver address.",
+          "fetchedAt": "2026-09-18T16:52:12Z"
+        }
+      },
+      "labelStatus": "catalogue-backed",
+      "observedKind": "public-service",
+      "agreement": null,
+      "catalogueAgreement": true,
+      "scoreBreakdown": {
+        "reputation": 81.06263736263736,
+        "anonymity": 93.81818181818181,
+        "usage": 70,
+        "indicators": [
+          {
+            "key": "abuse",
+            "label": "滥用记录",
+            "weight": 0.22,
+            "effective": 0.22,
+            "score": 81.42857142857143,
+            "sources": ["coffee", "dnsbl", "ipregistry"]
+          },
+          {
+            "key": "fraud",
+            "label": "欺诈风险",
+            "weight": 0.18,
+            "effective": 0.18,
+            "score": 80.61538461538463,
+            "sources": ["ip2location", "scamalytics", "proxycheck"]
+          },
+          {
+            "key": "anonymity",
+            "label": "匿名暴露",
+            "weight": 0.16,
+            "effective": 0.16,
+            "score": 93.81818181818181,
+            "sources": ["coffee", "ipinfo", "ipapi", "proxycheck", "torexit", "ipregistry"]
+          },
+          {
+            "key": "usage",
+            "label": "用途属性",
+            "weight": 0.14,
+            "effective": 0.14,
+            "score": 70,
+            "sources": ["coffee", "ip2location", "ipapi", "proxycheck", "ipregistry"]
+          },
+          {
+            "key": "network",
+            "label": "网络归属",
+            "weight": 0.12,
+            "effective": 0.12,
+            "score": 40.95,
+            "sources": ["coffee", "ipinfo", "ip2location", "ipapi", "proxycheck", "ipregistry"]
+          },
+          {
+            "key": "geo",
+            "label": "地理一致",
+            "weight": 0.09,
+            "effective": 0.09,
+            "score": 100,
+            "sources": ["coffee", "ipregistry"]
+          },
+          {
+            "key": "integrity",
+            "label": "可溯源",
+            "weight": 0.09,
+            "effective": 0.09,
+            "score": 98,
+            "sources": ["rdap"]
+          }
+        ],
+        "base": 79.96996403596404,
+        "adjusted": 79.96996403596404,
+        "uncapped": 79.96996403596404,
+        "range": {
+          "lo": 80,
+          "hi": 80
+        },
+        "penalties": [],
+        "evidenceCoverage": 0.872379157382612,
+        "confidence": "high",
+        "freshnessDays": 5517,
+        "prefixRegisteredAt": "2011-08-10T23:12:35.000Z",
+        "cap": 100
+      },
+      "sensitivity": {
+        "min": 80,
+        "max": 80,
+        "candidates": [
+          {
+            "delta": -0.1,
+            "score": 80
+          },
+          {
+            "delta": -0.05,
+            "score": 80
+          },
+          {
+            "delta": 0,
+            "score": 80
+          },
+          {
+            "delta": 0.05,
+            "score": 80
+          },
+          {
+            "delta": 0.1,
+            "score": 80
+          }
+        ]
+      },
+      "omissions": [
+        {
+          "excluded": ["coffee"],
+          "score": 74,
+          "kind": "public-service",
+          "limited": true,
+          "evidence": {
+            "abuse": ["dnsbl", "ipregistry"],
+            "fraud": ["ip2location", "scamalytics", "proxycheck"],
+            "anonymity": ["ipinfo", "ipapi", "proxycheck", "torexit", "ipregistry"],
+            "usage": ["ip2location", "ipapi", "proxycheck", "ipregistry"],
+            "network": ["ipinfo", "ip2location", "ipapi", "proxycheck", "ipregistry"],
+            "geo": ["ipregistry"],
+            "integrity": ["rdap"],
+            "reputation": ["dnsbl", "ipregistry", "ip2location", "scamalytics", "proxycheck"]
+          },
+          "scoreStatus": "provisional",
+          "missingSources": ["coffee", "ippure"],
+          "scoreProfile": "ipv4-five-source",
+          "publicService": {
+            "id": "cloudflare-public-dns-v4-primary",
+            "provider": "Cloudflare",
+            "label": "Cloudflare Public DNS",
+            "href": "https://developers.cloudflare.com/1.1.1.1/ip-addresses/",
+            "verifiedAt": "2026-09-18T16:52:12Z",
+            "expiresAt": "2027-03-17T16:52:12.000Z"
+          }
+        },
+        {
+          "excluded": ["ipinfo"],
+          "score": 80,
+          "kind": "public-service",
+          "limited": true,
+          "evidence": {
+            "abuse": ["coffee", "dnsbl", "ipregistry"],
+            "fraud": ["ip2location", "scamalytics", "proxycheck"],
+            "anonymity": ["coffee", "ipapi", "proxycheck", "torexit", "ipregistry"],
+            "usage": ["coffee", "ip2location", "ipapi", "proxycheck", "ipregistry"],
+            "network": ["coffee", "ip2location", "ipapi", "proxycheck", "ipregistry"],
+            "geo": ["coffee", "ipregistry"],
+            "integrity": ["rdap"],
+            "reputation": [
+              "coffee",
+              "dnsbl",
+              "ipregistry",
+              "ip2location",
+              "scamalytics",
+              "proxycheck"
+            ]
+          },
+          "scoreStatus": "provisional",
+          "missingSources": ["ipinfo", "ippure"],
+          "scoreProfile": "ipv4-five-source",
+          "publicService": {
+            "id": "cloudflare-public-dns-v4-primary",
+            "provider": "Cloudflare",
+            "label": "Cloudflare Public DNS",
+            "href": "https://developers.cloudflare.com/1.1.1.1/ip-addresses/",
+            "verifiedAt": "2026-09-18T16:52:12Z",
+            "expiresAt": "2027-03-17T16:52:12.000Z"
+          }
+        },
+        {
+          "excluded": ["ip2location"],
+          "score": 79,
+          "kind": "public-service",
+          "limited": true,
+          "evidence": {
+            "abuse": ["coffee", "dnsbl", "ipregistry"],
+            "fraud": ["scamalytics", "proxycheck"],
+            "anonymity": ["coffee", "ipinfo", "ipapi", "proxycheck", "torexit", "ipregistry"],
+            "usage": ["coffee", "ipapi", "proxycheck", "ipregistry"],
+            "network": ["coffee", "ipinfo", "ipapi", "proxycheck", "ipregistry"],
+            "geo": ["coffee", "ipregistry"],
+            "integrity": ["rdap"],
+            "reputation": ["coffee", "dnsbl", "ipregistry", "scamalytics", "proxycheck"]
+          },
+          "scoreStatus": "provisional",
+          "missingSources": ["ip2location", "ippure"],
+          "scoreProfile": "ipv4-five-source",
+          "publicService": {
+            "id": "cloudflare-public-dns-v4-primary",
+            "provider": "Cloudflare",
+            "label": "Cloudflare Public DNS",
+            "href": "https://developers.cloudflare.com/1.1.1.1/ip-addresses/",
+            "verifiedAt": "2026-09-18T16:52:12Z",
+            "expiresAt": "2027-03-17T16:52:12.000Z"
+          }
+        },
+        {
+          "excluded": ["ipapi"],
+          "score": 80,
+          "kind": "public-service",
+          "limited": true,
+          "evidence": {
+            "abuse": ["coffee", "dnsbl", "ipregistry"],
+            "fraud": ["ip2location", "scamalytics", "proxycheck"],
+            "anonymity": ["coffee", "ipinfo", "proxycheck", "torexit", "ipregistry"],
+            "usage": ["coffee", "ip2location", "proxycheck", "ipregistry"],
+            "network": ["coffee", "ipinfo", "ip2location", "proxycheck", "ipregistry"],
+            "geo": ["coffee", "ipregistry"],
+            "integrity": ["rdap"],
+            "reputation": [
+              "coffee",
+              "dnsbl",
+              "ipregistry",
+              "ip2location",
+              "scamalytics",
+              "proxycheck"
+            ]
+          },
+          "scoreStatus": "provisional",
+          "missingSources": ["ipapi", "ippure"],
+          "scoreProfile": "ipv4-five-source",
+          "publicService": {
+            "id": "cloudflare-public-dns-v4-primary",
+            "provider": "Cloudflare",
+            "label": "Cloudflare Public DNS",
+            "href": "https://developers.cloudflare.com/1.1.1.1/ip-addresses/",
+            "verifiedAt": "2026-09-18T16:52:12Z",
+            "expiresAt": "2027-03-17T16:52:12.000Z"
+          }
+        },
+        {
+          "excluded": ["scamalytics"],
+          "score": 78,
+          "kind": "public-service",
+          "limited": true,
+          "evidence": {
+            "abuse": ["coffee", "dnsbl", "ipregistry"],
+            "fraud": ["ip2location", "proxycheck"],
+            "anonymity": ["coffee", "ipinfo", "ipapi", "proxycheck", "torexit", "ipregistry"],
+            "usage": ["coffee", "ip2location", "ipapi", "proxycheck", "ipregistry"],
+            "network": ["coffee", "ipinfo", "ip2location", "ipapi", "proxycheck", "ipregistry"],
+            "geo": ["coffee", "ipregistry"],
+            "integrity": ["rdap"],
+            "reputation": ["coffee", "dnsbl", "ipregistry", "ip2location", "proxycheck"]
+          },
+          "scoreStatus": "provisional",
+          "missingSources": ["ippure", "scamalytics"],
+          "scoreProfile": "ipv4-five-source",
+          "publicService": {
+            "id": "cloudflare-public-dns-v4-primary",
+            "provider": "Cloudflare",
+            "label": "Cloudflare Public DNS",
+            "href": "https://developers.cloudflare.com/1.1.1.1/ip-addresses/",
+            "verifiedAt": "2026-09-18T16:52:12Z",
+            "expiresAt": "2027-03-17T16:52:12.000Z"
+          }
+        },
+        {
+          "excluded": ["proxycheck"],
+          "score": 82,
+          "kind": "public-service",
+          "limited": true,
+          "evidence": {
+            "abuse": ["coffee", "dnsbl", "ipregistry"],
+            "fraud": ["ip2location", "scamalytics"],
+            "anonymity": ["coffee", "ipinfo", "ipapi", "torexit", "ipregistry"],
+            "usage": ["coffee", "ip2location", "ipapi", "ipregistry"],
+            "network": ["coffee", "ipinfo", "ip2location", "ipapi", "ipregistry"],
+            "geo": ["coffee", "ipregistry"],
+            "integrity": ["rdap"],
+            "reputation": ["coffee", "dnsbl", "ipregistry", "ip2location", "scamalytics"]
+          },
+          "scoreStatus": "provisional",
+          "missingSources": ["ippure", "proxycheck"],
+          "scoreProfile": "ipv4-five-source",
+          "publicService": {
+            "id": "cloudflare-public-dns-v4-primary",
+            "provider": "Cloudflare",
+            "label": "Cloudflare Public DNS",
+            "href": "https://developers.cloudflare.com/1.1.1.1/ip-addresses/",
+            "verifiedAt": "2026-09-18T16:52:12Z",
+            "expiresAt": "2027-03-17T16:52:12.000Z"
+          }
+        },
+        {
+          "excluded": ["dnsbl"],
+          "score": 82,
+          "kind": "public-service",
+          "limited": true,
+          "evidence": {
+            "abuse": ["coffee", "ipregistry"],
+            "fraud": ["ip2location", "scamalytics", "proxycheck"],
+            "anonymity": ["coffee", "ipinfo", "ipapi", "proxycheck", "torexit", "ipregistry"],
+            "usage": ["coffee", "ip2location", "ipapi", "proxycheck", "ipregistry"],
+            "network": ["coffee", "ipinfo", "ip2location", "ipapi", "proxycheck", "ipregistry"],
+            "geo": ["coffee", "ipregistry"],
+            "integrity": ["rdap"],
+            "reputation": ["coffee", "ipregistry", "ip2location", "scamalytics", "proxycheck"]
+          },
+          "scoreStatus": "provisional",
+          "missingSources": ["dnsbl", "ippure"],
+          "scoreProfile": "ipv4-five-source",
+          "publicService": {
+            "id": "cloudflare-public-dns-v4-primary",
+            "provider": "Cloudflare",
+            "label": "Cloudflare Public DNS",
+            "href": "https://developers.cloudflare.com/1.1.1.1/ip-addresses/",
+            "verifiedAt": "2026-09-18T16:52:12Z",
+            "expiresAt": "2027-03-17T16:52:12.000Z"
+          }
+        },
+        {
+          "excluded": ["torexit"],
+          "score": 80,
+          "kind": "public-service",
+          "limited": true,
+          "evidence": {
+            "abuse": ["coffee", "dnsbl", "ipregistry"],
+            "fraud": ["ip2location", "scamalytics", "proxycheck"],
+            "anonymity": ["coffee", "ipinfo", "ipapi", "proxycheck", "ipregistry"],
+            "usage": ["coffee", "ip2location", "ipapi", "proxycheck", "ipregistry"],
+            "network": ["coffee", "ipinfo", "ip2location", "ipapi", "proxycheck", "ipregistry"],
+            "geo": ["coffee", "ipregistry"],
+            "integrity": ["rdap"],
+            "reputation": [
+              "coffee",
+              "dnsbl",
+              "ipregistry",
+              "ip2location",
+              "scamalytics",
+              "proxycheck"
+            ]
+          },
+          "scoreStatus": "provisional",
+          "missingSources": ["ippure", "torexit"],
+          "scoreProfile": "ipv4-five-source",
+          "publicService": {
+            "id": "cloudflare-public-dns-v4-primary",
+            "provider": "Cloudflare",
+            "label": "Cloudflare Public DNS",
+            "href": "https://developers.cloudflare.com/1.1.1.1/ip-addresses/",
+            "verifiedAt": "2026-09-18T16:52:12Z",
+            "expiresAt": "2027-03-17T16:52:12.000Z"
+          }
+        },
+        {
+          "excluded": ["ipregistry"],
+          "score": 79,
+          "kind": "public-service",
+          "limited": true,
+          "evidence": {
+            "abuse": ["coffee", "dnsbl"],
+            "fraud": ["ip2location", "scamalytics", "proxycheck"],
+            "anonymity": ["coffee", "ipinfo", "ipapi", "proxycheck", "torexit"],
+            "usage": ["coffee", "ip2location", "ipapi", "proxycheck"],
+            "network": ["coffee", "ipinfo", "ip2location", "ipapi", "proxycheck"],
+            "geo": ["coffee", "ipregistry"],
+            "integrity": ["rdap"],
+            "reputation": ["coffee", "dnsbl", "ip2location", "scamalytics", "proxycheck"]
+          },
+          "scoreStatus": "provisional",
+          "missingSources": ["ippure", "ipregistry"],
+          "scoreProfile": "ipv4-five-source",
+          "publicService": {
+            "id": "cloudflare-public-dns-v4-primary",
+            "provider": "Cloudflare",
+            "label": "Cloudflare Public DNS",
+            "href": "https://developers.cloudflare.com/1.1.1.1/ip-addresses/",
+            "verifiedAt": "2026-09-18T16:52:12Z",
+            "expiresAt": "2027-03-17T16:52:12.000Z"
+          }
+        },
+        {
+          "excluded": ["ipinfo", "ip2location", "scamalytics"],
+          "score": 74,
+          "kind": "public-service",
+          "limited": true,
+          "evidence": {
+            "abuse": ["coffee", "dnsbl", "ipregistry"],
+            "fraud": ["proxycheck"],
+            "anonymity": ["coffee", "ipapi", "proxycheck", "torexit", "ipregistry"],
+            "usage": ["coffee", "ipapi", "proxycheck", "ipregistry"],
+            "network": ["coffee", "ipapi", "proxycheck", "ipregistry"],
+            "geo": ["coffee", "ipregistry"],
+            "integrity": ["rdap"],
+            "reputation": ["coffee", "dnsbl", "ipregistry", "proxycheck"]
+          },
+          "scoreStatus": "provisional",
+          "missingSources": ["ip2location", "ipinfo", "ippure", "scamalytics"],
+          "scoreProfile": "ipv4-five-source",
+          "publicService": {
+            "id": "cloudflare-public-dns-v4-primary",
+            "provider": "Cloudflare",
+            "label": "Cloudflare Public DNS",
+            "href": "https://developers.cloudflare.com/1.1.1.1/ip-addresses/",
+            "verifiedAt": "2026-09-18T16:52:12Z",
+            "expiresAt": "2027-03-17T16:52:12.000Z"
+          }
+        }
+      ],
+      "kindStable": true,
+      "worstOmission": {
+        "excluded": ["coffee"],
+        "score": 74,
+        "kind": "public-service",
+        "limited": true,
+        "evidence": {
+          "abuse": ["dnsbl", "ipregistry"],
+          "fraud": ["ip2location", "scamalytics", "proxycheck"],
+          "anonymity": ["ipinfo", "ipapi", "proxycheck", "torexit", "ipregistry"],
+          "usage": ["ip2location", "ipapi", "proxycheck", "ipregistry"],
+          "network": ["ipinfo", "ip2location", "ipapi", "proxycheck", "ipregistry"],
+          "geo": ["ipregistry"],
+          "integrity": ["rdap"],
+          "reputation": ["dnsbl", "ipregistry", "ip2location", "scamalytics", "proxycheck"]
+        },
+        "scoreStatus": "provisional",
+        "missingSources": ["coffee", "ippure"],
+        "scoreProfile": "ipv4-five-source",
+        "publicService": {
+          "id": "cloudflare-public-dns-v4-primary",
+          "provider": "Cloudflare",
+          "label": "Cloudflare Public DNS",
+          "href": "https://developers.cloudflare.com/1.1.1.1/ip-addresses/",
+          "verifiedAt": "2026-09-18T16:52:12Z",
+          "expiresAt": "2027-03-17T16:52:12.000Z"
+        }
+      },
+      "maxOmissionShift": 6
+    },
+    {
+      "id": "1.0.0.1",
+      "ip": "1.0.0.1",
+      "collectedAt": "2026-09-18T16:54:46.294Z",
+      "observedAt": "2026-09-18T16:54:46.266Z",
+      "score": 83,
+      "kind": "public-service",
+      "limited": true,
+      "evidence": {
+        "abuse": ["coffee", "dnsbl", "ipregistry"],
+        "fraud": ["ip2location", "scamalytics", "proxycheck"],
+        "anonymity": ["coffee", "ipinfo", "ipapi", "proxycheck", "torexit", "ipregistry"],
+        "usage": ["coffee", "ip2location", "ipapi", "proxycheck", "ipregistry"],
+        "network": ["coffee", "ipinfo", "ip2location", "ipapi", "proxycheck", "ipregistry"],
+        "geo": ["coffee", "ipregistry"],
+        "integrity": ["rdap"],
+        "reputation": ["coffee", "dnsbl", "ipregistry", "ip2location", "scamalytics", "proxycheck"]
+      },
+      "scoreStatus": "provisional",
+      "missingSources": ["ippure"],
+      "scoreProfile": "ipv4-five-source",
+      "publicService": {
+        "id": "cloudflare-public-dns-v4-secondary",
+        "provider": "Cloudflare",
+        "label": "Cloudflare Public DNS",
+        "href": "https://developers.cloudflare.com/1.1.1.1/ip-addresses/",
+        "verifiedAt": "2026-09-18T16:52:12Z",
+        "expiresAt": "2027-03-17T16:52:12.000Z"
+      },
+      "label": {
+        "id": "cloudflare-public-dns-v4-secondary",
+        "ip": "1.0.0.1",
+        "group": "cloudflare",
+        "expectedKind": "public-service",
+        "scope": "usage",
+        "confidence": "official",
+        "observedAt": "2026-09-18T16:52:12Z",
+        "source": {
+          "url": "https://developers.cloudflare.com/1.1.1.1/ip-addresses/",
+          "excerpt": "Cloudflare lists 1.0.0.1 as the second IPv4 address for its standard resolver.",
+          "fetchedAt": "2026-09-18T16:52:12Z"
+        }
+      },
+      "labelStatus": "catalogue-backed",
+      "observedKind": "public-service",
+      "agreement": null,
+      "catalogueAgreement": true,
+      "scoreBreakdown": {
+        "reputation": 87.42692307692309,
+        "anonymity": 93.81818181818181,
+        "usage": 70,
+        "indicators": [
+          {
+            "key": "abuse",
+            "label": "滥用记录",
+            "weight": 0.22,
+            "effective": 0.22,
+            "score": 93,
+            "sources": ["coffee", "dnsbl", "ipregistry"]
+          },
+          {
+            "key": "fraud",
+            "label": "欺诈风险",
+            "weight": 0.18,
+            "effective": 0.18,
+            "score": 80.61538461538463,
+            "sources": ["ip2location", "scamalytics", "proxycheck"]
+          },
+          {
+            "key": "anonymity",
+            "label": "匿名暴露",
+            "weight": 0.16,
+            "effective": 0.16,
+            "score": 93.81818181818181,
+            "sources": ["coffee", "ipinfo", "ipapi", "proxycheck", "torexit", "ipregistry"]
+          },
+          {
+            "key": "usage",
+            "label": "用途属性",
+            "weight": 0.14,
+            "effective": 0.14,
+            "score": 70,
+            "sources": ["coffee", "ip2location", "ipapi", "proxycheck", "ipregistry"]
+          },
+          {
+            "key": "network",
+            "label": "网络归属",
+            "weight": 0.12,
+            "effective": 0.12,
+            "score": 43.650000000000006,
+            "sources": ["coffee", "ipinfo", "ip2location", "ipapi", "proxycheck", "ipregistry"]
+          },
+          {
+            "key": "geo",
+            "label": "地理一致",
+            "weight": 0.09,
+            "effective": 0.09,
+            "score": 100,
+            "sources": ["coffee", "ipregistry"]
+          },
+          {
+            "key": "integrity",
+            "label": "可溯源",
+            "weight": 0.09,
+            "effective": 0.09,
+            "score": 98,
+            "sources": ["rdap"]
+          }
+        ],
+        "base": 82.83967832167832,
+        "adjusted": 82.83967832167832,
+        "uncapped": 82.83967832167832,
+        "range": {
+          "lo": 83,
+          "hi": 83
+        },
+        "penalties": [],
+        "evidenceCoverage": 0.872379157382612,
+        "confidence": "high",
+        "freshnessDays": 5517,
+        "prefixRegisteredAt": "2011-08-10T23:15:57.000Z",
+        "cap": 100
+      },
+      "sensitivity": {
+        "min": 82,
+        "max": 84,
+        "candidates": [
+          {
+            "delta": -0.1,
+            "score": 82
+          },
+          {
+            "delta": -0.05,
+            "score": 82
+          },
+          {
+            "delta": 0,
+            "score": 83
+          },
+          {
+            "delta": 0.05,
+            "score": 83
+          },
+          {
+            "delta": 0.1,
+            "score": 84
+          }
+        ]
+      },
+      "omissions": [
+        {
+          "excluded": ["coffee"],
+          "score": 77,
+          "kind": "public-service",
+          "limited": true,
+          "evidence": {
+            "abuse": ["dnsbl", "ipregistry"],
+            "fraud": ["ip2location", "scamalytics", "proxycheck"],
+            "anonymity": ["ipinfo", "ipapi", "proxycheck", "torexit", "ipregistry"],
+            "usage": ["ip2location", "ipapi", "proxycheck", "ipregistry"],
+            "network": ["ipinfo", "ip2location", "ipapi", "proxycheck", "ipregistry"],
+            "geo": ["ipregistry"],
+            "integrity": ["rdap"],
+            "reputation": ["dnsbl", "ipregistry", "ip2location", "scamalytics", "proxycheck"]
+          },
+          "scoreStatus": "provisional",
+          "missingSources": ["coffee", "ippure"],
+          "scoreProfile": "ipv4-five-source",
+          "publicService": {
+            "id": "cloudflare-public-dns-v4-secondary",
+            "provider": "Cloudflare",
+            "label": "Cloudflare Public DNS",
+            "href": "https://developers.cloudflare.com/1.1.1.1/ip-addresses/",
+            "verifiedAt": "2026-09-18T16:52:12Z",
+            "expiresAt": "2027-03-17T16:52:12.000Z"
+          }
+        },
+        {
+          "excluded": ["ipinfo"],
+          "score": 83,
+          "kind": "public-service",
+          "limited": true,
+          "evidence": {
+            "abuse": ["coffee", "dnsbl", "ipregistry"],
+            "fraud": ["ip2location", "scamalytics", "proxycheck"],
+            "anonymity": ["coffee", "ipapi", "proxycheck", "torexit", "ipregistry"],
+            "usage": ["coffee", "ip2location", "ipapi", "proxycheck", "ipregistry"],
+            "network": ["coffee", "ip2location", "ipapi", "proxycheck", "ipregistry"],
+            "geo": ["coffee", "ipregistry"],
+            "integrity": ["rdap"],
+            "reputation": [
+              "coffee",
+              "dnsbl",
+              "ipregistry",
+              "ip2location",
+              "scamalytics",
+              "proxycheck"
+            ]
+          },
+          "scoreStatus": "provisional",
+          "missingSources": ["ipinfo", "ippure"],
+          "scoreProfile": "ipv4-five-source",
+          "publicService": {
+            "id": "cloudflare-public-dns-v4-secondary",
+            "provider": "Cloudflare",
+            "label": "Cloudflare Public DNS",
+            "href": "https://developers.cloudflare.com/1.1.1.1/ip-addresses/",
+            "verifiedAt": "2026-09-18T16:52:12Z",
+            "expiresAt": "2027-03-17T16:52:12.000Z"
+          }
+        },
+        {
+          "excluded": ["ip2location"],
+          "score": 82,
+          "kind": "public-service",
+          "limited": true,
+          "evidence": {
+            "abuse": ["coffee", "dnsbl", "ipregistry"],
+            "fraud": ["scamalytics", "proxycheck"],
+            "anonymity": ["coffee", "ipinfo", "ipapi", "proxycheck", "torexit", "ipregistry"],
+            "usage": ["coffee", "ipapi", "proxycheck", "ipregistry"],
+            "network": ["coffee", "ipinfo", "ipapi", "proxycheck", "ipregistry"],
+            "geo": ["coffee", "ipregistry"],
+            "integrity": ["rdap"],
+            "reputation": ["coffee", "dnsbl", "ipregistry", "scamalytics", "proxycheck"]
+          },
+          "scoreStatus": "provisional",
+          "missingSources": ["ip2location", "ippure"],
+          "scoreProfile": "ipv4-five-source",
+          "publicService": {
+            "id": "cloudflare-public-dns-v4-secondary",
+            "provider": "Cloudflare",
+            "label": "Cloudflare Public DNS",
+            "href": "https://developers.cloudflare.com/1.1.1.1/ip-addresses/",
+            "verifiedAt": "2026-09-18T16:52:12Z",
+            "expiresAt": "2027-03-17T16:52:12.000Z"
+          }
+        },
+        {
+          "excluded": ["ipapi"],
+          "score": 83,
+          "kind": "public-service",
+          "limited": true,
+          "evidence": {
+            "abuse": ["coffee", "dnsbl", "ipregistry"],
+            "fraud": ["ip2location", "scamalytics", "proxycheck"],
+            "anonymity": ["coffee", "ipinfo", "proxycheck", "torexit", "ipregistry"],
+            "usage": ["coffee", "ip2location", "proxycheck", "ipregistry"],
+            "network": ["coffee", "ipinfo", "ip2location", "proxycheck", "ipregistry"],
+            "geo": ["coffee", "ipregistry"],
+            "integrity": ["rdap"],
+            "reputation": [
+              "coffee",
+              "dnsbl",
+              "ipregistry",
+              "ip2location",
+              "scamalytics",
+              "proxycheck"
+            ]
+          },
+          "scoreStatus": "provisional",
+          "missingSources": ["ipapi", "ippure"],
+          "scoreProfile": "ipv4-five-source",
+          "publicService": {
+            "id": "cloudflare-public-dns-v4-secondary",
+            "provider": "Cloudflare",
+            "label": "Cloudflare Public DNS",
+            "href": "https://developers.cloudflare.com/1.1.1.1/ip-addresses/",
+            "verifiedAt": "2026-09-18T16:52:12Z",
+            "expiresAt": "2027-03-17T16:52:12.000Z"
+          }
+        },
+        {
+          "excluded": ["scamalytics"],
+          "score": 81,
+          "kind": "public-service",
+          "limited": true,
+          "evidence": {
+            "abuse": ["coffee", "dnsbl", "ipregistry"],
+            "fraud": ["ip2location", "proxycheck"],
+            "anonymity": ["coffee", "ipinfo", "ipapi", "proxycheck", "torexit", "ipregistry"],
+            "usage": ["coffee", "ip2location", "ipapi", "proxycheck", "ipregistry"],
+            "network": ["coffee", "ipinfo", "ip2location", "ipapi", "proxycheck", "ipregistry"],
+            "geo": ["coffee", "ipregistry"],
+            "integrity": ["rdap"],
+            "reputation": ["coffee", "dnsbl", "ipregistry", "ip2location", "proxycheck"]
+          },
+          "scoreStatus": "provisional",
+          "missingSources": ["ippure", "scamalytics"],
+          "scoreProfile": "ipv4-five-source",
+          "publicService": {
+            "id": "cloudflare-public-dns-v4-secondary",
+            "provider": "Cloudflare",
+            "label": "Cloudflare Public DNS",
+            "href": "https://developers.cloudflare.com/1.1.1.1/ip-addresses/",
+            "verifiedAt": "2026-09-18T16:52:12Z",
+            "expiresAt": "2027-03-17T16:52:12.000Z"
+          }
+        },
+        {
+          "excluded": ["proxycheck"],
+          "score": 85,
+          "kind": "public-service",
+          "limited": true,
+          "evidence": {
+            "abuse": ["coffee", "dnsbl", "ipregistry"],
+            "fraud": ["ip2location", "scamalytics"],
+            "anonymity": ["coffee", "ipinfo", "ipapi", "torexit", "ipregistry"],
+            "usage": ["coffee", "ip2location", "ipapi", "ipregistry"],
+            "network": ["coffee", "ipinfo", "ip2location", "ipapi", "ipregistry"],
+            "geo": ["coffee", "ipregistry"],
+            "integrity": ["rdap"],
+            "reputation": ["coffee", "dnsbl", "ipregistry", "ip2location", "scamalytics"]
+          },
+          "scoreStatus": "provisional",
+          "missingSources": ["ippure", "proxycheck"],
+          "scoreProfile": "ipv4-five-source",
+          "publicService": {
+            "id": "cloudflare-public-dns-v4-secondary",
+            "provider": "Cloudflare",
+            "label": "Cloudflare Public DNS",
+            "href": "https://developers.cloudflare.com/1.1.1.1/ip-addresses/",
+            "verifiedAt": "2026-09-18T16:52:12Z",
+            "expiresAt": "2027-03-17T16:52:12.000Z"
+          }
+        },
+        {
+          "excluded": ["dnsbl"],
+          "score": 82,
+          "kind": "public-service",
+          "limited": true,
+          "evidence": {
+            "abuse": ["coffee", "ipregistry"],
+            "fraud": ["ip2location", "scamalytics", "proxycheck"],
+            "anonymity": ["coffee", "ipinfo", "ipapi", "proxycheck", "torexit", "ipregistry"],
+            "usage": ["coffee", "ip2location", "ipapi", "proxycheck", "ipregistry"],
+            "network": ["coffee", "ipinfo", "ip2location", "ipapi", "proxycheck", "ipregistry"],
+            "geo": ["coffee", "ipregistry"],
+            "integrity": ["rdap"],
+            "reputation": ["coffee", "ipregistry", "ip2location", "scamalytics", "proxycheck"]
+          },
+          "scoreStatus": "provisional",
+          "missingSources": ["dnsbl", "ippure"],
+          "scoreProfile": "ipv4-five-source",
+          "publicService": {
+            "id": "cloudflare-public-dns-v4-secondary",
+            "provider": "Cloudflare",
+            "label": "Cloudflare Public DNS",
+            "href": "https://developers.cloudflare.com/1.1.1.1/ip-addresses/",
+            "verifiedAt": "2026-09-18T16:52:12Z",
+            "expiresAt": "2027-03-17T16:52:12.000Z"
+          }
+        },
+        {
+          "excluded": ["torexit"],
+          "score": 83,
+          "kind": "public-service",
+          "limited": true,
+          "evidence": {
+            "abuse": ["coffee", "dnsbl", "ipregistry"],
+            "fraud": ["ip2location", "scamalytics", "proxycheck"],
+            "anonymity": ["coffee", "ipinfo", "ipapi", "proxycheck", "ipregistry"],
+            "usage": ["coffee", "ip2location", "ipapi", "proxycheck", "ipregistry"],
+            "network": ["coffee", "ipinfo", "ip2location", "ipapi", "proxycheck", "ipregistry"],
+            "geo": ["coffee", "ipregistry"],
+            "integrity": ["rdap"],
+            "reputation": [
+              "coffee",
+              "dnsbl",
+              "ipregistry",
+              "ip2location",
+              "scamalytics",
+              "proxycheck"
+            ]
+          },
+          "scoreStatus": "provisional",
+          "missingSources": ["ippure", "torexit"],
+          "scoreProfile": "ipv4-five-source",
+          "publicService": {
+            "id": "cloudflare-public-dns-v4-secondary",
+            "provider": "Cloudflare",
+            "label": "Cloudflare Public DNS",
+            "href": "https://developers.cloudflare.com/1.1.1.1/ip-addresses/",
+            "verifiedAt": "2026-09-18T16:52:12Z",
+            "expiresAt": "2027-03-17T16:52:12.000Z"
+          }
+        },
+        {
+          "excluded": ["ipregistry"],
+          "score": 83,
+          "kind": "public-service",
+          "limited": true,
+          "evidence": {
+            "abuse": ["coffee", "dnsbl"],
+            "fraud": ["ip2location", "scamalytics", "proxycheck"],
+            "anonymity": ["coffee", "ipinfo", "ipapi", "proxycheck", "torexit"],
+            "usage": ["coffee", "ip2location", "ipapi", "proxycheck"],
+            "network": ["coffee", "ipinfo", "ip2location", "ipapi", "proxycheck"],
+            "geo": ["coffee", "ipregistry"],
+            "integrity": ["rdap"],
+            "reputation": ["coffee", "dnsbl", "ip2location", "scamalytics", "proxycheck"]
+          },
+          "scoreStatus": "provisional",
+          "missingSources": ["ippure", "ipregistry"],
+          "scoreProfile": "ipv4-five-source",
+          "publicService": {
+            "id": "cloudflare-public-dns-v4-secondary",
+            "provider": "Cloudflare",
+            "label": "Cloudflare Public DNS",
+            "href": "https://developers.cloudflare.com/1.1.1.1/ip-addresses/",
+            "verifiedAt": "2026-09-18T16:52:12Z",
+            "expiresAt": "2027-03-17T16:52:12.000Z"
+          }
+        },
+        {
+          "excluded": ["ipinfo", "ip2location", "scamalytics"],
+          "score": 77,
+          "kind": "public-service",
+          "limited": true,
+          "evidence": {
+            "abuse": ["coffee", "dnsbl", "ipregistry"],
+            "fraud": ["proxycheck"],
+            "anonymity": ["coffee", "ipapi", "proxycheck", "torexit", "ipregistry"],
+            "usage": ["coffee", "ipapi", "proxycheck", "ipregistry"],
+            "network": ["coffee", "ipapi", "proxycheck", "ipregistry"],
+            "geo": ["coffee", "ipregistry"],
+            "integrity": ["rdap"],
+            "reputation": ["coffee", "dnsbl", "ipregistry", "proxycheck"]
+          },
+          "scoreStatus": "provisional",
+          "missingSources": ["ip2location", "ipinfo", "ippure", "scamalytics"],
+          "scoreProfile": "ipv4-five-source",
+          "publicService": {
+            "id": "cloudflare-public-dns-v4-secondary",
+            "provider": "Cloudflare",
+            "label": "Cloudflare Public DNS",
+            "href": "https://developers.cloudflare.com/1.1.1.1/ip-addresses/",
+            "verifiedAt": "2026-09-18T16:52:12Z",
+            "expiresAt": "2027-03-17T16:52:12.000Z"
+          }
+        }
+      ],
+      "kindStable": true,
+      "worstOmission": {
+        "excluded": ["coffee"],
+        "score": 77,
+        "kind": "public-service",
+        "limited": true,
+        "evidence": {
+          "abuse": ["dnsbl", "ipregistry"],
+          "fraud": ["ip2location", "scamalytics", "proxycheck"],
+          "anonymity": ["ipinfo", "ipapi", "proxycheck", "torexit", "ipregistry"],
+          "usage": ["ip2location", "ipapi", "proxycheck", "ipregistry"],
+          "network": ["ipinfo", "ip2location", "ipapi", "proxycheck", "ipregistry"],
+          "geo": ["ipregistry"],
+          "integrity": ["rdap"],
+          "reputation": ["dnsbl", "ipregistry", "ip2location", "scamalytics", "proxycheck"]
+        },
+        "scoreStatus": "provisional",
+        "missingSources": ["coffee", "ippure"],
+        "scoreProfile": "ipv4-five-source",
+        "publicService": {
+          "id": "cloudflare-public-dns-v4-secondary",
+          "provider": "Cloudflare",
+          "label": "Cloudflare Public DNS",
+          "href": "https://developers.cloudflare.com/1.1.1.1/ip-addresses/",
+          "verifiedAt": "2026-09-18T16:52:12Z",
+          "expiresAt": "2027-03-17T16:52:12.000Z"
+        }
+      },
+      "maxOmissionShift": 6
+    },
+    {
+      "id": "2606_4700_4700__1111",
+      "ip": "2606:4700:4700::1111",
+      "collectedAt": "2026-09-18T16:54:47.423Z",
+      "observedAt": "2026-09-18T16:54:47.410Z",
+      "score": 85,
+      "kind": "public-service",
+      "limited": false,
+      "evidence": {
+        "abuse": ["coffee", "ipregistry"],
+        "fraud": ["ip2location", "scamalytics", "proxycheck"],
+        "anonymity": ["coffee", "ipinfo", "ipapi", "proxycheck", "ipregistry"],
+        "usage": ["coffee", "ip2location", "ipapi", "proxycheck", "ipregistry"],
+        "network": ["coffee", "ipinfo", "ip2location", "ipapi", "proxycheck", "ipregistry"],
+        "geo": ["coffee", "ipregistry"],
+        "integrity": [],
+        "reputation": ["coffee", "ipregistry", "ip2location", "scamalytics", "proxycheck"]
+      },
+      "scoreStatus": "ready",
+      "missingSources": [],
+      "scoreProfile": "ipv6-four-source",
+      "publicService": {
+        "id": "cloudflare-public-dns-v6-primary",
+        "provider": "Cloudflare",
+        "label": "Cloudflare Public DNS",
+        "href": "https://developers.cloudflare.com/1.1.1.1/ip-addresses/",
+        "verifiedAt": "2026-09-18T16:52:12Z",
+        "expiresAt": "2027-03-17T16:52:12.000Z"
+      },
+      "label": {
+        "id": "cloudflare-public-dns-v6-primary",
+        "ip": "2606:4700:4700::1111",
+        "group": "cloudflare",
+        "expectedKind": "public-service",
+        "scope": "usage",
+        "confidence": "official",
+        "observedAt": "2026-09-18T16:52:12Z",
+        "source": {
+          "url": "https://developers.cloudflare.com/1.1.1.1/ip-addresses/",
+          "excerpt": "Cloudflare lists 2606:4700:4700::1111 as an IPv6 address for the standard resolver.",
+          "fetchedAt": "2026-09-18T16:52:12Z"
+        }
+      },
+      "labelStatus": "catalogue-backed",
+      "observedKind": "public-service",
+      "agreement": null,
+      "catalogueAgreement": true,
+      "scoreBreakdown": {
+        "reputation": 90.89999999999999,
+        "anonymity": 94,
+        "usage": 70,
+        "indicators": [
+          {
+            "key": "abuse",
+            "label": "滥用记录",
+            "weight": 0.22,
+            "effective": 0.24175824175824176,
+            "score": 90,
+            "sources": ["coffee", "ipregistry"]
+          },
+          {
+            "key": "fraud",
+            "label": "欺诈风险",
+            "weight": 0.18,
+            "effective": 0.1978021978021978,
+            "score": 92.00000000000001,
+            "sources": ["ip2location", "scamalytics", "proxycheck"]
+          },
+          {
+            "key": "anonymity",
+            "label": "匿名暴露",
+            "weight": 0.16,
+            "effective": 0.1758241758241758,
+            "score": 94,
+            "sources": ["coffee", "ipinfo", "ipapi", "proxycheck", "ipregistry"]
+          },
+          {
+            "key": "usage",
+            "label": "用途属性",
+            "weight": 0.14,
+            "effective": 0.15384615384615385,
+            "score": 70,
+            "sources": ["coffee", "ip2location", "ipapi", "proxycheck", "ipregistry"]
+          },
+          {
+            "key": "network",
+            "label": "网络归属",
+            "weight": 0.12,
+            "effective": 0.13186813186813187,
+            "score": 60.75,
+            "sources": ["coffee", "ipinfo", "ip2location", "ipapi", "proxycheck", "ipregistry"]
+          },
+          {
+            "key": "geo",
+            "label": "地理一致",
+            "weight": 0.09,
+            "effective": 0.0989010989010989,
+            "score": 100,
+            "sources": ["coffee", "ipregistry"]
+          },
+          {
+            "key": "integrity",
+            "label": "可溯源",
+            "weight": 0.09,
+            "effective": 0,
+            "score": null,
+            "sources": []
+          }
+        ],
+        "base": 85.15384615384616,
+        "adjusted": 85.15384615384616,
+        "uncapped": 85.15384615384616,
+        "range": {
+          "lo": 81,
+          "hi": 86
+        },
+        "penalties": [],
+        "evidenceCoverage": 0.8970318505877287,
+        "confidence": "high",
+        "freshnessDays": null,
+        "cap": 100
+      },
+      "sensitivity": {
+        "min": 85,
+        "max": 85,
+        "candidates": [
+          {
+            "delta": -0.1,
+            "score": 85
+          },
+          {
+            "delta": -0.05,
+            "score": 85
+          },
+          {
+            "delta": 0,
+            "score": 85
+          },
+          {
+            "delta": 0.05,
+            "score": 85
+          },
+          {
+            "delta": 0.1,
+            "score": 85
+          }
+        ]
+      },
+      "omissions": [
+        {
+          "excluded": ["coffee"],
+          "score": 75,
+          "kind": "public-service",
+          "limited": true,
+          "evidence": {
+            "abuse": ["ipregistry"],
+            "fraud": ["ip2location", "scamalytics", "proxycheck"],
+            "anonymity": ["ipinfo", "ipapi", "proxycheck", "ipregistry"],
+            "usage": ["ip2location", "ipapi", "proxycheck", "ipregistry"],
+            "network": ["ipinfo", "ip2location", "ipapi", "proxycheck", "ipregistry"],
+            "geo": ["ipregistry"],
+            "integrity": [],
+            "reputation": ["ipregistry", "ip2location", "scamalytics", "proxycheck"]
+          },
+          "scoreStatus": "provisional",
+          "missingSources": ["coffee"],
+          "scoreProfile": "ipv6-four-source",
+          "publicService": {
+            "id": "cloudflare-public-dns-v6-primary",
+            "provider": "Cloudflare",
+            "label": "Cloudflare Public DNS",
+            "href": "https://developers.cloudflare.com/1.1.1.1/ip-addresses/",
+            "verifiedAt": "2026-09-18T16:52:12Z",
+            "expiresAt": "2027-03-17T16:52:12.000Z"
+          }
+        },
+        {
+          "excluded": ["ipinfo"],
+          "score": 85,
+          "kind": "public-service",
+          "limited": true,
+          "evidence": {
+            "abuse": ["coffee", "ipregistry"],
+            "fraud": ["ip2location", "scamalytics", "proxycheck"],
+            "anonymity": ["coffee", "ipapi", "proxycheck", "ipregistry"],
+            "usage": ["coffee", "ip2location", "ipapi", "proxycheck", "ipregistry"],
+            "network": ["coffee", "ip2location", "ipapi", "proxycheck", "ipregistry"],
+            "geo": ["coffee", "ipregistry"],
+            "integrity": [],
+            "reputation": ["coffee", "ipregistry", "ip2location", "scamalytics", "proxycheck"]
+          },
+          "scoreStatus": "provisional",
+          "missingSources": ["ipinfo"],
+          "scoreProfile": "ipv6-four-source",
+          "publicService": {
+            "id": "cloudflare-public-dns-v6-primary",
+            "provider": "Cloudflare",
+            "label": "Cloudflare Public DNS",
+            "href": "https://developers.cloudflare.com/1.1.1.1/ip-addresses/",
+            "verifiedAt": "2026-09-18T16:52:12Z",
+            "expiresAt": "2027-03-17T16:52:12.000Z"
+          }
+        },
+        {
+          "excluded": ["ip2location"],
+          "score": 85,
+          "kind": "public-service",
+          "limited": true,
+          "evidence": {
+            "abuse": ["coffee", "ipregistry"],
+            "fraud": ["scamalytics", "proxycheck"],
+            "anonymity": ["coffee", "ipinfo", "ipapi", "proxycheck", "ipregistry"],
+            "usage": ["coffee", "ipapi", "proxycheck", "ipregistry"],
+            "network": ["coffee", "ipinfo", "ipapi", "proxycheck", "ipregistry"],
+            "geo": ["coffee", "ipregistry"],
+            "integrity": [],
+            "reputation": ["coffee", "ipregistry", "scamalytics", "proxycheck"]
+          },
+          "scoreStatus": "provisional",
+          "missingSources": ["ip2location"],
+          "scoreProfile": "ipv6-four-source",
+          "publicService": {
+            "id": "cloudflare-public-dns-v6-primary",
+            "provider": "Cloudflare",
+            "label": "Cloudflare Public DNS",
+            "href": "https://developers.cloudflare.com/1.1.1.1/ip-addresses/",
+            "verifiedAt": "2026-09-18T16:52:12Z",
+            "expiresAt": "2027-03-17T16:52:12.000Z"
+          }
+        },
+        {
+          "excluded": ["ipapi"],
+          "score": 85,
+          "kind": "public-service",
+          "limited": true,
+          "evidence": {
+            "abuse": ["coffee", "ipregistry"],
+            "fraud": ["ip2location", "scamalytics", "proxycheck"],
+            "anonymity": ["coffee", "ipinfo", "proxycheck", "ipregistry"],
+            "usage": ["coffee", "ip2location", "proxycheck", "ipregistry"],
+            "network": ["coffee", "ipinfo", "ip2location", "proxycheck", "ipregistry"],
+            "geo": ["coffee", "ipregistry"],
+            "integrity": [],
+            "reputation": ["coffee", "ipregistry", "ip2location", "scamalytics", "proxycheck"]
+          },
+          "scoreStatus": "provisional",
+          "missingSources": ["ipapi"],
+          "scoreProfile": "ipv6-four-source",
+          "publicService": {
+            "id": "cloudflare-public-dns-v6-primary",
+            "provider": "Cloudflare",
+            "label": "Cloudflare Public DNS",
+            "href": "https://developers.cloudflare.com/1.1.1.1/ip-addresses/",
+            "verifiedAt": "2026-09-18T16:52:12Z",
+            "expiresAt": "2027-03-17T16:52:12.000Z"
+          }
+        },
+        {
+          "excluded": ["scamalytics"],
+          "score": 85,
+          "kind": "public-service",
+          "limited": true,
+          "evidence": {
+            "abuse": ["coffee", "ipregistry"],
+            "fraud": ["ip2location", "proxycheck"],
+            "anonymity": ["coffee", "ipinfo", "ipapi", "proxycheck", "ipregistry"],
+            "usage": ["coffee", "ip2location", "ipapi", "proxycheck", "ipregistry"],
+            "network": ["coffee", "ipinfo", "ip2location", "ipapi", "proxycheck", "ipregistry"],
+            "geo": ["coffee", "ipregistry"],
+            "integrity": [],
+            "reputation": ["coffee", "ipregistry", "ip2location", "proxycheck"]
+          },
+          "scoreStatus": "provisional",
+          "missingSources": ["scamalytics"],
+          "scoreProfile": "ipv6-four-source",
+          "publicService": {
+            "id": "cloudflare-public-dns-v6-primary",
+            "provider": "Cloudflare",
+            "label": "Cloudflare Public DNS",
+            "href": "https://developers.cloudflare.com/1.1.1.1/ip-addresses/",
+            "verifiedAt": "2026-09-18T16:52:12Z",
+            "expiresAt": "2027-03-17T16:52:12.000Z"
+          }
+        },
+        {
+          "excluded": ["proxycheck"],
+          "score": 85,
+          "kind": "public-service",
+          "limited": true,
+          "evidence": {
+            "abuse": ["coffee", "ipregistry"],
+            "fraud": ["ip2location", "scamalytics"],
+            "anonymity": ["coffee", "ipinfo", "ipapi", "ipregistry"],
+            "usage": ["coffee", "ip2location", "ipapi", "ipregistry"],
+            "network": ["coffee", "ipinfo", "ip2location", "ipapi", "ipregistry"],
+            "geo": ["coffee", "ipregistry"],
+            "integrity": [],
+            "reputation": ["coffee", "ipregistry", "ip2location", "scamalytics"]
+          },
+          "scoreStatus": "provisional",
+          "missingSources": ["proxycheck"],
+          "scoreProfile": "ipv6-four-source",
+          "publicService": {
+            "id": "cloudflare-public-dns-v6-primary",
+            "provider": "Cloudflare",
+            "label": "Cloudflare Public DNS",
+            "href": "https://developers.cloudflare.com/1.1.1.1/ip-addresses/",
+            "verifiedAt": "2026-09-18T16:52:12Z",
+            "expiresAt": "2027-03-17T16:52:12.000Z"
+          }
+        },
+        {
+          "excluded": ["ipregistry"],
+          "score": 84,
+          "kind": "public-service",
+          "limited": true,
+          "evidence": {
+            "abuse": ["coffee"],
+            "fraud": ["ip2location", "scamalytics", "proxycheck"],
+            "anonymity": ["coffee", "ipinfo", "ipapi", "proxycheck"],
+            "usage": ["coffee", "ip2location", "ipapi", "proxycheck"],
+            "network": ["coffee", "ipinfo", "ip2location", "ipapi", "proxycheck"],
+            "geo": ["coffee", "ipregistry"],
+            "integrity": [],
+            "reputation": ["coffee", "ip2location", "scamalytics", "proxycheck"]
+          },
+          "scoreStatus": "provisional",
+          "missingSources": ["ipregistry"],
+          "scoreProfile": "ipv6-four-source",
+          "publicService": {
+            "id": "cloudflare-public-dns-v6-primary",
+            "provider": "Cloudflare",
+            "label": "Cloudflare Public DNS",
+            "href": "https://developers.cloudflare.com/1.1.1.1/ip-addresses/",
+            "verifiedAt": "2026-09-18T16:52:12Z",
+            "expiresAt": "2027-03-17T16:52:12.000Z"
+          }
+        },
+        {
+          "excluded": ["ipinfo", "ip2location", "scamalytics"],
+          "score": 83,
+          "kind": "public-service",
+          "limited": true,
+          "evidence": {
+            "abuse": ["coffee", "ipregistry"],
+            "fraud": ["proxycheck"],
+            "anonymity": ["coffee", "ipapi", "proxycheck", "ipregistry"],
+            "usage": ["coffee", "ipapi", "proxycheck", "ipregistry"],
+            "network": ["coffee", "ipapi", "proxycheck", "ipregistry"],
+            "geo": ["coffee", "ipregistry"],
+            "integrity": [],
+            "reputation": ["coffee", "ipregistry", "proxycheck"]
+          },
+          "scoreStatus": "provisional",
+          "missingSources": ["ip2location", "ipinfo", "scamalytics"],
+          "scoreProfile": "ipv6-four-source",
+          "publicService": {
+            "id": "cloudflare-public-dns-v6-primary",
+            "provider": "Cloudflare",
+            "label": "Cloudflare Public DNS",
+            "href": "https://developers.cloudflare.com/1.1.1.1/ip-addresses/",
+            "verifiedAt": "2026-09-18T16:52:12Z",
+            "expiresAt": "2027-03-17T16:52:12.000Z"
+          }
+        }
+      ],
+      "kindStable": true,
+      "worstOmission": {
+        "excluded": ["coffee"],
+        "score": 75,
+        "kind": "public-service",
+        "limited": true,
+        "evidence": {
+          "abuse": ["ipregistry"],
+          "fraud": ["ip2location", "scamalytics", "proxycheck"],
+          "anonymity": ["ipinfo", "ipapi", "proxycheck", "ipregistry"],
+          "usage": ["ip2location", "ipapi", "proxycheck", "ipregistry"],
+          "network": ["ipinfo", "ip2location", "ipapi", "proxycheck", "ipregistry"],
+          "geo": ["ipregistry"],
+          "integrity": [],
+          "reputation": ["ipregistry", "ip2location", "scamalytics", "proxycheck"]
+        },
+        "scoreStatus": "provisional",
+        "missingSources": ["coffee"],
+        "scoreProfile": "ipv6-four-source",
+        "publicService": {
+          "id": "cloudflare-public-dns-v6-primary",
+          "provider": "Cloudflare",
+          "label": "Cloudflare Public DNS",
+          "href": "https://developers.cloudflare.com/1.1.1.1/ip-addresses/",
+          "verifiedAt": "2026-09-18T16:52:12Z",
+          "expiresAt": "2027-03-17T16:52:12.000Z"
+        }
+      },
+      "maxOmissionShift": 10
+    },
+    {
+      "id": "8.8.8.8",
+      "ip": "8.8.8.8",
+      "collectedAt": "2026-09-18T16:54:50.077Z",
+      "observedAt": "2026-09-18T16:54:50.067Z",
+      "score": 82,
+      "kind": "public-service",
+      "limited": true,
+      "evidence": {
+        "abuse": ["coffee", "dnsbl", "ipregistry"],
+        "fraud": ["ip2location", "scamalytics", "proxycheck"],
+        "anonymity": ["coffee", "ipinfo", "ipapi", "proxycheck", "torexit", "ipregistry"],
+        "usage": ["coffee", "ip2location", "ipapi", "proxycheck", "ipregistry"],
+        "network": ["coffee", "ipinfo", "ip2location", "ipapi", "proxycheck", "ipregistry"],
+        "geo": ["coffee", "ipregistry"],
+        "integrity": ["rdap"],
+        "reputation": ["coffee", "dnsbl", "ipregistry", "ip2location", "scamalytics", "proxycheck"]
+      },
+      "scoreStatus": "provisional",
+      "missingSources": ["ippure"],
+      "scoreProfile": "ipv4-five-source",
+      "publicService": {
+        "id": "google-public-dns-v4-primary",
+        "provider": "Google",
+        "label": "Google Public DNS",
+        "href": "https://developers.google.com/speed/public-dns/docs/using",
+        "verifiedAt": "2026-09-18T16:52:12Z",
+        "expiresAt": "2027-03-17T16:52:12.000Z"
+      },
+      "label": {
+        "id": "google-public-dns-v4-primary",
+        "ip": "8.8.8.8",
+        "group": "google",
+        "expectedKind": "public-service",
+        "scope": "usage",
+        "confidence": "official",
+        "observedAt": "2026-09-18T16:52:12Z",
+        "source": {
+          "url": "https://developers.google.com/speed/public-dns/docs/using",
+          "excerpt": "Google Public DNS lists 8.8.8.8 as one of its IPv4 addresses.",
+          "fetchedAt": "2026-09-18T16:52:12Z"
+        }
+      },
+      "labelStatus": "catalogue-backed",
+      "observedKind": "public-service",
+      "agreement": null,
+      "catalogueAgreement": true,
+      "scoreBreakdown": {
+        "reputation": 82.30384615384615,
+        "anonymity": 93.81818181818181,
+        "usage": 70,
+        "indicators": [
+          {
+            "key": "abuse",
+            "label": "滥用记录",
+            "weight": 0.22,
+            "effective": 0.22,
+            "score": 93,
+            "sources": ["coffee", "dnsbl", "ipregistry"]
+          },
+          {
+            "key": "fraud",
+            "label": "欺诈风险",
+            "weight": 0.18,
+            "effective": 0.18,
+            "score": 69.23076923076924,
+            "sources": ["ip2location", "scamalytics", "proxycheck"]
+          },
+          {
+            "key": "anonymity",
+            "label": "匿名暴露",
+            "weight": 0.16,
+            "effective": 0.16,
+            "score": 93.81818181818181,
+            "sources": ["coffee", "ipinfo", "ipapi", "proxycheck", "torexit", "ipregistry"]
+          },
+          {
+            "key": "usage",
+            "label": "用途属性",
+            "weight": 0.14,
+            "effective": 0.14,
+            "score": 70,
+            "sources": ["coffee", "ip2location", "ipapi", "proxycheck", "ipregistry"]
+          },
+          {
+            "key": "network",
+            "label": "网络归属",
+            "weight": 0.12,
+            "effective": 0.12,
+            "score": 52.93333333333334,
+            "sources": ["coffee", "ipinfo", "ip2location", "ipapi", "proxycheck", "ipregistry"]
+          },
+          {
+            "key": "geo",
+            "label": "地理一致",
+            "weight": 0.09,
+            "effective": 0.09,
+            "score": 100,
+            "sources": ["coffee", "ipregistry"]
+          },
+          {
+            "key": "integrity",
+            "label": "可溯源",
+            "weight": 0.09,
+            "effective": 0.09,
+            "score": 98,
+            "sources": ["rdap"]
+          }
+        ],
+        "base": 81.90444755244755,
+        "adjusted": 81.90444755244755,
+        "uncapped": 81.90444755244755,
+        "range": {
+          "lo": 82,
+          "hi": 82
+        },
+        "penalties": [],
+        "evidenceCoverage": 0.872379157382612,
+        "confidence": "high",
+        "freshnessDays": 994,
+        "prefixRegisteredAt": "2023-12-28T22:24:33.000Z",
+        "cap": 100
+      },
+      "sensitivity": {
+        "min": 80,
+        "max": 84,
+        "candidates": [
+          {
+            "delta": -0.1,
+            "score": 80
+          },
+          {
+            "delta": -0.05,
+            "score": 81
+          },
+          {
+            "delta": 0,
+            "score": 82
+          },
+          {
+            "delta": 0.05,
+            "score": 83
+          },
+          {
+            "delta": 0.1,
+            "score": 84
+          }
+        ]
+      },
+      "omissions": [
+        {
+          "excluded": ["coffee"],
+          "score": 76,
+          "kind": "public-service",
+          "limited": true,
+          "evidence": {
+            "abuse": ["dnsbl", "ipregistry"],
+            "fraud": ["ip2location", "scamalytics", "proxycheck"],
+            "anonymity": ["ipinfo", "ipapi", "proxycheck", "torexit", "ipregistry"],
+            "usage": ["ip2location", "ipapi", "proxycheck", "ipregistry"],
+            "network": ["ipinfo", "ip2location", "ipapi", "proxycheck", "ipregistry"],
+            "geo": ["ipregistry"],
+            "integrity": ["rdap"],
+            "reputation": ["dnsbl", "ipregistry", "ip2location", "scamalytics", "proxycheck"]
+          },
+          "scoreStatus": "provisional",
+          "missingSources": ["coffee", "ippure"],
+          "scoreProfile": "ipv4-five-source",
+          "publicService": {
+            "id": "google-public-dns-v4-primary",
+            "provider": "Google",
+            "label": "Google Public DNS",
+            "href": "https://developers.google.com/speed/public-dns/docs/using",
+            "verifiedAt": "2026-09-18T16:52:12Z",
+            "expiresAt": "2027-03-17T16:52:12.000Z"
+          }
+        },
+        {
+          "excluded": ["ipinfo"],
+          "score": 82,
+          "kind": "public-service",
+          "limited": true,
+          "evidence": {
+            "abuse": ["coffee", "dnsbl", "ipregistry"],
+            "fraud": ["ip2location", "scamalytics", "proxycheck"],
+            "anonymity": ["coffee", "ipapi", "proxycheck", "torexit", "ipregistry"],
+            "usage": ["coffee", "ip2location", "ipapi", "proxycheck", "ipregistry"],
+            "network": ["coffee", "ip2location", "ipapi", "proxycheck", "ipregistry"],
+            "geo": ["coffee", "ipregistry"],
+            "integrity": ["rdap"],
+            "reputation": [
+              "coffee",
+              "dnsbl",
+              "ipregistry",
+              "ip2location",
+              "scamalytics",
+              "proxycheck"
+            ]
+          },
+          "scoreStatus": "provisional",
+          "missingSources": ["ipinfo", "ippure"],
+          "scoreProfile": "ipv4-five-source",
+          "publicService": {
+            "id": "google-public-dns-v4-primary",
+            "provider": "Google",
+            "label": "Google Public DNS",
+            "href": "https://developers.google.com/speed/public-dns/docs/using",
+            "verifiedAt": "2026-09-18T16:52:12Z",
+            "expiresAt": "2027-03-17T16:52:12.000Z"
+          }
+        },
+        {
+          "excluded": ["ip2location"],
+          "score": 81,
+          "kind": "public-service",
+          "limited": true,
+          "evidence": {
+            "abuse": ["coffee", "dnsbl", "ipregistry"],
+            "fraud": ["scamalytics", "proxycheck"],
+            "anonymity": ["coffee", "ipinfo", "ipapi", "proxycheck", "torexit", "ipregistry"],
+            "usage": ["coffee", "ipapi", "proxycheck", "ipregistry"],
+            "network": ["coffee", "ipinfo", "ipapi", "proxycheck", "ipregistry"],
+            "geo": ["coffee", "ipregistry"],
+            "integrity": ["rdap"],
+            "reputation": ["coffee", "dnsbl", "ipregistry", "scamalytics", "proxycheck"]
+          },
+          "scoreStatus": "provisional",
+          "missingSources": ["ip2location", "ippure"],
+          "scoreProfile": "ipv4-five-source",
+          "publicService": {
+            "id": "google-public-dns-v4-primary",
+            "provider": "Google",
+            "label": "Google Public DNS",
+            "href": "https://developers.google.com/speed/public-dns/docs/using",
+            "verifiedAt": "2026-09-18T16:52:12Z",
+            "expiresAt": "2027-03-17T16:52:12.000Z"
+          }
+        },
+        {
+          "excluded": ["ipapi"],
+          "score": 82,
+          "kind": "public-service",
+          "limited": true,
+          "evidence": {
+            "abuse": ["coffee", "dnsbl", "ipregistry"],
+            "fraud": ["ip2location", "scamalytics", "proxycheck"],
+            "anonymity": ["coffee", "ipinfo", "proxycheck", "torexit", "ipregistry"],
+            "usage": ["coffee", "ip2location", "proxycheck", "ipregistry"],
+            "network": ["coffee", "ipinfo", "ip2location", "proxycheck", "ipregistry"],
+            "geo": ["coffee", "ipregistry"],
+            "integrity": ["rdap"],
+            "reputation": [
+              "coffee",
+              "dnsbl",
+              "ipregistry",
+              "ip2location",
+              "scamalytics",
+              "proxycheck"
+            ]
+          },
+          "scoreStatus": "provisional",
+          "missingSources": ["ipapi", "ippure"],
+          "scoreProfile": "ipv4-five-source",
+          "publicService": {
+            "id": "google-public-dns-v4-primary",
+            "provider": "Google",
+            "label": "Google Public DNS",
+            "href": "https://developers.google.com/speed/public-dns/docs/using",
+            "verifiedAt": "2026-09-18T16:52:12Z",
+            "expiresAt": "2027-03-17T16:52:12.000Z"
+          }
+        },
+        {
+          "excluded": ["scamalytics"],
+          "score": 78,
+          "kind": "public-service",
+          "limited": true,
+          "evidence": {
+            "abuse": ["coffee", "dnsbl", "ipregistry"],
+            "fraud": ["ip2location", "proxycheck"],
+            "anonymity": ["coffee", "ipinfo", "ipapi", "proxycheck", "torexit", "ipregistry"],
+            "usage": ["coffee", "ip2location", "ipapi", "proxycheck", "ipregistry"],
+            "network": ["coffee", "ipinfo", "ip2location", "ipapi", "proxycheck", "ipregistry"],
+            "geo": ["coffee", "ipregistry"],
+            "integrity": ["rdap"],
+            "reputation": ["coffee", "dnsbl", "ipregistry", "ip2location", "proxycheck"]
+          },
+          "scoreStatus": "provisional",
+          "missingSources": ["ippure", "scamalytics"],
+          "scoreProfile": "ipv4-five-source",
+          "publicService": {
+            "id": "google-public-dns-v4-primary",
+            "provider": "Google",
+            "label": "Google Public DNS",
+            "href": "https://developers.google.com/speed/public-dns/docs/using",
+            "verifiedAt": "2026-09-18T16:52:12Z",
+            "expiresAt": "2027-03-17T16:52:12.000Z"
+          }
+        },
+        {
+          "excluded": ["proxycheck"],
+          "score": 86,
+          "kind": "public-service",
+          "limited": true,
+          "evidence": {
+            "abuse": ["coffee", "dnsbl", "ipregistry"],
+            "fraud": ["ip2location", "scamalytics"],
+            "anonymity": ["coffee", "ipinfo", "ipapi", "torexit", "ipregistry"],
+            "usage": ["coffee", "ip2location", "ipapi", "ipregistry"],
+            "network": ["coffee", "ipinfo", "ip2location", "ipapi", "ipregistry"],
+            "geo": ["coffee", "ipregistry"],
+            "integrity": ["rdap"],
+            "reputation": ["coffee", "dnsbl", "ipregistry", "ip2location", "scamalytics"]
+          },
+          "scoreStatus": "provisional",
+          "missingSources": ["ippure", "proxycheck"],
+          "scoreProfile": "ipv4-five-source",
+          "publicService": {
+            "id": "google-public-dns-v4-primary",
+            "provider": "Google",
+            "label": "Google Public DNS",
+            "href": "https://developers.google.com/speed/public-dns/docs/using",
+            "verifiedAt": "2026-09-18T16:52:12Z",
+            "expiresAt": "2027-03-17T16:52:12.000Z"
+          }
+        },
+        {
+          "excluded": ["dnsbl"],
+          "score": 81,
+          "kind": "public-service",
+          "limited": true,
+          "evidence": {
+            "abuse": ["coffee", "ipregistry"],
+            "fraud": ["ip2location", "scamalytics", "proxycheck"],
+            "anonymity": ["coffee", "ipinfo", "ipapi", "proxycheck", "torexit", "ipregistry"],
+            "usage": ["coffee", "ip2location", "ipapi", "proxycheck", "ipregistry"],
+            "network": ["coffee", "ipinfo", "ip2location", "ipapi", "proxycheck", "ipregistry"],
+            "geo": ["coffee", "ipregistry"],
+            "integrity": ["rdap"],
+            "reputation": ["coffee", "ipregistry", "ip2location", "scamalytics", "proxycheck"]
+          },
+          "scoreStatus": "provisional",
+          "missingSources": ["dnsbl", "ippure"],
+          "scoreProfile": "ipv4-five-source",
+          "publicService": {
+            "id": "google-public-dns-v4-primary",
+            "provider": "Google",
+            "label": "Google Public DNS",
+            "href": "https://developers.google.com/speed/public-dns/docs/using",
+            "verifiedAt": "2026-09-18T16:52:12Z",
+            "expiresAt": "2027-03-17T16:52:12.000Z"
+          }
+        },
+        {
+          "excluded": ["torexit"],
+          "score": 82,
+          "kind": "public-service",
+          "limited": true,
+          "evidence": {
+            "abuse": ["coffee", "dnsbl", "ipregistry"],
+            "fraud": ["ip2location", "scamalytics", "proxycheck"],
+            "anonymity": ["coffee", "ipinfo", "ipapi", "proxycheck", "ipregistry"],
+            "usage": ["coffee", "ip2location", "ipapi", "proxycheck", "ipregistry"],
+            "network": ["coffee", "ipinfo", "ip2location", "ipapi", "proxycheck", "ipregistry"],
+            "geo": ["coffee", "ipregistry"],
+            "integrity": ["rdap"],
+            "reputation": [
+              "coffee",
+              "dnsbl",
+              "ipregistry",
+              "ip2location",
+              "scamalytics",
+              "proxycheck"
+            ]
+          },
+          "scoreStatus": "provisional",
+          "missingSources": ["ippure", "torexit"],
+          "scoreProfile": "ipv4-five-source",
+          "publicService": {
+            "id": "google-public-dns-v4-primary",
+            "provider": "Google",
+            "label": "Google Public DNS",
+            "href": "https://developers.google.com/speed/public-dns/docs/using",
+            "verifiedAt": "2026-09-18T16:52:12Z",
+            "expiresAt": "2027-03-17T16:52:12.000Z"
+          }
+        },
+        {
+          "excluded": ["ipregistry"],
+          "score": 82,
+          "kind": "public-service",
+          "limited": true,
+          "evidence": {
+            "abuse": ["coffee", "dnsbl"],
+            "fraud": ["ip2location", "scamalytics", "proxycheck"],
+            "anonymity": ["coffee", "ipinfo", "ipapi", "proxycheck", "torexit"],
+            "usage": ["coffee", "ip2location", "ipapi", "proxycheck"],
+            "network": ["coffee", "ipinfo", "ip2location", "ipapi", "proxycheck"],
+            "geo": ["coffee", "ipregistry"],
+            "integrity": ["rdap"],
+            "reputation": ["coffee", "dnsbl", "ip2location", "scamalytics", "proxycheck"]
+          },
+          "scoreStatus": "provisional",
+          "missingSources": ["ippure", "ipregistry"],
+          "scoreProfile": "ipv4-five-source",
+          "publicService": {
+            "id": "google-public-dns-v4-primary",
+            "provider": "Google",
+            "label": "Google Public DNS",
+            "href": "https://developers.google.com/speed/public-dns/docs/using",
+            "verifiedAt": "2026-09-18T16:52:12Z",
+            "expiresAt": "2027-03-17T16:52:12.000Z"
+          }
+        },
+        {
+          "excluded": ["ipinfo", "ip2location", "scamalytics"],
+          "score": 72,
+          "kind": "public-service",
+          "limited": true,
+          "evidence": {
+            "abuse": ["coffee", "dnsbl", "ipregistry"],
+            "fraud": ["proxycheck"],
+            "anonymity": ["coffee", "ipapi", "proxycheck", "torexit", "ipregistry"],
+            "usage": ["coffee", "ipapi", "proxycheck", "ipregistry"],
+            "network": ["coffee", "ipapi", "proxycheck", "ipregistry"],
+            "geo": ["coffee", "ipregistry"],
+            "integrity": ["rdap"],
+            "reputation": ["coffee", "dnsbl", "ipregistry", "proxycheck"]
+          },
+          "scoreStatus": "provisional",
+          "missingSources": ["ip2location", "ipinfo", "ippure", "scamalytics"],
+          "scoreProfile": "ipv4-five-source",
+          "publicService": {
+            "id": "google-public-dns-v4-primary",
+            "provider": "Google",
+            "label": "Google Public DNS",
+            "href": "https://developers.google.com/speed/public-dns/docs/using",
+            "verifiedAt": "2026-09-18T16:52:12Z",
+            "expiresAt": "2027-03-17T16:52:12.000Z"
+          }
+        }
+      ],
+      "kindStable": true,
+      "worstOmission": {
+        "excluded": ["ipinfo", "ip2location", "scamalytics"],
+        "score": 72,
+        "kind": "public-service",
+        "limited": true,
+        "evidence": {
+          "abuse": ["coffee", "dnsbl", "ipregistry"],
+          "fraud": ["proxycheck"],
+          "anonymity": ["coffee", "ipapi", "proxycheck", "torexit", "ipregistry"],
+          "usage": ["coffee", "ipapi", "proxycheck", "ipregistry"],
+          "network": ["coffee", "ipapi", "proxycheck", "ipregistry"],
+          "geo": ["coffee", "ipregistry"],
+          "integrity": ["rdap"],
+          "reputation": ["coffee", "dnsbl", "ipregistry", "proxycheck"]
+        },
+        "scoreStatus": "provisional",
+        "missingSources": ["ip2location", "ipinfo", "ippure", "scamalytics"],
+        "scoreProfile": "ipv4-five-source",
+        "publicService": {
+          "id": "google-public-dns-v4-primary",
+          "provider": "Google",
+          "label": "Google Public DNS",
+          "href": "https://developers.google.com/speed/public-dns/docs/using",
+          "verifiedAt": "2026-09-18T16:52:12Z",
+          "expiresAt": "2027-03-17T16:52:12.000Z"
+        }
+      },
+      "maxOmissionShift": 10
+    },
+    {
+      "id": "8.8.4.4",
+      "ip": "8.8.4.4",
+      "collectedAt": "2026-09-18T16:54:51.677Z",
+      "observedAt": "2026-09-18T16:54:51.667Z",
+      "score": 87,
+      "kind": "public-service",
+      "limited": true,
+      "evidence": {
+        "abuse": ["coffee", "dnsbl", "ipregistry"],
+        "fraud": ["ip2location", "scamalytics", "proxycheck"],
+        "anonymity": ["coffee", "ipinfo", "ipapi", "proxycheck", "torexit", "ipregistry"],
+        "usage": ["coffee", "ip2location", "ipapi", "proxycheck", "ipregistry"],
+        "network": ["coffee", "ipinfo", "ip2location", "ipapi", "proxycheck", "ipregistry"],
+        "geo": ["coffee", "ipregistry"],
+        "integrity": ["rdap"],
+        "reputation": ["coffee", "dnsbl", "ipregistry", "ip2location", "scamalytics", "proxycheck"]
+      },
+      "scoreStatus": "provisional",
+      "missingSources": ["ippure"],
+      "scoreProfile": "ipv4-five-source",
+      "publicService": {
+        "id": "google-public-dns-v4-secondary",
+        "provider": "Google",
+        "label": "Google Public DNS",
+        "href": "https://developers.google.com/speed/public-dns/docs/using",
+        "verifiedAt": "2026-09-18T16:52:12Z",
+        "expiresAt": "2027-03-17T16:52:12.000Z"
+      },
+      "label": {
+        "id": "google-public-dns-v4-secondary",
+        "ip": "8.8.4.4",
+        "group": "google",
+        "expectedKind": "public-service",
+        "scope": "usage",
+        "confidence": "official",
+        "observedAt": "2026-09-18T16:52:12Z",
+        "source": {
+          "url": "https://developers.google.com/speed/public-dns/docs/using",
+          "excerpt": "Google Public DNS lists 8.8.4.4 as one of its IPv4 addresses.",
+          "fetchedAt": "2026-09-18T16:52:12Z"
+        }
+      },
+      "labelStatus": "catalogue-backed",
+      "observedKind": "public-service",
+      "agreement": null,
+      "catalogueAgreement": true,
+      "scoreBreakdown": {
+        "reputation": 92.55,
+        "anonymity": 93.81818181818181,
+        "usage": 70,
+        "indicators": [
+          {
+            "key": "abuse",
+            "label": "滥用记录",
+            "weight": 0.22,
+            "effective": 0.22,
+            "score": 93,
+            "sources": ["coffee", "dnsbl", "ipregistry"]
+          },
+          {
+            "key": "fraud",
+            "label": "欺诈风险",
+            "weight": 0.18,
+            "effective": 0.18,
+            "score": 92.00000000000001,
+            "sources": ["ip2location", "scamalytics", "proxycheck"]
+          },
+          {
+            "key": "anonymity",
+            "label": "匿名暴露",
+            "weight": 0.16,
+            "effective": 0.16,
+            "score": 93.81818181818181,
+            "sources": ["coffee", "ipinfo", "ipapi", "proxycheck", "torexit", "ipregistry"]
+          },
+          {
+            "key": "usage",
+            "label": "用途属性",
+            "weight": 0.14,
+            "effective": 0.14,
+            "score": 70,
+            "sources": ["coffee", "ip2location", "ipapi", "proxycheck", "ipregistry"]
+          },
+          {
+            "key": "network",
+            "label": "网络归属",
+            "weight": 0.12,
+            "effective": 0.12,
+            "score": 61.03333333333334,
+            "sources": ["coffee", "ipinfo", "ip2location", "ipapi", "proxycheck", "ipregistry"]
+          },
+          {
+            "key": "geo",
+            "label": "地理一致",
+            "weight": 0.09,
+            "effective": 0.09,
+            "score": 100,
+            "sources": ["coffee", "ipregistry"]
+          },
+          {
+            "key": "integrity",
+            "label": "可溯源",
+            "weight": 0.09,
+            "effective": 0.09,
+            "score": 98,
+            "sources": ["rdap"]
+          }
+        ],
+        "base": 86.97490909090908,
+        "adjusted": 86.97490909090908,
+        "uncapped": 86.97490909090908,
+        "range": {
+          "lo": 87,
+          "hi": 87
+        },
+        "penalties": [],
+        "evidenceCoverage": 0.872379157382612,
+        "confidence": "high",
+        "freshnessDays": 994,
+        "prefixRegisteredAt": "2023-12-28T22:24:33.000Z",
+        "cap": 100
+      },
+      "sensitivity": {
+        "min": 87,
+        "max": 87,
+        "candidates": [
+          {
+            "delta": -0.1,
+            "score": 87
+          },
+          {
+            "delta": -0.05,
+            "score": 87
+          },
+          {
+            "delta": 0,
+            "score": 87
+          },
+          {
+            "delta": 0.05,
+            "score": 87
+          },
+          {
+            "delta": 0.1,
+            "score": 87
+          }
+        ]
+      },
+      "omissions": [
+        {
+          "excluded": ["coffee"],
+          "score": 80,
+          "kind": "public-service",
+          "limited": true,
+          "evidence": {
+            "abuse": ["dnsbl", "ipregistry"],
+            "fraud": ["ip2location", "scamalytics", "proxycheck"],
+            "anonymity": ["ipinfo", "ipapi", "proxycheck", "torexit", "ipregistry"],
+            "usage": ["ip2location", "ipapi", "proxycheck", "ipregistry"],
+            "network": ["ipinfo", "ip2location", "ipapi", "proxycheck", "ipregistry"],
+            "geo": ["ipregistry"],
+            "integrity": ["rdap"],
+            "reputation": ["dnsbl", "ipregistry", "ip2location", "scamalytics", "proxycheck"]
+          },
+          "scoreStatus": "provisional",
+          "missingSources": ["coffee", "ippure"],
+          "scoreProfile": "ipv4-five-source",
+          "publicService": {
+            "id": "google-public-dns-v4-secondary",
+            "provider": "Google",
+            "label": "Google Public DNS",
+            "href": "https://developers.google.com/speed/public-dns/docs/using",
+            "verifiedAt": "2026-09-18T16:52:12Z",
+            "expiresAt": "2027-03-17T16:52:12.000Z"
+          }
+        },
+        {
+          "excluded": ["ipinfo"],
+          "score": 87,
+          "kind": "public-service",
+          "limited": true,
+          "evidence": {
+            "abuse": ["coffee", "dnsbl", "ipregistry"],
+            "fraud": ["ip2location", "scamalytics", "proxycheck"],
+            "anonymity": ["coffee", "ipapi", "proxycheck", "torexit", "ipregistry"],
+            "usage": ["coffee", "ip2location", "ipapi", "proxycheck", "ipregistry"],
+            "network": ["coffee", "ip2location", "ipapi", "proxycheck", "ipregistry"],
+            "geo": ["coffee", "ipregistry"],
+            "integrity": ["rdap"],
+            "reputation": [
+              "coffee",
+              "dnsbl",
+              "ipregistry",
+              "ip2location",
+              "scamalytics",
+              "proxycheck"
+            ]
+          },
+          "scoreStatus": "provisional",
+          "missingSources": ["ipinfo", "ippure"],
+          "scoreProfile": "ipv4-five-source",
+          "publicService": {
+            "id": "google-public-dns-v4-secondary",
+            "provider": "Google",
+            "label": "Google Public DNS",
+            "href": "https://developers.google.com/speed/public-dns/docs/using",
+            "verifiedAt": "2026-09-18T16:52:12Z",
+            "expiresAt": "2027-03-17T16:52:12.000Z"
+          }
+        },
+        {
+          "excluded": ["ip2location"],
+          "score": 87,
+          "kind": "public-service",
+          "limited": true,
+          "evidence": {
+            "abuse": ["coffee", "dnsbl", "ipregistry"],
+            "fraud": ["scamalytics", "proxycheck"],
+            "anonymity": ["coffee", "ipinfo", "ipapi", "proxycheck", "torexit", "ipregistry"],
+            "usage": ["coffee", "ipapi", "proxycheck", "ipregistry"],
+            "network": ["coffee", "ipinfo", "ipapi", "proxycheck", "ipregistry"],
+            "geo": ["coffee", "ipregistry"],
+            "integrity": ["rdap"],
+            "reputation": ["coffee", "dnsbl", "ipregistry", "scamalytics", "proxycheck"]
+          },
+          "scoreStatus": "provisional",
+          "missingSources": ["ip2location", "ippure"],
+          "scoreProfile": "ipv4-five-source",
+          "publicService": {
+            "id": "google-public-dns-v4-secondary",
+            "provider": "Google",
+            "label": "Google Public DNS",
+            "href": "https://developers.google.com/speed/public-dns/docs/using",
+            "verifiedAt": "2026-09-18T16:52:12Z",
+            "expiresAt": "2027-03-17T16:52:12.000Z"
+          }
+        },
+        {
+          "excluded": ["ipapi"],
+          "score": 87,
+          "kind": "public-service",
+          "limited": true,
+          "evidence": {
+            "abuse": ["coffee", "dnsbl", "ipregistry"],
+            "fraud": ["ip2location", "scamalytics", "proxycheck"],
+            "anonymity": ["coffee", "ipinfo", "proxycheck", "torexit", "ipregistry"],
+            "usage": ["coffee", "ip2location", "proxycheck", "ipregistry"],
+            "network": ["coffee", "ipinfo", "ip2location", "proxycheck", "ipregistry"],
+            "geo": ["coffee", "ipregistry"],
+            "integrity": ["rdap"],
+            "reputation": [
+              "coffee",
+              "dnsbl",
+              "ipregistry",
+              "ip2location",
+              "scamalytics",
+              "proxycheck"
+            ]
+          },
+          "scoreStatus": "provisional",
+          "missingSources": ["ipapi", "ippure"],
+          "scoreProfile": "ipv4-five-source",
+          "publicService": {
+            "id": "google-public-dns-v4-secondary",
+            "provider": "Google",
+            "label": "Google Public DNS",
+            "href": "https://developers.google.com/speed/public-dns/docs/using",
+            "verifiedAt": "2026-09-18T16:52:12Z",
+            "expiresAt": "2027-03-17T16:52:12.000Z"
+          }
+        },
+        {
+          "excluded": ["scamalytics"],
+          "score": 87,
+          "kind": "public-service",
+          "limited": true,
+          "evidence": {
+            "abuse": ["coffee", "dnsbl", "ipregistry"],
+            "fraud": ["ip2location", "proxycheck"],
+            "anonymity": ["coffee", "ipinfo", "ipapi", "proxycheck", "torexit", "ipregistry"],
+            "usage": ["coffee", "ip2location", "ipapi", "proxycheck", "ipregistry"],
+            "network": ["coffee", "ipinfo", "ip2location", "ipapi", "proxycheck", "ipregistry"],
+            "geo": ["coffee", "ipregistry"],
+            "integrity": ["rdap"],
+            "reputation": ["coffee", "dnsbl", "ipregistry", "ip2location", "proxycheck"]
+          },
+          "scoreStatus": "provisional",
+          "missingSources": ["ippure", "scamalytics"],
+          "scoreProfile": "ipv4-five-source",
+          "publicService": {
+            "id": "google-public-dns-v4-secondary",
+            "provider": "Google",
+            "label": "Google Public DNS",
+            "href": "https://developers.google.com/speed/public-dns/docs/using",
+            "verifiedAt": "2026-09-18T16:52:12Z",
+            "expiresAt": "2027-03-17T16:52:12.000Z"
+          }
+        },
+        {
+          "excluded": ["proxycheck"],
+          "score": 86,
+          "kind": "public-service",
+          "limited": true,
+          "evidence": {
+            "abuse": ["coffee", "dnsbl", "ipregistry"],
+            "fraud": ["ip2location", "scamalytics"],
+            "anonymity": ["coffee", "ipinfo", "ipapi", "torexit", "ipregistry"],
+            "usage": ["coffee", "ip2location", "ipapi", "ipregistry"],
+            "network": ["coffee", "ipinfo", "ip2location", "ipapi", "ipregistry"],
+            "geo": ["coffee", "ipregistry"],
+            "integrity": ["rdap"],
+            "reputation": ["coffee", "dnsbl", "ipregistry", "ip2location", "scamalytics"]
+          },
+          "scoreStatus": "provisional",
+          "missingSources": ["ippure", "proxycheck"],
+          "scoreProfile": "ipv4-five-source",
+          "publicService": {
+            "id": "google-public-dns-v4-secondary",
+            "provider": "Google",
+            "label": "Google Public DNS",
+            "href": "https://developers.google.com/speed/public-dns/docs/using",
+            "verifiedAt": "2026-09-18T16:52:12Z",
+            "expiresAt": "2027-03-17T16:52:12.000Z"
+          }
+        },
+        {
+          "excluded": ["dnsbl"],
+          "score": 86,
+          "kind": "public-service",
+          "limited": true,
+          "evidence": {
+            "abuse": ["coffee", "ipregistry"],
+            "fraud": ["ip2location", "scamalytics", "proxycheck"],
+            "anonymity": ["coffee", "ipinfo", "ipapi", "proxycheck", "torexit", "ipregistry"],
+            "usage": ["coffee", "ip2location", "ipapi", "proxycheck", "ipregistry"],
+            "network": ["coffee", "ipinfo", "ip2location", "ipapi", "proxycheck", "ipregistry"],
+            "geo": ["coffee", "ipregistry"],
+            "integrity": ["rdap"],
+            "reputation": ["coffee", "ipregistry", "ip2location", "scamalytics", "proxycheck"]
+          },
+          "scoreStatus": "provisional",
+          "missingSources": ["dnsbl", "ippure"],
+          "scoreProfile": "ipv4-five-source",
+          "publicService": {
+            "id": "google-public-dns-v4-secondary",
+            "provider": "Google",
+            "label": "Google Public DNS",
+            "href": "https://developers.google.com/speed/public-dns/docs/using",
+            "verifiedAt": "2026-09-18T16:52:12Z",
+            "expiresAt": "2027-03-17T16:52:12.000Z"
+          }
+        },
+        {
+          "excluded": ["torexit"],
+          "score": 87,
+          "kind": "public-service",
+          "limited": true,
+          "evidence": {
+            "abuse": ["coffee", "dnsbl", "ipregistry"],
+            "fraud": ["ip2location", "scamalytics", "proxycheck"],
+            "anonymity": ["coffee", "ipinfo", "ipapi", "proxycheck", "ipregistry"],
+            "usage": ["coffee", "ip2location", "ipapi", "proxycheck", "ipregistry"],
+            "network": ["coffee", "ipinfo", "ip2location", "ipapi", "proxycheck", "ipregistry"],
+            "geo": ["coffee", "ipregistry"],
+            "integrity": ["rdap"],
+            "reputation": [
+              "coffee",
+              "dnsbl",
+              "ipregistry",
+              "ip2location",
+              "scamalytics",
+              "proxycheck"
+            ]
+          },
+          "scoreStatus": "provisional",
+          "missingSources": ["ippure", "torexit"],
+          "scoreProfile": "ipv4-five-source",
+          "publicService": {
+            "id": "google-public-dns-v4-secondary",
+            "provider": "Google",
+            "label": "Google Public DNS",
+            "href": "https://developers.google.com/speed/public-dns/docs/using",
+            "verifiedAt": "2026-09-18T16:52:12Z",
+            "expiresAt": "2027-03-17T16:52:12.000Z"
+          }
+        },
+        {
+          "excluded": ["ipregistry"],
+          "score": 87,
+          "kind": "public-service",
+          "limited": true,
+          "evidence": {
+            "abuse": ["coffee", "dnsbl"],
+            "fraud": ["ip2location", "scamalytics", "proxycheck"],
+            "anonymity": ["coffee", "ipinfo", "ipapi", "proxycheck", "torexit"],
+            "usage": ["coffee", "ip2location", "ipapi", "proxycheck"],
+            "network": ["coffee", "ipinfo", "ip2location", "ipapi", "proxycheck"],
+            "geo": ["coffee", "ipregistry"],
+            "integrity": ["rdap"],
+            "reputation": ["coffee", "dnsbl", "ip2location", "scamalytics", "proxycheck"]
+          },
+          "scoreStatus": "provisional",
+          "missingSources": ["ippure", "ipregistry"],
+          "scoreProfile": "ipv4-five-source",
+          "publicService": {
+            "id": "google-public-dns-v4-secondary",
+            "provider": "Google",
+            "label": "Google Public DNS",
+            "href": "https://developers.google.com/speed/public-dns/docs/using",
+            "verifiedAt": "2026-09-18T16:52:12Z",
+            "expiresAt": "2027-03-17T16:52:12.000Z"
+          }
+        },
+        {
+          "excluded": ["ipinfo", "ip2location", "scamalytics"],
+          "score": 85,
+          "kind": "public-service",
+          "limited": true,
+          "evidence": {
+            "abuse": ["coffee", "dnsbl", "ipregistry"],
+            "fraud": ["proxycheck"],
+            "anonymity": ["coffee", "ipapi", "proxycheck", "torexit", "ipregistry"],
+            "usage": ["coffee", "ipapi", "proxycheck", "ipregistry"],
+            "network": ["coffee", "ipapi", "proxycheck", "ipregistry"],
+            "geo": ["coffee", "ipregistry"],
+            "integrity": ["rdap"],
+            "reputation": ["coffee", "dnsbl", "ipregistry", "proxycheck"]
+          },
+          "scoreStatus": "provisional",
+          "missingSources": ["ip2location", "ipinfo", "ippure", "scamalytics"],
+          "scoreProfile": "ipv4-five-source",
+          "publicService": {
+            "id": "google-public-dns-v4-secondary",
+            "provider": "Google",
+            "label": "Google Public DNS",
+            "href": "https://developers.google.com/speed/public-dns/docs/using",
+            "verifiedAt": "2026-09-18T16:52:12Z",
+            "expiresAt": "2027-03-17T16:52:12.000Z"
+          }
+        }
+      ],
+      "kindStable": true,
+      "worstOmission": {
+        "excluded": ["coffee"],
+        "score": 80,
+        "kind": "public-service",
+        "limited": true,
+        "evidence": {
+          "abuse": ["dnsbl", "ipregistry"],
+          "fraud": ["ip2location", "scamalytics", "proxycheck"],
+          "anonymity": ["ipinfo", "ipapi", "proxycheck", "torexit", "ipregistry"],
+          "usage": ["ip2location", "ipapi", "proxycheck", "ipregistry"],
+          "network": ["ipinfo", "ip2location", "ipapi", "proxycheck", "ipregistry"],
+          "geo": ["ipregistry"],
+          "integrity": ["rdap"],
+          "reputation": ["dnsbl", "ipregistry", "ip2location", "scamalytics", "proxycheck"]
+        },
+        "scoreStatus": "provisional",
+        "missingSources": ["coffee", "ippure"],
+        "scoreProfile": "ipv4-five-source",
+        "publicService": {
+          "id": "google-public-dns-v4-secondary",
+          "provider": "Google",
+          "label": "Google Public DNS",
+          "href": "https://developers.google.com/speed/public-dns/docs/using",
+          "verifiedAt": "2026-09-18T16:52:12Z",
+          "expiresAt": "2027-03-17T16:52:12.000Z"
+        }
+      },
+      "maxOmissionShift": 7
+    },
+    {
+      "id": "2001_4860_4860__8888",
+      "ip": "2001:4860:4860::8888",
+      "collectedAt": "2026-09-18T16:54:52.352Z",
+      "observedAt": "2026-09-18T16:54:52.331Z",
+      "score": 84,
+      "kind": "public-service",
+      "limited": false,
+      "evidence": {
+        "abuse": ["coffee", "ipregistry"],
+        "fraud": ["ip2location", "scamalytics", "proxycheck"],
+        "anonymity": ["coffee", "ipinfo", "ipapi", "proxycheck", "ipregistry"],
+        "usage": ["coffee", "ip2location", "ipapi", "proxycheck", "ipregistry"],
+        "network": ["coffee", "ipinfo", "ip2location", "ipapi", "proxycheck", "ipregistry"],
+        "geo": ["coffee", "ipregistry"],
+        "integrity": [],
+        "reputation": ["coffee", "ipregistry", "ip2location", "scamalytics", "proxycheck"]
+      },
+      "scoreStatus": "ready",
+      "missingSources": [],
+      "scoreProfile": "ipv6-four-source",
+      "publicService": {
+        "id": "google-public-dns-v6-primary",
+        "provider": "Google",
+        "label": "Google Public DNS",
+        "href": "https://developers.google.com/speed/public-dns/docs/using",
+        "verifiedAt": "2026-09-18T16:52:12Z",
+        "expiresAt": "2027-03-17T16:52:12.000Z"
+      },
+      "label": {
+        "id": "google-public-dns-v6-primary",
+        "ip": "2001:4860:4860::8888",
+        "group": "google",
+        "expectedKind": "public-service",
+        "scope": "usage",
+        "confidence": "official",
+        "observedAt": "2026-09-18T16:52:12Z",
+        "source": {
+          "url": "https://developers.google.com/speed/public-dns/docs/using",
+          "excerpt": "Google Public DNS lists 2001:4860:4860::8888 as an IPv6 address.",
+          "fetchedAt": "2026-09-18T16:52:12Z"
+        }
+      },
+      "labelStatus": "catalogue-backed",
+      "observedKind": "public-service",
+      "agreement": null,
+      "catalogueAgreement": true,
+      "scoreBreakdown": {
+        "reputation": 90.89999999999999,
+        "anonymity": 94,
+        "usage": 70,
+        "indicators": [
+          {
+            "key": "abuse",
+            "label": "滥用记录",
+            "weight": 0.22,
+            "effective": 0.24175824175824176,
+            "score": 90,
+            "sources": ["coffee", "ipregistry"]
+          },
+          {
+            "key": "fraud",
+            "label": "欺诈风险",
+            "weight": 0.18,
+            "effective": 0.1978021978021978,
+            "score": 92.00000000000001,
+            "sources": ["ip2location", "scamalytics", "proxycheck"]
+          },
+          {
+            "key": "anonymity",
+            "label": "匿名暴露",
+            "weight": 0.16,
+            "effective": 0.1758241758241758,
+            "score": 94,
+            "sources": ["coffee", "ipinfo", "ipapi", "proxycheck", "ipregistry"]
+          },
+          {
+            "key": "usage",
+            "label": "用途属性",
+            "weight": 0.14,
+            "effective": 0.15384615384615385,
+            "score": 70,
+            "sources": ["coffee", "ip2location", "ipapi", "proxycheck", "ipregistry"]
+          },
+          {
+            "key": "network",
+            "label": "网络归属",
+            "weight": 0.12,
+            "effective": 0.13186813186813187,
+            "score": 49.78333333333334,
+            "sources": ["coffee", "ipinfo", "ip2location", "ipapi", "proxycheck", "ipregistry"]
+          },
+          {
+            "key": "geo",
+            "label": "地理一致",
+            "weight": 0.09,
+            "effective": 0.0989010989010989,
+            "score": 100,
+            "sources": ["coffee", "ipregistry"]
+          },
+          {
+            "key": "integrity",
+            "label": "可溯源",
+            "weight": 0.09,
+            "effective": 0,
+            "score": null,
+            "sources": []
+          }
+        ],
+        "base": 83.7076923076923,
+        "adjusted": 83.7076923076923,
+        "uncapped": 83.7076923076923,
+        "range": {
+          "lo": 80,
+          "hi": 85
+        },
+        "penalties": [],
+        "evidenceCoverage": 0.8970318505877287,
+        "confidence": "high",
+        "freshnessDays": null,
+        "cap": 100
+      },
+      "sensitivity": {
+        "min": 83,
+        "max": 84,
+        "candidates": [
+          {
+            "delta": -0.1,
+            "score": 84
+          },
+          {
+            "delta": -0.05,
+            "score": 84
+          },
+          {
+            "delta": 0,
+            "score": 84
+          },
+          {
+            "delta": 0.05,
+            "score": 84
+          },
+          {
+            "delta": 0.1,
+            "score": 83
+          }
+        ]
+      },
+      "omissions": [
+        {
+          "excluded": ["coffee"],
+          "score": 76,
+          "kind": "public-service",
+          "limited": true,
+          "evidence": {
+            "abuse": ["ipregistry"],
+            "fraud": ["ip2location", "scamalytics", "proxycheck"],
+            "anonymity": ["ipinfo", "ipapi", "proxycheck", "ipregistry"],
+            "usage": ["ip2location", "ipapi", "proxycheck", "ipregistry"],
+            "network": ["ipinfo", "ip2location", "ipapi", "proxycheck", "ipregistry"],
+            "geo": ["ipregistry"],
+            "integrity": [],
+            "reputation": ["ipregistry", "ip2location", "scamalytics", "proxycheck"]
+          },
+          "scoreStatus": "provisional",
+          "missingSources": ["coffee"],
+          "scoreProfile": "ipv6-four-source",
+          "publicService": {
+            "id": "google-public-dns-v6-primary",
+            "provider": "Google",
+            "label": "Google Public DNS",
+            "href": "https://developers.google.com/speed/public-dns/docs/using",
+            "verifiedAt": "2026-09-18T16:52:12Z",
+            "expiresAt": "2027-03-17T16:52:12.000Z"
+          }
+        },
+        {
+          "excluded": ["ipinfo"],
+          "score": 84,
+          "kind": "public-service",
+          "limited": true,
+          "evidence": {
+            "abuse": ["coffee", "ipregistry"],
+            "fraud": ["ip2location", "scamalytics", "proxycheck"],
+            "anonymity": ["coffee", "ipapi", "proxycheck", "ipregistry"],
+            "usage": ["coffee", "ip2location", "ipapi", "proxycheck", "ipregistry"],
+            "network": ["coffee", "ip2location", "ipapi", "proxycheck", "ipregistry"],
+            "geo": ["coffee", "ipregistry"],
+            "integrity": [],
+            "reputation": ["coffee", "ipregistry", "ip2location", "scamalytics", "proxycheck"]
+          },
+          "scoreStatus": "provisional",
+          "missingSources": ["ipinfo"],
+          "scoreProfile": "ipv6-four-source",
+          "publicService": {
+            "id": "google-public-dns-v6-primary",
+            "provider": "Google",
+            "label": "Google Public DNS",
+            "href": "https://developers.google.com/speed/public-dns/docs/using",
+            "verifiedAt": "2026-09-18T16:52:12Z",
+            "expiresAt": "2027-03-17T16:52:12.000Z"
+          }
+        },
+        {
+          "excluded": ["ip2location"],
+          "score": 84,
+          "kind": "public-service",
+          "limited": true,
+          "evidence": {
+            "abuse": ["coffee", "ipregistry"],
+            "fraud": ["scamalytics", "proxycheck"],
+            "anonymity": ["coffee", "ipinfo", "ipapi", "proxycheck", "ipregistry"],
+            "usage": ["coffee", "ipapi", "proxycheck", "ipregistry"],
+            "network": ["coffee", "ipinfo", "ipapi", "proxycheck", "ipregistry"],
+            "geo": ["coffee", "ipregistry"],
+            "integrity": [],
+            "reputation": ["coffee", "ipregistry", "scamalytics", "proxycheck"]
+          },
+          "scoreStatus": "provisional",
+          "missingSources": ["ip2location"],
+          "scoreProfile": "ipv6-four-source",
+          "publicService": {
+            "id": "google-public-dns-v6-primary",
+            "provider": "Google",
+            "label": "Google Public DNS",
+            "href": "https://developers.google.com/speed/public-dns/docs/using",
+            "verifiedAt": "2026-09-18T16:52:12Z",
+            "expiresAt": "2027-03-17T16:52:12.000Z"
+          }
+        },
+        {
+          "excluded": ["ipapi"],
+          "score": 84,
+          "kind": "public-service",
+          "limited": true,
+          "evidence": {
+            "abuse": ["coffee", "ipregistry"],
+            "fraud": ["ip2location", "scamalytics", "proxycheck"],
+            "anonymity": ["coffee", "ipinfo", "proxycheck", "ipregistry"],
+            "usage": ["coffee", "ip2location", "proxycheck", "ipregistry"],
+            "network": ["coffee", "ipinfo", "ip2location", "proxycheck", "ipregistry"],
+            "geo": ["coffee", "ipregistry"],
+            "integrity": [],
+            "reputation": ["coffee", "ipregistry", "ip2location", "scamalytics", "proxycheck"]
+          },
+          "scoreStatus": "provisional",
+          "missingSources": ["ipapi"],
+          "scoreProfile": "ipv6-four-source",
+          "publicService": {
+            "id": "google-public-dns-v6-primary",
+            "provider": "Google",
+            "label": "Google Public DNS",
+            "href": "https://developers.google.com/speed/public-dns/docs/using",
+            "verifiedAt": "2026-09-18T16:52:12Z",
+            "expiresAt": "2027-03-17T16:52:12.000Z"
+          }
+        },
+        {
+          "excluded": ["scamalytics"],
+          "score": 84,
+          "kind": "public-service",
+          "limited": true,
+          "evidence": {
+            "abuse": ["coffee", "ipregistry"],
+            "fraud": ["ip2location", "proxycheck"],
+            "anonymity": ["coffee", "ipinfo", "ipapi", "proxycheck", "ipregistry"],
+            "usage": ["coffee", "ip2location", "ipapi", "proxycheck", "ipregistry"],
+            "network": ["coffee", "ipinfo", "ip2location", "ipapi", "proxycheck", "ipregistry"],
+            "geo": ["coffee", "ipregistry"],
+            "integrity": [],
+            "reputation": ["coffee", "ipregistry", "ip2location", "proxycheck"]
+          },
+          "scoreStatus": "provisional",
+          "missingSources": ["scamalytics"],
+          "scoreProfile": "ipv6-four-source",
+          "publicService": {
+            "id": "google-public-dns-v6-primary",
+            "provider": "Google",
+            "label": "Google Public DNS",
+            "href": "https://developers.google.com/speed/public-dns/docs/using",
+            "verifiedAt": "2026-09-18T16:52:12Z",
+            "expiresAt": "2027-03-17T16:52:12.000Z"
+          }
+        },
+        {
+          "excluded": ["proxycheck"],
+          "score": 83,
+          "kind": "public-service",
+          "limited": true,
+          "evidence": {
+            "abuse": ["coffee", "ipregistry"],
+            "fraud": ["ip2location", "scamalytics"],
+            "anonymity": ["coffee", "ipinfo", "ipapi", "ipregistry"],
+            "usage": ["coffee", "ip2location", "ipapi", "ipregistry"],
+            "network": ["coffee", "ipinfo", "ip2location", "ipapi", "ipregistry"],
+            "geo": ["coffee", "ipregistry"],
+            "integrity": [],
+            "reputation": ["coffee", "ipregistry", "ip2location", "scamalytics"]
+          },
+          "scoreStatus": "provisional",
+          "missingSources": ["proxycheck"],
+          "scoreProfile": "ipv6-four-source",
+          "publicService": {
+            "id": "google-public-dns-v6-primary",
+            "provider": "Google",
+            "label": "Google Public DNS",
+            "href": "https://developers.google.com/speed/public-dns/docs/using",
+            "verifiedAt": "2026-09-18T16:52:12Z",
+            "expiresAt": "2027-03-17T16:52:12.000Z"
+          }
+        },
+        {
+          "excluded": ["ipregistry"],
+          "score": 83,
+          "kind": "public-service",
+          "limited": true,
+          "evidence": {
+            "abuse": ["coffee"],
+            "fraud": ["ip2location", "scamalytics", "proxycheck"],
+            "anonymity": ["coffee", "ipinfo", "ipapi", "proxycheck"],
+            "usage": ["coffee", "ip2location", "ipapi", "proxycheck"],
+            "network": ["coffee", "ipinfo", "ip2location", "ipapi", "proxycheck"],
+            "geo": ["coffee", "ipregistry"],
+            "integrity": [],
+            "reputation": ["coffee", "ip2location", "scamalytics", "proxycheck"]
+          },
+          "scoreStatus": "provisional",
+          "missingSources": ["ipregistry"],
+          "scoreProfile": "ipv6-four-source",
+          "publicService": {
+            "id": "google-public-dns-v6-primary",
+            "provider": "Google",
+            "label": "Google Public DNS",
+            "href": "https://developers.google.com/speed/public-dns/docs/using",
+            "verifiedAt": "2026-09-18T16:52:12Z",
+            "expiresAt": "2027-03-17T16:52:12.000Z"
+          }
+        },
+        {
+          "excluded": ["ipinfo", "ip2location", "scamalytics"],
+          "score": 82,
+          "kind": "public-service",
+          "limited": true,
+          "evidence": {
+            "abuse": ["coffee", "ipregistry"],
+            "fraud": ["proxycheck"],
+            "anonymity": ["coffee", "ipapi", "proxycheck", "ipregistry"],
+            "usage": ["coffee", "ipapi", "proxycheck", "ipregistry"],
+            "network": ["coffee", "ipapi", "proxycheck", "ipregistry"],
+            "geo": ["coffee", "ipregistry"],
+            "integrity": [],
+            "reputation": ["coffee", "ipregistry", "proxycheck"]
+          },
+          "scoreStatus": "provisional",
+          "missingSources": ["ip2location", "ipinfo", "scamalytics"],
+          "scoreProfile": "ipv6-four-source",
+          "publicService": {
+            "id": "google-public-dns-v6-primary",
+            "provider": "Google",
+            "label": "Google Public DNS",
+            "href": "https://developers.google.com/speed/public-dns/docs/using",
+            "verifiedAt": "2026-09-18T16:52:12Z",
+            "expiresAt": "2027-03-17T16:52:12.000Z"
+          }
+        }
+      ],
+      "kindStable": true,
+      "worstOmission": {
+        "excluded": ["coffee"],
+        "score": 76,
+        "kind": "public-service",
+        "limited": true,
+        "evidence": {
+          "abuse": ["ipregistry"],
+          "fraud": ["ip2location", "scamalytics", "proxycheck"],
+          "anonymity": ["ipinfo", "ipapi", "proxycheck", "ipregistry"],
+          "usage": ["ip2location", "ipapi", "proxycheck", "ipregistry"],
+          "network": ["ipinfo", "ip2location", "ipapi", "proxycheck", "ipregistry"],
+          "geo": ["ipregistry"],
+          "integrity": [],
+          "reputation": ["ipregistry", "ip2location", "scamalytics", "proxycheck"]
+        },
+        "scoreStatus": "provisional",
+        "missingSources": ["coffee"],
+        "scoreProfile": "ipv6-four-source",
+        "publicService": {
+          "id": "google-public-dns-v6-primary",
+          "provider": "Google",
+          "label": "Google Public DNS",
+          "href": "https://developers.google.com/speed/public-dns/docs/using",
+          "verifiedAt": "2026-09-18T16:52:12Z",
+          "expiresAt": "2027-03-17T16:52:12.000Z"
+        }
+      },
+      "maxOmissionShift": 8
+    },
+    {
+      "id": "9.9.9.9",
+      "ip": "9.9.9.9",
+      "collectedAt": "2026-09-18T16:54:54.143Z",
+      "observedAt": "2026-09-18T16:54:54.128Z",
+      "score": 84,
+      "kind": "public-service",
+      "limited": true,
+      "evidence": {
+        "abuse": ["coffee", "dnsbl", "ipregistry"],
+        "fraud": ["ip2location", "scamalytics", "proxycheck"],
+        "anonymity": ["coffee", "ipinfo", "ipapi", "proxycheck", "torexit", "ipregistry"],
+        "usage": ["coffee", "ip2location", "ipapi", "proxycheck", "ipregistry"],
+        "network": ["coffee", "ipinfo", "ip2location", "ipapi", "proxycheck", "ipregistry"],
+        "geo": ["coffee", "ipregistry"],
+        "integrity": ["rdap"],
+        "reputation": ["coffee", "dnsbl", "ipregistry", "ip2location", "scamalytics", "proxycheck"]
+      },
+      "scoreStatus": "provisional",
+      "missingSources": ["ippure"],
+      "scoreProfile": "ipv4-five-source",
+      "publicService": {
+        "id": "quad9-public-dns-v4-primary",
+        "provider": "Quad9",
+        "label": "Quad9 Public DNS",
+        "href": "https://quad9.net/service/service-addresses-and-features/",
+        "verifiedAt": "2026-09-18T16:52:12Z",
+        "expiresAt": "2027-03-17T16:52:12.000Z"
+      },
+      "label": {
+        "id": "quad9-public-dns-v4-primary",
+        "ip": "9.9.9.9",
+        "group": "quad9",
+        "expectedKind": "public-service",
+        "scope": "usage",
+        "confidence": "official",
+        "observedAt": "2026-09-18T16:52:12Z",
+        "source": {
+          "url": "https://quad9.net/service/service-addresses-and-features/",
+          "excerpt": "Quad9 lists 9.9.9.9 under its recommended recursive DNS service.",
+          "fetchedAt": "2026-09-18T16:52:12Z"
+        }
+      },
+      "labelStatus": "catalogue-backed",
+      "observedKind": "public-service",
+      "agreement": null,
+      "catalogueAgreement": true,
+      "scoreBreakdown": {
+        "reputation": 92.55,
+        "anonymity": 93.81818181818181,
+        "usage": 70,
+        "indicators": [
+          {
+            "key": "abuse",
+            "label": "滥用记录",
+            "weight": 0.22,
+            "effective": 0.22,
+            "score": 93,
+            "sources": ["coffee", "dnsbl", "ipregistry"]
+          },
+          {
+            "key": "fraud",
+            "label": "欺诈风险",
+            "weight": 0.18,
+            "effective": 0.18,
+            "score": 92.00000000000001,
+            "sources": ["ip2location", "scamalytics", "proxycheck"]
+          },
+          {
+            "key": "anonymity",
+            "label": "匿名暴露",
+            "weight": 0.16,
+            "effective": 0.16,
+            "score": 93.81818181818181,
+            "sources": ["coffee", "ipinfo", "ipapi", "proxycheck", "torexit", "ipregistry"]
+          },
+          {
+            "key": "usage",
+            "label": "用途属性",
+            "weight": 0.14,
+            "effective": 0.14,
+            "score": 70,
+            "sources": ["coffee", "ip2location", "ipapi", "proxycheck", "ipregistry"]
+          },
+          {
+            "key": "network",
+            "label": "网络归属",
+            "weight": 0.12,
+            "effective": 0.12,
+            "score": 58.333333333333336,
+            "sources": ["coffee", "ipinfo", "ip2location", "ipapi", "proxycheck", "ipregistry"]
+          },
+          {
+            "key": "geo",
+            "label": "地理一致",
+            "weight": 0.09,
+            "effective": 0.09,
+            "score": 65,
+            "sources": ["coffee", "ipregistry"]
+          },
+          {
+            "key": "integrity",
+            "label": "可溯源",
+            "weight": 0.09,
+            "effective": 0.09,
+            "score": 98,
+            "sources": ["rdap"]
+          }
+        ],
+        "base": 83.50090909090909,
+        "adjusted": 83.50090909090909,
+        "uncapped": 83.50090909090909,
+        "range": {
+          "lo": 84,
+          "hi": 84
+        },
+        "penalties": [],
+        "evidenceCoverage": 0.872379157382612,
+        "confidence": "high",
+        "freshnessDays": 3291,
+        "prefixRegisteredAt": "2017-09-13T18:00:44.000Z",
+        "cap": 100
+      },
+      "sensitivity": {
+        "min": 83,
+        "max": 84,
+        "candidates": [
+          {
+            "delta": -0.1,
+            "score": 83
+          },
+          {
+            "delta": -0.05,
+            "score": 83
+          },
+          {
+            "delta": 0,
+            "score": 84
+          },
+          {
+            "delta": 0.05,
+            "score": 84
+          },
+          {
+            "delta": 0.1,
+            "score": 84
+          }
+        ]
+      },
+      "omissions": [
+        {
+          "excluded": ["coffee"],
+          "score": 80,
+          "kind": "public-service",
+          "limited": true,
+          "evidence": {
+            "abuse": ["dnsbl", "ipregistry"],
+            "fraud": ["ip2location", "scamalytics", "proxycheck"],
+            "anonymity": ["ipinfo", "ipapi", "proxycheck", "torexit", "ipregistry"],
+            "usage": ["ip2location", "ipapi", "proxycheck", "ipregistry"],
+            "network": ["ipinfo", "ip2location", "ipapi", "proxycheck", "ipregistry"],
+            "geo": ["ipregistry"],
+            "integrity": ["rdap"],
+            "reputation": ["dnsbl", "ipregistry", "ip2location", "scamalytics", "proxycheck"]
+          },
+          "scoreStatus": "provisional",
+          "missingSources": ["coffee", "ippure"],
+          "scoreProfile": "ipv4-five-source",
+          "publicService": {
+            "id": "quad9-public-dns-v4-primary",
+            "provider": "Quad9",
+            "label": "Quad9 Public DNS",
+            "href": "https://quad9.net/service/service-addresses-and-features/",
+            "verifiedAt": "2026-09-18T16:52:12Z",
+            "expiresAt": "2027-03-17T16:52:12.000Z"
+          }
+        },
+        {
+          "excluded": ["ipinfo"],
+          "score": 84,
+          "kind": "public-service",
+          "limited": true,
+          "evidence": {
+            "abuse": ["coffee", "dnsbl", "ipregistry"],
+            "fraud": ["ip2location", "scamalytics", "proxycheck"],
+            "anonymity": ["coffee", "ipapi", "proxycheck", "torexit", "ipregistry"],
+            "usage": ["coffee", "ip2location", "ipapi", "proxycheck", "ipregistry"],
+            "network": ["coffee", "ip2location", "ipapi", "proxycheck", "ipregistry"],
+            "geo": ["coffee", "ipregistry"],
+            "integrity": ["rdap"],
+            "reputation": [
+              "coffee",
+              "dnsbl",
+              "ipregistry",
+              "ip2location",
+              "scamalytics",
+              "proxycheck"
+            ]
+          },
+          "scoreStatus": "provisional",
+          "missingSources": ["ipinfo", "ippure"],
+          "scoreProfile": "ipv4-five-source",
+          "publicService": {
+            "id": "quad9-public-dns-v4-primary",
+            "provider": "Quad9",
+            "label": "Quad9 Public DNS",
+            "href": "https://quad9.net/service/service-addresses-and-features/",
+            "verifiedAt": "2026-09-18T16:52:12Z",
+            "expiresAt": "2027-03-17T16:52:12.000Z"
+          }
+        },
+        {
+          "excluded": ["ip2location"],
+          "score": 84,
+          "kind": "public-service",
+          "limited": true,
+          "evidence": {
+            "abuse": ["coffee", "dnsbl", "ipregistry"],
+            "fraud": ["scamalytics", "proxycheck"],
+            "anonymity": ["coffee", "ipinfo", "ipapi", "proxycheck", "torexit", "ipregistry"],
+            "usage": ["coffee", "ipapi", "proxycheck", "ipregistry"],
+            "network": ["coffee", "ipinfo", "ipapi", "proxycheck", "ipregistry"],
+            "geo": ["coffee", "ipregistry"],
+            "integrity": ["rdap"],
+            "reputation": ["coffee", "dnsbl", "ipregistry", "scamalytics", "proxycheck"]
+          },
+          "scoreStatus": "provisional",
+          "missingSources": ["ip2location", "ippure"],
+          "scoreProfile": "ipv4-five-source",
+          "publicService": {
+            "id": "quad9-public-dns-v4-primary",
+            "provider": "Quad9",
+            "label": "Quad9 Public DNS",
+            "href": "https://quad9.net/service/service-addresses-and-features/",
+            "verifiedAt": "2026-09-18T16:52:12Z",
+            "expiresAt": "2027-03-17T16:52:12.000Z"
+          }
+        },
+        {
+          "excluded": ["ipapi"],
+          "score": 84,
+          "kind": "public-service",
+          "limited": true,
+          "evidence": {
+            "abuse": ["coffee", "dnsbl", "ipregistry"],
+            "fraud": ["ip2location", "scamalytics", "proxycheck"],
+            "anonymity": ["coffee", "ipinfo", "proxycheck", "torexit", "ipregistry"],
+            "usage": ["coffee", "ip2location", "proxycheck", "ipregistry"],
+            "network": ["coffee", "ipinfo", "ip2location", "proxycheck", "ipregistry"],
+            "geo": ["coffee", "ipregistry"],
+            "integrity": ["rdap"],
+            "reputation": [
+              "coffee",
+              "dnsbl",
+              "ipregistry",
+              "ip2location",
+              "scamalytics",
+              "proxycheck"
+            ]
+          },
+          "scoreStatus": "provisional",
+          "missingSources": ["ipapi", "ippure"],
+          "scoreProfile": "ipv4-five-source",
+          "publicService": {
+            "id": "quad9-public-dns-v4-primary",
+            "provider": "Quad9",
+            "label": "Quad9 Public DNS",
+            "href": "https://quad9.net/service/service-addresses-and-features/",
+            "verifiedAt": "2026-09-18T16:52:12Z",
+            "expiresAt": "2027-03-17T16:52:12.000Z"
+          }
+        },
+        {
+          "excluded": ["scamalytics"],
+          "score": 84,
+          "kind": "public-service",
+          "limited": true,
+          "evidence": {
+            "abuse": ["coffee", "dnsbl", "ipregistry"],
+            "fraud": ["ip2location", "proxycheck"],
+            "anonymity": ["coffee", "ipinfo", "ipapi", "proxycheck", "torexit", "ipregistry"],
+            "usage": ["coffee", "ip2location", "ipapi", "proxycheck", "ipregistry"],
+            "network": ["coffee", "ipinfo", "ip2location", "ipapi", "proxycheck", "ipregistry"],
+            "geo": ["coffee", "ipregistry"],
+            "integrity": ["rdap"],
+            "reputation": ["coffee", "dnsbl", "ipregistry", "ip2location", "proxycheck"]
+          },
+          "scoreStatus": "provisional",
+          "missingSources": ["ippure", "scamalytics"],
+          "scoreProfile": "ipv4-five-source",
+          "publicService": {
+            "id": "quad9-public-dns-v4-primary",
+            "provider": "Quad9",
+            "label": "Quad9 Public DNS",
+            "href": "https://quad9.net/service/service-addresses-and-features/",
+            "verifiedAt": "2026-09-18T16:52:12Z",
+            "expiresAt": "2027-03-17T16:52:12.000Z"
+          }
+        },
+        {
+          "excluded": ["proxycheck"],
+          "score": 83,
+          "kind": "public-service",
+          "limited": true,
+          "evidence": {
+            "abuse": ["coffee", "dnsbl", "ipregistry"],
+            "fraud": ["ip2location", "scamalytics"],
+            "anonymity": ["coffee", "ipinfo", "ipapi", "torexit", "ipregistry"],
+            "usage": ["coffee", "ip2location", "ipapi", "ipregistry"],
+            "network": ["coffee", "ipinfo", "ip2location", "ipapi", "ipregistry"],
+            "geo": ["coffee", "ipregistry"],
+            "integrity": ["rdap"],
+            "reputation": ["coffee", "dnsbl", "ipregistry", "ip2location", "scamalytics"]
+          },
+          "scoreStatus": "provisional",
+          "missingSources": ["ippure", "proxycheck"],
+          "scoreProfile": "ipv4-five-source",
+          "publicService": {
+            "id": "quad9-public-dns-v4-primary",
+            "provider": "Quad9",
+            "label": "Quad9 Public DNS",
+            "href": "https://quad9.net/service/service-addresses-and-features/",
+            "verifiedAt": "2026-09-18T16:52:12Z",
+            "expiresAt": "2027-03-17T16:52:12.000Z"
+          }
+        },
+        {
+          "excluded": ["dnsbl"],
+          "score": 83,
+          "kind": "public-service",
+          "limited": true,
+          "evidence": {
+            "abuse": ["coffee", "ipregistry"],
+            "fraud": ["ip2location", "scamalytics", "proxycheck"],
+            "anonymity": ["coffee", "ipinfo", "ipapi", "proxycheck", "torexit", "ipregistry"],
+            "usage": ["coffee", "ip2location", "ipapi", "proxycheck", "ipregistry"],
+            "network": ["coffee", "ipinfo", "ip2location", "ipapi", "proxycheck", "ipregistry"],
+            "geo": ["coffee", "ipregistry"],
+            "integrity": ["rdap"],
+            "reputation": ["coffee", "ipregistry", "ip2location", "scamalytics", "proxycheck"]
+          },
+          "scoreStatus": "provisional",
+          "missingSources": ["dnsbl", "ippure"],
+          "scoreProfile": "ipv4-five-source",
+          "publicService": {
+            "id": "quad9-public-dns-v4-primary",
+            "provider": "Quad9",
+            "label": "Quad9 Public DNS",
+            "href": "https://quad9.net/service/service-addresses-and-features/",
+            "verifiedAt": "2026-09-18T16:52:12Z",
+            "expiresAt": "2027-03-17T16:52:12.000Z"
+          }
+        },
+        {
+          "excluded": ["torexit"],
+          "score": 84,
+          "kind": "public-service",
+          "limited": true,
+          "evidence": {
+            "abuse": ["coffee", "dnsbl", "ipregistry"],
+            "fraud": ["ip2location", "scamalytics", "proxycheck"],
+            "anonymity": ["coffee", "ipinfo", "ipapi", "proxycheck", "ipregistry"],
+            "usage": ["coffee", "ip2location", "ipapi", "proxycheck", "ipregistry"],
+            "network": ["coffee", "ipinfo", "ip2location", "ipapi", "proxycheck", "ipregistry"],
+            "geo": ["coffee", "ipregistry"],
+            "integrity": ["rdap"],
+            "reputation": [
+              "coffee",
+              "dnsbl",
+              "ipregistry",
+              "ip2location",
+              "scamalytics",
+              "proxycheck"
+            ]
+          },
+          "scoreStatus": "provisional",
+          "missingSources": ["ippure", "torexit"],
+          "scoreProfile": "ipv4-five-source",
+          "publicService": {
+            "id": "quad9-public-dns-v4-primary",
+            "provider": "Quad9",
+            "label": "Quad9 Public DNS",
+            "href": "https://quad9.net/service/service-addresses-and-features/",
+            "verifiedAt": "2026-09-18T16:52:12Z",
+            "expiresAt": "2027-03-17T16:52:12.000Z"
+          }
+        },
+        {
+          "excluded": ["ipregistry"],
+          "score": 84,
+          "kind": "public-service",
+          "limited": true,
+          "evidence": {
+            "abuse": ["coffee", "dnsbl"],
+            "fraud": ["ip2location", "scamalytics", "proxycheck"],
+            "anonymity": ["coffee", "ipinfo", "ipapi", "proxycheck", "torexit"],
+            "usage": ["coffee", "ip2location", "ipapi", "proxycheck"],
+            "network": ["coffee", "ipinfo", "ip2location", "ipapi", "proxycheck"],
+            "geo": ["coffee", "ipregistry"],
+            "integrity": ["rdap"],
+            "reputation": ["coffee", "dnsbl", "ip2location", "scamalytics", "proxycheck"]
+          },
+          "scoreStatus": "provisional",
+          "missingSources": ["ippure", "ipregistry"],
+          "scoreProfile": "ipv4-five-source",
+          "publicService": {
+            "id": "quad9-public-dns-v4-primary",
+            "provider": "Quad9",
+            "label": "Quad9 Public DNS",
+            "href": "https://quad9.net/service/service-addresses-and-features/",
+            "verifiedAt": "2026-09-18T16:52:12Z",
+            "expiresAt": "2027-03-17T16:52:12.000Z"
+          }
+        },
+        {
+          "excluded": ["ipinfo", "ip2location", "scamalytics"],
+          "score": 82,
+          "kind": "public-service",
+          "limited": true,
+          "evidence": {
+            "abuse": ["coffee", "dnsbl", "ipregistry"],
+            "fraud": ["proxycheck"],
+            "anonymity": ["coffee", "ipapi", "proxycheck", "torexit", "ipregistry"],
+            "usage": ["coffee", "ipapi", "proxycheck", "ipregistry"],
+            "network": ["coffee", "ipapi", "proxycheck", "ipregistry"],
+            "geo": ["coffee", "ipregistry"],
+            "integrity": ["rdap"],
+            "reputation": ["coffee", "dnsbl", "ipregistry", "proxycheck"]
+          },
+          "scoreStatus": "provisional",
+          "missingSources": ["ip2location", "ipinfo", "ippure", "scamalytics"],
+          "scoreProfile": "ipv4-five-source",
+          "publicService": {
+            "id": "quad9-public-dns-v4-primary",
+            "provider": "Quad9",
+            "label": "Quad9 Public DNS",
+            "href": "https://quad9.net/service/service-addresses-and-features/",
+            "verifiedAt": "2026-09-18T16:52:12Z",
+            "expiresAt": "2027-03-17T16:52:12.000Z"
+          }
+        }
+      ],
+      "kindStable": true,
+      "worstOmission": {
+        "excluded": ["coffee"],
+        "score": 80,
+        "kind": "public-service",
+        "limited": true,
+        "evidence": {
+          "abuse": ["dnsbl", "ipregistry"],
+          "fraud": ["ip2location", "scamalytics", "proxycheck"],
+          "anonymity": ["ipinfo", "ipapi", "proxycheck", "torexit", "ipregistry"],
+          "usage": ["ip2location", "ipapi", "proxycheck", "ipregistry"],
+          "network": ["ipinfo", "ip2location", "ipapi", "proxycheck", "ipregistry"],
+          "geo": ["ipregistry"],
+          "integrity": ["rdap"],
+          "reputation": ["dnsbl", "ipregistry", "ip2location", "scamalytics", "proxycheck"]
+        },
+        "scoreStatus": "provisional",
+        "missingSources": ["coffee", "ippure"],
+        "scoreProfile": "ipv4-five-source",
+        "publicService": {
+          "id": "quad9-public-dns-v4-primary",
+          "provider": "Quad9",
+          "label": "Quad9 Public DNS",
+          "href": "https://quad9.net/service/service-addresses-and-features/",
+          "verifiedAt": "2026-09-18T16:52:12Z",
+          "expiresAt": "2027-03-17T16:52:12.000Z"
+        }
+      },
+      "maxOmissionShift": 4
+    },
+    {
+      "id": "149.112.112.112",
+      "ip": "149.112.112.112",
+      "collectedAt": "2026-09-18T16:54:55.054Z",
+      "observedAt": "2026-09-18T16:54:55.042Z",
+      "score": 85,
+      "kind": "public-service",
+      "limited": true,
+      "evidence": {
+        "abuse": ["coffee", "dnsbl", "ipregistry"],
+        "fraud": ["ip2location", "scamalytics", "proxycheck"],
+        "anonymity": ["coffee", "ipinfo", "ipapi", "proxycheck", "torexit", "ipregistry"],
+        "usage": ["coffee", "ip2location", "ipapi", "proxycheck", "ipregistry"],
+        "network": ["coffee", "ipinfo", "ip2location", "ipapi", "proxycheck", "ipregistry"],
+        "geo": ["coffee", "ipregistry"],
+        "integrity": ["rdap"],
+        "reputation": ["coffee", "dnsbl", "ipregistry", "ip2location", "scamalytics", "proxycheck"]
+      },
+      "scoreStatus": "provisional",
+      "missingSources": ["ippure"],
+      "scoreProfile": "ipv4-five-source",
+      "publicService": {
+        "id": "quad9-public-dns-v4-secondary",
+        "provider": "Quad9",
+        "label": "Quad9 Public DNS",
+        "href": "https://quad9.net/service/service-addresses-and-features/",
+        "verifiedAt": "2026-09-18T16:52:12Z",
+        "expiresAt": "2027-03-17T16:52:12.000Z"
+      },
+      "label": {
+        "id": "quad9-public-dns-v4-secondary",
+        "ip": "149.112.112.112",
+        "group": "quad9",
+        "expectedKind": "public-service",
+        "scope": "usage",
+        "confidence": "official",
+        "observedAt": "2026-09-18T16:52:12Z",
+        "source": {
+          "url": "https://quad9.net/service/service-addresses-and-features/",
+          "excerpt": "Quad9 lists 149.112.112.112 under its recommended recursive DNS service.",
+          "fetchedAt": "2026-09-18T16:52:12Z"
+        }
+      },
+      "labelStatus": "catalogue-backed",
+      "observedKind": "public-service",
+      "agreement": null,
+      "catalogueAgreement": true,
+      "scoreBreakdown": {
+        "reputation": 92.55,
+        "anonymity": 93.81818181818181,
+        "usage": 70,
+        "indicators": [
+          {
+            "key": "abuse",
+            "label": "滥用记录",
+            "weight": 0.22,
+            "effective": 0.22,
+            "score": 93,
+            "sources": ["coffee", "dnsbl", "ipregistry"]
+          },
+          {
+            "key": "fraud",
+            "label": "欺诈风险",
+            "weight": 0.18,
+            "effective": 0.18,
+            "score": 92.00000000000001,
+            "sources": ["ip2location", "scamalytics", "proxycheck"]
+          },
+          {
+            "key": "anonymity",
+            "label": "匿名暴露",
+            "weight": 0.16,
+            "effective": 0.16,
+            "score": 93.81818181818181,
+            "sources": ["coffee", "ipinfo", "ipapi", "proxycheck", "torexit", "ipregistry"]
+          },
+          {
+            "key": "usage",
+            "label": "用途属性",
+            "weight": 0.14,
+            "effective": 0.14,
+            "score": 70,
+            "sources": ["coffee", "ip2location", "ipapi", "proxycheck", "ipregistry"]
+          },
+          {
+            "key": "network",
+            "label": "网络归属",
+            "weight": 0.12,
+            "effective": 0.12,
+            "score": 47.53333333333334,
+            "sources": ["coffee", "ipinfo", "ip2location", "ipapi", "proxycheck", "ipregistry"]
+          },
+          {
+            "key": "geo",
+            "label": "地理一致",
+            "weight": 0.09,
+            "effective": 0.09,
+            "score": 100,
+            "sources": ["coffee", "ipregistry"]
+          },
+          {
+            "key": "integrity",
+            "label": "可溯源",
+            "weight": 0.09,
+            "effective": 0.09,
+            "score": 98,
+            "sources": ["rdap"]
+          }
+        ],
+        "base": 85.35490909090908,
+        "adjusted": 85.35490909090908,
+        "uncapped": 85.35490909090908,
+        "range": {
+          "lo": 85,
+          "hi": 85
+        },
+        "penalties": [],
+        "evidenceCoverage": 0.872379157382612,
+        "confidence": "high",
+        "freshnessDays": 3699,
+        "prefixRegisteredAt": "2016-08-02T15:18:25.000Z",
+        "cap": 100
+      },
+      "sensitivity": {
+        "min": 85,
+        "max": 85,
+        "candidates": [
+          {
+            "delta": -0.1,
+            "score": 85
+          },
+          {
+            "delta": -0.05,
+            "score": 85
+          },
+          {
+            "delta": 0,
+            "score": 85
+          },
+          {
+            "delta": 0.05,
+            "score": 85
+          },
+          {
+            "delta": 0.1,
+            "score": 85
+          }
+        ]
+      },
+      "omissions": [
+        {
+          "excluded": ["coffee"],
+          "score": 80,
+          "kind": "public-service",
+          "limited": true,
+          "evidence": {
+            "abuse": ["dnsbl", "ipregistry"],
+            "fraud": ["ip2location", "scamalytics", "proxycheck"],
+            "anonymity": ["ipinfo", "ipapi", "proxycheck", "torexit", "ipregistry"],
+            "usage": ["ip2location", "ipapi", "proxycheck", "ipregistry"],
+            "network": ["ipinfo", "ip2location", "ipapi", "proxycheck", "ipregistry"],
+            "geo": ["ipregistry"],
+            "integrity": ["rdap"],
+            "reputation": ["dnsbl", "ipregistry", "ip2location", "scamalytics", "proxycheck"]
+          },
+          "scoreStatus": "provisional",
+          "missingSources": ["coffee", "ippure"],
+          "scoreProfile": "ipv4-five-source",
+          "publicService": {
+            "id": "quad9-public-dns-v4-secondary",
+            "provider": "Quad9",
+            "label": "Quad9 Public DNS",
+            "href": "https://quad9.net/service/service-addresses-and-features/",
+            "verifiedAt": "2026-09-18T16:52:12Z",
+            "expiresAt": "2027-03-17T16:52:12.000Z"
+          }
+        },
+        {
+          "excluded": ["ipinfo"],
+          "score": 85,
+          "kind": "public-service",
+          "limited": true,
+          "evidence": {
+            "abuse": ["coffee", "dnsbl", "ipregistry"],
+            "fraud": ["ip2location", "scamalytics", "proxycheck"],
+            "anonymity": ["coffee", "ipapi", "proxycheck", "torexit", "ipregistry"],
+            "usage": ["coffee", "ip2location", "ipapi", "proxycheck", "ipregistry"],
+            "network": ["coffee", "ip2location", "ipapi", "proxycheck", "ipregistry"],
+            "geo": ["coffee", "ipregistry"],
+            "integrity": ["rdap"],
+            "reputation": [
+              "coffee",
+              "dnsbl",
+              "ipregistry",
+              "ip2location",
+              "scamalytics",
+              "proxycheck"
+            ]
+          },
+          "scoreStatus": "provisional",
+          "missingSources": ["ipinfo", "ippure"],
+          "scoreProfile": "ipv4-five-source",
+          "publicService": {
+            "id": "quad9-public-dns-v4-secondary",
+            "provider": "Quad9",
+            "label": "Quad9 Public DNS",
+            "href": "https://quad9.net/service/service-addresses-and-features/",
+            "verifiedAt": "2026-09-18T16:52:12Z",
+            "expiresAt": "2027-03-17T16:52:12.000Z"
+          }
+        },
+        {
+          "excluded": ["ip2location"],
+          "score": 85,
+          "kind": "public-service",
+          "limited": true,
+          "evidence": {
+            "abuse": ["coffee", "dnsbl", "ipregistry"],
+            "fraud": ["scamalytics", "proxycheck"],
+            "anonymity": ["coffee", "ipinfo", "ipapi", "proxycheck", "torexit", "ipregistry"],
+            "usage": ["coffee", "ipapi", "proxycheck", "ipregistry"],
+            "network": ["coffee", "ipinfo", "ipapi", "proxycheck", "ipregistry"],
+            "geo": ["coffee", "ipregistry"],
+            "integrity": ["rdap"],
+            "reputation": ["coffee", "dnsbl", "ipregistry", "scamalytics", "proxycheck"]
+          },
+          "scoreStatus": "provisional",
+          "missingSources": ["ip2location", "ippure"],
+          "scoreProfile": "ipv4-five-source",
+          "publicService": {
+            "id": "quad9-public-dns-v4-secondary",
+            "provider": "Quad9",
+            "label": "Quad9 Public DNS",
+            "href": "https://quad9.net/service/service-addresses-and-features/",
+            "verifiedAt": "2026-09-18T16:52:12Z",
+            "expiresAt": "2027-03-17T16:52:12.000Z"
+          }
+        },
+        {
+          "excluded": ["ipapi"],
+          "score": 85,
+          "kind": "public-service",
+          "limited": true,
+          "evidence": {
+            "abuse": ["coffee", "dnsbl", "ipregistry"],
+            "fraud": ["ip2location", "scamalytics", "proxycheck"],
+            "anonymity": ["coffee", "ipinfo", "proxycheck", "torexit", "ipregistry"],
+            "usage": ["coffee", "ip2location", "proxycheck", "ipregistry"],
+            "network": ["coffee", "ipinfo", "ip2location", "proxycheck", "ipregistry"],
+            "geo": ["coffee", "ipregistry"],
+            "integrity": ["rdap"],
+            "reputation": [
+              "coffee",
+              "dnsbl",
+              "ipregistry",
+              "ip2location",
+              "scamalytics",
+              "proxycheck"
+            ]
+          },
+          "scoreStatus": "provisional",
+          "missingSources": ["ipapi", "ippure"],
+          "scoreProfile": "ipv4-five-source",
+          "publicService": {
+            "id": "quad9-public-dns-v4-secondary",
+            "provider": "Quad9",
+            "label": "Quad9 Public DNS",
+            "href": "https://quad9.net/service/service-addresses-and-features/",
+            "verifiedAt": "2026-09-18T16:52:12Z",
+            "expiresAt": "2027-03-17T16:52:12.000Z"
+          }
+        },
+        {
+          "excluded": ["scamalytics"],
+          "score": 85,
+          "kind": "public-service",
+          "limited": true,
+          "evidence": {
+            "abuse": ["coffee", "dnsbl", "ipregistry"],
+            "fraud": ["ip2location", "proxycheck"],
+            "anonymity": ["coffee", "ipinfo", "ipapi", "proxycheck", "torexit", "ipregistry"],
+            "usage": ["coffee", "ip2location", "ipapi", "proxycheck", "ipregistry"],
+            "network": ["coffee", "ipinfo", "ip2location", "ipapi", "proxycheck", "ipregistry"],
+            "geo": ["coffee", "ipregistry"],
+            "integrity": ["rdap"],
+            "reputation": ["coffee", "dnsbl", "ipregistry", "ip2location", "proxycheck"]
+          },
+          "scoreStatus": "provisional",
+          "missingSources": ["ippure", "scamalytics"],
+          "scoreProfile": "ipv4-five-source",
+          "publicService": {
+            "id": "quad9-public-dns-v4-secondary",
+            "provider": "Quad9",
+            "label": "Quad9 Public DNS",
+            "href": "https://quad9.net/service/service-addresses-and-features/",
+            "verifiedAt": "2026-09-18T16:52:12Z",
+            "expiresAt": "2027-03-17T16:52:12.000Z"
+          }
+        },
+        {
+          "excluded": ["proxycheck"],
+          "score": 85,
+          "kind": "public-service",
+          "limited": true,
+          "evidence": {
+            "abuse": ["coffee", "dnsbl", "ipregistry"],
+            "fraud": ["ip2location", "scamalytics"],
+            "anonymity": ["coffee", "ipinfo", "ipapi", "torexit", "ipregistry"],
+            "usage": ["coffee", "ip2location", "ipapi", "ipregistry"],
+            "network": ["coffee", "ipinfo", "ip2location", "ipapi", "ipregistry"],
+            "geo": ["coffee", "ipregistry"],
+            "integrity": ["rdap"],
+            "reputation": ["coffee", "dnsbl", "ipregistry", "ip2location", "scamalytics"]
+          },
+          "scoreStatus": "provisional",
+          "missingSources": ["ippure", "proxycheck"],
+          "scoreProfile": "ipv4-five-source",
+          "publicService": {
+            "id": "quad9-public-dns-v4-secondary",
+            "provider": "Quad9",
+            "label": "Quad9 Public DNS",
+            "href": "https://quad9.net/service/service-addresses-and-features/",
+            "verifiedAt": "2026-09-18T16:52:12Z",
+            "expiresAt": "2027-03-17T16:52:12.000Z"
+          }
+        },
+        {
+          "excluded": ["dnsbl"],
+          "score": 85,
+          "kind": "public-service",
+          "limited": true,
+          "evidence": {
+            "abuse": ["coffee", "ipregistry"],
+            "fraud": ["ip2location", "scamalytics", "proxycheck"],
+            "anonymity": ["coffee", "ipinfo", "ipapi", "proxycheck", "torexit", "ipregistry"],
+            "usage": ["coffee", "ip2location", "ipapi", "proxycheck", "ipregistry"],
+            "network": ["coffee", "ipinfo", "ip2location", "ipapi", "proxycheck", "ipregistry"],
+            "geo": ["coffee", "ipregistry"],
+            "integrity": ["rdap"],
+            "reputation": ["coffee", "ipregistry", "ip2location", "scamalytics", "proxycheck"]
+          },
+          "scoreStatus": "provisional",
+          "missingSources": ["dnsbl", "ippure"],
+          "scoreProfile": "ipv4-five-source",
+          "publicService": {
+            "id": "quad9-public-dns-v4-secondary",
+            "provider": "Quad9",
+            "label": "Quad9 Public DNS",
+            "href": "https://quad9.net/service/service-addresses-and-features/",
+            "verifiedAt": "2026-09-18T16:52:12Z",
+            "expiresAt": "2027-03-17T16:52:12.000Z"
+          }
+        },
+        {
+          "excluded": ["torexit"],
+          "score": 85,
+          "kind": "public-service",
+          "limited": true,
+          "evidence": {
+            "abuse": ["coffee", "dnsbl", "ipregistry"],
+            "fraud": ["ip2location", "scamalytics", "proxycheck"],
+            "anonymity": ["coffee", "ipinfo", "ipapi", "proxycheck", "ipregistry"],
+            "usage": ["coffee", "ip2location", "ipapi", "proxycheck", "ipregistry"],
+            "network": ["coffee", "ipinfo", "ip2location", "ipapi", "proxycheck", "ipregistry"],
+            "geo": ["coffee", "ipregistry"],
+            "integrity": ["rdap"],
+            "reputation": [
+              "coffee",
+              "dnsbl",
+              "ipregistry",
+              "ip2location",
+              "scamalytics",
+              "proxycheck"
+            ]
+          },
+          "scoreStatus": "provisional",
+          "missingSources": ["ippure", "torexit"],
+          "scoreProfile": "ipv4-five-source",
+          "publicService": {
+            "id": "quad9-public-dns-v4-secondary",
+            "provider": "Quad9",
+            "label": "Quad9 Public DNS",
+            "href": "https://quad9.net/service/service-addresses-and-features/",
+            "verifiedAt": "2026-09-18T16:52:12Z",
+            "expiresAt": "2027-03-17T16:52:12.000Z"
+          }
+        },
+        {
+          "excluded": ["ipregistry"],
+          "score": 86,
+          "kind": "public-service",
+          "limited": true,
+          "evidence": {
+            "abuse": ["coffee", "dnsbl"],
+            "fraud": ["ip2location", "scamalytics", "proxycheck"],
+            "anonymity": ["coffee", "ipinfo", "ipapi", "proxycheck", "torexit"],
+            "usage": ["coffee", "ip2location", "ipapi", "proxycheck"],
+            "network": ["coffee", "ipinfo", "ip2location", "ipapi", "proxycheck"],
+            "geo": ["coffee", "ipregistry"],
+            "integrity": ["rdap"],
+            "reputation": ["coffee", "dnsbl", "ip2location", "scamalytics", "proxycheck"]
+          },
+          "scoreStatus": "provisional",
+          "missingSources": ["ippure", "ipregistry"],
+          "scoreProfile": "ipv4-five-source",
+          "publicService": {
+            "id": "quad9-public-dns-v4-secondary",
+            "provider": "Quad9",
+            "label": "Quad9 Public DNS",
+            "href": "https://quad9.net/service/service-addresses-and-features/",
+            "verifiedAt": "2026-09-18T16:52:12Z",
+            "expiresAt": "2027-03-17T16:52:12.000Z"
+          }
+        },
+        {
+          "excluded": ["ipinfo", "ip2location", "scamalytics"],
+          "score": 84,
+          "kind": "public-service",
+          "limited": true,
+          "evidence": {
+            "abuse": ["coffee", "dnsbl", "ipregistry"],
+            "fraud": ["proxycheck"],
+            "anonymity": ["coffee", "ipapi", "proxycheck", "torexit", "ipregistry"],
+            "usage": ["coffee", "ipapi", "proxycheck", "ipregistry"],
+            "network": ["coffee", "ipapi", "proxycheck", "ipregistry"],
+            "geo": ["coffee", "ipregistry"],
+            "integrity": ["rdap"],
+            "reputation": ["coffee", "dnsbl", "ipregistry", "proxycheck"]
+          },
+          "scoreStatus": "provisional",
+          "missingSources": ["ip2location", "ipinfo", "ippure", "scamalytics"],
+          "scoreProfile": "ipv4-five-source",
+          "publicService": {
+            "id": "quad9-public-dns-v4-secondary",
+            "provider": "Quad9",
+            "label": "Quad9 Public DNS",
+            "href": "https://quad9.net/service/service-addresses-and-features/",
+            "verifiedAt": "2026-09-18T16:52:12Z",
+            "expiresAt": "2027-03-17T16:52:12.000Z"
+          }
+        }
+      ],
+      "kindStable": true,
+      "worstOmission": {
+        "excluded": ["coffee"],
+        "score": 80,
+        "kind": "public-service",
+        "limited": true,
+        "evidence": {
+          "abuse": ["dnsbl", "ipregistry"],
+          "fraud": ["ip2location", "scamalytics", "proxycheck"],
+          "anonymity": ["ipinfo", "ipapi", "proxycheck", "torexit", "ipregistry"],
+          "usage": ["ip2location", "ipapi", "proxycheck", "ipregistry"],
+          "network": ["ipinfo", "ip2location", "ipapi", "proxycheck", "ipregistry"],
+          "geo": ["ipregistry"],
+          "integrity": ["rdap"],
+          "reputation": ["dnsbl", "ipregistry", "ip2location", "scamalytics", "proxycheck"]
+        },
+        "scoreStatus": "provisional",
+        "missingSources": ["coffee", "ippure"],
+        "scoreProfile": "ipv4-five-source",
+        "publicService": {
+          "id": "quad9-public-dns-v4-secondary",
+          "provider": "Quad9",
+          "label": "Quad9 Public DNS",
+          "href": "https://quad9.net/service/service-addresses-and-features/",
+          "verifiedAt": "2026-09-18T16:52:12Z",
+          "expiresAt": "2027-03-17T16:52:12.000Z"
+        }
+      },
+      "maxOmissionShift": 5
+    },
+    {
+      "id": "124.126.3.108",
+      "ip": "124.126.3.108",
+      "collectedAt": "2026-09-18T16:54:56.968Z",
+      "observedAt": "2026-09-18T16:54:56.957Z",
+      "score": 92,
+      "kind": "disputed",
+      "limited": true,
+      "evidence": {
+        "abuse": ["coffee", "dnsbl", "ipregistry"],
+        "fraud": ["ip2location", "scamalytics", "proxycheck"],
+        "anonymity": ["coffee", "ipinfo", "ipapi", "proxycheck", "torexit", "ipregistry"],
+        "usage": ["coffee", "ip2location", "proxycheck", "ipregistry"],
+        "network": ["coffee", "ipinfo", "ipapi", "proxycheck"],
+        "geo": ["coffee", "ipregistry"],
+        "integrity": ["rdap"],
+        "reputation": ["coffee", "dnsbl", "ipregistry", "ip2location", "scamalytics", "proxycheck"]
+      },
+      "scoreStatus": "provisional",
+      "missingSources": ["ippure"],
+      "scoreProfile": "ipv4-five-source",
+      "publicService": null,
+      "label": null,
+      "labelStatus": "unlabelled",
+      "observedKind": null,
+      "agreement": null,
+      "catalogueAgreement": null,
+      "scoreBreakdown": {
+        "reputation": 92.55,
+        "anonymity": 93.81818181818181,
+        "usage": 81,
+        "indicators": [
+          {
+            "key": "abuse",
+            "label": "滥用记录",
+            "weight": 0.22,
+            "effective": 0.22,
+            "score": 93,
+            "sources": ["coffee", "dnsbl", "ipregistry"]
+          },
+          {
+            "key": "fraud",
+            "label": "欺诈风险",
+            "weight": 0.18,
+            "effective": 0.18,
+            "score": 92.00000000000001,
+            "sources": ["ip2location", "scamalytics", "proxycheck"]
+          },
+          {
+            "key": "anonymity",
+            "label": "匿名暴露",
+            "weight": 0.16,
+            "effective": 0.16,
+            "score": 93.81818181818181,
+            "sources": ["coffee", "ipinfo", "ipapi", "proxycheck", "torexit", "ipregistry"]
+          },
+          {
+            "key": "usage",
+            "label": "用途属性",
+            "weight": 0.14,
+            "effective": 0.14,
+            "score": 81,
+            "sources": ["coffee", "ip2location", "proxycheck", "ipregistry"]
+          },
+          {
+            "key": "network",
+            "label": "网络归属",
+            "weight": 0.12,
+            "effective": 0.12,
+            "score": 88.55,
+            "sources": ["coffee", "ipinfo", "ipapi", "proxycheck"]
+          },
+          {
+            "key": "geo",
+            "label": "地理一致",
+            "weight": 0.09,
+            "effective": 0.09,
+            "score": 100,
+            "sources": ["coffee", "ipregistry"]
+          },
+          {
+            "key": "integrity",
+            "label": "可溯源",
+            "weight": 0.09,
+            "effective": 0.09,
+            "score": 98,
+            "sources": ["rdap"]
+          }
+        ],
+        "base": 91.81690909090909,
+        "adjusted": 91.81690909090909,
+        "uncapped": 91.81690909090909,
+        "range": {
+          "lo": 92,
+          "hi": 92
+        },
+        "penalties": [],
+        "evidenceCoverage": 0.8182253112287657,
+        "confidence": "high",
+        "freshnessDays": 6588,
+        "prefixRegisteredAt": "2008-09-04T07:13:23.000Z",
+        "cap": 100
+      },
+      "sensitivity": {
+        "min": 92,
+        "max": 92,
+        "candidates": [
+          {
+            "delta": -0.1,
+            "score": 92
+          },
+          {
+            "delta": -0.05,
+            "score": 92
+          },
+          {
+            "delta": 0,
+            "score": 92
+          },
+          {
+            "delta": 0.05,
+            "score": 92
+          },
+          {
+            "delta": 0.1,
+            "score": 92
+          }
+        ]
+      },
+      "omissions": [
+        {
+          "excluded": ["coffee"],
+          "score": 82,
+          "kind": "org",
+          "limited": true,
+          "evidence": {
+            "abuse": ["dnsbl", "ipregistry"],
+            "fraud": ["ip2location", "scamalytics", "proxycheck"],
+            "anonymity": ["ipinfo", "ipapi", "proxycheck", "torexit", "ipregistry"],
+            "usage": ["ip2location", "proxycheck", "ipregistry"],
+            "network": ["ipinfo", "ipapi", "proxycheck"],
+            "geo": ["ipregistry"],
+            "integrity": ["rdap"],
+            "reputation": ["dnsbl", "ipregistry", "ip2location", "scamalytics", "proxycheck"]
+          },
+          "scoreStatus": "provisional",
+          "missingSources": ["coffee", "ippure"],
+          "scoreProfile": "ipv4-five-source",
+          "publicService": null
+        },
+        {
+          "excluded": ["ipinfo"],
+          "score": 92,
+          "kind": "disputed",
+          "limited": true,
+          "evidence": {
+            "abuse": ["coffee", "dnsbl", "ipregistry"],
+            "fraud": ["ip2location", "scamalytics", "proxycheck"],
+            "anonymity": ["coffee", "ipapi", "proxycheck", "torexit", "ipregistry"],
+            "usage": ["coffee", "ip2location", "proxycheck", "ipregistry"],
+            "network": ["coffee", "ipapi", "proxycheck"],
+            "geo": ["coffee", "ipregistry"],
+            "integrity": ["rdap"],
+            "reputation": [
+              "coffee",
+              "dnsbl",
+              "ipregistry",
+              "ip2location",
+              "scamalytics",
+              "proxycheck"
+            ]
+          },
+          "scoreStatus": "provisional",
+          "missingSources": ["ipinfo", "ippure"],
+          "scoreProfile": "ipv4-five-source",
+          "publicService": null
+        },
+        {
+          "excluded": ["ip2location"],
+          "score": 92,
+          "kind": "disputed",
+          "limited": true,
+          "evidence": {
+            "abuse": ["coffee", "dnsbl", "ipregistry"],
+            "fraud": ["scamalytics", "proxycheck"],
+            "anonymity": ["coffee", "ipinfo", "ipapi", "proxycheck", "torexit", "ipregistry"],
+            "usage": ["coffee", "proxycheck", "ipregistry"],
+            "network": ["coffee", "ipinfo", "ipapi", "proxycheck"],
+            "geo": ["coffee", "ipregistry"],
+            "integrity": ["rdap"],
+            "reputation": ["coffee", "dnsbl", "ipregistry", "scamalytics", "proxycheck"]
+          },
+          "scoreStatus": "provisional",
+          "missingSources": ["ip2location", "ippure"],
+          "scoreProfile": "ipv4-five-source",
+          "publicService": null
+        },
+        {
+          "excluded": ["ipapi"],
+          "score": 92,
+          "kind": "disputed",
+          "limited": true,
+          "evidence": {
+            "abuse": ["coffee", "dnsbl", "ipregistry"],
+            "fraud": ["ip2location", "scamalytics", "proxycheck"],
+            "anonymity": ["coffee", "ipinfo", "proxycheck", "torexit", "ipregistry"],
+            "usage": ["coffee", "ip2location", "proxycheck", "ipregistry"],
+            "network": ["coffee", "ipinfo", "proxycheck"],
+            "geo": ["coffee", "ipregistry"],
+            "integrity": ["rdap"],
+            "reputation": [
+              "coffee",
+              "dnsbl",
+              "ipregistry",
+              "ip2location",
+              "scamalytics",
+              "proxycheck"
+            ]
+          },
+          "scoreStatus": "provisional",
+          "missingSources": ["ipapi", "ippure"],
+          "scoreProfile": "ipv4-five-source",
+          "publicService": null
+        },
+        {
+          "excluded": ["scamalytics"],
+          "score": 92,
+          "kind": "disputed",
+          "limited": true,
+          "evidence": {
+            "abuse": ["coffee", "dnsbl", "ipregistry"],
+            "fraud": ["ip2location", "proxycheck"],
+            "anonymity": ["coffee", "ipinfo", "ipapi", "proxycheck", "torexit", "ipregistry"],
+            "usage": ["coffee", "ip2location", "proxycheck", "ipregistry"],
+            "network": ["coffee", "ipinfo", "ipapi", "proxycheck"],
+            "geo": ["coffee", "ipregistry"],
+            "integrity": ["rdap"],
+            "reputation": ["coffee", "dnsbl", "ipregistry", "ip2location", "proxycheck"]
+          },
+          "scoreStatus": "provisional",
+          "missingSources": ["ippure", "scamalytics"],
+          "scoreProfile": "ipv4-five-source",
+          "publicService": null
+        },
+        {
+          "excluded": ["proxycheck"],
+          "score": 90,
+          "kind": "disputed",
+          "limited": true,
+          "evidence": {
+            "abuse": ["coffee", "dnsbl", "ipregistry"],
+            "fraud": ["ip2location", "scamalytics"],
+            "anonymity": ["coffee", "ipinfo", "ipapi", "torexit", "ipregistry"],
+            "usage": ["coffee", "ip2location", "ipregistry"],
+            "network": ["coffee", "ipinfo", "ipapi"],
+            "geo": ["coffee", "ipregistry"],
+            "integrity": ["rdap"],
+            "reputation": ["coffee", "dnsbl", "ipregistry", "ip2location", "scamalytics"]
+          },
+          "scoreStatus": "provisional",
+          "missingSources": ["ippure", "proxycheck"],
+          "scoreProfile": "ipv4-five-source",
+          "publicService": null
+        },
+        {
+          "excluded": ["dnsbl"],
+          "score": 91,
+          "kind": "disputed",
+          "limited": true,
+          "evidence": {
+            "abuse": ["coffee", "ipregistry"],
+            "fraud": ["ip2location", "scamalytics", "proxycheck"],
+            "anonymity": ["coffee", "ipinfo", "ipapi", "proxycheck", "torexit", "ipregistry"],
+            "usage": ["coffee", "ip2location", "proxycheck", "ipregistry"],
+            "network": ["coffee", "ipinfo", "ipapi", "proxycheck"],
+            "geo": ["coffee", "ipregistry"],
+            "integrity": ["rdap"],
+            "reputation": ["coffee", "ipregistry", "ip2location", "scamalytics", "proxycheck"]
+          },
+          "scoreStatus": "provisional",
+          "missingSources": ["dnsbl", "ippure"],
+          "scoreProfile": "ipv4-five-source",
+          "publicService": null
+        },
+        {
+          "excluded": ["torexit"],
+          "score": 92,
+          "kind": "disputed",
+          "limited": true,
+          "evidence": {
+            "abuse": ["coffee", "dnsbl", "ipregistry"],
+            "fraud": ["ip2location", "scamalytics", "proxycheck"],
+            "anonymity": ["coffee", "ipinfo", "ipapi", "proxycheck", "ipregistry"],
+            "usage": ["coffee", "ip2location", "proxycheck", "ipregistry"],
+            "network": ["coffee", "ipinfo", "ipapi", "proxycheck"],
+            "geo": ["coffee", "ipregistry"],
+            "integrity": ["rdap"],
+            "reputation": [
+              "coffee",
+              "dnsbl",
+              "ipregistry",
+              "ip2location",
+              "scamalytics",
+              "proxycheck"
+            ]
+          },
+          "scoreStatus": "provisional",
+          "missingSources": ["ippure", "torexit"],
+          "scoreProfile": "ipv4-five-source",
+          "publicService": null
+        },
+        {
+          "excluded": ["ipregistry"],
+          "score": 90,
+          "kind": "disputed",
+          "limited": true,
+          "evidence": {
+            "abuse": ["coffee", "dnsbl"],
+            "fraud": ["ip2location", "scamalytics", "proxycheck"],
+            "anonymity": ["coffee", "ipinfo", "ipapi", "proxycheck", "torexit"],
+            "usage": ["coffee", "ip2location", "proxycheck"],
+            "network": ["coffee", "ipinfo", "ipapi", "proxycheck"],
+            "geo": ["coffee", "ipregistry"],
+            "integrity": ["rdap"],
+            "reputation": ["coffee", "dnsbl", "ip2location", "scamalytics", "proxycheck"]
+          },
+          "scoreStatus": "provisional",
+          "missingSources": ["ippure", "ipregistry"],
+          "scoreProfile": "ipv4-five-source",
+          "publicService": null
+        },
+        {
+          "excluded": ["ipinfo", "ip2location", "scamalytics"],
+          "score": 89,
+          "kind": "disputed",
+          "limited": true,
+          "evidence": {
+            "abuse": ["coffee", "dnsbl", "ipregistry"],
+            "fraud": ["proxycheck"],
+            "anonymity": ["coffee", "ipapi", "proxycheck", "torexit", "ipregistry"],
+            "usage": ["coffee", "proxycheck", "ipregistry"],
+            "network": ["coffee", "ipapi", "proxycheck"],
+            "geo": ["coffee", "ipregistry"],
+            "integrity": ["rdap"],
+            "reputation": ["coffee", "dnsbl", "ipregistry", "proxycheck"]
+          },
+          "scoreStatus": "provisional",
+          "missingSources": ["ip2location", "ipinfo", "ippure", "scamalytics"],
+          "scoreProfile": "ipv4-five-source",
+          "publicService": null
+        }
+      ],
+      "kindStable": false,
+      "worstOmission": {
+        "excluded": ["coffee"],
+        "score": 82,
+        "kind": "org",
+        "limited": true,
+        "evidence": {
+          "abuse": ["dnsbl", "ipregistry"],
+          "fraud": ["ip2location", "scamalytics", "proxycheck"],
+          "anonymity": ["ipinfo", "ipapi", "proxycheck", "torexit", "ipregistry"],
+          "usage": ["ip2location", "proxycheck", "ipregistry"],
+          "network": ["ipinfo", "ipapi", "proxycheck"],
+          "geo": ["ipregistry"],
+          "integrity": ["rdap"],
+          "reputation": ["dnsbl", "ipregistry", "ip2location", "scamalytics", "proxycheck"]
+        },
+        "scoreStatus": "provisional",
+        "missingSources": ["coffee", "ippure"],
+        "scoreProfile": "ipv4-five-source",
+        "publicService": null
+      },
+      "maxOmissionShift": 10
+    },
+    {
+      "id": "74.120.253.118",
+      "ip": "74.120.253.118",
+      "collectedAt": "2026-09-18T16:54:57.942Z",
+      "observedAt": "2026-09-18T16:54:57.933Z",
+      "score": 84,
+      "kind": "disputed",
+      "limited": false,
+      "evidence": {
+        "abuse": ["coffee", "dnsbl", "ipregistry"],
+        "fraud": ["ip2location", "scamalytics", "ippure", "proxycheck"],
+        "anonymity": [
+          "coffee",
+          "ipinfo",
+          "ip2location",
+          "ipapi",
+          "proxycheck",
+          "torexit",
+          "ipregistry"
+        ],
+        "usage": ["ip2location", "proxycheck", "ipregistry"],
+        "network": ["coffee", "ipinfo", "ipapi", "proxycheck", "ipregistry"],
+        "geo": ["coffee", "ipregistry"],
+        "integrity": ["rdap"],
+        "reputation": [
+          "coffee",
+          "dnsbl",
+          "ipregistry",
+          "ip2location",
+          "scamalytics",
+          "ippure",
+          "proxycheck"
+        ]
+      },
+      "scoreStatus": "ready",
+      "missingSources": [],
+      "scoreProfile": "ipv4-five-source",
+      "publicService": null,
+      "label": null,
+      "labelStatus": "unlabelled",
+      "observedKind": null,
+      "agreement": null,
+      "catalogueAgreement": null,
+      "scoreBreakdown": {
+        "reputation": 87.41470588235295,
+        "anonymity": 53.821782178217816,
+        "usage": 92,
+        "indicators": [
+          {
+            "key": "abuse",
+            "label": "滥用记录",
+            "weight": 0.22,
+            "effective": 0.22,
+            "score": 93,
+            "sources": ["coffee", "dnsbl", "ipregistry"]
+          },
+          {
+            "key": "fraud",
+            "label": "欺诈风险",
+            "weight": 0.18,
+            "effective": 0.18,
+            "score": 80.58823529411767,
+            "sources": ["ip2location", "scamalytics", "ippure", "proxycheck"]
+          },
+          {
+            "key": "anonymity",
+            "label": "匿名暴露",
+            "weight": 0.16,
+            "effective": 0.16,
+            "score": 53.821782178217816,
+            "sources": [
+              "coffee",
+              "ipinfo",
+              "ip2location",
+              "ipapi",
+              "proxycheck",
+              "torexit",
+              "ipregistry"
+            ]
+          },
+          {
+            "key": "usage",
+            "label": "用途属性",
+            "weight": 0.14,
+            "effective": 0.14,
+            "score": 92,
+            "sources": ["ip2location", "proxycheck", "ipregistry"]
+          },
+          {
+            "key": "network",
+            "label": "网络归属",
+            "weight": 0.12,
+            "effective": 0.12,
+            "score": 77.35,
+            "sources": ["coffee", "ipinfo", "ipapi", "proxycheck", "ipregistry"]
+          },
+          {
+            "key": "geo",
+            "label": "地理一致",
+            "weight": 0.09,
+            "effective": 0.09,
+            "score": 100,
+            "sources": ["coffee", "ipregistry"]
+          },
+          {
+            "key": "integrity",
+            "label": "可溯源",
+            "weight": 0.09,
+            "effective": 0.09,
+            "score": 98,
+            "sources": ["rdap"]
+          }
+        ],
+        "base": 83.55936750145602,
+        "adjusted": 83.55936750145602,
+        "uncapped": 83.55936750145602,
+        "range": {
+          "lo": 84,
+          "hi": 84
+        },
+        "penalties": [],
+        "evidenceCoverage": 0.8629143686502178,
+        "confidence": "medium",
+        "freshnessDays": 43,
+        "prefixRegisteredAt": "2026-08-06T06:36:23.000Z",
+        "cap": 100
+      },
+      "sensitivity": {
+        "min": 82,
+        "max": 85,
+        "candidates": [
+          {
+            "delta": -0.1,
+            "score": 82
+          },
+          {
+            "delta": -0.05,
+            "score": 83
+          },
+          {
+            "delta": 0,
+            "score": 84
+          },
+          {
+            "delta": 0.05,
+            "score": 84
+          },
+          {
+            "delta": 0.1,
+            "score": 85
+          }
+        ]
+      },
+      "omissions": [
+        {
+          "excluded": ["coffee"],
+          "score": 79,
+          "kind": "disputed",
+          "limited": true,
+          "evidence": {
+            "abuse": ["dnsbl", "ipregistry"],
+            "fraud": ["ip2location", "scamalytics", "ippure", "proxycheck"],
+            "anonymity": ["ipinfo", "ip2location", "ipapi", "proxycheck", "torexit", "ipregistry"],
+            "usage": ["ip2location", "proxycheck", "ipregistry"],
+            "network": ["ipinfo", "ipapi", "proxycheck", "ipregistry"],
+            "geo": ["ipregistry"],
+            "integrity": ["rdap"],
+            "reputation": [
+              "dnsbl",
+              "ipregistry",
+              "ip2location",
+              "scamalytics",
+              "ippure",
+              "proxycheck"
+            ]
+          },
+          "scoreStatus": "provisional",
+          "missingSources": ["coffee"],
+          "scoreProfile": "ipv4-five-source",
+          "publicService": null
+        },
+        {
+          "excluded": ["ipinfo"],
+          "score": 83,
+          "kind": "disputed",
+          "limited": true,
+          "evidence": {
+            "abuse": ["coffee", "dnsbl", "ipregistry"],
+            "fraud": ["ip2location", "scamalytics", "ippure", "proxycheck"],
+            "anonymity": ["coffee", "ip2location", "ipapi", "proxycheck", "torexit", "ipregistry"],
+            "usage": ["ip2location", "proxycheck", "ipregistry"],
+            "network": ["coffee", "ipapi", "proxycheck", "ipregistry"],
+            "geo": ["coffee", "ipregistry"],
+            "integrity": ["rdap"],
+            "reputation": [
+              "coffee",
+              "dnsbl",
+              "ipregistry",
+              "ip2location",
+              "scamalytics",
+              "ippure",
+              "proxycheck"
+            ]
+          },
+          "scoreStatus": "provisional",
+          "missingSources": ["ipinfo"],
+          "scoreProfile": "ipv4-five-source",
+          "publicService": null
+        },
+        {
+          "excluded": ["ip2location"],
+          "score": 87,
+          "kind": "disputed",
+          "limited": true,
+          "evidence": {
+            "abuse": ["coffee", "dnsbl", "ipregistry"],
+            "fraud": ["scamalytics", "ippure", "proxycheck"],
+            "anonymity": ["coffee", "ipinfo", "ipapi", "proxycheck", "torexit", "ipregistry"],
+            "usage": ["proxycheck", "ipregistry"],
+            "network": ["coffee", "ipinfo", "ipapi", "proxycheck", "ipregistry"],
+            "geo": ["coffee", "ipregistry"],
+            "integrity": ["rdap"],
+            "reputation": ["coffee", "dnsbl", "ipregistry", "scamalytics", "ippure", "proxycheck"]
+          },
+          "scoreStatus": "provisional",
+          "missingSources": ["ip2location"],
+          "scoreProfile": "ipv4-five-source",
+          "publicService": null
+        },
+        {
+          "excluded": ["ipapi"],
+          "score": 84,
+          "kind": "disputed",
+          "limited": true,
+          "evidence": {
+            "abuse": ["coffee", "dnsbl", "ipregistry"],
+            "fraud": ["ip2location", "scamalytics", "ippure", "proxycheck"],
+            "anonymity": ["coffee", "ipinfo", "ip2location", "proxycheck", "torexit", "ipregistry"],
+            "usage": ["ip2location", "proxycheck", "ipregistry"],
+            "network": ["coffee", "ipinfo", "proxycheck", "ipregistry"],
+            "geo": ["coffee", "ipregistry"],
+            "integrity": ["rdap"],
+            "reputation": [
+              "coffee",
+              "dnsbl",
+              "ipregistry",
+              "ip2location",
+              "scamalytics",
+              "ippure",
+              "proxycheck"
+            ]
+          },
+          "scoreStatus": "provisional",
+          "missingSources": ["ipapi"],
+          "scoreProfile": "ipv4-five-source",
+          "publicService": null
+        },
+        {
+          "excluded": ["scamalytics"],
+          "score": 82,
+          "kind": "disputed",
+          "limited": true,
+          "evidence": {
+            "abuse": ["coffee", "dnsbl", "ipregistry"],
+            "fraud": ["ip2location", "ippure", "proxycheck"],
+            "anonymity": [
+              "coffee",
+              "ipinfo",
+              "ip2location",
+              "ipapi",
+              "proxycheck",
+              "torexit",
+              "ipregistry"
+            ],
+            "usage": ["ip2location", "proxycheck", "ipregistry"],
+            "network": ["coffee", "ipinfo", "ipapi", "proxycheck", "ipregistry"],
+            "geo": ["coffee", "ipregistry"],
+            "integrity": ["rdap"],
+            "reputation": ["coffee", "dnsbl", "ipregistry", "ip2location", "ippure", "proxycheck"]
+          },
+          "scoreStatus": "provisional",
+          "missingSources": ["scamalytics"],
+          "scoreProfile": "ipv4-five-source",
+          "publicService": null
+        },
+        {
+          "excluded": ["ippure"],
+          "score": 83,
+          "kind": "disputed",
+          "limited": true,
+          "evidence": {
+            "abuse": ["coffee", "dnsbl", "ipregistry"],
+            "fraud": ["ip2location", "scamalytics", "proxycheck"],
+            "anonymity": [
+              "coffee",
+              "ipinfo",
+              "ip2location",
+              "ipapi",
+              "proxycheck",
+              "torexit",
+              "ipregistry"
+            ],
+            "usage": ["ip2location", "proxycheck", "ipregistry"],
+            "network": ["coffee", "ipinfo", "ipapi", "proxycheck", "ipregistry"],
+            "geo": ["coffee", "ipregistry"],
+            "integrity": ["rdap"],
+            "reputation": [
+              "coffee",
+              "dnsbl",
+              "ipregistry",
+              "ip2location",
+              "scamalytics",
+              "proxycheck"
+            ]
+          },
+          "scoreStatus": "provisional",
+          "missingSources": ["ippure"],
+          "scoreProfile": "ipv4-five-source",
+          "publicService": null
+        },
+        {
+          "excluded": ["proxycheck"],
+          "score": 81,
+          "kind": "disputed",
+          "limited": true,
+          "evidence": {
+            "abuse": ["coffee", "dnsbl", "ipregistry"],
+            "fraud": ["ip2location", "scamalytics", "ippure"],
+            "anonymity": ["coffee", "ipinfo", "ip2location", "ipapi", "torexit", "ipregistry"],
+            "usage": ["ip2location", "ipregistry"],
+            "network": ["coffee", "ipinfo", "ipapi", "ipregistry"],
+            "geo": ["coffee", "ipregistry"],
+            "integrity": ["rdap"],
+            "reputation": ["coffee", "dnsbl", "ipregistry", "ip2location", "scamalytics", "ippure"]
+          },
+          "scoreStatus": "provisional",
+          "missingSources": ["proxycheck"],
+          "scoreProfile": "ipv4-five-source",
+          "publicService": null
+        },
+        {
+          "excluded": ["dnsbl"],
+          "score": 83,
+          "kind": "disputed",
+          "limited": true,
+          "evidence": {
+            "abuse": ["coffee", "ipregistry"],
+            "fraud": ["ip2location", "scamalytics", "ippure", "proxycheck"],
+            "anonymity": [
+              "coffee",
+              "ipinfo",
+              "ip2location",
+              "ipapi",
+              "proxycheck",
+              "torexit",
+              "ipregistry"
+            ],
+            "usage": ["ip2location", "proxycheck", "ipregistry"],
+            "network": ["coffee", "ipinfo", "ipapi", "proxycheck", "ipregistry"],
+            "geo": ["coffee", "ipregistry"],
+            "integrity": ["rdap"],
+            "reputation": [
+              "coffee",
+              "ipregistry",
+              "ip2location",
+              "scamalytics",
+              "ippure",
+              "proxycheck"
+            ]
+          },
+          "scoreStatus": "provisional",
+          "missingSources": ["dnsbl"],
+          "scoreProfile": "ipv4-five-source",
+          "publicService": null
+        },
+        {
+          "excluded": ["torexit"],
+          "score": 83,
+          "kind": "disputed",
+          "limited": true,
+          "evidence": {
+            "abuse": ["coffee", "dnsbl", "ipregistry"],
+            "fraud": ["ip2location", "scamalytics", "ippure", "proxycheck"],
+            "anonymity": ["coffee", "ipinfo", "ip2location", "ipapi", "proxycheck", "ipregistry"],
+            "usage": ["ip2location", "proxycheck", "ipregistry"],
+            "network": ["coffee", "ipinfo", "ipapi", "proxycheck", "ipregistry"],
+            "geo": ["coffee", "ipregistry"],
+            "integrity": ["rdap"],
+            "reputation": [
+              "coffee",
+              "dnsbl",
+              "ipregistry",
+              "ip2location",
+              "scamalytics",
+              "ippure",
+              "proxycheck"
+            ]
+          },
+          "scoreStatus": "provisional",
+          "missingSources": ["torexit"],
+          "scoreProfile": "ipv4-five-source",
+          "publicService": null
+        },
+        {
+          "excluded": ["ipregistry"],
+          "score": 85,
+          "kind": "disputed",
+          "limited": true,
+          "evidence": {
+            "abuse": ["coffee", "dnsbl"],
+            "fraud": ["ip2location", "scamalytics", "ippure", "proxycheck"],
+            "anonymity": ["coffee", "ipinfo", "ip2location", "ipapi", "proxycheck", "torexit"],
+            "usage": ["ip2location", "proxycheck"],
+            "network": ["coffee", "ipinfo", "ipapi", "proxycheck"],
+            "geo": ["coffee", "ipregistry"],
+            "integrity": ["rdap"],
+            "reputation": ["coffee", "dnsbl", "ip2location", "scamalytics", "ippure", "proxycheck"]
+          },
+          "scoreStatus": "provisional",
+          "missingSources": ["ipregistry"],
+          "scoreProfile": "ipv4-five-source",
+          "publicService": null
+        },
+        {
+          "excluded": ["ipinfo", "ip2location", "scamalytics"],
+          "score": 85,
+          "kind": "disputed",
+          "limited": true,
+          "evidence": {
+            "abuse": ["coffee", "dnsbl", "ipregistry"],
+            "fraud": ["ippure", "proxycheck"],
+            "anonymity": ["coffee", "ipapi", "proxycheck", "torexit", "ipregistry"],
+            "usage": ["proxycheck", "ipregistry"],
+            "network": ["coffee", "ipapi", "proxycheck", "ipregistry"],
+            "geo": ["coffee", "ipregistry"],
+            "integrity": ["rdap"],
+            "reputation": ["coffee", "dnsbl", "ipregistry", "ippure", "proxycheck"]
+          },
+          "scoreStatus": "provisional",
+          "missingSources": ["ip2location", "ipinfo", "scamalytics"],
+          "scoreProfile": "ipv4-five-source",
+          "publicService": null
+        }
+      ],
+      "kindStable": true,
+      "worstOmission": {
+        "excluded": ["coffee"],
+        "score": 79,
+        "kind": "disputed",
+        "limited": true,
+        "evidence": {
+          "abuse": ["dnsbl", "ipregistry"],
+          "fraud": ["ip2location", "scamalytics", "ippure", "proxycheck"],
+          "anonymity": ["ipinfo", "ip2location", "ipapi", "proxycheck", "torexit", "ipregistry"],
+          "usage": ["ip2location", "proxycheck", "ipregistry"],
+          "network": ["ipinfo", "ipapi", "proxycheck", "ipregistry"],
+          "geo": ["ipregistry"],
+          "integrity": ["rdap"],
+          "reputation": [
+            "dnsbl",
+            "ipregistry",
+            "ip2location",
+            "scamalytics",
+            "ippure",
+            "proxycheck"
+          ]
+        },
+        "scoreStatus": "provisional",
+        "missingSources": ["coffee"],
+        "scoreProfile": "ipv4-five-source",
+        "publicService": null
+      },
+      "maxOmissionShift": 5
+    }
+  ],
+  "implementationHash": "5fdeaa85664569d1fbb40a72bbf3503cbf1b3ded470f2cf75f0c3bf03565a6b4",
+  "inputs": {
+    "samples": "scripts/ip-quality-data/samples.json",
+    "labels": "scripts/ip-quality-data/labels.json",
+    "sha256": "4e94aaffee598df77352272490b417f3ec54b8a95e715cece9464a96236d135c"
+  }
+}

@@ -1,0 +1,22 @@
+[
+  {"name":"中国上海","id":"n01","cc":"cn","city":"Shanghai","continent":"亚洲","cIcon":"🌏"},
+  {"name":"中国香港","id":"n02","cc":"hk","city":"Hong Kong","continent":"亚洲","cIcon":"🌏"},
+  {"name":"日本东京","id":"n03","cc":"jp","city":"Tokyo","continent":"亚洲","cIcon":"🌏"},
+  {"name":"新加坡","id":"n04","cc":"sg","city":"Singapore","continent":"亚洲","cIcon":"🌏"},
+  {"name":"越南胡志明","id":"n05","cc":"vn","city":"Ho Chi Minh City","continent":"亚洲","cIcon":"🌏"},
+  {"name":"印尼雅加达","id":"n06","cc":"id","city":"Jakarta","continent":"亚洲","cIcon":"🌏"},
+  {"name":"印度德里","id":"n07","cc":"in","city":"Delhi","continent":"亚洲","cIcon":"🌏"},
+  {"name":"阿联酋迪拜","id":"n08","cc":"ae","city":"Dubai","continent":"亚洲","cIcon":"🌏"},
+  {"name":"美国洛杉矶","id":"n09","cc":"us","city":"Los Angeles","continent":"美洲","cIcon":"🌎"},
+  {"name":"美国亚特兰大","id":"n10","cc":"us","city":"Atlanta","continent":"美洲","cIcon":"🌎"},
+  {"name":"加拿大温哥华","id":"n11","cc":"ca","city":"Vancouver","continent":"美洲","cIcon":"🌎"},
+  {"name":"巴西圣保罗","id":"n12","cc":"br","city":"Sao Paulo","continent":"美洲","cIcon":"🌎"},
+  {"name":"德国法兰克福","id":"n13","cc":"de","city":"Frankfurt","continent":"欧洲","cIcon":"🌍"},
+  {"name":"荷兰阿姆斯特丹","id":"n14","cc":"nl","city":"Amsterdam","continent":"欧洲","cIcon":"🌍"},
+  {"name":"法国巴黎","id":"n15","cc":"fr","city":"Paris","continent":"欧洲","cIcon":"🌍"},
+  {"name":"瑞典斯德哥尔摩","id":"n16","cc":"se","city":"Stockholm","continent":"欧洲","cIcon":"🌍"},
+  {"name":"瑞士苏黎世","id":"n17","cc":"ch","city":"Zurich","continent":"欧洲","cIcon":"🌍"},
+  {"name":"西班牙马德里","id":"n18","cc":"es","city":"Madrid","continent":"欧洲","cIcon":"🌍"},
+  {"name":"俄罗斯莫斯科","id":"n19","cc":"ru","city":"Moscow","continent":"欧洲","cIcon":"🌍"},
+  {"name":"土耳其伊斯坦布尔","id":"n20","cc":"tr","city":"Istanbul","continent":"欧洲","cIcon":"🌍"}
+]

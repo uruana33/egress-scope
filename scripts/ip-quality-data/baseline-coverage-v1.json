@@ -1,0 +1,1756 @@
+{
+  "schemaVersion": 1,
+  "sampleCount": 10,
+  "labelled": 8,
+  "compared": 8,
+  "agreements": 8,
+  "disagreements": [],
+  "unobserved": [],
+  "timeMismatches": [],
+  "missingLabels": [],
+  "groups": ["cloudflare", "google", "quad9"],
+  "classes": ["public-service"],
+  "calibrationReady": false,
+  "calibrationLimit": "This pilot has no representative, independent labelled train/validation set or numerical risk outcomes. Do not fit or claim calibrated weights.",
+  "rows": [
+    {
+      "id": "1.1.1.1",
+      "ip": "1.1.1.1",
+      "collectedAt": "2026-09-18T16:54:45.499Z",
+      "score": 76,
+      "kind": "public-service",
+      "limited": true,
+      "evidence": {
+        "reputation": ["coffee", "scamalytics", "proxycheck", "ip2location"],
+        "anonymity": ["coffee", "ipinfo", "ipapi", "proxycheck"],
+        "usage": ["coffee", "ip2location", "ipapi", "proxycheck"]
+      },
+      "label": {
+        "id": "cloudflare-public-dns-v4-primary",
+        "ip": "1.1.1.1",
+        "group": "cloudflare",
+        "expectedKind": "public-service",
+        "scope": "usage",
+        "confidence": "official",
+        "observedAt": "2026-09-18T16:52:12Z",
+        "source": {
+          "url": "https://developers.cloudflare.com/1.1.1.1/ip-addresses/",
+          "excerpt": "Cloudflare documents 1.1.1.1 as a standard resolver address.",
+          "fetchedAt": "2026-09-18T16:52:12Z"
+        }
+      },
+      "labelStatus": "compared",
+      "agreement": true,
+      "scoreBreakdown": {
+        "reputation": 65.9375,
+        "anonymity": 92,
+        "usage": 70,
+        "freshnessDays": 5517,
+        "prefixRegisteredAt": "2011-08-10T23:12:35.000Z",
+        "cap": 100,
+        "uncapped": 75.87187499999999
+      },
+      "sensitivity": {
+        "min": 73,
+        "max": 78,
+        "candidates": [
+          {
+            "weights": {
+              "reputation": 0.35,
+              "anonymity": 0.44999999999999996,
+              "usage": 0.2
+            },
+            "score": 78
+          },
+          {
+            "weights": {
+              "reputation": 0.4,
+              "anonymity": 0.39999999999999997,
+              "usage": 0.2
+            },
+            "score": 77
+          },
+          {
+            "weights": {
+              "reputation": 0.45,
+              "anonymity": 0.35,
+              "usage": 0.2
+            },
+            "score": 76
+          },
+          {
+            "weights": {
+              "reputation": 0.5,
+              "anonymity": 0.3,
+              "usage": 0.2
+            },
+            "score": 75
+          },
+          {
+            "weights": {
+              "reputation": 0.55,
+              "anonymity": 0.24999999999999997,
+              "usage": 0.2
+            },
+            "score": 73
+          }
+        ]
+      },
+      "omissions": [
+        {
+          "excluded": ["coffee"],
+          "score": 60,
+          "kind": "datacenter",
+          "limited": true,
+          "evidence": {
+            "reputation": ["scamalytics", "proxycheck", "ip2location"],
+            "anonymity": ["ipinfo", "ipapi", "proxycheck"],
+            "usage": ["ip2location", "ipapi", "proxycheck"]
+          }
+        },
+        {
+          "excluded": ["ipinfo"],
+          "score": 76,
+          "kind": "public-service",
+          "limited": true,
+          "evidence": {
+            "reputation": ["coffee", "scamalytics", "proxycheck", "ip2location"],
+            "anonymity": ["coffee", "ipapi", "proxycheck"],
+            "usage": ["coffee", "ip2location", "ipapi", "proxycheck"]
+          }
+        },
+        {
+          "excluded": ["ip2location"],
+          "score": 74,
+          "kind": "public-service",
+          "limited": true,
+          "evidence": {
+            "reputation": ["coffee", "scamalytics", "proxycheck"],
+            "anonymity": ["coffee", "ipinfo", "ipapi", "proxycheck"],
+            "usage": ["coffee", "ipapi", "proxycheck"]
+          }
+        },
+        {
+          "excluded": ["ipapi"],
+          "score": 76,
+          "kind": "public-service",
+          "limited": true,
+          "evidence": {
+            "reputation": ["coffee", "scamalytics", "proxycheck", "ip2location"],
+            "anonymity": ["coffee", "ipinfo", "proxycheck"],
+            "usage": ["coffee", "ip2location", "proxycheck"]
+          }
+        },
+        {
+          "excluded": ["scamalytics"],
+          "score": 71,
+          "kind": "public-service",
+          "limited": true,
+          "evidence": {
+            "reputation": ["coffee", "proxycheck", "ip2location"],
+            "anonymity": ["coffee", "ipinfo", "ipapi", "proxycheck"],
+            "usage": ["coffee", "ip2location", "ipapi", "proxycheck"]
+          }
+        },
+        {
+          "excluded": ["proxycheck"],
+          "score": 77,
+          "kind": "public-service",
+          "limited": true,
+          "evidence": {
+            "reputation": ["coffee", "scamalytics", "ip2location"],
+            "anonymity": ["coffee", "ipinfo", "ipapi"],
+            "usage": ["coffee", "ip2location", "ipapi"]
+          }
+        },
+        {
+          "excluded": ["ipinfo", "ip2location", "scamalytics"],
+          "score": 67,
+          "kind": "public-service",
+          "limited": true,
+          "evidence": {
+            "reputation": ["coffee", "proxycheck"],
+            "anonymity": ["coffee", "ipapi", "proxycheck"],
+            "usage": ["coffee", "ipapi", "proxycheck"]
+          }
+        }
+      ],
+      "worstOmission": {
+        "excluded": ["coffee"],
+        "score": 60,
+        "kind": "datacenter",
+        "limited": true,
+        "evidence": {
+          "reputation": ["scamalytics", "proxycheck", "ip2location"],
+          "anonymity": ["ipinfo", "ipapi", "proxycheck"],
+          "usage": ["ip2location", "ipapi", "proxycheck"]
+        }
+      },
+      "maxOmissionShift": 16
+    },
+    {
+      "id": "1.0.0.1",
+      "ip": "1.0.0.1",
+      "collectedAt": "2026-09-18T16:54:46.294Z",
+      "score": 77,
+      "kind": "public-service",
+      "limited": true,
+      "evidence": {
+        "reputation": ["coffee", "scamalytics", "proxycheck", "ip2location"],
+        "anonymity": ["coffee", "ipinfo", "ipapi", "proxycheck"],
+        "usage": ["coffee", "ip2location", "ipapi", "proxycheck"]
+      },
+      "label": {
+        "id": "cloudflare-public-dns-v4-secondary",
+        "ip": "1.0.0.1",
+        "group": "cloudflare",
+        "expectedKind": "public-service",
+        "scope": "usage",
+        "confidence": "official",
+        "observedAt": "2026-09-18T16:52:12Z",
+        "source": {
+          "url": "https://developers.cloudflare.com/1.1.1.1/ip-addresses/",
+          "excerpt": "Cloudflare lists 1.0.0.1 as the second IPv4 address for its standard resolver.",
+          "fetchedAt": "2026-09-18T16:52:12Z"
+        }
+      },
+      "labelStatus": "compared",
+      "agreement": true,
+      "scoreBreakdown": {
+        "reputation": 68.1875,
+        "anonymity": 92,
+        "usage": 70,
+        "freshnessDays": 5517,
+        "prefixRegisteredAt": "2011-08-10T23:15:57.000Z",
+        "cap": 100,
+        "uncapped": 76.88437499999999
+      },
+      "sensitivity": {
+        "min": 75,
+        "max": 79,
+        "candidates": [
+          {
+            "weights": {
+              "reputation": 0.35,
+              "anonymity": 0.44999999999999996,
+              "usage": 0.2
+            },
+            "score": 79
+          },
+          {
+            "weights": {
+              "reputation": 0.4,
+              "anonymity": 0.39999999999999997,
+              "usage": 0.2
+            },
+            "score": 78
+          },
+          {
+            "weights": {
+              "reputation": 0.45,
+              "anonymity": 0.35,
+              "usage": 0.2
+            },
+            "score": 77
+          },
+          {
+            "weights": {
+              "reputation": 0.5,
+              "anonymity": 0.3,
+              "usage": 0.2
+            },
+            "score": 76
+          },
+          {
+            "weights": {
+              "reputation": 0.55,
+              "anonymity": 0.24999999999999997,
+              "usage": 0.2
+            },
+            "score": 75
+          }
+        ]
+      },
+      "omissions": [
+        {
+          "excluded": ["coffee"],
+          "score": 60,
+          "kind": "datacenter",
+          "limited": true,
+          "evidence": {
+            "reputation": ["scamalytics", "proxycheck", "ip2location"],
+            "anonymity": ["ipinfo", "ipapi", "proxycheck"],
+            "usage": ["ip2location", "ipapi", "proxycheck"]
+          }
+        },
+        {
+          "excluded": ["ipinfo"],
+          "score": 77,
+          "kind": "public-service",
+          "limited": true,
+          "evidence": {
+            "reputation": ["coffee", "scamalytics", "proxycheck", "ip2location"],
+            "anonymity": ["coffee", "ipapi", "proxycheck"],
+            "usage": ["coffee", "ip2location", "ipapi", "proxycheck"]
+          }
+        },
+        {
+          "excluded": ["ip2location"],
+          "score": 75,
+          "kind": "public-service",
+          "limited": true,
+          "evidence": {
+            "reputation": ["coffee", "scamalytics", "proxycheck"],
+            "anonymity": ["coffee", "ipinfo", "ipapi", "proxycheck"],
+            "usage": ["coffee", "ipapi", "proxycheck"]
+          }
+        },
+        {
+          "excluded": ["ipapi"],
+          "score": 77,
+          "kind": "public-service",
+          "limited": true,
+          "evidence": {
+            "reputation": ["coffee", "scamalytics", "proxycheck", "ip2location"],
+            "anonymity": ["coffee", "ipinfo", "proxycheck"],
+            "usage": ["coffee", "ip2location", "proxycheck"]
+          }
+        },
+        {
+          "excluded": ["scamalytics"],
+          "score": 72,
+          "kind": "public-service",
+          "limited": true,
+          "evidence": {
+            "reputation": ["coffee", "proxycheck", "ip2location"],
+            "anonymity": ["coffee", "ipinfo", "ipapi", "proxycheck"],
+            "usage": ["coffee", "ip2location", "ipapi", "proxycheck"]
+          }
+        },
+        {
+          "excluded": ["proxycheck"],
+          "score": 78,
+          "kind": "public-service",
+          "limited": true,
+          "evidence": {
+            "reputation": ["coffee", "scamalytics", "ip2location"],
+            "anonymity": ["coffee", "ipinfo", "ipapi"],
+            "usage": ["coffee", "ip2location", "ipapi"]
+          }
+        },
+        {
+          "excluded": ["ipinfo", "ip2location", "scamalytics"],
+          "score": 69,
+          "kind": "public-service",
+          "limited": true,
+          "evidence": {
+            "reputation": ["coffee", "proxycheck"],
+            "anonymity": ["coffee", "ipapi", "proxycheck"],
+            "usage": ["coffee", "ipapi", "proxycheck"]
+          }
+        }
+      ],
+      "worstOmission": {
+        "excluded": ["coffee"],
+        "score": 60,
+        "kind": "datacenter",
+        "limited": true,
+        "evidence": {
+          "reputation": ["scamalytics", "proxycheck", "ip2location"],
+          "anonymity": ["ipinfo", "ipapi", "proxycheck"],
+          "usage": ["ip2location", "ipapi", "proxycheck"]
+        }
+      },
+      "maxOmissionShift": 17
+    },
+    {
+      "id": "2606_4700_4700__1111",
+      "ip": "2606:4700:4700::1111",
+      "collectedAt": "2026-09-18T16:54:47.423Z",
+      "score": 86,
+      "kind": "public-service",
+      "limited": true,
+      "evidence": {
+        "reputation": ["coffee", "scamalytics", "proxycheck", "ip2location"],
+        "anonymity": ["coffee", "ipinfo", "ipapi", "proxycheck"],
+        "usage": ["coffee", "ip2location", "ipapi", "proxycheck"]
+      },
+      "label": {
+        "id": "cloudflare-public-dns-v6-primary",
+        "ip": "2606:4700:4700::1111",
+        "group": "cloudflare",
+        "expectedKind": "public-service",
+        "scope": "usage",
+        "confidence": "official",
+        "observedAt": "2026-09-18T16:52:12Z",
+        "source": {
+          "url": "https://developers.cloudflare.com/1.1.1.1/ip-addresses/",
+          "excerpt": "Cloudflare lists 2606:4700:4700::1111 as an IPv6 address for the standard resolver.",
+          "fetchedAt": "2026-09-18T16:52:12Z"
+        }
+      },
+      "labelStatus": "compared",
+      "agreement": true,
+      "scoreBreakdown": {
+        "reputation": 89.375,
+        "anonymity": 92,
+        "usage": 70,
+        "freshnessDays": null,
+        "cap": 100,
+        "uncapped": 86.41874999999999
+      },
+      "sensitivity": {
+        "min": 86,
+        "max": 87,
+        "candidates": [
+          {
+            "weights": {
+              "reputation": 0.35,
+              "anonymity": 0.44999999999999996,
+              "usage": 0.2
+            },
+            "score": 87
+          },
+          {
+            "weights": {
+              "reputation": 0.4,
+              "anonymity": 0.39999999999999997,
+              "usage": 0.2
+            },
+            "score": 87
+          },
+          {
+            "weights": {
+              "reputation": 0.45,
+              "anonymity": 0.35,
+              "usage": 0.2
+            },
+            "score": 86
+          },
+          {
+            "weights": {
+              "reputation": 0.5,
+              "anonymity": 0.3,
+              "usage": 0.2
+            },
+            "score": 86
+          },
+          {
+            "weights": {
+              "reputation": 0.55,
+              "anonymity": 0.24999999999999997,
+              "usage": 0.2
+            },
+            "score": 86
+          }
+        ]
+      },
+      "omissions": [
+        {
+          "excluded": ["coffee"],
+          "score": 60,
+          "kind": "datacenter",
+          "limited": true,
+          "evidence": {
+            "reputation": ["scamalytics", "proxycheck", "ip2location"],
+            "anonymity": ["ipinfo", "ipapi", "proxycheck"],
+            "usage": ["ip2location", "ipapi", "proxycheck"]
+          }
+        },
+        {
+          "excluded": ["ipinfo"],
+          "score": 86,
+          "kind": "public-service",
+          "limited": true,
+          "evidence": {
+            "reputation": ["coffee", "scamalytics", "proxycheck", "ip2location"],
+            "anonymity": ["coffee", "ipapi", "proxycheck"],
+            "usage": ["coffee", "ip2location", "ipapi", "proxycheck"]
+          }
+        },
+        {
+          "excluded": ["ip2location"],
+          "score": 86,
+          "kind": "public-service",
+          "limited": true,
+          "evidence": {
+            "reputation": ["coffee", "scamalytics", "proxycheck"],
+            "anonymity": ["coffee", "ipinfo", "ipapi", "proxycheck"],
+            "usage": ["coffee", "ipapi", "proxycheck"]
+          }
+        },
+        {
+          "excluded": ["ipapi"],
+          "score": 86,
+          "kind": "public-service",
+          "limited": true,
+          "evidence": {
+            "reputation": ["coffee", "scamalytics", "proxycheck", "ip2location"],
+            "anonymity": ["coffee", "ipinfo", "proxycheck"],
+            "usage": ["coffee", "ip2location", "proxycheck"]
+          }
+        },
+        {
+          "excluded": ["scamalytics"],
+          "score": 86,
+          "kind": "public-service",
+          "limited": true,
+          "evidence": {
+            "reputation": ["coffee", "proxycheck", "ip2location"],
+            "anonymity": ["coffee", "ipinfo", "ipapi", "proxycheck"],
+            "usage": ["coffee", "ip2location", "ipapi", "proxycheck"]
+          }
+        },
+        {
+          "excluded": ["proxycheck"],
+          "score": 86,
+          "kind": "public-service",
+          "limited": true,
+          "evidence": {
+            "reputation": ["coffee", "scamalytics", "ip2location"],
+            "anonymity": ["coffee", "ipinfo", "ipapi"],
+            "usage": ["coffee", "ip2location", "ipapi"]
+          }
+        },
+        {
+          "excluded": ["ipinfo", "ip2location", "scamalytics"],
+          "score": 86,
+          "kind": "public-service",
+          "limited": true,
+          "evidence": {
+            "reputation": ["coffee", "proxycheck"],
+            "anonymity": ["coffee", "ipapi", "proxycheck"],
+            "usage": ["coffee", "ipapi", "proxycheck"]
+          }
+        }
+      ],
+      "worstOmission": {
+        "excluded": ["coffee"],
+        "score": 60,
+        "kind": "datacenter",
+        "limited": true,
+        "evidence": {
+          "reputation": ["scamalytics", "proxycheck", "ip2location"],
+          "anonymity": ["ipinfo", "ipapi", "proxycheck"],
+          "usage": ["ip2location", "ipapi", "proxycheck"]
+        }
+      },
+      "maxOmissionShift": 26
+    },
+    {
+      "id": "8.8.8.8",
+      "ip": "8.8.8.8",
+      "collectedAt": "2026-09-18T16:54:50.077Z",
+      "score": 76,
+      "kind": "public-service",
+      "limited": true,
+      "evidence": {
+        "reputation": ["coffee", "scamalytics", "proxycheck", "ip2location"],
+        "anonymity": ["coffee", "ipinfo", "ipapi", "proxycheck"],
+        "usage": ["coffee", "ip2location", "ipapi", "proxycheck"]
+      },
+      "label": {
+        "id": "google-public-dns-v4-primary",
+        "ip": "8.8.8.8",
+        "group": "google",
+        "expectedKind": "public-service",
+        "scope": "usage",
+        "confidence": "official",
+        "observedAt": "2026-09-18T16:52:12Z",
+        "source": {
+          "url": "https://developers.google.com/speed/public-dns/docs/using",
+          "excerpt": "Google Public DNS lists 8.8.8.8 as one of its IPv4 addresses.",
+          "fetchedAt": "2026-09-18T16:52:12Z"
+        }
+      },
+      "labelStatus": "compared",
+      "agreement": true,
+      "scoreBreakdown": {
+        "reputation": 67.25,
+        "anonymity": 92,
+        "usage": 70,
+        "freshnessDays": 994,
+        "prefixRegisteredAt": "2023-12-28T22:24:33.000Z",
+        "cap": 100,
+        "uncapped": 76.46249999999999
+      },
+      "sensitivity": {
+        "min": 74,
+        "max": 79,
+        "candidates": [
+          {
+            "weights": {
+              "reputation": 0.35,
+              "anonymity": 0.44999999999999996,
+              "usage": 0.2
+            },
+            "score": 79
+          },
+          {
+            "weights": {
+              "reputation": 0.4,
+              "anonymity": 0.39999999999999997,
+              "usage": 0.2
+            },
+            "score": 78
+          },
+          {
+            "weights": {
+              "reputation": 0.45,
+              "anonymity": 0.35,
+              "usage": 0.2
+            },
+            "score": 76
+          },
+          {
+            "weights": {
+              "reputation": 0.5,
+              "anonymity": 0.3,
+              "usage": 0.2
+            },
+            "score": 75
+          },
+          {
+            "weights": {
+              "reputation": 0.55,
+              "anonymity": 0.24999999999999997,
+              "usage": 0.2
+            },
+            "score": 74
+          }
+        ]
+      },
+      "omissions": [
+        {
+          "excluded": ["coffee"],
+          "score": 60,
+          "kind": "disputed",
+          "limited": true,
+          "evidence": {
+            "reputation": ["scamalytics", "proxycheck", "ip2location"],
+            "anonymity": ["ipinfo", "ipapi", "proxycheck"],
+            "usage": ["ip2location", "ipapi", "proxycheck"]
+          }
+        },
+        {
+          "excluded": ["ipinfo"],
+          "score": 76,
+          "kind": "public-service",
+          "limited": true,
+          "evidence": {
+            "reputation": ["coffee", "scamalytics", "proxycheck", "ip2location"],
+            "anonymity": ["coffee", "ipapi", "proxycheck"],
+            "usage": ["coffee", "ip2location", "ipapi", "proxycheck"]
+          }
+        },
+        {
+          "excluded": ["ip2location"],
+          "score": 75,
+          "kind": "public-service",
+          "limited": true,
+          "evidence": {
+            "reputation": ["coffee", "scamalytics", "proxycheck"],
+            "anonymity": ["coffee", "ipinfo", "ipapi", "proxycheck"],
+            "usage": ["coffee", "ipapi", "proxycheck"]
+          }
+        },
+        {
+          "excluded": ["ipapi"],
+          "score": 76,
+          "kind": "public-service",
+          "limited": true,
+          "evidence": {
+            "reputation": ["coffee", "scamalytics", "proxycheck", "ip2location"],
+            "anonymity": ["coffee", "ipinfo", "proxycheck"],
+            "usage": ["coffee", "ip2location", "proxycheck"]
+          }
+        },
+        {
+          "excluded": ["scamalytics"],
+          "score": 71,
+          "kind": "public-service",
+          "limited": true,
+          "evidence": {
+            "reputation": ["coffee", "proxycheck", "ip2location"],
+            "anonymity": ["coffee", "ipinfo", "ipapi", "proxycheck"],
+            "usage": ["coffee", "ip2location", "ipapi", "proxycheck"]
+          }
+        },
+        {
+          "excluded": ["proxycheck"],
+          "score": 82,
+          "kind": "public-service",
+          "limited": true,
+          "evidence": {
+            "reputation": ["coffee", "scamalytics", "ip2location"],
+            "anonymity": ["coffee", "ipinfo", "ipapi"],
+            "usage": ["coffee", "ip2location", "ipapi"]
+          }
+        },
+        {
+          "excluded": ["ipinfo", "ip2location", "scamalytics"],
+          "score": 68,
+          "kind": "public-service",
+          "limited": true,
+          "evidence": {
+            "reputation": ["coffee", "proxycheck"],
+            "anonymity": ["coffee", "ipapi", "proxycheck"],
+            "usage": ["coffee", "ipapi", "proxycheck"]
+          }
+        }
+      ],
+      "worstOmission": {
+        "excluded": ["coffee"],
+        "score": 60,
+        "kind": "disputed",
+        "limited": true,
+        "evidence": {
+          "reputation": ["scamalytics", "proxycheck", "ip2location"],
+          "anonymity": ["ipinfo", "ipapi", "proxycheck"],
+          "usage": ["ip2location", "ipapi", "proxycheck"]
+        }
+      },
+      "maxOmissionShift": 16
+    },
+    {
+      "id": "8.8.4.4",
+      "ip": "8.8.4.4",
+      "collectedAt": "2026-09-18T16:54:51.677Z",
+      "score": 86,
+      "kind": "public-service",
+      "limited": true,
+      "evidence": {
+        "reputation": ["coffee", "scamalytics", "proxycheck", "ip2location"],
+        "anonymity": ["coffee", "ipinfo", "ipapi", "proxycheck"],
+        "usage": ["coffee", "ip2location", "ipapi", "proxycheck"]
+      },
+      "label": {
+        "id": "google-public-dns-v4-secondary",
+        "ip": "8.8.4.4",
+        "group": "google",
+        "expectedKind": "public-service",
+        "scope": "usage",
+        "confidence": "official",
+        "observedAt": "2026-09-18T16:52:12Z",
+        "source": {
+          "url": "https://developers.google.com/speed/public-dns/docs/using",
+          "excerpt": "Google Public DNS lists 8.8.4.4 as one of its IPv4 addresses.",
+          "fetchedAt": "2026-09-18T16:52:12Z"
+        }
+      },
+      "labelStatus": "compared",
+      "agreement": true,
+      "scoreBreakdown": {
+        "reputation": 87.87499999999999,
+        "anonymity": 92,
+        "usage": 70,
+        "freshnessDays": 994,
+        "prefixRegisteredAt": "2023-12-28T22:24:33.000Z",
+        "cap": 100,
+        "uncapped": 85.74374999999999
+      },
+      "sensitivity": {
+        "min": 85,
+        "max": 86,
+        "candidates": [
+          {
+            "weights": {
+              "reputation": 0.35,
+              "anonymity": 0.44999999999999996,
+              "usage": 0.2
+            },
+            "score": 86
+          },
+          {
+            "weights": {
+              "reputation": 0.4,
+              "anonymity": 0.39999999999999997,
+              "usage": 0.2
+            },
+            "score": 86
+          },
+          {
+            "weights": {
+              "reputation": 0.45,
+              "anonymity": 0.35,
+              "usage": 0.2
+            },
+            "score": 86
+          },
+          {
+            "weights": {
+              "reputation": 0.5,
+              "anonymity": 0.3,
+              "usage": 0.2
+            },
+            "score": 86
+          },
+          {
+            "weights": {
+              "reputation": 0.55,
+              "anonymity": 0.24999999999999997,
+              "usage": 0.2
+            },
+            "score": 85
+          }
+        ]
+      },
+      "omissions": [
+        {
+          "excluded": ["coffee"],
+          "score": 60,
+          "kind": "disputed",
+          "limited": true,
+          "evidence": {
+            "reputation": ["scamalytics", "proxycheck", "ip2location"],
+            "anonymity": ["ipinfo", "ipapi", "proxycheck"],
+            "usage": ["ip2location", "ipapi", "proxycheck"]
+          }
+        },
+        {
+          "excluded": ["ipinfo"],
+          "score": 86,
+          "kind": "public-service",
+          "limited": true,
+          "evidence": {
+            "reputation": ["coffee", "scamalytics", "proxycheck", "ip2location"],
+            "anonymity": ["coffee", "ipapi", "proxycheck"],
+            "usage": ["coffee", "ip2location", "ipapi", "proxycheck"]
+          }
+        },
+        {
+          "excluded": ["ip2location"],
+          "score": 85,
+          "kind": "public-service",
+          "limited": true,
+          "evidence": {
+            "reputation": ["coffee", "scamalytics", "proxycheck"],
+            "anonymity": ["coffee", "ipinfo", "ipapi", "proxycheck"],
+            "usage": ["coffee", "ipapi", "proxycheck"]
+          }
+        },
+        {
+          "excluded": ["ipapi"],
+          "score": 86,
+          "kind": "public-service",
+          "limited": true,
+          "evidence": {
+            "reputation": ["coffee", "scamalytics", "proxycheck", "ip2location"],
+            "anonymity": ["coffee", "ipinfo", "proxycheck"],
+            "usage": ["coffee", "ip2location", "proxycheck"]
+          }
+        },
+        {
+          "excluded": ["scamalytics"],
+          "score": 85,
+          "kind": "public-service",
+          "limited": true,
+          "evidence": {
+            "reputation": ["coffee", "proxycheck", "ip2location"],
+            "anonymity": ["coffee", "ipinfo", "ipapi", "proxycheck"],
+            "usage": ["coffee", "ip2location", "ipapi", "proxycheck"]
+          }
+        },
+        {
+          "excluded": ["proxycheck"],
+          "score": 85,
+          "kind": "public-service",
+          "limited": true,
+          "evidence": {
+            "reputation": ["coffee", "scamalytics", "ip2location"],
+            "anonymity": ["coffee", "ipinfo", "ipapi"],
+            "usage": ["coffee", "ip2location", "ipapi"]
+          }
+        },
+        {
+          "excluded": ["ipinfo", "ip2location", "scamalytics"],
+          "score": 84,
+          "kind": "public-service",
+          "limited": true,
+          "evidence": {
+            "reputation": ["coffee", "proxycheck"],
+            "anonymity": ["coffee", "ipapi", "proxycheck"],
+            "usage": ["coffee", "ipapi", "proxycheck"]
+          }
+        }
+      ],
+      "worstOmission": {
+        "excluded": ["coffee"],
+        "score": 60,
+        "kind": "disputed",
+        "limited": true,
+        "evidence": {
+          "reputation": ["scamalytics", "proxycheck", "ip2location"],
+          "anonymity": ["ipinfo", "ipapi", "proxycheck"],
+          "usage": ["ip2location", "ipapi", "proxycheck"]
+        }
+      },
+      "maxOmissionShift": 26
+    },
+    {
+      "id": "2001_4860_4860__8888",
+      "ip": "2001:4860:4860::8888",
+      "collectedAt": "2026-09-18T16:54:52.352Z",
+      "score": 82,
+      "kind": "public-service",
+      "limited": true,
+      "evidence": {
+        "reputation": ["coffee", "scamalytics", "proxycheck", "ip2location"],
+        "anonymity": ["coffee", "ipinfo", "ipapi", "proxycheck"],
+        "usage": ["coffee", "ip2location", "ipapi", "proxycheck"]
+      },
+      "label": {
+        "id": "google-public-dns-v6-primary",
+        "ip": "2001:4860:4860::8888",
+        "group": "google",
+        "expectedKind": "public-service",
+        "scope": "usage",
+        "confidence": "official",
+        "observedAt": "2026-09-18T16:52:12Z",
+        "source": {
+          "url": "https://developers.google.com/speed/public-dns/docs/using",
+          "excerpt": "Google Public DNS lists 2001:4860:4860::8888 as an IPv6 address.",
+          "fetchedAt": "2026-09-18T16:52:12Z"
+        }
+      },
+      "labelStatus": "compared",
+      "agreement": true,
+      "scoreBreakdown": {
+        "reputation": 78.49999999999999,
+        "anonymity": 92,
+        "usage": 70,
+        "freshnessDays": null,
+        "cap": 100,
+        "uncapped": 81.52499999999999
+      },
+      "sensitivity": {
+        "min": 80,
+        "max": 83,
+        "candidates": [
+          {
+            "weights": {
+              "reputation": 0.35,
+              "anonymity": 0.44999999999999996,
+              "usage": 0.2
+            },
+            "score": 83
+          },
+          {
+            "weights": {
+              "reputation": 0.4,
+              "anonymity": 0.39999999999999997,
+              "usage": 0.2
+            },
+            "score": 82
+          },
+          {
+            "weights": {
+              "reputation": 0.45,
+              "anonymity": 0.35,
+              "usage": 0.2
+            },
+            "score": 82
+          },
+          {
+            "weights": {
+              "reputation": 0.5,
+              "anonymity": 0.3,
+              "usage": 0.2
+            },
+            "score": 81
+          },
+          {
+            "weights": {
+              "reputation": 0.55,
+              "anonymity": 0.24999999999999997,
+              "usage": 0.2
+            },
+            "score": 80
+          }
+        ]
+      },
+      "omissions": [
+        {
+          "excluded": ["coffee"],
+          "score": 60,
+          "kind": "disputed",
+          "limited": true,
+          "evidence": {
+            "reputation": ["scamalytics", "proxycheck", "ip2location"],
+            "anonymity": ["ipinfo", "ipapi", "proxycheck"],
+            "usage": ["ip2location", "ipapi", "proxycheck"]
+          }
+        },
+        {
+          "excluded": ["ipinfo"],
+          "score": 82,
+          "kind": "public-service",
+          "limited": true,
+          "evidence": {
+            "reputation": ["coffee", "scamalytics", "proxycheck", "ip2location"],
+            "anonymity": ["coffee", "ipapi", "proxycheck"],
+            "usage": ["coffee", "ip2location", "ipapi", "proxycheck"]
+          }
+        },
+        {
+          "excluded": ["ip2location"],
+          "score": 81,
+          "kind": "public-service",
+          "limited": true,
+          "evidence": {
+            "reputation": ["coffee", "scamalytics", "proxycheck"],
+            "anonymity": ["coffee", "ipinfo", "ipapi", "proxycheck"],
+            "usage": ["coffee", "ipapi", "proxycheck"]
+          }
+        },
+        {
+          "excluded": ["ipapi"],
+          "score": 82,
+          "kind": "public-service",
+          "limited": true,
+          "evidence": {
+            "reputation": ["coffee", "scamalytics", "proxycheck", "ip2location"],
+            "anonymity": ["coffee", "ipinfo", "proxycheck"],
+            "usage": ["coffee", "ip2location", "proxycheck"]
+          }
+        },
+        {
+          "excluded": ["scamalytics"],
+          "score": 79,
+          "kind": "public-service",
+          "limited": true,
+          "evidence": {
+            "reputation": ["coffee", "proxycheck", "ip2location"],
+            "anonymity": ["coffee", "ipinfo", "ipapi", "proxycheck"],
+            "usage": ["coffee", "ip2location", "ipapi", "proxycheck"]
+          }
+        },
+        {
+          "excluded": ["proxycheck"],
+          "score": 80,
+          "kind": "public-service",
+          "limited": true,
+          "evidence": {
+            "reputation": ["coffee", "scamalytics", "ip2location"],
+            "anonymity": ["coffee", "ipinfo", "ipapi"],
+            "usage": ["coffee", "ip2location", "ipapi"]
+          }
+        },
+        {
+          "excluded": ["ipinfo", "ip2location", "scamalytics"],
+          "score": 77,
+          "kind": "public-service",
+          "limited": true,
+          "evidence": {
+            "reputation": ["coffee", "proxycheck"],
+            "anonymity": ["coffee", "ipapi", "proxycheck"],
+            "usage": ["coffee", "ipapi", "proxycheck"]
+          }
+        }
+      ],
+      "worstOmission": {
+        "excluded": ["coffee"],
+        "score": 60,
+        "kind": "disputed",
+        "limited": true,
+        "evidence": {
+          "reputation": ["scamalytics", "proxycheck", "ip2location"],
+          "anonymity": ["ipinfo", "ipapi", "proxycheck"],
+          "usage": ["ip2location", "ipapi", "proxycheck"]
+        }
+      },
+      "maxOmissionShift": 22
+    },
+    {
+      "id": "9.9.9.9",
+      "ip": "9.9.9.9",
+      "collectedAt": "2026-09-18T16:54:54.143Z",
+      "score": 85,
+      "kind": "public-service",
+      "limited": true,
+      "evidence": {
+        "reputation": ["coffee", "scamalytics", "proxycheck", "ip2location"],
+        "anonymity": ["coffee", "ipinfo", "ipapi", "proxycheck"],
+        "usage": ["coffee", "ip2location", "ipapi", "proxycheck"]
+      },
+      "label": {
+        "id": "quad9-public-dns-v4-primary",
+        "ip": "9.9.9.9",
+        "group": "quad9",
+        "expectedKind": "public-service",
+        "scope": "usage",
+        "confidence": "official",
+        "observedAt": "2026-09-18T16:52:12Z",
+        "source": {
+          "url": "https://quad9.net/service/service-addresses-and-features/",
+          "excerpt": "Quad9 lists 9.9.9.9 under its recommended recursive DNS service.",
+          "fetchedAt": "2026-09-18T16:52:12Z"
+        }
+      },
+      "labelStatus": "compared",
+      "agreement": true,
+      "scoreBreakdown": {
+        "reputation": 85.625,
+        "anonymity": 92,
+        "usage": 70,
+        "freshnessDays": 3291,
+        "prefixRegisteredAt": "2017-09-13T18:00:44.000Z",
+        "cap": 100,
+        "uncapped": 84.73124999999999
+      },
+      "sensitivity": {
+        "min": 84,
+        "max": 85,
+        "candidates": [
+          {
+            "weights": {
+              "reputation": 0.35,
+              "anonymity": 0.44999999999999996,
+              "usage": 0.2
+            },
+            "score": 85
+          },
+          {
+            "weights": {
+              "reputation": 0.4,
+              "anonymity": 0.39999999999999997,
+              "usage": 0.2
+            },
+            "score": 85
+          },
+          {
+            "weights": {
+              "reputation": 0.45,
+              "anonymity": 0.35,
+              "usage": 0.2
+            },
+            "score": 85
+          },
+          {
+            "weights": {
+              "reputation": 0.5,
+              "anonymity": 0.3,
+              "usage": 0.2
+            },
+            "score": 84
+          },
+          {
+            "weights": {
+              "reputation": 0.55,
+              "anonymity": 0.24999999999999997,
+              "usage": 0.2
+            },
+            "score": 84
+          }
+        ]
+      },
+      "omissions": [
+        {
+          "excluded": ["coffee"],
+          "score": 60,
+          "kind": "disputed",
+          "limited": true,
+          "evidence": {
+            "reputation": ["scamalytics", "proxycheck", "ip2location"],
+            "anonymity": ["ipinfo", "ipapi", "proxycheck"],
+            "usage": ["ip2location", "ipapi", "proxycheck"]
+          }
+        },
+        {
+          "excluded": ["ipinfo"],
+          "score": 85,
+          "kind": "public-service",
+          "limited": true,
+          "evidence": {
+            "reputation": ["coffee", "scamalytics", "proxycheck", "ip2location"],
+            "anonymity": ["coffee", "ipapi", "proxycheck"],
+            "usage": ["coffee", "ip2location", "ipapi", "proxycheck"]
+          }
+        },
+        {
+          "excluded": ["ip2location"],
+          "score": 84,
+          "kind": "public-service",
+          "limited": true,
+          "evidence": {
+            "reputation": ["coffee", "scamalytics", "proxycheck"],
+            "anonymity": ["coffee", "ipinfo", "ipapi", "proxycheck"],
+            "usage": ["coffee", "ipapi", "proxycheck"]
+          }
+        },
+        {
+          "excluded": ["ipapi"],
+          "score": 85,
+          "kind": "public-service",
+          "limited": true,
+          "evidence": {
+            "reputation": ["coffee", "scamalytics", "proxycheck", "ip2location"],
+            "anonymity": ["coffee", "ipinfo", "proxycheck"],
+            "usage": ["coffee", "ip2location", "proxycheck"]
+          }
+        },
+        {
+          "excluded": ["scamalytics"],
+          "score": 83,
+          "kind": "public-service",
+          "limited": true,
+          "evidence": {
+            "reputation": ["coffee", "proxycheck", "ip2location"],
+            "anonymity": ["coffee", "ipinfo", "ipapi", "proxycheck"],
+            "usage": ["coffee", "ip2location", "ipapi", "proxycheck"]
+          }
+        },
+        {
+          "excluded": ["proxycheck"],
+          "score": 84,
+          "kind": "public-service",
+          "limited": true,
+          "evidence": {
+            "reputation": ["coffee", "scamalytics", "ip2location"],
+            "anonymity": ["coffee", "ipinfo", "ipapi"],
+            "usage": ["coffee", "ip2location", "ipapi"]
+          }
+        },
+        {
+          "excluded": ["ipinfo", "ip2location", "scamalytics"],
+          "score": 83,
+          "kind": "public-service",
+          "limited": true,
+          "evidence": {
+            "reputation": ["coffee", "proxycheck"],
+            "anonymity": ["coffee", "ipapi", "proxycheck"],
+            "usage": ["coffee", "ipapi", "proxycheck"]
+          }
+        }
+      ],
+      "worstOmission": {
+        "excluded": ["coffee"],
+        "score": 60,
+        "kind": "disputed",
+        "limited": true,
+        "evidence": {
+          "reputation": ["scamalytics", "proxycheck", "ip2location"],
+          "anonymity": ["ipinfo", "ipapi", "proxycheck"],
+          "usage": ["ip2location", "ipapi", "proxycheck"]
+        }
+      },
+      "maxOmissionShift": 25
+    },
+    {
+      "id": "149.112.112.112",
+      "ip": "149.112.112.112",
+      "collectedAt": "2026-09-18T16:54:55.054Z",
+      "score": 81,
+      "kind": "public-service",
+      "limited": true,
+      "evidence": {
+        "reputation": ["coffee", "scamalytics", "proxycheck", "ip2location"],
+        "anonymity": ["coffee", "ipinfo", "ipapi", "proxycheck"],
+        "usage": ["coffee", "ip2location", "ipapi", "proxycheck"]
+      },
+      "label": {
+        "id": "quad9-public-dns-v4-secondary",
+        "ip": "149.112.112.112",
+        "group": "quad9",
+        "expectedKind": "public-service",
+        "scope": "usage",
+        "confidence": "official",
+        "observedAt": "2026-09-18T16:52:12Z",
+        "source": {
+          "url": "https://quad9.net/service/service-addresses-and-features/",
+          "excerpt": "Quad9 lists 149.112.112.112 under its recommended recursive DNS service.",
+          "fetchedAt": "2026-09-18T16:52:12Z"
+        }
+      },
+      "labelStatus": "compared",
+      "agreement": true,
+      "scoreBreakdown": {
+        "reputation": 76.62499999999999,
+        "anonymity": 92,
+        "usage": 70,
+        "freshnessDays": 3699,
+        "prefixRegisteredAt": "2016-08-02T15:18:25.000Z",
+        "cap": 100,
+        "uncapped": 80.68124999999999
+      },
+      "sensitivity": {
+        "min": 79,
+        "max": 82,
+        "candidates": [
+          {
+            "weights": {
+              "reputation": 0.35,
+              "anonymity": 0.44999999999999996,
+              "usage": 0.2
+            },
+            "score": 82
+          },
+          {
+            "weights": {
+              "reputation": 0.4,
+              "anonymity": 0.39999999999999997,
+              "usage": 0.2
+            },
+            "score": 81
+          },
+          {
+            "weights": {
+              "reputation": 0.45,
+              "anonymity": 0.35,
+              "usage": 0.2
+            },
+            "score": 81
+          },
+          {
+            "weights": {
+              "reputation": 0.5,
+              "anonymity": 0.3,
+              "usage": 0.2
+            },
+            "score": 80
+          },
+          {
+            "weights": {
+              "reputation": 0.55,
+              "anonymity": 0.24999999999999997,
+              "usage": 0.2
+            },
+            "score": 79
+          }
+        ]
+      },
+      "omissions": [
+        {
+          "excluded": ["coffee"],
+          "score": 60,
+          "kind": "disputed",
+          "limited": true,
+          "evidence": {
+            "reputation": ["scamalytics", "proxycheck", "ip2location"],
+            "anonymity": ["ipinfo", "ipapi", "proxycheck"],
+            "usage": ["ip2location", "ipapi", "proxycheck"]
+          }
+        },
+        {
+          "excluded": ["ipinfo"],
+          "score": 81,
+          "kind": "public-service",
+          "limited": true,
+          "evidence": {
+            "reputation": ["coffee", "scamalytics", "proxycheck", "ip2location"],
+            "anonymity": ["coffee", "ipapi", "proxycheck"],
+            "usage": ["coffee", "ip2location", "ipapi", "proxycheck"]
+          }
+        },
+        {
+          "excluded": ["ip2location"],
+          "score": 80,
+          "kind": "public-service",
+          "limited": true,
+          "evidence": {
+            "reputation": ["coffee", "scamalytics", "proxycheck"],
+            "anonymity": ["coffee", "ipinfo", "ipapi", "proxycheck"],
+            "usage": ["coffee", "ipapi", "proxycheck"]
+          }
+        },
+        {
+          "excluded": ["ipapi"],
+          "score": 81,
+          "kind": "public-service",
+          "limited": true,
+          "evidence": {
+            "reputation": ["coffee", "scamalytics", "proxycheck", "ip2location"],
+            "anonymity": ["coffee", "ipinfo", "proxycheck"],
+            "usage": ["coffee", "ip2location", "proxycheck"]
+          }
+        },
+        {
+          "excluded": ["scamalytics"],
+          "score": 78,
+          "kind": "public-service",
+          "limited": true,
+          "evidence": {
+            "reputation": ["coffee", "proxycheck", "ip2location"],
+            "anonymity": ["coffee", "ipinfo", "ipapi", "proxycheck"],
+            "usage": ["coffee", "ip2location", "ipapi", "proxycheck"]
+          }
+        },
+        {
+          "excluded": ["proxycheck"],
+          "score": 79,
+          "kind": "public-service",
+          "limited": true,
+          "evidence": {
+            "reputation": ["coffee", "scamalytics", "ip2location"],
+            "anonymity": ["coffee", "ipinfo", "ipapi"],
+            "usage": ["coffee", "ip2location", "ipapi"]
+          }
+        },
+        {
+          "excluded": ["ipinfo", "ip2location", "scamalytics"],
+          "score": 75,
+          "kind": "public-service",
+          "limited": true,
+          "evidence": {
+            "reputation": ["coffee", "proxycheck"],
+            "anonymity": ["coffee", "ipapi", "proxycheck"],
+            "usage": ["coffee", "ipapi", "proxycheck"]
+          }
+        }
+      ],
+      "worstOmission": {
+        "excluded": ["coffee"],
+        "score": 60,
+        "kind": "disputed",
+        "limited": true,
+        "evidence": {
+          "reputation": ["scamalytics", "proxycheck", "ip2location"],
+          "anonymity": ["ipinfo", "ipapi", "proxycheck"],
+          "usage": ["ip2location", "ipapi", "proxycheck"]
+        }
+      },
+      "maxOmissionShift": 21
+    },
+    {
+      "id": "124.126.3.108",
+      "ip": "124.126.3.108",
+      "collectedAt": "2026-09-18T16:54:56.968Z",
+      "score": 89,
+      "kind": "disputed",
+      "limited": true,
+      "evidence": {
+        "reputation": ["coffee", "scamalytics", "proxycheck", "ip2location"],
+        "anonymity": ["coffee", "ipinfo", "ipapi", "proxycheck"],
+        "usage": ["coffee", "ip2location", "proxycheck"]
+      },
+      "label": null,
+      "labelStatus": "unlabelled",
+      "agreement": null,
+      "scoreBreakdown": {
+        "reputation": 93.87499999999999,
+        "anonymity": 92,
+        "usage": 72,
+        "freshnessDays": 6588,
+        "prefixRegisteredAt": "2008-09-04T07:13:23.000Z",
+        "cap": 100,
+        "uncapped": 88.84375
+      },
+      "sensitivity": {
+        "min": 89,
+        "max": 89,
+        "candidates": [
+          {
+            "weights": {
+              "reputation": 0.35,
+              "anonymity": 0.44999999999999996,
+              "usage": 0.2
+            },
+            "score": 89
+          },
+          {
+            "weights": {
+              "reputation": 0.4,
+              "anonymity": 0.39999999999999997,
+              "usage": 0.2
+            },
+            "score": 89
+          },
+          {
+            "weights": {
+              "reputation": 0.45,
+              "anonymity": 0.35,
+              "usage": 0.2
+            },
+            "score": 89
+          },
+          {
+            "weights": {
+              "reputation": 0.5,
+              "anonymity": 0.3,
+              "usage": 0.2
+            },
+            "score": 89
+          },
+          {
+            "weights": {
+              "reputation": 0.55,
+              "anonymity": 0.24999999999999997,
+              "usage": 0.2
+            },
+            "score": 89
+          }
+        ]
+      },
+      "omissions": [
+        {
+          "excluded": ["coffee"],
+          "score": 89,
+          "kind": "org",
+          "limited": true,
+          "evidence": {
+            "reputation": ["scamalytics", "proxycheck", "ip2location"],
+            "anonymity": ["ipinfo", "ipapi", "proxycheck"],
+            "usage": ["ip2location", "proxycheck"]
+          }
+        },
+        {
+          "excluded": ["ipinfo"],
+          "score": 89,
+          "kind": "disputed",
+          "limited": true,
+          "evidence": {
+            "reputation": ["coffee", "scamalytics", "proxycheck", "ip2location"],
+            "anonymity": ["coffee", "ipapi", "proxycheck"],
+            "usage": ["coffee", "ip2location", "proxycheck"]
+          }
+        },
+        {
+          "excluded": ["ip2location"],
+          "score": 89,
+          "kind": "disputed",
+          "limited": true,
+          "evidence": {
+            "reputation": ["coffee", "scamalytics", "proxycheck"],
+            "anonymity": ["coffee", "ipinfo", "ipapi", "proxycheck"],
+            "usage": ["coffee", "proxycheck"]
+          }
+        },
+        {
+          "excluded": ["ipapi"],
+          "score": 89,
+          "kind": "disputed",
+          "limited": true,
+          "evidence": {
+            "reputation": ["coffee", "scamalytics", "proxycheck", "ip2location"],
+            "anonymity": ["coffee", "ipinfo", "proxycheck"],
+            "usage": ["coffee", "ip2location", "proxycheck"]
+          }
+        },
+        {
+          "excluded": ["scamalytics"],
+          "score": 89,
+          "kind": "disputed",
+          "limited": true,
+          "evidence": {
+            "reputation": ["coffee", "proxycheck", "ip2location"],
+            "anonymity": ["coffee", "ipinfo", "ipapi", "proxycheck"],
+            "usage": ["coffee", "ip2location", "proxycheck"]
+          }
+        },
+        {
+          "excluded": ["proxycheck"],
+          "score": 89,
+          "kind": "disputed",
+          "limited": true,
+          "evidence": {
+            "reputation": ["coffee", "scamalytics", "ip2location"],
+            "anonymity": ["coffee", "ipinfo", "ipapi"],
+            "usage": ["coffee", "ip2location"]
+          }
+        },
+        {
+          "excluded": ["ipinfo", "ip2location", "scamalytics"],
+          "score": 90,
+          "kind": "disputed",
+          "limited": true,
+          "evidence": {
+            "reputation": ["coffee", "proxycheck"],
+            "anonymity": ["coffee", "ipapi", "proxycheck"],
+            "usage": ["coffee", "proxycheck"]
+          }
+        }
+      ],
+      "worstOmission": {
+        "excluded": ["ipinfo", "ip2location", "scamalytics"],
+        "score": 90,
+        "kind": "disputed",
+        "limited": true,
+        "evidence": {
+          "reputation": ["coffee", "proxycheck"],
+          "anonymity": ["coffee", "ipapi", "proxycheck"],
+          "usage": ["coffee", "proxycheck"]
+        }
+      },
+      "maxOmissionShift": 1
+    },
+    {
+      "id": "74.120.253.118",
+      "ip": "74.120.253.118",
+      "collectedAt": "2026-09-18T16:54:57.942Z",
+      "score": 73,
+      "kind": "disputed",
+      "limited": false,
+      "evidence": {
+        "reputation": ["coffee", "scamalytics", "ippure", "proxycheck", "ip2location"],
+        "anonymity": ["coffee", "ipinfo", "ip2location", "ipapi", "proxycheck"],
+        "usage": ["ip2location", "proxycheck"]
+      },
+      "label": null,
+      "labelStatus": "unlabelled",
+      "agreement": null,
+      "scoreBreakdown": {
+        "reputation": 83.3,
+        "anonymity": 50,
+        "usage": 90,
+        "freshnessDays": 43,
+        "prefixRegisteredAt": "2026-08-06T06:36:23.000Z",
+        "cap": 100,
+        "uncapped": 72.985
+      },
+      "sensitivity": {
+        "min": 70,
+        "max": 76,
+        "candidates": [
+          {
+            "weights": {
+              "reputation": 0.35,
+              "anonymity": 0.44999999999999996,
+              "usage": 0.2
+            },
+            "score": 70
+          },
+          {
+            "weights": {
+              "reputation": 0.4,
+              "anonymity": 0.39999999999999997,
+              "usage": 0.2
+            },
+            "score": 71
+          },
+          {
+            "weights": {
+              "reputation": 0.45,
+              "anonymity": 0.35,
+              "usage": 0.2
+            },
+            "score": 73
+          },
+          {
+            "weights": {
+              "reputation": 0.5,
+              "anonymity": 0.3,
+              "usage": 0.2
+            },
+            "score": 75
+          },
+          {
+            "weights": {
+              "reputation": 0.55,
+              "anonymity": 0.24999999999999997,
+              "usage": 0.2
+            },
+            "score": 76
+          }
+        ]
+      },
+      "omissions": [
+        {
+          "excluded": ["coffee"],
+          "score": 73,
+          "kind": "disputed",
+          "limited": true,
+          "evidence": {
+            "reputation": ["scamalytics", "ippure", "proxycheck", "ip2location"],
+            "anonymity": ["ipinfo", "ip2location", "ipapi", "proxycheck"],
+            "usage": ["ip2location", "proxycheck"]
+          }
+        },
+        {
+          "excluded": ["ipinfo"],
+          "score": 73,
+          "kind": "disputed",
+          "limited": true,
+          "evidence": {
+            "reputation": ["coffee", "scamalytics", "ippure", "proxycheck", "ip2location"],
+            "anonymity": ["coffee", "ip2location", "ipapi", "proxycheck"],
+            "usage": ["ip2location", "proxycheck"]
+          }
+        },
+        {
+          "excluded": ["ip2location"],
+          "score": 80,
+          "kind": "disputed",
+          "limited": true,
+          "evidence": {
+            "reputation": ["coffee", "scamalytics", "ippure", "proxycheck"],
+            "anonymity": ["coffee", "ipinfo", "ipapi", "proxycheck"],
+            "usage": ["proxycheck"]
+          }
+        },
+        {
+          "excluded": ["ipapi"],
+          "score": 73,
+          "kind": "disputed",
+          "limited": true,
+          "evidence": {
+            "reputation": ["coffee", "scamalytics", "ippure", "proxycheck", "ip2location"],
+            "anonymity": ["coffee", "ipinfo", "ip2location", "proxycheck"],
+            "usage": ["ip2location", "proxycheck"]
+          }
+        },
+        {
+          "excluded": ["scamalytics"],
+          "score": 72,
+          "kind": "disputed",
+          "limited": true,
+          "evidence": {
+            "reputation": ["coffee", "ippure", "proxycheck", "ip2location"],
+            "anonymity": ["coffee", "ipinfo", "ip2location", "ipapi", "proxycheck"],
+            "usage": ["ip2location", "proxycheck"]
+          }
+        },
+        {
+          "excluded": ["ippure"],
+          "score": 71,
+          "kind": "disputed",
+          "limited": true,
+          "evidence": {
+            "reputation": ["coffee", "scamalytics", "proxycheck", "ip2location"],
+            "anonymity": ["coffee", "ipinfo", "ip2location", "ipapi", "proxycheck"],
+            "usage": ["ip2location", "proxycheck"]
+          }
+        },
+        {
+          "excluded": ["proxycheck"],
+          "score": 70,
+          "kind": "disputed",
+          "limited": true,
+          "evidence": {
+            "reputation": ["coffee", "scamalytics", "ippure", "ip2location"],
+            "anonymity": ["coffee", "ipinfo", "ip2location", "ipapi"],
+            "usage": ["ip2location"]
+          }
+        },
+        {
+          "excluded": ["ipinfo", "ip2location", "scamalytics"],
+          "score": 80,
+          "kind": "disputed",
+          "limited": true,
+          "evidence": {
+            "reputation": ["coffee", "ippure", "proxycheck"],
+            "anonymity": ["coffee", "ipapi", "proxycheck"],
+            "usage": ["proxycheck"]
+          }
+        }
+      ],
+      "worstOmission": {
+        "excluded": ["ip2location"],
+        "score": 80,
+        "kind": "disputed",
+        "limited": true,
+        "evidence": {
+          "reputation": ["coffee", "scamalytics", "ippure", "proxycheck"],
+          "anonymity": ["coffee", "ipinfo", "ipapi", "proxycheck"],
+          "usage": ["proxycheck"]
+        }
+      },
+      "maxOmissionShift": 7
+    }
+  ],
+  "implementationHash": "330b4b90d0203f7653c97848840332e635ea9d61db9d79dd5d9c7c2e0134f849",
+  "inputs": {
+    "samples": "scripts/ip-quality-data/samples.json",
+    "labels": "scripts/ip-quality-data/labels.json",
+    "sha256": "05192d8f61de29799219ad01aa437c2a090ef7356e48aee7dfdb4c6c50a7f743"
+  }
+}

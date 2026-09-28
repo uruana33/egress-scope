@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#1976d2" />
+    <meta name="format-detection" content="telephone=no, date=no, address=no, email=no" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="出口观测台" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+
+    <title>出口IP检测 / WebRTC / DNS / IP质量 · 出口观测台</title>
+    <meta
+      name="description"
+      content="对照国内与海外出口是否按规则走，检查 WebRTC／DNS 泄露，查看 IP 质量分与机房／代理标记。" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="出口观测台" />
+    <meta property="og:title" content="出口IP检测 / WebRTC / DNS / IP质量 · 出口观测台" />
+    <meta
+      property="og:description"
+      content="对照国内与海外出口是否按规则走，检查 WebRTC／DNS 泄露，查看 IP 质量分与机房／代理标记。" />
+    <meta property="og:image" content="/og.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="出口观测台：国内／海外出口对照与 IP 质量" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="出口IP检测 / WebRTC / DNS / IP质量 · 出口观测台" />
+    <meta
+      name="twitter:description"
+      content="对照国内与海外出口是否按规则走，检查 WebRTC／DNS 泄露，查看 IP 质量分与机房／代理标记。" />
+    <meta name="twitter:image" content="/og.png" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <script>
+      // Classic ES5 script: IE cannot execute the application's module bundle.
+      (function () {
+        var root = document.documentElement;
+        // Fallback only: production must also send frame-ancestors / X-Frame-Options.
+        if (window.self !== window.top) {
+          root.className = 'embedded-browser';
+          return;
+        }
+        if (document.documentMode || /MSIE|Trident/.test(navigator.userAgent)) {
+          root.className = 'unsupported-browser';
+          return;
+        }
+        try {
+          var stored = localStorage.getItem('theme');
+          var theme = 'paper';
+          if (stored === 'light') theme = 'paper';
+          else if (stored === 'dark') theme = 'ink';
+          else if (
+            stored === 'paper' ||
+            stored === 'ink' ||
+            stored === 'parchment' ||
+            stored === 'chart' ||
+            stored === 'ember'
+          )
+            theme = stored;
+          else theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'ink' : 'paper';
+          var dark = theme === 'ink' || theme === 'ember';
+          root.setAttribute('data-theme', theme);
+          root.classList.toggle('dark', dark);
+          root.style.colorScheme = dark ? 'dark' : 'light';
+          ['color', 'radius', 'layout', 'font-size'].forEach(function (key) {
+            var value = localStorage.getItem('ui-' + key);
+            if (value && value !== 'default') root.setAttribute('data-' + key, value);
+          });
+        } catch (error) {
+          // Keep the page usable when browser storage is unavailable.
+        }
+      })();
+    </script>
+    <style>
+      html {
+        touch-action: manipulation;
+        -webkit-text-size-adjust: 100%;
+      }
+
+      .embedded-browser body {
+        display: none !important;
+      }
+
+      #unsupported-browser {
+        display: none;
+      }
+
+      .unsupported-browser #root {
+        display: none;
+      }
+
+      .unsupported-browser #unsupported-browser {
+        display: block;
+        max-width: 640px;
+        margin: 80px auto;
+        padding: 24px;
+        font-family: sans-serif;
+        line-height: 1.8;
+        color: #171717;
+        background: #fff;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="unsupported-browser" role="alert">
+      <h1>不支持 Internet Explorer</h1>
+      <p>请使用最新版 Microsoft Edge、Google Chrome、Firefox 或 Safari 访问本站。</p>
+      <a href="https://www.microsoft.com/edge">下载 Microsoft Edge</a>
+    </div>
+    <noscript>请启用 JavaScript，并使用现代浏览器访问本站。</noscript>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

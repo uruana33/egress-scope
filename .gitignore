@@ -1,0 +1,38 @@
+# Dependencies
+node_modules
+
+# Build output
+dist
+dist-ssr
+.wrangler
+worker-configuration.d.ts
+.worker-test
+*.local
+
+# Environment and secrets (never commit)
+.dev.vars
+.dev.vars.*
+.secrets.*.env
+
+# Logs
+logs
+*.log
+*-debug.log*
+lerna-debug.log*
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Local agent/tooling artifacts
+.agents/
+.playwright-mcp/
+.fetch/
+skills-lock.json

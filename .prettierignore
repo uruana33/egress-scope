@@ -1,0 +1,6 @@
+src/i18n/en.json
+src/views/status/services.json
+public/worker/services.json
+src/views/ping/nodes.json
+public/worker/nodes.json
+src/views/home/sites.json

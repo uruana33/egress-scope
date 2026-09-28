@@ -1,0 +1,140 @@
+{
+  "schemaVersion": 1,
+  "dataset": "ip-quality-calibration-public-service",
+  "generatedAt": "2026-09-18T16:52:12Z",
+  "labelPolicy": {
+    "positiveMeaning": "官方文档明确把该地址列为公共 DNS 服务端点",
+    "unknownMeaning": "未出现在本文件中的 IP 保持 unknown，不产生负向标签",
+    "notInferred": [
+      "residential",
+      "enterprise",
+      "hosting",
+      "safe",
+      "non-proxy",
+      "non-vpn",
+      "non-tor"
+    ]
+  },
+  "labels": [
+    {
+      "id": "cloudflare-public-dns-v4-primary",
+      "ip": "1.1.1.1",
+      "family": "public-dns",
+      "group": "cloudflare",
+      "expectedKind": "public-service",
+      "scope": "usage",
+      "confidence": "official",
+      "observedAt": "2026-09-18T16:52:12Z",
+      "source": {
+        "url": "https://developers.cloudflare.com/1.1.1.1/ip-addresses/",
+        "excerpt": "Cloudflare documents 1.1.1.1 as a standard resolver address.",
+        "fetchedAt": "2026-09-18T16:52:12Z"
+      }
+    },
+    {
+      "id": "cloudflare-public-dns-v4-secondary",
+      "ip": "1.0.0.1",
+      "family": "public-dns",
+      "group": "cloudflare",
+      "expectedKind": "public-service",
+      "scope": "usage",
+      "confidence": "official",
+      "observedAt": "2026-09-18T16:52:12Z",
+      "source": {
+        "url": "https://developers.cloudflare.com/1.1.1.1/ip-addresses/",
+        "excerpt": "Cloudflare lists 1.0.0.1 as the second IPv4 address for its standard resolver.",
+        "fetchedAt": "2026-09-18T16:52:12Z"
+      }
+    },
+    {
+      "id": "cloudflare-public-dns-v6-primary",
+      "ip": "2606:4700:4700::1111",
+      "family": "public-dns",
+      "group": "cloudflare",
+      "expectedKind": "public-service",
+      "scope": "usage",
+      "confidence": "official",
+      "observedAt": "2026-09-18T16:52:12Z",
+      "source": {
+        "url": "https://developers.cloudflare.com/1.1.1.1/ip-addresses/",
+        "excerpt": "Cloudflare lists 2606:4700:4700::1111 as an IPv6 address for the standard resolver.",
+        "fetchedAt": "2026-09-18T16:52:12Z"
+      }
+    },
+    {
+      "id": "google-public-dns-v4-primary",
+      "ip": "8.8.8.8",
+      "family": "public-dns",
+      "group": "google",
+      "expectedKind": "public-service",
+      "scope": "usage",
+      "confidence": "official",
+      "observedAt": "2026-09-18T16:52:12Z",
+      "source": {
+        "url": "https://developers.google.com/speed/public-dns/docs/using",
+        "excerpt": "Google Public DNS lists 8.8.8.8 as one of its IPv4 addresses.",
+        "fetchedAt": "2026-09-18T16:52:12Z"
+      }
+    },
+    {
+      "id": "google-public-dns-v4-secondary",
+      "ip": "8.8.4.4",
+      "family": "public-dns",
+      "group": "google",
+      "expectedKind": "public-service",
+      "scope": "usage",
+      "confidence": "official",
+      "observedAt": "2026-09-18T16:52:12Z",
+      "source": {
+        "url": "https://developers.google.com/speed/public-dns/docs/using",
+        "excerpt": "Google Public DNS lists 8.8.4.4 as one of its IPv4 addresses.",
+        "fetchedAt": "2026-09-18T16:52:12Z"
+      }
+    },
+    {
+      "id": "google-public-dns-v6-primary",
+      "ip": "2001:4860:4860::8888",
+      "family": "public-dns",
+      "group": "google",
+      "expectedKind": "public-service",
+      "scope": "usage",
+      "confidence": "official",
+      "observedAt": "2026-09-18T16:52:12Z",
+      "source": {
+        "url": "https://developers.google.com/speed/public-dns/docs/using",
+        "excerpt": "Google Public DNS lists 2001:4860:4860::8888 as an IPv6 address.",
+        "fetchedAt": "2026-09-18T16:52:12Z"
+      }
+    },
+    {
+      "id": "quad9-public-dns-v4-primary",
+      "ip": "9.9.9.9",
+      "family": "public-dns",
+      "group": "quad9",
+      "expectedKind": "public-service",
+      "scope": "usage",
+      "confidence": "official",
+      "observedAt": "2026-09-18T16:52:12Z",
+      "source": {
+        "url": "https://quad9.net/service/service-addresses-and-features/",
+        "excerpt": "Quad9 lists 9.9.9.9 under its recommended recursive DNS service.",
+        "fetchedAt": "2026-09-18T16:52:12Z"
+      }
+    },
+    {
+      "id": "quad9-public-dns-v4-secondary",
+      "ip": "149.112.112.112",
+      "family": "public-dns",
+      "group": "quad9",
+      "expectedKind": "public-service",
+      "scope": "usage",
+      "confidence": "official",
+      "observedAt": "2026-09-18T16:52:12Z",
+      "source": {
+        "url": "https://quad9.net/service/service-addresses-and-features/",
+        "excerpt": "Quad9 lists 149.112.112.112 under its recommended recursive DNS service.",
+        "fetchedAt": "2026-09-18T16:52:12Z"
+      }
+    }
+  ]
+}

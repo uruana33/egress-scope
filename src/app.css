@@ -1,0 +1,16 @@
+/*
+ * Stylesheet entry. Layers load in cascade order; later layers
+ * may override earlier ones, so only append at the end of a layer file
+ * or add a later layer. Keep declarations flat (no nesting) so the
+ * cascade stays auditable.
+ */
+@import './index.css';
+@import './styles/theme.css'; /* color/surface tokens, body background */
+@import './styles/core.css'; /* container, nav, tables, shared primitives */
+@import './styles/dashboard.css'; /* home page, shortcuts, nav passes */
+@import './styles/pages.css'; /* ip dossier, service status, maps, api blocks */
+@import './styles/deck.css'; /* final command-deck unification pass */
+@import './styles/shell.css'; /* layout skeleton v2: sidebar, page headers, bento */
+@import './styles/motion.css'; /* motion choreography: route entrances, unified hover lift */
+@import './styles/folio.css'; /* address-lookup folio: one document after a query */
+@import './styles/scenario.css'; /* scenario panel, BGP graph, profile leftovers */

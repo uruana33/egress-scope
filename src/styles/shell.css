@@ -1,0 +1,102 @@
+/*
+ * Layout skeleton v2 — final layer.
+ * Visible page headers, left sticky tool sidebar on wide screens,
+ * bento pairing on the home page, and the canonical two card variants
+ * (surface = .cyber-card/.tool-card, feature = .cyber-cockpit-card).
+ */
+
+:root {
+  --shell-max: 1360px;
+}
+
+/* ---------- visible page header ---------- */
+.page-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  margin: 4px 0 20px;
+}
+.page-header-text {
+  min-width: 0;
+}
+.page-header h1 {
+  margin: 0;
+  font-size: 1.375rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+}
+.page-header p {
+  margin: 5px 0 0;
+  color: var(--muted-foreground);
+  font-size: 0.85rem;
+  line-height: 1.6;
+  max-width: 64ch;
+}
+@media (max-width: 48rem) {
+  .page-header {
+    margin-bottom: 14px;
+  }
+  .page-header h1 {
+    font-size: 1.2rem;
+  }
+}
+
+/* ---------- tool pages: one horizontal subnav strip on every screen ---------- */
+.tool-content {
+  min-width: 0;
+}
+/* Mid widths: keep the subnav a single scrollable row instead of wrapping. */
+@media (min-width: 48.001rem) and (max-width: 63.999rem) {
+  .tool-subnav {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .tool-subnav a {
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
+}
+
+/* ---------- home bento pairing ---------- */
+.home-bento-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 14px;
+  align-items: start;
+}
+@media (min-width: 64rem) {
+  .home-bento-row {
+    grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+  }
+  /* Inside the bento cell the platform summary stacks its two cards so
+     its tiles keep full cell width instead of truncating names. */
+  .home-bento-row > :first-child {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* ---------- canonical card variants ---------- */
+/* Surface: default content card. Feature: hero/emphasis card with accent line. */
+.app-container [data-slot='card']:is(.cyber-card, .tool-card),
+.cyber-card {
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-xl);
+  box-shadow: 0 14px 30px -26px rgba(2, 132, 199, 0.55);
+}
+.app-container [data-slot='card'].cyber-cockpit-card,
+.cyber-cockpit-card {
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-2xl);
+  box-shadow: 0 18px 34px -30px rgba(2, 132, 199, 0.9);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .tool-subnav a {
+    transition:
+      color 180ms ease,
+      background-color 180ms ease,
+      border-color 180ms ease;
+  }
+}

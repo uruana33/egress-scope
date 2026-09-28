@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28">
+  <title>出口观测台</title>
+  <defs>
+    <linearGradient id="tile" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#2563eb" />
+      <stop offset="100%" stop-color="#0ea5e9" />
+    </linearGradient>
+    <linearGradient id="sheen" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fff" stop-opacity="0.18" />
+      <stop offset="48%" stop-color="#fff" stop-opacity="0" />
+    </linearGradient>
+  </defs>
+  <rect width="28" height="28" rx="8" fill="url(#tile)" />
+  <rect width="28" height="28" rx="8" fill="url(#sheen)" />
+  <g fill="none" stroke="#fff" stroke-width="1.85" stroke-linecap="round" opacity="0.92">
+    <path d="M 7.4 14 C 11.8 14, 11.8 8.3, 16.6 8.3" />
+    <path d="M 7.4 14 C 11.8 14, 11.8 19.7, 16.6 19.7" />
+  </g>
+  <circle cx="6.3" cy="14" r="2.2" fill="#fff" />
+  <circle cx="20.7" cy="8.3" r="2.2" fill="#fff" />
+  <circle cx="20.7" cy="19.7" r="2.2" fill="#bae6fd" />
+</svg>

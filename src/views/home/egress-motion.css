@@ -1,0 +1,277 @@
+/* Decorative probe activity. Timing is identical across routes, not a speed metric. */
+.home-route-track,
+.home-route-stream,
+.home-route-packet,
+.home-route-glow {
+  fill: none;
+  stroke: var(--route-color);
+  stroke-linecap: round;
+  pointer-events: none;
+}
+.home-route-glow {
+  stroke: var(--route-stroke, var(--route-color));
+  stroke-width: 7;
+  opacity: 0.13;
+}
+.home-route-track {
+  stroke: var(--route-stroke, var(--route-color));
+  stroke-width: 1.5;
+  opacity: 0.4;
+  stroke-dasharray: 100;
+}
+.home-route-stream {
+  stroke: var(--route-stroke, var(--route-color));
+  stroke-width: 2;
+  stroke-dasharray: 2 5;
+  opacity: 0.6;
+}
+.home-route-packet {
+  stroke-width: 5;
+  stroke-dasharray: 0.6 99.4;
+  opacity: 0;
+}
+.home-route-packet-tail {
+  stroke-width: 2.5;
+  stroke-dasharray: 5 95;
+}
+.home-route-packet-secondary {
+  stroke-width: 3;
+}
+.home-route-ring {
+  fill: none;
+  stroke: var(--route-color);
+  stroke-width: 1;
+  opacity: 0.25;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+.home-route-node {
+  fill: var(--route-color);
+}
+.home-device-ring {
+  fill: none;
+  stroke: var(--primary);
+  stroke-width: 1;
+  opacity: 0.25;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+.home-route[data-state='unavailable'] {
+  opacity: 0.35;
+}
+.home-route[data-state='unavailable'] .home-route-stream {
+  stroke-dasharray: 1 2;
+}
+.home-route[data-state='pending'] .home-route-node {
+  opacity: 0.5;
+}
+.home-route-mobile {
+  position: relative;
+  min-height: 34px;
+  padding-bottom: 8px;
+}
+.home-route-mobile-track {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 1px;
+  background: color-mix(in srgb, var(--route-color) 22%, transparent);
+  overflow: hidden;
+}
+.home-route-mobile-track > span {
+  display: block;
+  width: 28%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, var(--route-color));
+  opacity: 0;
+}
+.home-device-mobile {
+  position: relative;
+  display: inline-flex;
+}
+.home-device-mobile::before {
+  content: '';
+  position: absolute;
+  inset: -5px;
+  border: 1px solid var(--primary);
+  border-radius: 50%;
+  opacity: 0.2;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .app-container main > .home-page {
+    animation-duration: 420ms;
+  }
+  .home-egress-card {
+    animation: deck-card-in 420ms var(--ease-enter) both;
+  }
+  .home-egress-card:nth-child(2) {
+    animation-delay: 70ms;
+  }
+  /* One-shot: trace each route on load, then hand off to the loops. */
+  .home-route .home-route-track {
+    animation: home-route-draw 900ms cubic-bezier(0.19, 1, 0.22, 1) 220ms both;
+  }
+  .home-route ~ .home-route .home-route-track {
+    animation-delay: 340ms;
+  }
+  .home-route .home-route-glow {
+    animation: home-fade-in 700ms ease-out 500ms both;
+  }
+  .home-capsule {
+    animation: home-fade-in 480ms var(--ease-enter) 520ms both;
+  }
+  .home-capsule ~ .home-capsule {
+    animation-delay: 620ms;
+  }
+  .home-route[data-state='observed'] .home-route-stream {
+    animation:
+      home-route-flow 2.8s linear infinite,
+      home-fade-in 600ms ease-out 950ms both;
+    animation-delay: var(--route-delay), 950ms;
+  }
+  .home-route[data-state='observed'] .home-route-packet {
+    animation: home-route-packet 2.8s linear infinite;
+    animation-delay: var(--route-delay);
+  }
+  .home-route[data-state='observed'] .home-route-packet-tail {
+    animation-name: home-route-packet-tail;
+  }
+  .home-route[data-state='observed'] .home-route-packet-secondary {
+    animation-delay: calc(var(--route-delay) - 1.4s);
+  }
+  .home-route[data-state='observed'] .home-route-ring,
+  .home-device-ring,
+  .home-device-mobile::before {
+    animation: home-route-pulse 2.8s ease-out infinite;
+    animation-delay: var(--route-delay, 0s);
+  }
+  .home-route[data-state='observed'] .home-route-ring-late {
+    animation-delay: calc(var(--route-delay, 0s) - 1.4s);
+  }
+  .home-fork-ring {
+    animation: home-route-pulse 2.8s ease-out infinite;
+  }
+  .home-route[data-state='pending'] .home-route-stream {
+    animation: home-route-pending 1.6s ease-in-out infinite;
+  }
+  .home-route-mobile[data-state='observed'] .home-route-mobile-track > span {
+    animation: home-mobile-packet 2.8s linear infinite;
+    animation-delay: var(--route-delay);
+  }
+  .home-route-mobile[data-state='pending'] .home-route-mobile-track {
+    animation: home-route-pending 1.6s ease-in-out infinite;
+  }
+}
+
+/* Avoid animating a hidden diagram, hidden responsive variant, or inactive tab. */
+.home-egress-diagram[data-live='false'] *,
+.home-egress-diagram[data-live='false'] *::before {
+  animation-play-state: paused !important;
+}
+@media (min-width: 640px) {
+  .home-route-mobile-track > span,
+  .home-device-mobile::before {
+    animation: none !important;
+  }
+}
+@media (max-width: 639px) {
+  .home-egress-diagram svg .home-route *,
+  .home-device-ring {
+    animation: none !important;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .home-egress-diagram *,
+  .home-egress-diagram *::before,
+  .home-egress-card {
+    animation: none !important;
+  }
+  .home-route-packet,
+  .home-route-mobile-track > span {
+    display: none;
+  }
+}
+
+@keyframes home-route-flow {
+  to {
+    stroke-dashoffset: -14;
+  }
+}
+@keyframes home-route-draw {
+  from {
+    stroke-dashoffset: 100;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes home-fade-in {
+  from {
+    opacity: 0;
+  }
+}
+@keyframes home-route-packet {
+  0% {
+    stroke-dashoffset: 0;
+    opacity: 0;
+  }
+  8% {
+    opacity: 1;
+  }
+  86% {
+    opacity: 1;
+  }
+  100% {
+    stroke-dashoffset: -100;
+    opacity: 0;
+  }
+}
+/* Comet tail: rides 0.6 path-units behind the head packet. */
+@keyframes home-route-packet-tail {
+  0% {
+    stroke-dashoffset: -0.6;
+    opacity: 0;
+  }
+  8% {
+    opacity: 0.45;
+  }
+  86% {
+    opacity: 0.45;
+  }
+  100% {
+    stroke-dashoffset: -100.6;
+    opacity: 0;
+  }
+}
+@keyframes home-route-pulse {
+  0% {
+    transform: scale(0.85);
+    opacity: 0.55;
+  }
+  80%,
+  100% {
+    transform: scale(1.45);
+    opacity: 0;
+  }
+}
+@keyframes home-route-pending {
+  50% {
+    opacity: 0.2;
+  }
+}
+@keyframes home-mobile-packet {
+  from {
+    transform: translateX(-110%);
+    opacity: 0;
+  }
+  12%,
+  80% {
+    opacity: 1;
+  }
+  to {
+    transform: translateX(470%);
+    opacity: 0;
+  }
+}

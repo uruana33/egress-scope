@@ -1,0 +1,241 @@
+/*
+ * Motion choreography — final layer.
+ * Route-level entrances, sidebar micro-interactions, and staggered
+ * module grids. Cards do not lift on hover. Everything references the
+ * shared --ease-* tokens. prefers-reduced-motion keeps color, drops transform.
+ */
+
+@media (prefers-reduced-motion: no-preference) {
+  /* Page roots remount on every navigation (keyed route boundary),
+     so this replays as a route transition. */
+  .app-container main > * {
+    animation: deck-enter 180ms var(--ease-enter) both;
+  }
+
+  /* Module overview grids stagger their cards. */
+  .module-overview .grid > * {
+    animation: deck-card-in 180ms var(--ease-enter) both;
+  }
+  .module-overview .grid > *:nth-child(2) {
+    animation-delay: 45ms;
+  }
+  .module-overview .grid > *:nth-child(3) {
+    animation-delay: 90ms;
+  }
+  .module-overview .grid > *:nth-child(4) {
+    animation-delay: 135ms;
+  }
+  .module-overview .grid > *:nth-child(5) {
+    animation-delay: 180ms;
+  }
+  .module-overview .grid > *:nth-child(6) {
+    animation-delay: 225ms;
+  }
+
+  .lookup-guide-item {
+    animation: deck-card-in 280ms var(--ease-enter) both;
+  }
+  .lookup-guide-item:nth-child(2) {
+    animation-delay: 40ms;
+  }
+  .lookup-guide-item:nth-child(3) {
+    animation-delay: 80ms;
+  }
+
+  .cyber-card,
+  .cyber-cockpit-card,
+  .tool-card,
+  .service-summary-card {
+    transition:
+      border-color 200ms ease,
+      background-color 200ms ease,
+      box-shadow 200ms ease;
+  }
+}
+
+/* Sidebar micro-interactions only make sense in the vertical layout. */
+@media (min-width: 64rem) and (prefers-reduced-motion: no-preference) {
+  .tool-subnav a {
+    transition:
+      color 180ms ease,
+      background-color 180ms ease,
+      border-color 180ms ease,
+      transform 180ms var(--ease-press);
+  }
+  .tool-subnav a:hover {
+    transform: translateX(2px);
+  }
+  .tool-subnav a:active {
+    transform: translateX(2px) scale(0.98);
+    transition-duration: 0s;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .ai-fleet-grid > * {
+    animation: deck-card-in 180ms var(--ease-enter) both;
+  }
+  .ai-fleet-grid > *:nth-child(2) {
+    animation-delay: 45ms;
+  }
+  .ai-fleet-grid > *:nth-child(3) {
+    animation-delay: 90ms;
+  }
+  .ai-fleet-grid > *:nth-child(4) {
+    animation-delay: 135ms;
+  }
+  .ai-fleet-grid > *:nth-child(5) {
+    animation-delay: 180ms;
+  }
+  .ai-fleet-grid > *:nth-child(6) {
+    animation-delay: 225ms;
+  }
+  .ai-fleet-grid > *:nth-child(7) {
+    animation-delay: 270ms;
+  }
+  .ai-fleet-grid > *:nth-child(8) {
+    animation-delay: 315ms;
+  }
+  .ai-fleet-tile {
+    transition:
+      transform 160ms var(--ease-enter),
+      border-color 200ms ease,
+      background-color 200ms ease;
+  }
+  .ai-fleet-tile:active {
+    transform: scale(0.97);
+    transition-duration: 0s;
+  }
+  .ai-fleet-bar-fill {
+    transition: transform 420ms var(--ease-enter);
+  }
+  .ai-fleet-tile-arrow {
+    transition:
+      transform 150ms var(--ease-enter),
+      opacity 150ms ease,
+      color 150ms ease;
+  }
+  .ai-fleet-name {
+    transition: color 200ms ease;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .ai-fleet-tile:hover {
+    border-color: color-mix(in srgb, var(--primary) 45%, var(--border));
+    background: var(--card);
+  }
+  .ai-fleet-tile:hover .ai-fleet-name {
+    color: var(--primary);
+  }
+  .ai-fleet-tile:hover .ai-fleet-tile-arrow {
+    color: var(--primary);
+    opacity: 1;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .ai-fleet-tile:hover .ai-fleet-tile-arrow {
+    transform: translateX(2px) translateY(-2px);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .egress-flow-lane,
+  .egress-mesh-band {
+    animation: deck-card-in 280ms var(--ease-enter) both;
+    animation-delay: calc(var(--lane-i, 0) * 40ms);
+  }
+  .egress-flow-carrier {
+    animation: egress-packet-run 1.6s linear infinite;
+  }
+  .egress-flow-you-ring,
+  .egress-flow-verdict[data-state='wait'] .egress-flow-verdict-dot {
+    animation: egress-you-ring 2.4s var(--ease-enter) infinite;
+  }
+  .egress-flow-lane[data-kind='pending'] .egress-flow-exit,
+  .egress-mesh-band[data-kind='pending'] .egress-flow-exit,
+  .egress-cdn-node[data-state='pending'] .egress-cdn-colo {
+    animation: egress-pending-fade 1.6s ease-in-out infinite;
+  }
+  .egress-dns-meter-fill {
+    transition: transform 280ms var(--ease-enter);
+  }
+  .egress-flow-exit,
+  .egress-flow-site,
+  .egress-mesh-node,
+  .egress-cdn-node {
+    transition:
+      transform 160ms var(--ease-enter),
+      border-color 200ms ease,
+      background-color 200ms ease;
+  }
+  .egress-flow-exit:active,
+  .egress-flow-site:active,
+  .egress-mesh-node:active,
+  .egress-cdn-node:active {
+    transform: scale(0.97);
+    transition-duration: 0s;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .egress-flow-exit:not(:disabled):hover,
+  .egress-flow-site:hover,
+  .egress-mesh-node:hover,
+  .egress-cdn-node:hover {
+    border-color: color-mix(in srgb, var(--lane, var(--primary)) 50%, var(--border));
+  }
+}
+
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .egress-flow-exit:not(:disabled):hover,
+  .egress-flow-site:hover,
+  .egress-mesh-node:hover,
+  .egress-cdn-node:hover {
+    transform: translateY(-1px);
+  }
+}
+
+.egress-flow[data-live='false'] .egress-flow-carrier,
+.egress-flow[data-live='false'] .egress-flow-you-ring,
+.egress-flow[data-live='false'] .egress-flow-verdict-dot,
+.egress-flow[data-live='false'] .egress-flow-exit,
+.egress-flow[data-live='false'] .egress-cdn-colo {
+  animation-play-state: paused;
+}
+
+@keyframes egress-packet-run {
+  from {
+    transform: translateX(-8px);
+    opacity: 0;
+  }
+  12% {
+    opacity: 1;
+  }
+  88% {
+    opacity: 1;
+  }
+  to {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+@keyframes egress-you-ring {
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.04);
+  }
+}
+
+@keyframes egress-pending-fade {
+  50% {
+    opacity: 0.45;
+  }
+}

@@ -1,0 +1,123 @@
+/* Docs · IP health API page */
+.docs-health {
+  max-width: 56rem;
+}
+
+.docs-code {
+  margin: 0;
+  border: 1px solid var(--line-strong, var(--border));
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--muted) 45%, transparent);
+  overflow: hidden;
+}
+
+.docs-code figcaption {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 4px 6px 4px 12px;
+  border-bottom: 1px solid color-mix(in srgb, var(--border) 80%, transparent);
+  font-size: var(--folio-kicker, 11px);
+  font-weight: 650;
+  letter-spacing: 0.04em;
+  color: var(--muted-foreground);
+}
+
+.docs-code pre {
+  margin: 0;
+  padding: 10px 12px;
+  overflow-x: auto;
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: 12px;
+  line-height: 1.6;
+  white-space: pre;
+}
+
+.docs-samples {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+  gap: 10px;
+}
+
+.docs-fields {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+}
+
+.docs-fields > div {
+  display: grid;
+  grid-template-columns: minmax(10rem, 14rem) minmax(0, 1fr);
+  gap: 10px;
+  align-items: baseline;
+}
+
+.docs-fields > div + div {
+  padding-top: 8px;
+  border-top: 1px dashed color-mix(in srgb, var(--border) 85%, transparent);
+}
+
+.docs-fields dt code {
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--primary);
+  overflow-wrap: anywhere;
+}
+
+.docs-fields dd {
+  margin: 0;
+  font-size: var(--folio-body, 13px);
+  line-height: 1.5;
+  color: var(--muted-foreground);
+}
+
+@media (max-width: 40rem) {
+  .docs-fields > div {
+    grid-template-columns: 1fr;
+    gap: 2px;
+  }
+}
+
+.docs-health-note a,
+.docs-list a,
+.docs-health .small a {
+  color: var(--primary);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.docs-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.docs-nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  padding: 0 10px;
+  border: 1px solid color-mix(in srgb, var(--border) 80%, transparent);
+  border-radius: 999px;
+  color: var(--muted-foreground);
+  font-size: 12px;
+  text-decoration: none;
+}
+
+.docs-nav a[aria-current='page'] {
+  color: var(--primary);
+  border-color: color-mix(in srgb, var(--primary) 45%, transparent);
+  background: color-mix(in srgb, var(--primary) 10%, transparent);
+}
+
+.docs-list {
+  margin: 0;
+  padding-left: 1.15rem;
+  display: grid;
+  gap: 6px;
+  color: var(--muted-foreground);
+  font-size: var(--folio-body, 13px);
+  line-height: 1.55;
+}

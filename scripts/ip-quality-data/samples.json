@@ -1,0 +1,2319 @@
+{
+  "schemaVersion": 1,
+  "samples": [
+    {
+      "id": "1.1.1.1",
+      "ip": "1.1.1.1",
+      "collectedAt": "2026-09-18T16:54:45.499Z",
+      "coffee": {
+        "ip": "1.1.1.1",
+        "trust_score": 41,
+        "abuser_score": "",
+        "intelligence": {
+          "threats": [],
+          "abuser_level": "safe",
+          "abuser_score_raw": "",
+          "rep_threat": null
+        },
+        "is_bogon": false,
+        "is_datacenter": true,
+        "isResidential": false,
+        "is_vpn": false,
+        "is_proxy": false,
+        "is_tor": false,
+        "is_crawler": false,
+        "is_abuser": false,
+        "is_mobile": false,
+        "is_public_service": true,
+        "public_service": {
+          "service": "Cloudflare Public DNS",
+          "operator": "Cloudflare",
+          "service_type": "anycast_dns",
+          "note": "全球任播部署，~300 个 POP 节点",
+          "ip": "1.1.1.1"
+        },
+        "company_type": "hosting",
+        "company_name": "APNIC Research and Development",
+        "asn_kind": "hosting",
+        "isp": "Cloudflare, Inc.",
+        "asOrganization": "Cloudflare, Inc.",
+        "asn": 13335,
+        "asname": "CLOUDFLARENET",
+        "countryCode": "au",
+        "registered_country_code": "au",
+        "country": "Australia",
+        "registered_country": "Australia"
+      },
+      "cross": {
+        "ip": "1.1.1.1",
+        "readings": [
+          {
+            "id": "scamalytics-fraud",
+            "source": "scamalytics",
+            "metric": "fraud",
+            "value": "0",
+            "hint": "",
+            "tone": "good",
+            "href": "https://scamalytics.com/ip/1.1.1.1"
+          },
+          {
+            "id": "ip2location-fraud",
+            "source": "ip2location",
+            "metric": "fraud",
+            "value": "0",
+            "hint": "",
+            "tone": "good",
+            "href": "https://www.ip2location.io/1.1.1.1"
+          },
+          {
+            "id": "ip2location-usage",
+            "source": "ip2location",
+            "metric": "usage",
+            "value": "(CDN) Content Delivery Network",
+            "hint": "APNIC and CloudFlare DNS Resolver Project",
+            "tone": "warn",
+            "href": "https://www.ip2location.io/1.1.1.1",
+            "flags": {
+              "hosting": true
+            }
+          },
+          {
+            "id": "ipinfo-privacy",
+            "source": "ipinfo",
+            "metric": "privacy",
+            "value": "No",
+            "hint": "Hosting",
+            "tone": "neutral",
+            "href": "https://ipinfo.io/1.1.1.1",
+            "flags": {
+              "vpn": false,
+              "proxy": false,
+              "tor": false,
+              "hosting": true
+            }
+          },
+          {
+            "id": "ipapi-proxy",
+            "source": "ipapi",
+            "metric": "proxy",
+            "value": "No",
+            "hint": "Cloudflare, Inc",
+            "tone": "good",
+            "href": "https://ip-api.com/#1.1.1.1",
+            "flags": {
+              "anonymous": false,
+              "hosting": true
+            }
+          },
+          {
+            "id": "ipapi-usage",
+            "source": "ipapi",
+            "metric": "usage",
+            "value": "Data Center",
+            "hint": "Cloudflare, Inc",
+            "tone": "warn",
+            "href": "https://ip-api.com/#1.1.1.1",
+            "flags": {
+              "hosting": true
+            }
+          },
+          {
+            "id": "proxycheck-proxy",
+            "source": "proxycheck",
+            "metric": "proxy",
+            "value": "No",
+            "hint": "",
+            "tone": "neutral",
+            "href": "https://proxycheck.io/v3/1.1.1.1",
+            "flags": {
+              "vpn": false,
+              "proxy": false,
+              "tor": false,
+              "hosting": true
+            }
+          },
+          {
+            "id": "proxycheck-usage",
+            "source": "proxycheck",
+            "metric": "usage",
+            "value": "Data Center",
+            "hint": "Hosting",
+            "tone": "warn",
+            "href": "https://proxycheck.io/v3/1.1.1.1"
+          },
+          {
+            "id": "proxycheck-risk",
+            "source": "proxycheck",
+            "metric": "risk",
+            "value": "33",
+            "hint": "",
+            "tone": "warn",
+            "href": "https://proxycheck.io/v3/1.1.1.1"
+          },
+          {
+            "id": "dnsbl-blocklist",
+            "source": "dnsbl",
+            "metric": "blocklist",
+            "value": "1/7",
+            "hint": "DroneBL",
+            "tone": "warn",
+            "href": "https://mxtoolbox.com/SuperTool.aspx?action=blacklist%3a1.1.1.1&run=toolpage"
+          },
+          {
+            "id": "torexit-exit",
+            "source": "torexit",
+            "metric": "privacy",
+            "value": "No",
+            "hint": "",
+            "tone": "good",
+            "href": "https://check.torproject.org/torbulkexitlist",
+            "flags": {
+              "tor": false
+            }
+          },
+          {
+            "id": "ipregistry-privacy",
+            "source": "ipregistry",
+            "metric": "privacy",
+            "value": "No",
+            "hint": "",
+            "tone": "good",
+            "href": "https://ipregistry.co/1.1.1.1",
+            "flags": {
+              "vpn": false,
+              "proxy": false,
+              "tor": false,
+              "relay": false,
+              "residentialProxy": false,
+              "hosting": true,
+              "anonymous": false
+            }
+          },
+          {
+            "id": "ipregistry-abuse",
+            "source": "ipregistry",
+            "metric": "abuse",
+            "value": "No",
+            "hint": "",
+            "tone": "good",
+            "href": "https://ipregistry.co/1.1.1.1"
+          },
+          {
+            "id": "ipregistry-usage",
+            "source": "ipregistry",
+            "metric": "usage",
+            "value": "Hosting",
+            "hint": "",
+            "tone": "warn",
+            "href": "https://ipregistry.co/1.1.1.1"
+          }
+        ],
+        "unavailable": ["ippure"],
+        "checkedAt": "2026-09-18T16:54:45.480Z",
+        "prefix": {
+          "registeredAt": "2011-08-10T23:12:35.000Z",
+          "start": "1.1.1.0",
+          "end": "1.1.1.255",
+          "handle": "1.1.1.0 - 1.1.1.255",
+          "cidr": "1.1.1.0/24"
+        },
+        "places": [
+          {
+            "source": "ipregistry",
+            "href": "https://ipregistry.co/1.1.1.1",
+            "city": "Brisbane",
+            "region": "Queensland",
+            "country": "Australia",
+            "country_code": "AU",
+            "latitude": -27.46792,
+            "longitude": 153.02809
+          }
+        ]
+      },
+      "acquisition": {
+        "coffee": {
+          "url": "https://ip.net.coffee/api/ip/lookup/1.1.1.1",
+          "ok": true
+        },
+        "cross": {
+          "url": "http://127.0.0.1:5137/api/ip/cross/1.1.1.1",
+          "ok": true
+        }
+      }
+    },
+    {
+      "id": "1.0.0.1",
+      "ip": "1.0.0.1",
+      "collectedAt": "2026-09-18T16:54:46.294Z",
+      "coffee": {
+        "ip": "1.0.0.1",
+        "trust_score": 47,
+        "abuser_score": "",
+        "intelligence": {
+          "threats": [],
+          "abuser_level": "safe",
+          "abuser_score_raw": "",
+          "rep_threat": null
+        },
+        "is_bogon": false,
+        "is_datacenter": true,
+        "isResidential": false,
+        "is_vpn": false,
+        "is_proxy": false,
+        "is_tor": false,
+        "is_crawler": false,
+        "is_abuser": false,
+        "is_mobile": false,
+        "is_public_service": true,
+        "public_service": {
+          "service": "Cloudflare Public DNS",
+          "operator": "Cloudflare",
+          "service_type": "anycast_dns",
+          "note": "全球任播部署，备用地址",
+          "ip": "1.0.0.1"
+        },
+        "company_type": "hosting",
+        "company_name": "APNIC Research and Development",
+        "asn_kind": "hosting",
+        "isp": "Cloudflare, Inc.",
+        "asOrganization": "Cloudflare, Inc.",
+        "asn": 13335,
+        "asname": "CLOUDFLARENET",
+        "countryCode": "au",
+        "registered_country_code": "au",
+        "country": "Australia",
+        "registered_country": "Australia"
+      },
+      "cross": {
+        "ip": "1.0.0.1",
+        "readings": [
+          {
+            "id": "scamalytics-fraud",
+            "source": "scamalytics",
+            "metric": "fraud",
+            "value": "0",
+            "hint": "",
+            "tone": "good",
+            "href": "https://scamalytics.com/ip/1.0.0.1"
+          },
+          {
+            "id": "ip2location-fraud",
+            "source": "ip2location",
+            "metric": "fraud",
+            "value": "0",
+            "hint": "",
+            "tone": "good",
+            "href": "https://www.ip2location.io/1.0.0.1"
+          },
+          {
+            "id": "ip2location-usage",
+            "source": "ip2location",
+            "metric": "usage",
+            "value": "(CDN) Content Delivery Network",
+            "hint": "APNIC and CloudFlare DNS Resolver Project",
+            "tone": "warn",
+            "href": "https://www.ip2location.io/1.0.0.1",
+            "flags": {
+              "hosting": true
+            }
+          },
+          {
+            "id": "ipinfo-privacy",
+            "source": "ipinfo",
+            "metric": "privacy",
+            "value": "No",
+            "hint": "Hosting",
+            "tone": "neutral",
+            "href": "https://ipinfo.io/1.0.0.1",
+            "flags": {
+              "vpn": false,
+              "proxy": false,
+              "tor": false,
+              "hosting": true
+            }
+          },
+          {
+            "id": "ipapi-proxy",
+            "source": "ipapi",
+            "metric": "proxy",
+            "value": "No",
+            "hint": "Cloudflare, Inc",
+            "tone": "good",
+            "href": "https://ip-api.com/#1.0.0.1",
+            "flags": {
+              "anonymous": false,
+              "hosting": true
+            }
+          },
+          {
+            "id": "ipapi-usage",
+            "source": "ipapi",
+            "metric": "usage",
+            "value": "Data Center",
+            "hint": "Cloudflare, Inc",
+            "tone": "warn",
+            "href": "https://ip-api.com/#1.0.0.1",
+            "flags": {
+              "hosting": true
+            }
+          },
+          {
+            "id": "proxycheck-proxy",
+            "source": "proxycheck",
+            "metric": "proxy",
+            "value": "No",
+            "hint": "",
+            "tone": "neutral",
+            "href": "https://proxycheck.io/v3/1.0.0.1",
+            "flags": {
+              "vpn": false,
+              "proxy": false,
+              "tor": false,
+              "hosting": true
+            }
+          },
+          {
+            "id": "proxycheck-usage",
+            "source": "proxycheck",
+            "metric": "usage",
+            "value": "Data Center",
+            "hint": "Hosting",
+            "tone": "warn",
+            "href": "https://proxycheck.io/v3/1.0.0.1"
+          },
+          {
+            "id": "proxycheck-risk",
+            "source": "proxycheck",
+            "metric": "risk",
+            "value": "33",
+            "hint": "",
+            "tone": "warn",
+            "href": "https://proxycheck.io/v3/1.0.0.1"
+          },
+          {
+            "id": "dnsbl-blocklist",
+            "source": "dnsbl",
+            "metric": "blocklist",
+            "value": "0/7",
+            "hint": "",
+            "tone": "good",
+            "href": "https://mxtoolbox.com/SuperTool.aspx?action=blacklist%3a1.0.0.1&run=toolpage"
+          },
+          {
+            "id": "torexit-exit",
+            "source": "torexit",
+            "metric": "privacy",
+            "value": "No",
+            "hint": "",
+            "tone": "good",
+            "href": "https://check.torproject.org/torbulkexitlist",
+            "flags": {
+              "tor": false
+            }
+          },
+          {
+            "id": "ipregistry-privacy",
+            "source": "ipregistry",
+            "metric": "privacy",
+            "value": "No",
+            "hint": "",
+            "tone": "good",
+            "href": "https://ipregistry.co/1.0.0.1",
+            "flags": {
+              "vpn": false,
+              "proxy": false,
+              "tor": false,
+              "relay": false,
+              "residentialProxy": false,
+              "hosting": true,
+              "anonymous": false
+            }
+          },
+          {
+            "id": "ipregistry-abuse",
+            "source": "ipregistry",
+            "metric": "abuse",
+            "value": "No",
+            "hint": "",
+            "tone": "good",
+            "href": "https://ipregistry.co/1.0.0.1"
+          },
+          {
+            "id": "ipregistry-usage",
+            "source": "ipregistry",
+            "metric": "usage",
+            "value": "Hosting",
+            "hint": "",
+            "tone": "warn",
+            "href": "https://ipregistry.co/1.0.0.1"
+          }
+        ],
+        "unavailable": ["ippure"],
+        "checkedAt": "2026-09-18T16:54:46.266Z",
+        "prefix": {
+          "registeredAt": "2011-08-10T23:15:57.000Z",
+          "start": "1.0.0.0",
+          "end": "1.0.0.255",
+          "handle": "1.0.0.0 - 1.0.0.255",
+          "cidr": "1.0.0.0/24"
+        },
+        "places": [
+          {
+            "source": "ipregistry",
+            "href": "https://ipregistry.co/1.0.0.1",
+            "city": "Sydney",
+            "region": "New South Wales",
+            "country": "Australia",
+            "country_code": "AU",
+            "latitude": -33.86784,
+            "longitude": 151.2073
+          }
+        ]
+      },
+      "acquisition": {
+        "coffee": {
+          "url": "https://ip.net.coffee/api/ip/lookup/1.0.0.1",
+          "ok": true
+        },
+        "cross": {
+          "url": "http://127.0.0.1:5137/api/ip/cross/1.0.0.1",
+          "ok": true
+        }
+      }
+    },
+    {
+      "id": "2606_4700_4700__1111",
+      "ip": "2606:4700:4700::1111",
+      "collectedAt": "2026-09-18T16:54:47.423Z",
+      "coffee": {
+        "ip": "2606:4700:4700::1111",
+        "trust_score": 85,
+        "abuser_score": "",
+        "intelligence": {
+          "threats": [],
+          "abuser_level": "safe",
+          "abuser_score_raw": "",
+          "rep_threat": null
+        },
+        "is_bogon": false,
+        "is_datacenter": true,
+        "isResidential": false,
+        "is_vpn": false,
+        "is_proxy": false,
+        "is_tor": false,
+        "is_crawler": false,
+        "is_abuser": false,
+        "is_mobile": false,
+        "is_public_service": true,
+        "public_service": {
+          "service": "Cloudflare Public DNS",
+          "operator": "Cloudflare",
+          "service_type": "anycast_dns",
+          "note": "全球任播部署（IPv6）",
+          "ip": "2606:4700:4700::1111"
+        },
+        "company_type": "hosting",
+        "company_name": "Cloudflare, Inc.",
+        "asn_kind": "hosting",
+        "isp": "Cloudflare, Inc.",
+        "asOrganization": "Cloudflare, Inc.",
+        "asn": 13335,
+        "asname": "CLOUDFLARENET",
+        "countryCode": "us",
+        "registered_country_code": "us",
+        "country": "United States",
+        "registered_country": "United States"
+      },
+      "cross": {
+        "ip": "2606:4700:4700::1111",
+        "readings": [
+          {
+            "id": "scamalytics-fraud",
+            "source": "scamalytics",
+            "metric": "fraud",
+            "value": "0",
+            "hint": "",
+            "tone": "good",
+            "href": "https://scamalytics.com/ip/2606%3A4700%3A4700%3A%3A1111"
+          },
+          {
+            "id": "ip2location-fraud",
+            "source": "ip2location",
+            "metric": "fraud",
+            "value": "3",
+            "hint": "",
+            "tone": "good",
+            "href": "https://www.ip2location.io/2606%3A4700%3A4700%3A%3A1111"
+          },
+          {
+            "id": "ip2location-usage",
+            "source": "ip2location",
+            "metric": "usage",
+            "value": "(CDN) Content Delivery Network",
+            "hint": "CloudFlare Inc.",
+            "tone": "warn",
+            "href": "https://www.ip2location.io/2606%3A4700%3A4700%3A%3A1111",
+            "flags": {
+              "hosting": true
+            }
+          },
+          {
+            "id": "ipinfo-privacy",
+            "source": "ipinfo",
+            "metric": "privacy",
+            "value": "No",
+            "hint": "Hosting",
+            "tone": "neutral",
+            "href": "https://ipinfo.io/2606%3A4700%3A4700%3A%3A1111",
+            "flags": {
+              "vpn": false,
+              "proxy": false,
+              "tor": false,
+              "hosting": true
+            }
+          },
+          {
+            "id": "ipapi-proxy",
+            "source": "ipapi",
+            "metric": "proxy",
+            "value": "No",
+            "hint": "Cloudflare, Inc.",
+            "tone": "good",
+            "href": "https://ip-api.com/#2606%3A4700%3A4700%3A%3A1111",
+            "flags": {
+              "anonymous": false,
+              "hosting": true
+            }
+          },
+          {
+            "id": "ipapi-usage",
+            "source": "ipapi",
+            "metric": "usage",
+            "value": "Data Center",
+            "hint": "Cloudflare, Inc.",
+            "tone": "warn",
+            "href": "https://ip-api.com/#2606%3A4700%3A4700%3A%3A1111",
+            "flags": {
+              "hosting": true
+            }
+          },
+          {
+            "id": "proxycheck-proxy",
+            "source": "proxycheck",
+            "metric": "proxy",
+            "value": "No",
+            "hint": "",
+            "tone": "neutral",
+            "href": "https://proxycheck.io/v3/2606%3A4700%3A4700%3A%3A1111",
+            "flags": {
+              "vpn": false,
+              "proxy": false,
+              "tor": false,
+              "hosting": true
+            }
+          },
+          {
+            "id": "proxycheck-usage",
+            "source": "proxycheck",
+            "metric": "usage",
+            "value": "Data Center",
+            "hint": "Hosting",
+            "tone": "warn",
+            "href": "https://proxycheck.io/v3/2606%3A4700%3A4700%3A%3A1111"
+          },
+          {
+            "id": "proxycheck-risk",
+            "source": "proxycheck",
+            "metric": "risk",
+            "value": "0",
+            "hint": "",
+            "tone": "good",
+            "href": "https://proxycheck.io/v3/2606%3A4700%3A4700%3A%3A1111"
+          },
+          {
+            "id": "ipregistry-privacy",
+            "source": "ipregistry",
+            "metric": "privacy",
+            "value": "No",
+            "hint": "",
+            "tone": "good",
+            "href": "https://ipregistry.co/2606%3A4700%3A4700%3A%3A1111",
+            "flags": {
+              "vpn": false,
+              "proxy": false,
+              "tor": false,
+              "relay": false,
+              "residentialProxy": false,
+              "hosting": true,
+              "anonymous": false
+            }
+          },
+          {
+            "id": "ipregistry-abuse",
+            "source": "ipregistry",
+            "metric": "abuse",
+            "value": "No",
+            "hint": "",
+            "tone": "good",
+            "href": "https://ipregistry.co/2606%3A4700%3A4700%3A%3A1111"
+          },
+          {
+            "id": "ipregistry-usage",
+            "source": "ipregistry",
+            "metric": "usage",
+            "value": "Hosting",
+            "hint": "",
+            "tone": "warn",
+            "href": "https://ipregistry.co/2606%3A4700%3A4700%3A%3A1111"
+          }
+        ],
+        "unavailable": ["ippure"],
+        "checkedAt": "2026-09-18T16:54:47.410Z",
+        "prefix": null,
+        "places": [
+          {
+            "source": "ipregistry",
+            "href": "https://ipregistry.co/2606%3A4700%3A4700%3A%3A1111",
+            "city": "San Francisco",
+            "region": "California",
+            "country": "United States",
+            "country_code": "US",
+            "latitude": 37.762,
+            "longitude": -122.3972
+          }
+        ]
+      },
+      "acquisition": {
+        "coffee": {
+          "url": "https://ip.net.coffee/api/ip/lookup/2606%3A4700%3A4700%3A%3A1111",
+          "ok": true
+        },
+        "cross": {
+          "url": "http://127.0.0.1:5137/api/ip/cross/2606%3A4700%3A4700%3A%3A1111",
+          "ok": true
+        }
+      }
+    },
+    {
+      "id": "8.8.8.8",
+      "ip": "8.8.8.8",
+      "collectedAt": "2026-09-18T16:54:50.077Z",
+      "coffee": {
+        "ip": "8.8.8.8",
+        "trust_score": 63,
+        "abuser_score": "",
+        "intelligence": {
+          "threats": [],
+          "abuser_level": "safe",
+          "abuser_score_raw": "",
+          "rep_threat": null
+        },
+        "is_bogon": false,
+        "is_datacenter": true,
+        "isResidential": false,
+        "is_vpn": false,
+        "is_proxy": false,
+        "is_tor": false,
+        "is_crawler": false,
+        "is_abuser": false,
+        "is_mobile": false,
+        "is_public_service": true,
+        "public_service": {
+          "service": "Google Public DNS",
+          "operator": "Google",
+          "service_type": "anycast_dns",
+          "note": "全球任播部署",
+          "ip": "8.8.8.8"
+        },
+        "company_type": "hosting",
+        "company_name": "Google LLC",
+        "asn_kind": "hosting",
+        "isp": "Google",
+        "asOrganization": "Google LLC",
+        "asn": 15169,
+        "asname": "GOOGLE",
+        "countryCode": "us",
+        "registered_country_code": "us",
+        "country": "United States",
+        "registered_country": "United States"
+      },
+      "cross": {
+        "ip": "8.8.8.8",
+        "readings": [
+          {
+            "id": "scamalytics-fraud",
+            "source": "scamalytics",
+            "metric": "fraud",
+            "value": "0",
+            "hint": "",
+            "tone": "good",
+            "href": "https://scamalytics.com/ip/8.8.8.8"
+          },
+          {
+            "id": "ip2location-fraud",
+            "source": "ip2location",
+            "metric": "fraud",
+            "value": "0",
+            "hint": "",
+            "tone": "good",
+            "href": "https://www.ip2location.io/8.8.8.8"
+          },
+          {
+            "id": "ip2location-usage",
+            "source": "ip2location",
+            "metric": "usage",
+            "value": "(DCH) Data Center/Web Hosting/Transit",
+            "hint": "Google LLC",
+            "tone": "warn",
+            "href": "https://www.ip2location.io/8.8.8.8",
+            "flags": {
+              "hosting": true
+            }
+          },
+          {
+            "id": "ipinfo-privacy",
+            "source": "ipinfo",
+            "metric": "privacy",
+            "value": "No",
+            "hint": "Hosting",
+            "tone": "neutral",
+            "href": "https://ipinfo.io/8.8.8.8",
+            "flags": {
+              "vpn": false,
+              "proxy": false,
+              "tor": false,
+              "hosting": true
+            }
+          },
+          {
+            "id": "ipapi-proxy",
+            "source": "ipapi",
+            "metric": "proxy",
+            "value": "No",
+            "hint": "Google LLC",
+            "tone": "good",
+            "href": "https://ip-api.com/#8.8.8.8",
+            "flags": {
+              "anonymous": false,
+              "hosting": true
+            }
+          },
+          {
+            "id": "ipapi-usage",
+            "source": "ipapi",
+            "metric": "usage",
+            "value": "Data Center",
+            "hint": "Google LLC",
+            "tone": "warn",
+            "href": "https://ip-api.com/#8.8.8.8",
+            "flags": {
+              "hosting": true
+            }
+          },
+          {
+            "id": "proxycheck-proxy",
+            "source": "proxycheck",
+            "metric": "proxy",
+            "value": "No",
+            "hint": "",
+            "tone": "good",
+            "href": "https://proxycheck.io/v3/8.8.8.8",
+            "flags": {
+              "vpn": false,
+              "proxy": false,
+              "tor": false,
+              "hosting": false
+            }
+          },
+          {
+            "id": "proxycheck-usage",
+            "source": "proxycheck",
+            "metric": "usage",
+            "value": "Business",
+            "hint": "",
+            "tone": "neutral",
+            "href": "https://proxycheck.io/v3/8.8.8.8"
+          },
+          {
+            "id": "proxycheck-risk",
+            "source": "proxycheck",
+            "metric": "risk",
+            "value": "100",
+            "hint": "",
+            "tone": "bad",
+            "href": "https://proxycheck.io/v3/8.8.8.8"
+          },
+          {
+            "id": "dnsbl-blocklist",
+            "source": "dnsbl",
+            "metric": "blocklist",
+            "value": "0/7",
+            "hint": "",
+            "tone": "good",
+            "href": "https://mxtoolbox.com/SuperTool.aspx?action=blacklist%3a8.8.8.8&run=toolpage"
+          },
+          {
+            "id": "torexit-exit",
+            "source": "torexit",
+            "metric": "privacy",
+            "value": "No",
+            "hint": "",
+            "tone": "good",
+            "href": "https://check.torproject.org/torbulkexitlist",
+            "flags": {
+              "tor": false
+            }
+          },
+          {
+            "id": "ipregistry-privacy",
+            "source": "ipregistry",
+            "metric": "privacy",
+            "value": "No",
+            "hint": "",
+            "tone": "good",
+            "href": "https://ipregistry.co/8.8.8.8",
+            "flags": {
+              "vpn": false,
+              "proxy": false,
+              "tor": false,
+              "relay": false,
+              "residentialProxy": false,
+              "hosting": true,
+              "anonymous": false
+            }
+          },
+          {
+            "id": "ipregistry-abuse",
+            "source": "ipregistry",
+            "metric": "abuse",
+            "value": "No",
+            "hint": "",
+            "tone": "good",
+            "href": "https://ipregistry.co/8.8.8.8"
+          },
+          {
+            "id": "ipregistry-usage",
+            "source": "ipregistry",
+            "metric": "usage",
+            "value": "Hosting",
+            "hint": "",
+            "tone": "warn",
+            "href": "https://ipregistry.co/8.8.8.8"
+          }
+        ],
+        "unavailable": ["ippure"],
+        "checkedAt": "2026-09-18T16:54:50.067Z",
+        "prefix": {
+          "registeredAt": "2023-12-28T22:24:33.000Z",
+          "start": "8.8.8.0",
+          "end": "8.8.8.255",
+          "handle": "NET-8-8-8-0-2",
+          "cidr": "8.8.8.0/24"
+        },
+        "places": [
+          {
+            "source": "ipregistry",
+            "href": "https://ipregistry.co/8.8.8.8",
+            "city": "Mountain View",
+            "region": "California",
+            "country": "United States",
+            "country_code": "US",
+            "latitude": 37.40552,
+            "longitude": -122.07746
+          }
+        ]
+      },
+      "acquisition": {
+        "coffee": {
+          "url": "https://ip.net.coffee/api/ip/lookup/8.8.8.8",
+          "ok": true
+        },
+        "cross": {
+          "url": "http://127.0.0.1:5137/api/ip/cross/8.8.8.8",
+          "ok": true
+        }
+      }
+    },
+    {
+      "id": "8.8.4.4",
+      "ip": "8.8.4.4",
+      "collectedAt": "2026-09-18T16:54:51.677Z",
+      "coffee": {
+        "ip": "8.8.4.4",
+        "trust_score": 81,
+        "abuser_score": "",
+        "intelligence": {
+          "threats": [],
+          "abuser_level": "safe",
+          "abuser_score_raw": "",
+          "rep_threat": null
+        },
+        "is_bogon": false,
+        "is_datacenter": true,
+        "isResidential": false,
+        "is_vpn": false,
+        "is_proxy": false,
+        "is_tor": false,
+        "is_crawler": false,
+        "is_abuser": false,
+        "is_mobile": false,
+        "is_public_service": true,
+        "public_service": {
+          "service": "Google Public DNS",
+          "operator": "Google",
+          "service_type": "anycast_dns",
+          "note": "全球任播部署，备用地址",
+          "ip": "8.8.4.4"
+        },
+        "company_type": "hosting",
+        "company_name": "Google LLC",
+        "asn_kind": "hosting",
+        "isp": "Lumen",
+        "asOrganization": "Google LLC",
+        "asn": 15169,
+        "asname": "GOOGLE",
+        "countryCode": "us",
+        "registered_country_code": "us",
+        "country": "United States",
+        "registered_country": "United States"
+      },
+      "cross": {
+        "ip": "8.8.4.4",
+        "readings": [
+          {
+            "id": "scamalytics-fraud",
+            "source": "scamalytics",
+            "metric": "fraud",
+            "value": "0",
+            "hint": "",
+            "tone": "good",
+            "href": "https://scamalytics.com/ip/8.8.4.4"
+          },
+          {
+            "id": "ip2location-fraud",
+            "source": "ip2location",
+            "metric": "fraud",
+            "value": "0",
+            "hint": "",
+            "tone": "good",
+            "href": "https://www.ip2location.io/8.8.4.4"
+          },
+          {
+            "id": "ip2location-usage",
+            "source": "ip2location",
+            "metric": "usage",
+            "value": "(DCH) Data Center/Web Hosting/Transit",
+            "hint": "Google LLC",
+            "tone": "warn",
+            "href": "https://www.ip2location.io/8.8.4.4",
+            "flags": {
+              "hosting": true
+            }
+          },
+          {
+            "id": "ipinfo-privacy",
+            "source": "ipinfo",
+            "metric": "privacy",
+            "value": "No",
+            "hint": "Hosting",
+            "tone": "neutral",
+            "href": "https://ipinfo.io/8.8.4.4",
+            "flags": {
+              "vpn": false,
+              "proxy": false,
+              "tor": false,
+              "hosting": true
+            }
+          },
+          {
+            "id": "ipapi-proxy",
+            "source": "ipapi",
+            "metric": "proxy",
+            "value": "No",
+            "hint": "Google LLC",
+            "tone": "good",
+            "href": "https://ip-api.com/#8.8.4.4",
+            "flags": {
+              "anonymous": false,
+              "hosting": true
+            }
+          },
+          {
+            "id": "ipapi-usage",
+            "source": "ipapi",
+            "metric": "usage",
+            "value": "Data Center",
+            "hint": "Google LLC",
+            "tone": "warn",
+            "href": "https://ip-api.com/#8.8.4.4",
+            "flags": {
+              "hosting": true
+            }
+          },
+          {
+            "id": "proxycheck-proxy",
+            "source": "proxycheck",
+            "metric": "proxy",
+            "value": "No",
+            "hint": "",
+            "tone": "good",
+            "href": "https://proxycheck.io/v3/8.8.4.4",
+            "flags": {
+              "vpn": false,
+              "proxy": false,
+              "tor": false,
+              "hosting": false
+            }
+          },
+          {
+            "id": "proxycheck-usage",
+            "source": "proxycheck",
+            "metric": "usage",
+            "value": "Business",
+            "hint": "",
+            "tone": "neutral",
+            "href": "https://proxycheck.io/v3/8.8.4.4"
+          },
+          {
+            "id": "proxycheck-risk",
+            "source": "proxycheck",
+            "metric": "risk",
+            "value": "0",
+            "hint": "",
+            "tone": "good",
+            "href": "https://proxycheck.io/v3/8.8.4.4"
+          },
+          {
+            "id": "dnsbl-blocklist",
+            "source": "dnsbl",
+            "metric": "blocklist",
+            "value": "0/7",
+            "hint": "",
+            "tone": "good",
+            "href": "https://mxtoolbox.com/SuperTool.aspx?action=blacklist%3a8.8.4.4&run=toolpage"
+          },
+          {
+            "id": "torexit-exit",
+            "source": "torexit",
+            "metric": "privacy",
+            "value": "No",
+            "hint": "",
+            "tone": "good",
+            "href": "https://check.torproject.org/torbulkexitlist",
+            "flags": {
+              "tor": false
+            }
+          },
+          {
+            "id": "ipregistry-privacy",
+            "source": "ipregistry",
+            "metric": "privacy",
+            "value": "No",
+            "hint": "",
+            "tone": "good",
+            "href": "https://ipregistry.co/8.8.4.4",
+            "flags": {
+              "vpn": false,
+              "proxy": false,
+              "tor": false,
+              "relay": false,
+              "residentialProxy": false,
+              "hosting": true,
+              "anonymous": false
+            }
+          },
+          {
+            "id": "ipregistry-abuse",
+            "source": "ipregistry",
+            "metric": "abuse",
+            "value": "No",
+            "hint": "",
+            "tone": "good",
+            "href": "https://ipregistry.co/8.8.4.4"
+          },
+          {
+            "id": "ipregistry-usage",
+            "source": "ipregistry",
+            "metric": "usage",
+            "value": "Hosting",
+            "hint": "",
+            "tone": "warn",
+            "href": "https://ipregistry.co/8.8.4.4"
+          }
+        ],
+        "unavailable": ["ippure"],
+        "checkedAt": "2026-09-18T16:54:51.667Z",
+        "prefix": {
+          "registeredAt": "2023-12-28T22:24:33.000Z",
+          "start": "8.8.4.0",
+          "end": "8.8.4.255",
+          "handle": "NET-8-8-4-0-2",
+          "cidr": "8.8.4.0/24"
+        },
+        "places": [
+          {
+            "source": "ipregistry",
+            "href": "https://ipregistry.co/8.8.4.4",
+            "city": "Mountain View",
+            "region": "California",
+            "country": "United States",
+            "country_code": "US",
+            "latitude": 38.0088,
+            "longitude": -122.11745
+          }
+        ]
+      },
+      "acquisition": {
+        "coffee": {
+          "url": "https://ip.net.coffee/api/ip/lookup/8.8.4.4",
+          "ok": true
+        },
+        "cross": {
+          "url": "http://127.0.0.1:5137/api/ip/cross/8.8.4.4",
+          "ok": true
+        }
+      }
+    },
+    {
+      "id": "2001_4860_4860__8888",
+      "ip": "2001:4860:4860::8888",
+      "collectedAt": "2026-09-18T16:54:52.352Z",
+      "coffee": {
+        "ip": "2001:4860:4860::8888",
+        "trust_score": 56,
+        "abuser_score": "",
+        "intelligence": {
+          "threats": [],
+          "abuser_level": "safe",
+          "abuser_score_raw": "",
+          "rep_threat": null
+        },
+        "is_bogon": false,
+        "is_datacenter": true,
+        "isResidential": false,
+        "is_vpn": false,
+        "is_proxy": false,
+        "is_tor": false,
+        "is_crawler": false,
+        "is_abuser": false,
+        "is_mobile": false,
+        "is_public_service": true,
+        "public_service": {
+          "service": "Google Public DNS",
+          "operator": "Google",
+          "service_type": "anycast_dns",
+          "note": "全球任播部署（IPv6）",
+          "ip": "2001:4860:4860::8888"
+        },
+        "company_type": "hosting",
+        "company_name": "Google LLC",
+        "asn_kind": "hosting",
+        "isp": "Google",
+        "asOrganization": "Google LLC",
+        "asn": 15169,
+        "asname": "GOOGLE",
+        "countryCode": "us",
+        "registered_country_code": "us",
+        "country": "United States",
+        "registered_country": "United States"
+      },
+      "cross": {
+        "ip": "2001:4860:4860::8888",
+        "readings": [
+          {
+            "id": "scamalytics-fraud",
+            "source": "scamalytics",
+            "metric": "fraud",
+            "value": "2",
+            "hint": "",
+            "tone": "good",
+            "href": "https://scamalytics.com/ip/2001%3A4860%3A4860%3A%3A8888"
+          },
+          {
+            "id": "ip2location-fraud",
+            "source": "ip2location",
+            "metric": "fraud",
+            "value": "3",
+            "hint": "",
+            "tone": "good",
+            "href": "https://www.ip2location.io/2001%3A4860%3A4860%3A%3A8888"
+          },
+          {
+            "id": "ip2location-usage",
+            "source": "ip2location",
+            "metric": "usage",
+            "value": "(DCH) Data Center/Web Hosting/Transit",
+            "hint": "Google LLC",
+            "tone": "warn",
+            "href": "https://www.ip2location.io/2001%3A4860%3A4860%3A%3A8888",
+            "flags": {
+              "hosting": true
+            }
+          },
+          {
+            "id": "ipinfo-privacy",
+            "source": "ipinfo",
+            "metric": "privacy",
+            "value": "No",
+            "hint": "Hosting",
+            "tone": "neutral",
+            "href": "https://ipinfo.io/2001%3A4860%3A4860%3A%3A8888",
+            "flags": {
+              "vpn": false,
+              "proxy": false,
+              "tor": false,
+              "hosting": true
+            }
+          },
+          {
+            "id": "ipapi-proxy",
+            "source": "ipapi",
+            "metric": "proxy",
+            "value": "No",
+            "hint": "Google LLC",
+            "tone": "good",
+            "href": "https://ip-api.com/#2001%3A4860%3A4860%3A%3A8888",
+            "flags": {
+              "anonymous": false,
+              "hosting": true
+            }
+          },
+          {
+            "id": "ipapi-usage",
+            "source": "ipapi",
+            "metric": "usage",
+            "value": "Data Center",
+            "hint": "Google LLC",
+            "tone": "warn",
+            "href": "https://ip-api.com/#2001%3A4860%3A4860%3A%3A8888",
+            "flags": {
+              "hosting": true
+            }
+          },
+          {
+            "id": "proxycheck-proxy",
+            "source": "proxycheck",
+            "metric": "proxy",
+            "value": "No",
+            "hint": "",
+            "tone": "good",
+            "href": "https://proxycheck.io/v3/2001%3A4860%3A4860%3A%3A8888",
+            "flags": {
+              "vpn": false,
+              "proxy": false,
+              "tor": false,
+              "hosting": false
+            }
+          },
+          {
+            "id": "proxycheck-usage",
+            "source": "proxycheck",
+            "metric": "usage",
+            "value": "Business",
+            "hint": "",
+            "tone": "neutral",
+            "href": "https://proxycheck.io/v3/2001%3A4860%3A4860%3A%3A8888"
+          },
+          {
+            "id": "proxycheck-risk",
+            "source": "proxycheck",
+            "metric": "risk",
+            "value": "0",
+            "hint": "",
+            "tone": "good",
+            "href": "https://proxycheck.io/v3/2001%3A4860%3A4860%3A%3A8888"
+          },
+          {
+            "id": "ipregistry-privacy",
+            "source": "ipregistry",
+            "metric": "privacy",
+            "value": "No",
+            "hint": "",
+            "tone": "good",
+            "href": "https://ipregistry.co/2001%3A4860%3A4860%3A%3A8888",
+            "flags": {
+              "vpn": false,
+              "proxy": false,
+              "tor": false,
+              "relay": false,
+              "residentialProxy": false,
+              "hosting": true,
+              "anonymous": false
+            }
+          },
+          {
+            "id": "ipregistry-abuse",
+            "source": "ipregistry",
+            "metric": "abuse",
+            "value": "No",
+            "hint": "",
+            "tone": "good",
+            "href": "https://ipregistry.co/2001%3A4860%3A4860%3A%3A8888"
+          },
+          {
+            "id": "ipregistry-usage",
+            "source": "ipregistry",
+            "metric": "usage",
+            "value": "Hosting",
+            "hint": "",
+            "tone": "warn",
+            "href": "https://ipregistry.co/2001%3A4860%3A4860%3A%3A8888"
+          }
+        ],
+        "unavailable": ["ippure"],
+        "checkedAt": "2026-09-18T16:54:52.331Z",
+        "prefix": null,
+        "places": [
+          {
+            "source": "ipregistry",
+            "href": "https://ipregistry.co/2001%3A4860%3A4860%3A%3A8888",
+            "city": "Mountain View",
+            "region": "California",
+            "country": "United States",
+            "country_code": "US",
+            "latitude": 38.0088,
+            "longitude": -122.11745
+          }
+        ]
+      },
+      "acquisition": {
+        "coffee": {
+          "url": "https://ip.net.coffee/api/ip/lookup/2001%3A4860%3A4860%3A%3A8888",
+          "ok": true
+        },
+        "cross": {
+          "url": "http://127.0.0.1:5137/api/ip/cross/2001%3A4860%3A4860%3A%3A8888",
+          "ok": true
+        }
+      }
+    },
+    {
+      "id": "9.9.9.9",
+      "ip": "9.9.9.9",
+      "collectedAt": "2026-09-18T16:54:54.143Z",
+      "coffee": {
+        "ip": "9.9.9.9",
+        "trust_score": 75,
+        "abuser_score": "",
+        "intelligence": {
+          "threats": [],
+          "abuser_level": "safe",
+          "abuser_score_raw": "",
+          "rep_threat": null
+        },
+        "is_bogon": false,
+        "is_datacenter": true,
+        "isResidential": false,
+        "is_vpn": false,
+        "is_proxy": false,
+        "is_tor": false,
+        "is_crawler": false,
+        "is_abuser": false,
+        "is_mobile": false,
+        "is_public_service": true,
+        "public_service": {
+          "service": "Quad9",
+          "operator": "Quad9",
+          "service_type": "anycast_dns",
+          "note": "全球任播部署，带威胁过滤",
+          "ip": "9.9.9.9"
+        },
+        "company_type": "hosting",
+        "company_name": "Quad9",
+        "asn_kind": "hosting",
+        "isp": "Quad9",
+        "asOrganization": "Quad9",
+        "asn": 19281,
+        "asname": "QUAD9-AS-1",
+        "countryCode": "ch",
+        "registered_country_code": "us",
+        "country": "Switzerland",
+        "registered_country": "United States"
+      },
+      "cross": {
+        "ip": "9.9.9.9",
+        "readings": [
+          {
+            "id": "scamalytics-fraud",
+            "source": "scamalytics",
+            "metric": "fraud",
+            "value": "0",
+            "hint": "",
+            "tone": "good",
+            "href": "https://scamalytics.com/ip/9.9.9.9"
+          },
+          {
+            "id": "ip2location-fraud",
+            "source": "ip2location",
+            "metric": "fraud",
+            "value": "0",
+            "hint": "",
+            "tone": "good",
+            "href": "https://www.ip2location.io/9.9.9.9"
+          },
+          {
+            "id": "ip2location-usage",
+            "source": "ip2location",
+            "metric": "usage",
+            "value": "(DCH) Data Center/Web Hosting/Transit",
+            "hint": "QUAD9",
+            "tone": "warn",
+            "href": "https://www.ip2location.io/9.9.9.9",
+            "flags": {
+              "hosting": true
+            }
+          },
+          {
+            "id": "ipinfo-privacy",
+            "source": "ipinfo",
+            "metric": "privacy",
+            "value": "No",
+            "hint": "Hosting",
+            "tone": "neutral",
+            "href": "https://ipinfo.io/9.9.9.9",
+            "flags": {
+              "vpn": false,
+              "proxy": false,
+              "tor": false,
+              "hosting": true
+            }
+          },
+          {
+            "id": "ipapi-proxy",
+            "source": "ipapi",
+            "metric": "proxy",
+            "value": "No",
+            "hint": "Quad9",
+            "tone": "good",
+            "href": "https://ip-api.com/#9.9.9.9",
+            "flags": {
+              "anonymous": false,
+              "hosting": true
+            }
+          },
+          {
+            "id": "ipapi-usage",
+            "source": "ipapi",
+            "metric": "usage",
+            "value": "Data Center",
+            "hint": "Quad9",
+            "tone": "warn",
+            "href": "https://ip-api.com/#9.9.9.9",
+            "flags": {
+              "hosting": true
+            }
+          },
+          {
+            "id": "proxycheck-proxy",
+            "source": "proxycheck",
+            "metric": "proxy",
+            "value": "No",
+            "hint": "",
+            "tone": "good",
+            "href": "https://proxycheck.io/v3/9.9.9.9",
+            "flags": {
+              "vpn": false,
+              "proxy": false,
+              "tor": false,
+              "hosting": false
+            }
+          },
+          {
+            "id": "proxycheck-usage",
+            "source": "proxycheck",
+            "metric": "usage",
+            "value": "Business",
+            "hint": "",
+            "tone": "neutral",
+            "href": "https://proxycheck.io/v3/9.9.9.9"
+          },
+          {
+            "id": "proxycheck-risk",
+            "source": "proxycheck",
+            "metric": "risk",
+            "value": "0",
+            "hint": "",
+            "tone": "good",
+            "href": "https://proxycheck.io/v3/9.9.9.9"
+          },
+          {
+            "id": "dnsbl-blocklist",
+            "source": "dnsbl",
+            "metric": "blocklist",
+            "value": "0/7",
+            "hint": "",
+            "tone": "good",
+            "href": "https://mxtoolbox.com/SuperTool.aspx?action=blacklist%3a9.9.9.9&run=toolpage"
+          },
+          {
+            "id": "torexit-exit",
+            "source": "torexit",
+            "metric": "privacy",
+            "value": "No",
+            "hint": "",
+            "tone": "good",
+            "href": "https://check.torproject.org/torbulkexitlist",
+            "flags": {
+              "tor": false
+            }
+          },
+          {
+            "id": "ipregistry-privacy",
+            "source": "ipregistry",
+            "metric": "privacy",
+            "value": "No",
+            "hint": "",
+            "tone": "good",
+            "href": "https://ipregistry.co/9.9.9.9",
+            "flags": {
+              "vpn": false,
+              "proxy": false,
+              "tor": false,
+              "relay": false,
+              "residentialProxy": false
+            }
+          },
+          {
+            "id": "ipregistry-abuse",
+            "source": "ipregistry",
+            "metric": "abuse",
+            "value": "No",
+            "hint": "",
+            "tone": "good",
+            "href": "https://ipregistry.co/9.9.9.9"
+          },
+          {
+            "id": "ipregistry-usage",
+            "source": "ipregistry",
+            "metric": "usage",
+            "value": "Hosting",
+            "hint": "",
+            "tone": "warn",
+            "href": "https://ipregistry.co/9.9.9.9"
+          }
+        ],
+        "unavailable": ["ippure"],
+        "checkedAt": "2026-09-18T16:54:54.128Z",
+        "prefix": {
+          "registeredAt": "2017-09-13T18:00:44.000Z",
+          "start": "9.9.9.0",
+          "end": "9.9.9.255",
+          "handle": "NET-9-9-9-0-1",
+          "cidr": "9.9.9.0/24"
+        },
+        "places": [
+          {
+            "source": "ipregistry",
+            "href": "https://ipregistry.co/9.9.9.9",
+            "city": "Ashburn",
+            "region": "Virginia",
+            "country": "United States",
+            "country_code": "US",
+            "latitude": 39.0437,
+            "longitude": -77.48751
+          }
+        ]
+      },
+      "acquisition": {
+        "coffee": {
+          "url": "https://ip.net.coffee/api/ip/lookup/9.9.9.9",
+          "ok": true
+        },
+        "cross": {
+          "url": "http://127.0.0.1:5137/api/ip/cross/9.9.9.9",
+          "ok": true
+        }
+      }
+    },
+    {
+      "id": "149.112.112.112",
+      "ip": "149.112.112.112",
+      "collectedAt": "2026-09-18T16:54:55.054Z",
+      "coffee": {
+        "ip": "149.112.112.112",
+        "trust_score": 51,
+        "abuser_score": "",
+        "intelligence": {
+          "threats": [],
+          "abuser_level": "safe",
+          "abuser_score_raw": "",
+          "rep_threat": null
+        },
+        "is_bogon": false,
+        "is_datacenter": true,
+        "isResidential": false,
+        "is_vpn": false,
+        "is_proxy": false,
+        "is_tor": false,
+        "is_crawler": false,
+        "is_abuser": false,
+        "is_mobile": false,
+        "is_public_service": true,
+        "public_service": {
+          "service": "Quad9",
+          "operator": "Quad9",
+          "service_type": "anycast_dns",
+          "note": "全球任播部署，备用地址",
+          "ip": "149.112.112.112"
+        },
+        "company_type": "hosting",
+        "company_name": "Quad9",
+        "asn_kind": "hosting",
+        "isp": "Quad9",
+        "asOrganization": "Quad9",
+        "asn": 19281,
+        "asname": "QUAD9-AS-1",
+        "countryCode": "us",
+        "registered_country_code": "us",
+        "country": "United States",
+        "registered_country": "United States"
+      },
+      "cross": {
+        "ip": "149.112.112.112",
+        "readings": [
+          {
+            "id": "scamalytics-fraud",
+            "source": "scamalytics",
+            "metric": "fraud",
+            "value": "0",
+            "hint": "",
+            "tone": "good",
+            "href": "https://scamalytics.com/ip/149.112.112.112"
+          },
+          {
+            "id": "ip2location-fraud",
+            "source": "ip2location",
+            "metric": "fraud",
+            "value": "0",
+            "hint": "",
+            "tone": "good",
+            "href": "https://www.ip2location.io/149.112.112.112"
+          },
+          {
+            "id": "ip2location-usage",
+            "source": "ip2location",
+            "metric": "usage",
+            "value": "(DCH) Data Center/Web Hosting/Transit",
+            "hint": "QUAD9",
+            "tone": "warn",
+            "href": "https://www.ip2location.io/149.112.112.112",
+            "flags": {
+              "hosting": true
+            }
+          },
+          {
+            "id": "ipinfo-privacy",
+            "source": "ipinfo",
+            "metric": "privacy",
+            "value": "No",
+            "hint": "Hosting",
+            "tone": "neutral",
+            "href": "https://ipinfo.io/149.112.112.112",
+            "flags": {
+              "vpn": false,
+              "proxy": false,
+              "tor": false,
+              "hosting": true
+            }
+          },
+          {
+            "id": "ipapi-proxy",
+            "source": "ipapi",
+            "metric": "proxy",
+            "value": "No",
+            "hint": "Quad9",
+            "tone": "good",
+            "href": "https://ip-api.com/#149.112.112.112",
+            "flags": {
+              "anonymous": false,
+              "hosting": true
+            }
+          },
+          {
+            "id": "ipapi-usage",
+            "source": "ipapi",
+            "metric": "usage",
+            "value": "Data Center",
+            "hint": "Quad9",
+            "tone": "warn",
+            "href": "https://ip-api.com/#149.112.112.112",
+            "flags": {
+              "hosting": true
+            }
+          },
+          {
+            "id": "proxycheck-proxy",
+            "source": "proxycheck",
+            "metric": "proxy",
+            "value": "No",
+            "hint": "",
+            "tone": "good",
+            "href": "https://proxycheck.io/v3/149.112.112.112",
+            "flags": {
+              "vpn": false,
+              "proxy": false,
+              "tor": false,
+              "hosting": false
+            }
+          },
+          {
+            "id": "proxycheck-usage",
+            "source": "proxycheck",
+            "metric": "usage",
+            "value": "Business",
+            "hint": "",
+            "tone": "neutral",
+            "href": "https://proxycheck.io/v3/149.112.112.112"
+          },
+          {
+            "id": "proxycheck-risk",
+            "source": "proxycheck",
+            "metric": "risk",
+            "value": "0",
+            "hint": "",
+            "tone": "good",
+            "href": "https://proxycheck.io/v3/149.112.112.112"
+          },
+          {
+            "id": "dnsbl-blocklist",
+            "source": "dnsbl",
+            "metric": "blocklist",
+            "value": "0/7",
+            "hint": "",
+            "tone": "good",
+            "href": "https://mxtoolbox.com/SuperTool.aspx?action=blacklist%3a149.112.112.112&run=toolpage"
+          },
+          {
+            "id": "torexit-exit",
+            "source": "torexit",
+            "metric": "privacy",
+            "value": "No",
+            "hint": "",
+            "tone": "good",
+            "href": "https://check.torproject.org/torbulkexitlist",
+            "flags": {
+              "tor": false
+            }
+          },
+          {
+            "id": "ipregistry-privacy",
+            "source": "ipregistry",
+            "metric": "privacy",
+            "value": "No",
+            "hint": "",
+            "tone": "good",
+            "href": "https://ipregistry.co/149.112.112.112",
+            "flags": {
+              "vpn": false,
+              "proxy": false,
+              "tor": false,
+              "relay": false,
+              "residentialProxy": false
+            }
+          },
+          {
+            "id": "ipregistry-abuse",
+            "source": "ipregistry",
+            "metric": "abuse",
+            "value": "No",
+            "hint": "",
+            "tone": "good",
+            "href": "https://ipregistry.co/149.112.112.112"
+          },
+          {
+            "id": "ipregistry-usage",
+            "source": "ipregistry",
+            "metric": "usage",
+            "value": "Hosting",
+            "hint": "",
+            "tone": "warn",
+            "href": "https://ipregistry.co/149.112.112.112"
+          }
+        ],
+        "unavailable": ["ippure"],
+        "checkedAt": "2026-09-18T16:54:55.042Z",
+        "prefix": {
+          "registeredAt": "2016-08-02T15:18:25.000Z",
+          "start": "149.112.112.0",
+          "end": "149.112.112.255",
+          "handle": "NET-149-112-112-0-1",
+          "cidr": "149.112.112.0/24"
+        },
+        "places": [
+          {
+            "source": "ipregistry",
+            "href": "https://ipregistry.co/149.112.112.112",
+            "city": "Berkeley",
+            "region": "California",
+            "country": "United States",
+            "country_code": "US",
+            "latitude": 37.87849,
+            "longitude": -122.26548
+          }
+        ]
+      },
+      "acquisition": {
+        "coffee": {
+          "url": "https://ip.net.coffee/api/ip/lookup/149.112.112.112",
+          "ok": true
+        },
+        "cross": {
+          "url": "http://127.0.0.1:5137/api/ip/cross/149.112.112.112",
+          "ok": true
+        }
+      }
+    },
+    {
+      "id": "124.126.3.108",
+      "ip": "124.126.3.108",
+      "collectedAt": "2026-09-18T16:54:56.968Z",
+      "coffee": {
+        "ip": "124.126.3.108",
+        "trust_score": 97,
+        "abuser_score": "0.0007 (Low)",
+        "intelligence": {
+          "threats": [],
+          "abuser_level": "low",
+          "abuser_score_raw": "0.0007 (Low)",
+          "rep_threat": null
+        },
+        "is_bogon": false,
+        "is_datacenter": false,
+        "isResidential": true,
+        "is_vpn": false,
+        "is_proxy": false,
+        "is_tor": false,
+        "is_crawler": false,
+        "is_abuser": false,
+        "is_mobile": false,
+        "company_type": "government",
+        "company_name": "Research Institution of Telecom",
+        "asn_kind": "mixed",
+        "isp": "China Networks Inter-Exchange",
+        "asOrganization": "China Networks Inter-Exchange",
+        "asn": 4847,
+        "asname": "CNIX-AP",
+        "countryCode": "cn",
+        "registered_country_code": "cn",
+        "country": "China",
+        "registered_country": "China"
+      },
+      "cross": {
+        "ip": "124.126.3.108",
+        "readings": [
+          {
+            "id": "scamalytics-fraud",
+            "source": "scamalytics",
+            "metric": "fraud",
+            "value": "0",
+            "hint": "",
+            "tone": "good",
+            "href": "https://scamalytics.com/ip/124.126.3.108"
+          },
+          {
+            "id": "ip2location-fraud",
+            "source": "ip2location",
+            "metric": "fraud",
+            "value": "0",
+            "hint": "",
+            "tone": "good",
+            "href": "https://www.ip2location.io/124.126.3.108"
+          },
+          {
+            "id": "ip2location-usage",
+            "source": "ip2location",
+            "metric": "usage",
+            "value": "(EDU) University/College/School",
+            "hint": "Research Institution of Telecom",
+            "tone": "neutral",
+            "href": "https://www.ip2location.io/124.126.3.108"
+          },
+          {
+            "id": "ipinfo-privacy",
+            "source": "ipinfo",
+            "metric": "privacy",
+            "value": "No",
+            "hint": "",
+            "tone": "good",
+            "href": "https://ipinfo.io/124.126.3.108",
+            "flags": {
+              "vpn": false,
+              "proxy": false,
+              "tor": false,
+              "hosting": false
+            }
+          },
+          {
+            "id": "ipapi-proxy",
+            "source": "ipapi",
+            "metric": "proxy",
+            "value": "No",
+            "hint": "China Networks Inter-Exchange",
+            "tone": "good",
+            "href": "https://ip-api.com/#124.126.3.108",
+            "flags": {
+              "anonymous": false,
+              "hosting": false
+            }
+          },
+          {
+            "id": "proxycheck-proxy",
+            "source": "proxycheck",
+            "metric": "proxy",
+            "value": "No",
+            "hint": "",
+            "tone": "good",
+            "href": "https://proxycheck.io/v3/124.126.3.108",
+            "flags": {
+              "vpn": false,
+              "proxy": false,
+              "tor": false,
+              "hosting": false
+            }
+          },
+          {
+            "id": "proxycheck-usage",
+            "source": "proxycheck",
+            "metric": "usage",
+            "value": "Business",
+            "hint": "",
+            "tone": "neutral",
+            "href": "https://proxycheck.io/v3/124.126.3.108"
+          },
+          {
+            "id": "proxycheck-risk",
+            "source": "proxycheck",
+            "metric": "risk",
+            "value": "0",
+            "hint": "",
+            "tone": "good",
+            "href": "https://proxycheck.io/v3/124.126.3.108"
+          },
+          {
+            "id": "dnsbl-blocklist",
+            "source": "dnsbl",
+            "metric": "blocklist",
+            "value": "0/7",
+            "hint": "",
+            "tone": "good",
+            "href": "https://mxtoolbox.com/SuperTool.aspx?action=blacklist%3a124.126.3.108&run=toolpage"
+          },
+          {
+            "id": "torexit-exit",
+            "source": "torexit",
+            "metric": "privacy",
+            "value": "No",
+            "hint": "",
+            "tone": "good",
+            "href": "https://check.torproject.org/torbulkexitlist",
+            "flags": {
+              "tor": false
+            }
+          },
+          {
+            "id": "ipregistry-privacy",
+            "source": "ipregistry",
+            "metric": "privacy",
+            "value": "No",
+            "hint": "",
+            "tone": "good",
+            "href": "https://ipregistry.co/124.126.3.108",
+            "flags": {
+              "vpn": false,
+              "proxy": false,
+              "tor": false,
+              "relay": false,
+              "residentialProxy": false
+            }
+          },
+          {
+            "id": "ipregistry-abuse",
+            "source": "ipregistry",
+            "metric": "abuse",
+            "value": "No",
+            "hint": "",
+            "tone": "good",
+            "href": "https://ipregistry.co/124.126.3.108"
+          },
+          {
+            "id": "ipregistry-usage",
+            "source": "ipregistry",
+            "metric": "usage",
+            "value": "ISP",
+            "hint": "",
+            "tone": "neutral",
+            "href": "https://ipregistry.co/124.126.3.108"
+          }
+        ],
+        "unavailable": ["ippure"],
+        "checkedAt": "2026-09-18T16:54:56.957Z",
+        "prefix": {
+          "registeredAt": "2008-09-04T07:13:23.000Z",
+          "start": "124.126.0.0",
+          "end": "124.127.255.255",
+          "handle": "124.126.0.0 - 124.127.255.255",
+          "cidr": "124.126.0.0/15"
+        },
+        "places": [
+          {
+            "source": "ipregistry",
+            "href": "https://ipregistry.co/124.126.3.108",
+            "city": "Dongcheng",
+            "region": "Beijing Shi",
+            "country": "China",
+            "country_code": "CN",
+            "latitude": 39.90759,
+            "longitude": 116.39725
+          }
+        ]
+      },
+      "acquisition": {
+        "coffee": {
+          "url": "https://ip.net.coffee/api/ip/lookup/124.126.3.108",
+          "ok": true
+        },
+        "cross": {
+          "url": "http://127.0.0.1:5137/api/ip/cross/124.126.3.108",
+          "ok": true
+        }
+      }
+    },
+    {
+      "id": "74.120.253.118",
+      "ip": "74.120.253.118",
+      "collectedAt": "2026-09-18T16:54:57.942Z",
+      "coffee": {
+        "ip": "74.120.253.118",
+        "trust_score": 83,
+        "abuser_score": "0 (Very Low)",
+        "intelligence": {
+          "threats": [],
+          "abuser_level": "low",
+          "abuser_score_raw": "0 (Very Low)",
+          "rep_threat": null
+        },
+        "is_bogon": false,
+        "is_datacenter": true,
+        "isResidential": false,
+        "is_vpn": false,
+        "is_proxy": false,
+        "is_tor": false,
+        "is_crawler": false,
+        "is_abuser": false,
+        "is_mobile": false,
+        "company_type": "hosting",
+        "company_name": "Netaiclould LLC",
+        "asn_kind": "residential",
+        "isp": "Comcast Cable",
+        "asOrganization": "Comcast Cable Communications, LLC",
+        "asn": 33651,
+        "asname": "CMCS",
+        "countryCode": "us",
+        "registered_country_code": "us",
+        "country": "United States",
+        "registered_country": "United States"
+      },
+      "cross": {
+        "ip": "74.120.253.118",
+        "readings": [
+          {
+            "id": "ippure-purity",
+            "source": "ippure",
+            "metric": "purity",
+            "value": "99",
+            "hint": "",
+            "tone": "good",
+            "href": "https://ippure.com/?ip=74.120.253.118"
+          },
+          {
+            "id": "scamalytics-fraud",
+            "source": "scamalytics",
+            "metric": "fraud",
+            "value": "0",
+            "hint": "",
+            "tone": "good",
+            "href": "https://scamalytics.com/ip/74.120.253.118"
+          },
+          {
+            "id": "ip2location-fraud",
+            "source": "ip2location",
+            "metric": "fraud",
+            "value": "99",
+            "hint": "",
+            "tone": "bad",
+            "href": "https://www.ip2location.io/74.120.253.118"
+          },
+          {
+            "id": "ip2location-usage",
+            "source": "ip2location",
+            "metric": "usage",
+            "value": "(ISP) Fixed Line ISP",
+            "hint": "Comcast Cable Communications LLC",
+            "tone": "neutral",
+            "href": "https://www.ip2location.io/74.120.253.118"
+          },
+          {
+            "id": "ipinfo-privacy",
+            "source": "ipinfo",
+            "metric": "privacy",
+            "value": "No",
+            "hint": "",
+            "tone": "good",
+            "href": "https://ipinfo.io/74.120.253.118",
+            "flags": {
+              "vpn": false,
+              "proxy": false,
+              "tor": false,
+              "hosting": false
+            }
+          },
+          {
+            "id": "ip2location-proxy",
+            "source": "ip2location",
+            "metric": "proxy",
+            "value": "(VPN) Anonymizing VPN services",
+            "hint": "WisdomISP",
+            "tone": "warn",
+            "href": "https://www.ip2location.io/74.120.253.118",
+            "flags": {
+              "vpn": true
+            }
+          },
+          {
+            "id": "ipapi-proxy",
+            "source": "ipapi",
+            "metric": "proxy",
+            "value": "Anonymous",
+            "hint": "Comcast Cable Communications, LLC",
+            "tone": "warn",
+            "href": "https://ip-api.com/#74.120.253.118",
+            "flags": {
+              "anonymous": true,
+              "hosting": false
+            }
+          },
+          {
+            "id": "proxycheck-proxy",
+            "source": "proxycheck",
+            "metric": "proxy",
+            "value": "No",
+            "hint": "",
+            "tone": "good",
+            "href": "https://proxycheck.io/v3/74.120.253.118",
+            "flags": {
+              "vpn": false,
+              "proxy": false,
+              "tor": false,
+              "hosting": false
+            }
+          },
+          {
+            "id": "proxycheck-usage",
+            "source": "proxycheck",
+            "metric": "usage",
+            "value": "Residential",
+            "hint": "",
+            "tone": "neutral",
+            "href": "https://proxycheck.io/v3/74.120.253.118"
+          },
+          {
+            "id": "proxycheck-risk",
+            "source": "proxycheck",
+            "metric": "risk",
+            "value": "0",
+            "hint": "",
+            "tone": "good",
+            "href": "https://proxycheck.io/v3/74.120.253.118"
+          },
+          {
+            "id": "dnsbl-blocklist",
+            "source": "dnsbl",
+            "metric": "blocklist",
+            "value": "0/7",
+            "hint": "",
+            "tone": "good",
+            "href": "https://mxtoolbox.com/SuperTool.aspx?action=blacklist%3a74.120.253.118&run=toolpage"
+          },
+          {
+            "id": "torexit-exit",
+            "source": "torexit",
+            "metric": "privacy",
+            "value": "No",
+            "hint": "",
+            "tone": "good",
+            "href": "https://check.torproject.org/torbulkexitlist",
+            "flags": {
+              "tor": false
+            }
+          },
+          {
+            "id": "ipregistry-privacy",
+            "source": "ipregistry",
+            "metric": "privacy",
+            "value": "VPN",
+            "hint": "",
+            "tone": "warn",
+            "href": "https://ipregistry.co/74.120.253.118",
+            "flags": {
+              "vpn": true,
+              "proxy": false,
+              "tor": false,
+              "relay": false,
+              "residentialProxy": false,
+              "hosting": false
+            }
+          },
+          {
+            "id": "ipregistry-abuse",
+            "source": "ipregistry",
+            "metric": "abuse",
+            "value": "No",
+            "hint": "",
+            "tone": "good",
+            "href": "https://ipregistry.co/74.120.253.118"
+          },
+          {
+            "id": "ipregistry-usage",
+            "source": "ipregistry",
+            "metric": "usage",
+            "value": "ISP",
+            "hint": "Comcast Cable",
+            "tone": "neutral",
+            "href": "https://ipregistry.co/74.120.253.118"
+          }
+        ],
+        "unavailable": [],
+        "checkedAt": "2026-09-18T16:54:57.933Z",
+        "prefix": {
+          "registeredAt": "2026-08-06T06:36:23.000Z",
+          "start": "74.120.252.0",
+          "end": "74.120.255.255",
+          "handle": "NET-74-120-252-0-3",
+          "cidr": "74.120.252.0/22"
+        },
+        "places": [
+          {
+            "source": "ipregistry",
+            "href": "https://ipregistry.co/74.120.253.118",
+            "city": "New York",
+            "region": "New York",
+            "country": "United States",
+            "country_code": "US",
+            "latitude": 40.71277,
+            "longitude": -74.00597
+          }
+        ]
+      },
+      "acquisition": {
+        "coffee": {
+          "url": "https://ip.net.coffee/api/ip/lookup/74.120.253.118",
+          "ok": true
+        },
+        "cross": {
+          "url": "http://127.0.0.1:5137/api/ip/cross/74.120.253.118",
+          "ok": true
+        }
+      }
+    }
+  ]
+}

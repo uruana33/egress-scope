@@ -1,0 +1,235 @@
+import { t } from '@/i18n';
+import type { DnsTreePath } from '@/views/egress/dns-lanes';
+
+export type CdnProvider = {
+  id: string;
+  name: string;
+  family: string;
+  familyLabel: string;
+  path: DnsTreePath;
+  url: string;
+  website: string;
+  trace?: boolean;
+  text?: boolean;
+  headers?: string[];
+};
+
+export const providers: CdnProvider[] = [
+  {
+    id: 'cloudflare',
+    name: 'Cloudflare',
+    family: 'cloudflare',
+    familyLabel: 'Cloudflare',
+    path: 'overseas',
+    url: 'https://www.cloudflare.com/cdn-cgi/trace',
+    website: 'https://cloudflare.com',
+    trace: true,
+  },
+  {
+    id: 'cloudflare-cn',
+    name: t('Cloudflare 中国网络'),
+    family: 'cloudflare',
+    familyLabel: 'Cloudflare',
+    path: 'domestic',
+    url: 'https://perfops.cloudflareperf.com/cdn-cgi/trace',
+    website: 'https://cloudflare.com',
+    trace: true,
+  },
+  {
+    id: 'fastly',
+    name: 'Fastly',
+    family: 'fastly',
+    familyLabel: 'Fastly',
+    path: 'overseas',
+    url: 'https://fastly.jsdelivr.net/npm/react@18/umd/react.production.min.js',
+    website: 'https://fastly.com',
+    headers: ['x-served-by'],
+  },
+  {
+    id: 'jsdelivr',
+    name: 'jsDelivr',
+    family: 'jsdelivr',
+    familyLabel: 'jsDelivr',
+    path: 'overseas',
+    url: 'https://cdn.jsdelivr.net/npm/latency-test@1.0.0/generate_200',
+    website: 'https://jsdelivr.com',
+    headers: ['x-served-by', 'cf-ray', 'x-id'],
+  },
+  {
+    id: 'cloudfront',
+    name: 'AWS CloudFront',
+    family: 'aws',
+    familyLabel: 'CloudFront',
+    path: 'overseas',
+    url: 'https://djlzvy5xcvhxt.cloudfront.net/500b-bench.jpg',
+    website: 'https://aws.amazon.com',
+    headers: ['x-amz-cf-pop'],
+  },
+  {
+    id: 'gcp',
+    name: 'GCP Anycast LB',
+    family: 'gcp',
+    familyLabel: 'GCP',
+    path: 'overseas',
+    url: 'https://global.gcping.com/api/ping',
+    website: 'https://cloud.google.com',
+    text: true,
+  },
+  {
+    id: 'akamai',
+    name: 'Akamai',
+    family: 'akamai',
+    familyLabel: 'Akamai',
+    path: 'overseas',
+    url: 'https://perfopsrum.akamaized.net/500b-bench.jpg',
+    website: 'https://akamai.com',
+    headers: ['x-cache2'],
+  },
+  {
+    id: 'akamai-eip',
+    name: 'Akamai Edge IP Binding',
+    family: 'akamai',
+    familyLabel: 'Akamai',
+    path: 'overseas',
+    url: 'https://perfopsrum-eip.akamaized.net/500b-bench.jpg',
+    website: 'https://akamai.com',
+    headers: ['x-cache2'],
+  },
+  {
+    id: 'bunny-standard',
+    name: 'Bunny Standard',
+    family: 'bunny',
+    familyLabel: 'Bunny',
+    path: 'overseas',
+    url: 'https://test.b-cdn.net',
+    website: 'https://bunny.net',
+    headers: ['server'],
+  },
+  {
+    id: 'bunny-volume',
+    name: 'Bunny Volume',
+    family: 'bunny',
+    familyLabel: 'Bunny',
+    path: 'overseas',
+    url: 'https://testvideo.b-cdn.net',
+    website: 'https://bunny.net',
+    headers: ['server'],
+  },
+  {
+    id: 'cdn77',
+    name: 'CDN77',
+    family: 'cdn77',
+    familyLabel: 'CDN77',
+    path: 'overseas',
+    url: 'https://1596384882.rsc.cdn77.org/500b-bench.jpg',
+    website: 'https://cdn77.com',
+    headers: ['x-77-pop'],
+  },
+  {
+    id: 'edgeone',
+    name: 'Tencent EdgeOne Static',
+    family: 'tencent',
+    familyLabel: 'EdgeOne',
+    path: 'domestic',
+    url: 'https://eo-static-perfops2.qcloudcdn.com/500b-bench.jpg',
+    website: 'https://edgeone.ai',
+    headers: ['xcc'],
+  },
+  {
+    id: 'cachefly',
+    name: 'CacheFly',
+    family: 'cachefly',
+    familyLabel: 'CacheFly',
+    path: 'overseas',
+    url: 'https://cdnperf.cachefly.net/500b-bench.jpg',
+    website: 'https://cachefly.com',
+    headers: ['x-cf1'],
+  },
+  {
+    id: 'medianova',
+    name: 'Medianova',
+    family: 'medianova',
+    familyLabel: 'Medianova',
+    path: 'overseas',
+    url: 'https://medianova-cdnvperf.mncdn.com/500b-bench.jpg',
+    website: 'https://medianova.com',
+    headers: ['x-edge-location'],
+  },
+  {
+    id: 'zenlayer',
+    name: 'Zenlayer',
+    family: 'zenlayer',
+    familyLabel: 'Zenlayer',
+    path: 'overseas',
+    url: 'https://test-perfops.ecn.zenlayer.net/500b-bench.jpg',
+    website: 'https://zenlayer.com',
+    headers: ['via'],
+  },
+  {
+    id: 'melbicom',
+    name: 'Melbicom',
+    family: 'melbicom',
+    familyLabel: 'Melbicom',
+    path: 'overseas',
+    url: 'https://perfops.swiftycdn.net/500b-sw-bench.jpg',
+    website: 'https://melbicom.net',
+    headers: ['x-swifty-node'],
+  },
+  {
+    id: 'netease',
+    name: t('网易'),
+    family: 'netease',
+    familyLabel: t('网易'),
+    path: 'domestic',
+    url: 'https://necaptcha.nosdn.127.net/ab7f4275c1744aa28e0a8f3a1c58c532.png',
+    website: 'https://163.com',
+    headers: ['cdn-source', 'cdn-ip'],
+  },
+  {
+    id: 'bytedance',
+    name: t('字节跳动'),
+    family: 'bytedance',
+    familyLabel: t('字节跳动'),
+    path: 'domestic',
+    url: 'https://perfops.byte-test.com/500b-bench.jpg',
+    website: 'https://bytedance.com',
+    headers: ['via'],
+  },
+  {
+    id: 'bytedance-overseas',
+    name: t('字节跳动 海外'),
+    family: 'bytedance',
+    familyLabel: t('字节跳动'),
+    path: 'overseas',
+    url: 'https://perfops2.byte-test.com/500b-bench.jpg',
+    website: 'https://bytedance.com',
+    headers: ['via'],
+  },
+  {
+    id: 'quantil',
+    name: t('网宿 QUANTIL'),
+    family: 'wangsu',
+    familyLabel: t('网宿'),
+    path: 'domestic',
+    url: 'https://cdnperf-rum.quantil.com/500b-bench.jpg',
+    website: 'https://quantil.com',
+    headers: ['via', 'x-via'],
+  },
+  {
+    id: 'cdnetworks',
+    name: t('网宿 CDNetworks'),
+    family: 'wangsu',
+    familyLabel: t('网宿'),
+    path: 'overseas',
+    url: 'https://cdnperf-rum.cdnetworks.net/500b-bench.jpg',
+    website: 'https://cdnetworks.com',
+    headers: ['via', 'x-via'],
+  },
+];
+
+export function providerWebsite(name: string) {
+  return (
+    providers.find((item) => item.name === name || item.id === name)?.website ??
+    'https://example.com'
+  );
+}

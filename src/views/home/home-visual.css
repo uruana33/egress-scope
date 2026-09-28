@@ -1,0 +1,406 @@
+/* ============================================================
+   Home page visual design: hero, verdict banner, flow diagram
+   backdrop, and egress info cards. Motion lives in
+   egress-motion.css; this file owns the static look plus the
+   entrance choreography.
+   ============================================================ */
+
+/* ---------- Hero ---------- */
+.home-hero {
+  margin-bottom: 10px;
+}
+
+.home-hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin: 0 0 6px;
+  padding: 3px 9px;
+  border-radius: 999px;
+  border: 1px solid color-mix(in srgb, var(--primary) 28%, transparent);
+  background: color-mix(in srgb, var(--primary) 7%, transparent);
+  color: var(--primary);
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+}
+
+.home-hero-title {
+  margin: 0;
+  font-size: clamp(1.4rem, 2.4vw, 1.7rem);
+  font-weight: 760;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  background: linear-gradient(
+    115deg,
+    var(--foreground) 30%,
+    color-mix(in srgb, var(--primary) 72%, var(--foreground)) 85%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.home-hero-sub {
+  margin: 4px 0 0;
+  font-size: 12.5px;
+  color: var(--muted-foreground);
+  letter-spacing: -0.01em;
+}
+
+/* Hero CTA row */
+.home-hero-ctas {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.home-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 13px;
+  border: 1px solid var(--line-strong, var(--border));
+  border-radius: 999px;
+  background: var(--card);
+  color: var(--foreground);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  line-height: 1.2;
+  text-decoration: none;
+  white-space: nowrap;
+  touch-action: manipulation;
+  transition:
+    transform 150ms var(--ease-enter, cubic-bezier(0.22, 1, 0.36, 1)),
+    border-color 150ms ease,
+    box-shadow 150ms ease;
+}
+
+.home-cta-primary {
+  border-color: transparent;
+  background: linear-gradient(120deg, #2563eb, #0ea5e9);
+  color: #fff;
+  box-shadow: 0 8px 18px -10px color-mix(in srgb, var(--primary) 70%, transparent);
+}
+
+.home-cta-primary svg {
+  transition: transform 150ms var(--ease-enter, cubic-bezier(0.22, 1, 0.36, 1));
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .home-cta:hover {
+    transform: translateY(-1px);
+    border-color: color-mix(in srgb, var(--primary) 40%, var(--border));
+    box-shadow: 0 8px 16px -12px color-mix(in srgb, var(--primary) 55%, transparent);
+  }
+
+  .home-cta-primary:hover {
+    border-color: transparent;
+  }
+
+  .home-cta-primary:hover svg {
+    transform: translateX(2px);
+  }
+}
+
+.home-cta:active {
+  transform: scale(0.97);
+  transition-duration: 0s;
+}
+
+/* ---------- Verdict banner ---------- */
+.home-verdict {
+  --verdict: var(--muted-foreground);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  padding: 9px 14px 9px 10px;
+  border-radius: 12px;
+  border: 1px solid color-mix(in srgb, var(--verdict) 22%, transparent);
+  background: color-mix(in srgb, var(--verdict) 8%, var(--card));
+  box-shadow: 0 10px 24px -20px color-mix(in srgb, var(--verdict) 70%, transparent);
+  color: color-mix(in srgb, var(--verdict) 78%, var(--foreground));
+  font-size: 0.875rem;
+  font-weight: 650;
+  letter-spacing: -0.015em;
+  line-height: 1.45;
+}
+
+.home-verdict[data-state='different'] {
+  --verdict: var(--warning);
+}
+
+.home-verdict[data-state='same'] {
+  --verdict: var(--success);
+}
+
+.home-verdict[data-state='pending'] {
+  --verdict: var(--primary);
+}
+
+.home-verdict-icon {
+  width: 26px;
+  height: 26px;
+  padding: 5px;
+  flex-shrink: 0;
+  border-radius: 8px;
+  color: var(--verdict);
+  background: color-mix(in srgb, var(--verdict) 13%, transparent);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--verdict) 24%, transparent);
+}
+
+/* ---------- Observation stage ---------- */
+.split-tunnel-stage {
+  position: relative;
+  border-color: var(--line-strong, var(--border));
+  box-shadow:
+    0 1px 0 color-mix(in srgb, #fff 35%, transparent) inset,
+    0 24px 48px -34px rgba(2, 132, 199, 0.55);
+}
+
+.dark .split-tunnel-stage {
+  box-shadow:
+    0 1px 0 color-mix(in srgb, #fff 6%, transparent) inset,
+    0 24px 48px -28px rgba(0, 0, 0, 0.6);
+}
+
+/* Diagram backdrop: blueprint dot grid + role-tinted washes. */
+.home-egress-diagram {
+  position: relative;
+}
+
+.home-egress-diagram::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: radial-gradient(
+    color-mix(in srgb, var(--foreground) 9%, transparent) 1px,
+    transparent 1.4px
+  );
+  background-size: 22px 22px;
+  -webkit-mask-image: radial-gradient(ellipse 78% 95% at 50% 45%, #000 25%, transparent 78%);
+  mask-image: radial-gradient(ellipse 78% 95% at 50% 45%, #000 25%, transparent 78%);
+}
+
+.home-egress-diagram::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(
+      ellipse 38% 62% at 84% 16%,
+      color-mix(in srgb, #10b981 8%, transparent),
+      transparent 70%
+    ),
+    radial-gradient(
+      ellipse 38% 62% at 84% 88%,
+      color-mix(in srgb, #0ea5e9 8%, transparent),
+      transparent 70%
+    );
+}
+
+.home-egress-diagram > * {
+  position: relative;
+}
+
+/* SVG furniture */
+.home-fork-node {
+  fill: var(--primary);
+}
+
+.home-fork-ring {
+  fill: none;
+  stroke: var(--primary);
+  stroke-width: 1;
+  opacity: 0.3;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.home-device-orbit {
+  fill: none;
+  stroke: var(--primary);
+  stroke-width: 1;
+  stroke-dasharray: 2 6;
+  opacity: 0.22;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.home-capsule {
+  filter: drop-shadow(0 5px 10px rgba(2, 20, 40, 0.12));
+}
+
+.dark .home-capsule {
+  filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.5));
+}
+
+/* ---------- Egress info cards ---------- */
+.home-egress-card {
+  --card-accent: #0ea5e9;
+  isolation: isolate;
+  transition:
+    transform 240ms var(--ease-enter, cubic-bezier(0.22, 1, 0.36, 1)),
+    box-shadow 240ms var(--ease-enter, cubic-bezier(0.22, 1, 0.36, 1));
+}
+
+.home-egress-card.is-domestic {
+  --card-accent: #10b981;
+}
+
+/* Top hairline in the role colour. */
+.home-egress-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    var(--card-accent),
+    color-mix(in srgb, var(--card-accent) 0%, transparent) 68%
+  );
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+/* Ambient corner wash in the role colour. */
+.home-egress-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse 62% 46% at 16% 0%,
+    color-mix(in srgb, var(--card-accent) 7%, transparent),
+    transparent 72%
+  );
+}
+
+.home-egress-watermark {
+  color: var(--card-accent);
+  opacity: 0.05;
+  transition: opacity 240ms ease;
+}
+
+.home-egress-meta {
+  font-size: 11px;
+  letter-spacing: 0.02em;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .home-egress-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 20px 38px -24px color-mix(in srgb, var(--card-accent) 50%, transparent);
+  }
+
+  .home-egress-card:hover .home-egress-watermark {
+    opacity: 0.09;
+  }
+}
+
+/* Pulsing live dot on the card eyebrow. */
+.home-egress-dot {
+  position: relative;
+}
+
+/* ---------- Entrance choreography (decorative, one-shot) ---------- */
+@media (prefers-reduced-motion: no-preference) {
+  .home-hero {
+    animation: deck-enter 380ms var(--ease-enter, cubic-bezier(0.22, 1, 0.36, 1)) both;
+  }
+
+  .home-verdict {
+    animation: deck-enter 380ms var(--ease-enter, cubic-bezier(0.22, 1, 0.36, 1)) 70ms both;
+  }
+
+  .split-tunnel-stage {
+    animation: home-stage-in 520ms var(--ease-enter, cubic-bezier(0.22, 1, 0.36, 1)) 140ms both;
+  }
+
+  .home-verdict[data-state='same'] .home-verdict-icon,
+  .home-verdict[data-state='different'] .home-verdict-icon {
+    animation: home-icon-glow 2.6s ease-out infinite;
+  }
+
+  .home-verdict[data-state='pending'] .home-verdict-icon {
+    animation: home-spin 1.1s linear infinite;
+  }
+
+  .home-egress-dot::after {
+    content: '';
+    position: absolute;
+    inset: -3px;
+    border-radius: 50%;
+    border: 1.5px solid var(--card-accent);
+    opacity: 0;
+    animation: home-dot-pulse 2.4s ease-out infinite;
+  }
+
+  .home-device-orbit {
+    animation: home-spin 36s linear infinite;
+  }
+}
+
+@keyframes home-stage-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes home-spin {
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+@keyframes home-icon-glow {
+  0%,
+  100% {
+    box-shadow:
+      inset 0 0 0 1px color-mix(in srgb, var(--verdict) 24%, transparent),
+      0 0 0 0 color-mix(in srgb, var(--verdict) 35%, transparent);
+  }
+  50% {
+    box-shadow:
+      inset 0 0 0 1px color-mix(in srgb, var(--verdict) 24%, transparent),
+      0 0 0 5px transparent;
+  }
+}
+
+@keyframes home-dot-pulse {
+  0% {
+    transform: scale(0.6);
+    opacity: 0.9;
+  }
+  70%,
+  100% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-egress-card,
+  .home-egress-watermark {
+    transition: none;
+  }
+
+  .home-egress-card:hover {
+    transform: none;
+  }
+}
