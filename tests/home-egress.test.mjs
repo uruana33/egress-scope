@@ -75,8 +75,11 @@ test('matching domestic and external IPv4 produces one card', () => {
 
 test('homepage uses the same disputed estimate and evidence as the IP dossier', () => {
   const sample = JSON.parse(readFileSync('scripts/ip-quality-data/samples.json')).samples.find(
-    (sample) => sample.ip === '124.126.3.108'
+    (sample) => sample.ip === '223.5.5.5'
   );
+  // Corpus evidence ages on the wall clock; refresh checkedAt so the score
+  // assertion stays date-independent.
+  const cross = { ...sample.cross, checkedAt: new Date().toISOString() };
   let tree;
   render(
     [{ data: { ip: sample.ip } }, failed],
@@ -88,7 +91,7 @@ test('homepage uses the same disputed estimate and evidence as the IP dossier', 
     [
       [{ data: { ip: sample.ip, country: 'China' } }],
       [{ isSuccess: true, data: { coffee: sample.coffee } }],
-      [{ data: sample.cross }],
+      [{ data: cross }],
     ]
   );
   const card = tree.props.children.find((child) => child?.props?.cardsData).props.cardsData[0];
@@ -101,8 +104,9 @@ test('homepage uses the same disputed estimate and evidence as the IP dossier', 
 
 test('refetch failures keep previous classification and cross evidence explicitly stale', () => {
   const sample = JSON.parse(readFileSync('scripts/ip-quality-data/samples.json')).samples.find(
-    (sample) => sample.ip === '124.126.3.108'
+    (sample) => sample.ip === '223.5.5.5'
   );
+  const cross = { ...sample.cross, checkedAt: new Date().toISOString() };
   let tree;
   render(
     [{ data: { ip: sample.ip } }, failed],
@@ -114,7 +118,7 @@ test('refetch failures keep previous classification and cross evidence explicitl
     [
       [{ data: { ip: sample.ip } }],
       [{ isSuccess: false, isError: true, data: { coffee: sample.coffee } }],
-      [{ isError: true, data: sample.cross }],
+      [{ isError: true, data: cross }],
     ]
   );
   const card = tree.props.children.find((child) => child?.props?.cardsData).props.cardsData[0];

@@ -6,6 +6,7 @@ import { LanguageSelect } from '@/components/language-select';
 import { SiteBrand } from '@/components/site-brand';
 import { ThemeSelect } from '@/components/theme/theme-select';
 import { t } from '@/i18n';
+import { REPO_URL } from '@/lib/utils';
 
 import { navigationRoutes } from './routes';
 
@@ -57,6 +58,9 @@ export function SiteFooter() {
             {link.label}
           </Link>
         ))}
+        <a className="app-footer-link" href={REPO_URL} target="_blank" rel="noreferrer">
+          GitHub
+        </a>
       </nav>
     </footer>
   );

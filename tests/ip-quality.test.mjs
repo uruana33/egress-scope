@@ -3,7 +3,7 @@ import { test } from 'node:test';
 
 import { assessQuality } from '../src/views/ip/model/quality.ts';
 
-const IP = '74.120.253.118';
+const IP = '208.67.222.222';
 
 const coffeeConflict = {
   ip: IP,
@@ -100,7 +100,7 @@ test('a single-source VPN plus Coffee datacenter/residential conflict is 来源�
   assert.equal(byId.abuseipdb.status, 'outbound');
   assert.equal(byId.scamalytics.status, 'unavailable');
   assert.match(byId.ipqs.facts.map((item) => item.label).join(' · '), /Fraud Score/);
-  assert.match(byId.abuseipdb.href, /abuseipdb.com\/check\/74.120.253.118/);
+  assert.match(byId.abuseipdb.href, /abuseipdb.com\/check\/208.67.222.222/);
 });
 
 test('aligned usage can be classified while reputation coverage is incomplete', () => {

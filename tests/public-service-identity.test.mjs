@@ -21,7 +21,7 @@ test('official service identity matches only documented endpoints', () => {
     assert.equal(Object.hasOwn(record, 'score'), false);
     assert.equal(Object.hasOwn(record, 'vpn'), false);
   }
-  for (const ip of ['1.1.1.2', '8.8.8.7', '124.126.3.108', '2606:4700:4700::1112'])
+  for (const ip of ['1.1.1.2', '8.8.8.7', '223.5.5.5', '2606:4700:4700::1112'])
     assert.equal(identifyPublicService(ip, now), null);
 });
 test('strict normalization accepts equivalent IPs but rejects malformed prefixes', () => {

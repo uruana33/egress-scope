@@ -12,6 +12,7 @@ worker-configuration.d.ts
 # Environment and secrets (never commit)
 .dev.vars
 .dev.vars.*
+!.dev.vars.example
 .secrets.*.env
 
 # Logs

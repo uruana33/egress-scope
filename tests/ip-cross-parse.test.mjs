@@ -23,9 +23,9 @@ import {
 } from '../public/worker/ip-cross.js';
 import { prefixFromRdap } from '../public/worker/whois.js';
 
-const IP = '74.120.253.118';
+const IP = '208.67.222.222';
 
-const IP2 = `<html>74.120.253.118
+const IP2 = `<html>208.67.222.222
 <label class="mb-0">Country</label>
 <p class="ip-result"><img src="flag.png">&nbsp;<a>United States of America (US)</a></p>
 <label class="mb-0">Region</label>
@@ -46,7 +46,7 @@ const IP2 = `<html>74.120.253.118
 <p class="ip-result">99</p>
 </html>`;
 
-const IPINFO = `<html>{"@type":"PropertyValue","name":"IP Address","value":"74.120.253.118"}
+const IPINFO = `<html>{"@type":"PropertyValue","name":"IP Address","value":"208.67.222.222"}
 {"@type":"PropertyValue","name":"City","value":"New York City"}
 {"@type":"PropertyValue","name":"Region","value":"New York"}
 {"@type":"PropertyValue","name":"Country","value":"United States"}
@@ -57,7 +57,7 @@ const IPINFO = `<html>{"@type":"PropertyValue","name":"IP Address","value":"74.1
 {"@type":"PropertyValue","name":"Hosting","value":"No"}
 </html>`;
 
-const SCAM = `74.120.253.118 Fraud Risk
+const SCAM = `208.67.222.222 Fraud Risk
 Fraud Score: 0
 Anonymizing VPN Yes`;
 
@@ -360,7 +360,7 @@ test('IPPure 纯净度 is 100 minus their honeypot risk, never Coffee trust', ()
   assert.equal(item.id, 'ippure-purity');
   assert.equal(item.value, '60');
   assert.equal(item.tone, 'warn');
-  assert.equal(item.href, 'https://ippure.com/?ip=74.120.253.118');
+  assert.equal(item.href, 'https://ippure.com/?ip=208.67.222.222');
   assert.equal(parseIppureRisk({ ok: true, data: { risk_score: 1 } }, IP)[0].value, '99');
   assert.equal(parseIppureRisk({ ok: true, data: { risk_score: 1 } }, IP)[0].tone, 'good');
   assert.equal(parseIppureRisk({ ok: true, data: { risk_score: 50 } }, IP)[0].tone, 'bad');
@@ -452,10 +452,10 @@ test('ipCross gathers whatever pages return and leaves the rest unavailable', as
       });
     if (href.includes('rdap.org/ip/'))
       return Response.json({
-        handle: 'NET-74-120-252-0-3',
-        startAddress: '74.120.252.0',
-        endAddress: '74.120.255.255',
-        cidr0_cidrs: [{ v4prefix: '74.120.252.0', length: 22 }],
+        handle: 'NET-208-67-220-0-1',
+        startAddress: '208.67.220.0',
+        endAddress: '208.67.223.255',
+        cidr0_cidrs: [{ v4prefix: '208.67.220.0', length: 22 }],
         events: [
           {
             eventAction: 'last changed',
@@ -532,7 +532,7 @@ test('ipCross gathers whatever pages return and leaves the rest unavailable', as
     assert.ok(payload.unavailable.includes('dnsbl'));
     assert.ok(!payload.unavailable.includes('torexit'));
     assert.ok(!payload.unavailable.includes('ipregistry'));
-    assert.equal(payload.prefix?.cidr, '74.120.252.0/22');
+    assert.equal(payload.prefix?.cidr, '208.67.220.0/22');
     assert.equal(payload.prefix?.registeredAt, '2026-08-06T06:36:23.000Z');
   } finally {
     globalThis.fetch = originalFetch;
@@ -690,7 +690,7 @@ test('MXToolbox blacklist is used only when the account has network quota', asyn
       const href = String(url);
       assert.equal(href.includes('cloudflare-dns.com'), false);
       if (href.endsWith('/Usage')) return Response.json({ NetworkRequests: 0, NetworkMax: 10 });
-      assert.match(href, /\/lookup\/blacklist\/74\.120\.253\.118$/);
+      assert.match(href, /\/lookup\/blacklist\/208\.67\.222\.222$/);
       return Response.json({
         CommandArgument: IP,
         Failed: [{ Name: 'Spamhaus ZEN' }],

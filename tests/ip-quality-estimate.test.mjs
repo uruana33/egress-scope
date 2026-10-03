@@ -7,7 +7,7 @@ import { assessQuality } from '../src/views/ip/model/quality.ts';
 const corpus = JSON.parse(
   readFileSync(new URL('../scripts/ip-quality-data/samples.json', import.meta.url))
 );
-const target = corpus.samples.find((sample) => sample.ip === '124.126.3.108');
+const target = corpus.samples.find((sample) => sample.ip === '223.5.5.5');
 const run = (sample) =>
   assessQuality(sample.coffee, sample.cross, {
     now: Date.parse(sample.collectedAt),
@@ -77,7 +77,7 @@ test('an address or usage label alone does not fabricate a quality score', () =>
 });
 
 test('removing a provider yields an estimate with that gap disclosed', () => {
-  const sample = corpus.samples.find((sample) => sample.ip === '74.120.253.118');
+  const sample = corpus.samples.find((sample) => sample.ip === '208.67.222.222');
   const full = run(sample);
   assert.equal(full.scoreStatus, 'ready');
   const reduced = run({

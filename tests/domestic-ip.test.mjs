@@ -16,10 +16,10 @@ test('domestic probes read browser-exposed IP headers and fall back only to the 
       assert.equal(init.credentials, 'omit');
       assert.equal(init.cache, 'no-store');
       assert.equal(init.redirect, 'error');
-      return new Response(null, { headers: { 'cdn-user-ip': '124.127.77.179' } });
+      return new Response(null, { headers: { 'cdn-user-ip': '119.29.29.29' } });
     };
     assert.deepEqual(await getDomesticIp(), {
-      ip: '124.127.77.179',
+      ip: '119.29.29.29',
       source: 'necaptcha.nosdn.127.net',
     });
     assert.deepEqual(urls, [primary]);
@@ -33,7 +33,7 @@ test('domestic probes read browser-exposed IP headers and fall back only to the 
             headers: failure === 'invalid' ? { 'cdn-user-ip': '999.0.0.1' } : {},
           });
         }
-        return new Response(null, { headers: { 'x-request-ip': '124.127.77.179' } });
+        return new Response(null, { headers: { 'x-request-ip': '119.29.29.29' } });
       };
       assert.equal((await getDomesticIp()).source, 'perfops.byte-test.com');
       assert.deepEqual(urls, [primary, secondary]);

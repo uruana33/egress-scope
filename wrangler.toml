@@ -76,10 +76,10 @@ simple = { limit = 5, period = 60 }
 # Dashboard: Workers & Pages → KV → Create → bind as REPORTS on this Worker.
 # A missing binding makes /api/report and /r/{id} return 503; other routes stay up.
 # `wrangler deploy` fails if the id is not a namespace on the account.
-# [[kv_namespaces]]
-# binding = "REPORTS"
-# id = ""
-#
-# [[env.local.kv_namespaces]]
-# binding = "REPORTS"
-# id = ""
+[[kv_namespaces]]
+binding = "REPORTS"
+id = "3b90e777202347f4ab761db59504ca3b"
+
+[[env.local.kv_namespaces]]
+binding = "REPORTS"
+id = "3b90e777202347f4ab761db59504ca3b"

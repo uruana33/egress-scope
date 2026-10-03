@@ -29,10 +29,10 @@ function reading(id, source, metric, value, hint = '', tone = 'neutral') {
   };
 }
 
-test('124.126.3.108 keeps source scores but exposes residential versus institutional use', () => {
+test('223.5.5.5 keeps source scores but exposes residential versus institutional use', () => {
   const result = assessQuality(
     {
-      ip: '124.126.3.108',
+      ip: '223.5.5.5',
       trust_score: 97,
       abuser_score: '0.0007 (Low)',
       intelligence: { abuser_level: 'low', abuser_score_raw: '0.0007 (Low)' },
@@ -50,7 +50,7 @@ test('124.126.3.108 keeps source scores but exposes residential versus instituti
       asn: 4847,
     },
     {
-      ip: '124.126.3.108',
+      ip: '223.5.5.5',
       readings: [
         reading('ipinfo-privacy', 'ipinfo', 'privacy', 'No', '', 'good'),
         reading('ip2location-fraud', 'ip2location', 'fraud', '0', '', 'good'),
@@ -210,7 +210,7 @@ test('registration age is context only for residential addresses', () => {
 });
 
 const DATACENTER_COFFEE = {
-  ip: '207.241.88.100',
+  ip: '208.67.220.220',
   trust_score: 85,
   abuser_score: '0 (Very Low)',
   intelligence: { abuser_level: 'low', abuser_score_raw: '0 (Very Low)' },
@@ -226,7 +226,7 @@ const DATACENTER_COFFEE = {
 
 test('disputed datacenter votes stay a usage penalty, not a hard 60 ceiling', () => {
   const result = assessQuality(DATACENTER_COFFEE, {
-    ip: '207.241.88.100',
+    ip: '208.67.220.220',
     readings: [
       reading('ipinfo-privacy', 'ipinfo', 'privacy', 'No', '', 'good'),
       reading('ip2location-usage', 'ip2location', 'usage', '(DCH) Data Center/Web Hosting/Transit'),
@@ -254,7 +254,7 @@ test('disputed datacenter votes stay a usage penalty, not a hard 60 ceiling', ()
 
 test('unanimous datacenter votes drag usage low instead of capping at 60', () => {
   const result = assessQuality(DATACENTER_COFFEE, {
-    ip: '207.241.88.100',
+    ip: '208.67.220.220',
     readings: [
       reading('ipinfo-privacy', 'ipinfo', 'privacy', 'No', '', 'good'),
       reading('ip2location-usage', 'ip2location', 'usage', '(DCH) Data Center/Web Hosting/Transit'),
@@ -285,7 +285,7 @@ test('keyed-source reputation readings map through their own bands', () => {
   assert.equal(mapAbuseFlags(true), 25);
 
   const result = assessQuality(DATACENTER_COFFEE, {
-    ip: '207.241.88.100',
+    ip: '208.67.220.220',
     readings: [
       reading('ipinfo-privacy', 'ipinfo', 'privacy', 'No', '', 'good'),
       reading('ipqs-fraud', 'ipqs', 'fraud', '12', '', 'good'),
@@ -306,7 +306,7 @@ test('keyed-source reputation readings map through their own bands', () => {
 test('AbuseIPDB confidence does not become an extreme fraud verdict', () => {
   const result = assessQuality(
     {
-      ip: '207.241.88.100',
+      ip: '208.67.220.220',
       trust_score: 97,
       is_abuser: false,
       is_vpn: false,
@@ -314,7 +314,7 @@ test('AbuseIPDB confidence does not become an extreme fraud verdict', () => {
       is_tor: false,
     },
     {
-      ip: '207.241.88.100',
+      ip: '208.67.220.220',
       readings: [reading('abuseipdb-fraud', 'abuseipdb', 'fraud', '100', '20 reports', 'bad')],
       unavailable: [],
     }
@@ -327,7 +327,7 @@ test('AbuseIPDB confidence does not become an extreme fraud verdict', () => {
 
 test('blocklist listings surface as card facts and headline', () => {
   const result = assessQuality(DATACENTER_COFFEE, {
-    ip: '207.241.88.100',
+    ip: '208.67.220.220',
     readings: [
       reading('ipinfo-privacy', 'ipinfo', 'privacy', 'No', '', 'good'),
       reading('dnsbl-blocklist', 'dnsbl', 'blocklist', '2/7', 'SpamCop · DroneBL', 'warn'),
@@ -371,7 +371,7 @@ test('a recently registered datacenter prefix does not raise the score', () => {
 test('score range collapses to a point once every indicator is observed', () => {
   const result = assessQuality(
     {
-      ip: '124.126.3.108',
+      ip: '223.5.5.5',
       trust_score: 97,
       abuser_score: '0.0007 (Low)',
       intelligence: { abuser_level: 'low', abuser_score_raw: '0.0007 (Low)' },
@@ -388,7 +388,7 @@ test('score range collapses to a point once every indicator is observed', () => 
       asn: 4847,
     },
     {
-      ip: '124.126.3.108',
+      ip: '223.5.5.5',
       readings: [
         reading('ipinfo-privacy', 'ipinfo', 'privacy', 'No', '', 'good'),
         reading('ip2location-fraud', 'ip2location', 'fraud', '0', '', 'good'),
@@ -412,7 +412,7 @@ test('score range collapses to a point once every indicator is observed', () => 
       prefix: {
         registeredAt: '2010-07-14T00:00:00.000Z',
         handle: 'CNCGROUP-CG',
-        cidr: '124.126.0.0/16',
+        cidr: '223.5.0.0/16',
       },
       unavailable: [],
     }
@@ -480,7 +480,7 @@ test('Tor exit evidence caps both range bounds', () => {
 test('unrebutted extreme fraud plus external anonymity hit caps at 25', () => {
   const result = assessQuality(
     {
-      ip: '74.120.253.118',
+      ip: '208.67.222.222',
       trust_score: 83,
       is_datacenter: true,
       is_vpn: false,
@@ -489,7 +489,7 @@ test('unrebutted extreme fraud plus external anonymity hit caps at 25', () => {
       asn_kind: 'isp',
     },
     {
-      ip: '74.120.253.118',
+      ip: '208.67.222.222',
       readings: [
         reading('ip2location-fraud', 'ip2location', 'fraud', '99', '', 'bad'),
         {
@@ -528,7 +528,7 @@ test('unrebutted extreme fraud plus external anonymity hit caps at 25', () => {
 test('a lone extreme verdict rebutted by clean fraud readings cannot cap', () => {
   const result = assessQuality(
     {
-      ip: '74.120.253.118',
+      ip: '208.67.222.222',
       trust_score: 83,
       is_datacenter: true,
       is_vpn: false,
@@ -537,7 +537,7 @@ test('a lone extreme verdict rebutted by clean fraud readings cannot cap', () =>
       asn_kind: 'isp',
     },
     {
-      ip: '74.120.253.118',
+      ip: '208.67.222.222',
       readings: [
         reading('ip2location-fraud', 'ip2location', 'fraud', '99', '', 'bad'),
         {

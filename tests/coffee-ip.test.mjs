@@ -6,7 +6,7 @@ import { adaptCoffee } from '../src/views/ip/coffee.ts';
 
 test('Net.Coffee score and residential flag are preserved, null coordinates are skipped', () => {
   const result = adaptCoffee({
-    ip: '124.127.77.179',
+    ip: '119.29.29.29',
     trust_score: 97,
     isResidential: true,
     is_mobile: false,

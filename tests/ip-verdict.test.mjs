@@ -66,7 +66,7 @@ test('a public service still outranks conflicting usage flags', () => {
 
 test('Coffee calling the same address residential ASN and datacenter is a disagreement, not a datacenter', () => {
   const result = verdict(
-    { ip: '74.120.253.118', is_datacenter: true, asn_kind: 'residential' },
+    { ip: '208.67.222.222', is_datacenter: true, asn_kind: 'residential' },
     'usage'
   );
   assert.equal(result.value, '存在分歧');

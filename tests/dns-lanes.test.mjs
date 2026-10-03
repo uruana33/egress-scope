@@ -36,7 +36,7 @@ test('DNS operators collapse anycast pools and keep IPv4/IPv6 groups', () => {
     failures: { Surfshark: 1 },
     results: [
       {
-        ip: '172.253.9.215',
+        ip: '64.6.64.6',
         geo: 'US · GOOGLE - Google LLC, US',
         country_code: 'US',
         samples: 5,
@@ -44,7 +44,7 @@ test('DNS operators collapse anycast pools and keep IPv4/IPv6 groups', () => {
         sourceSamples: { Fastly: 5 },
       },
       {
-        ip: '172.253.2.21',
+        ip: '64.6.65.6',
         geo: 'United States, Los Angeles · Google LLC',
         country_code: 'US',
         samples: 3,
@@ -60,7 +60,7 @@ test('DNS operators collapse anycast pools and keep IPv4/IPv6 groups', () => {
         sourceSamples: { 'BrowserLeaks DNS6': 2 },
       },
       {
-        ip: '104.22.22.117',
+        ip: '1.0.0.2',
         geo: 'United States, San Jose · Cloudflare',
         country_code: 'US',
         samples: 4,
@@ -76,7 +76,7 @@ test('DNS operators collapse anycast pools and keep IPv4/IPv6 groups', () => {
     ['google', 'cloudflare', 'blocked']
   );
   const google = lanes[0];
-  assert.equal(google.ip, '172.253.9.215');
+  assert.equal(google.ip, '64.6.64.6');
   assert.equal(google.samples, 10);
   assert.equal(google.members.length, 3);
   assert.deepEqual(dnsLaneFamilies(google), ['ipv4', 'ipv6']);
@@ -87,7 +87,7 @@ test('DNS operators collapse anycast pools and keep IPv4/IPv6 groups', () => {
       group.members.map((member) => member.ip),
     ]),
     [
-      ['ipv4', ['Fastly', 'BrowserLeaks DNS4'], ['172.253.9.215', '172.253.2.21']],
+      ['ipv4', ['Fastly', 'BrowserLeaks DNS4'], ['64.6.64.6', '64.6.65.6']],
       ['ipv6', ['BrowserLeaks DNS6'], ['2607:f8b0:4004:1001::12c']],
     ]
   );
@@ -191,7 +191,7 @@ test('China Unicom resolvers from NetEase sit on their own operator lane', () =>
     failures: {},
     results: [
       {
-        ip: '202.106.20.185',
+        ip: '180.76.76.76',
         geo: 'CN · 北京市 · 联通',
         country_code: 'CN',
         samples: 3,
@@ -199,7 +199,7 @@ test('China Unicom resolvers from NetEase sit on their own operator lane', () =>
         sourceSamples: { NetEase: 3 },
       },
       {
-        ip: '124.64.206.215',
+        ip: '120.53.53.53',
         geo: 'CN · 北京市 · 联通',
         country_code: 'CN',
         samples: 2,
@@ -214,13 +214,13 @@ test('China Unicom resolvers from NetEase sit on their own operator lane', () =>
   assert.equal(lanes[0].members.length, 2);
   assert.deepEqual(
     dnsLaneGroups(lanes[0]).map((group) => group.members.map((member) => member.ip)),
-    [['202.106.20.185', '124.64.206.215']]
+    [['180.76.76.76', '120.53.53.53']]
   );
   assert.equal(lanes[0].sources[0].name, 'NetEase');
   assert.equal(lanes[0].sources[0].meta.group, 'domestic');
   assert.equal(
     dnsGeoLabel({
-      ip: '202.106.20.185',
+      ip: '180.76.76.76',
       geo: 'CN · 北京市 · 联通',
       country_code: 'CN',
     }),
@@ -229,8 +229,8 @@ test('China Unicom resolvers from NetEase sit on their own operator lane', () =>
 });
 
 test('split HTTP exits become two DNS subtrees', () => {
-  assert.equal(dnsHttpPath({ ip: '140.210.32.232', path: 'domestic' }), 'domestic');
-  assert.equal(dnsHttpPath({ ip: '74.120.253.118', country_code: 'US' }), 'overseas');
+  assert.equal(dnsHttpPath({ ip: '223.6.6.6', path: 'domestic' }), 'domestic');
+  assert.equal(dnsHttpPath({ ip: '208.67.222.222', country_code: 'US' }), 'overseas');
   const lanes = groupDnsLanes({
     count: 8,
     failed: 1,
@@ -245,7 +245,7 @@ test('split HTTP exits become two DNS subtrees', () => {
         sourceSamples: { Surfshark: 5 },
       },
       {
-        ip: '202.106.20.185',
+        ip: '180.76.76.76',
         geo: 'CN · 北京市 · 联通',
         country_code: 'CN',
         samples: 3,
@@ -257,14 +257,14 @@ test('split HTTP exits become two DNS subtrees', () => {
   assert.equal(dnsLanePath(lanes[0]), 'overseas');
   assert.equal(dnsLanePath(lanes.find((lane) => lane.key === 'unicom')), 'domestic');
   const trees = splitDnsForest(lanes, [
-    { ip: '140.210.32.232', path: 'domestic', country_code: 'CN' },
-    { ip: '74.120.253.118', path: 'overseas', country_code: 'US' },
+    { ip: '223.6.6.6', path: 'domestic', country_code: 'CN' },
+    { ip: '208.67.222.222', path: 'overseas', country_code: 'US' },
   ]);
   assert.deepEqual(
     trees.map((tree) => tree.key),
     ['domestic', 'overseas']
   );
-  assert.equal(trees[0].origin?.ip, '140.210.32.232');
+  assert.equal(trees[0].origin?.ip, '223.6.6.6');
   assert.deepEqual(
     trees[0].lanes.filter((lane) => lane.kind === 'exit').map((lane) => lane.key),
     ['unicom']
@@ -278,7 +278,7 @@ test('split HTTP exits become two DNS subtrees', () => {
     trees[1].lanes.find((lane) => lane.kind === 'blocked')?.sources[0]?.name,
     'Surfshark'
   );
-  const single = splitDnsForest(lanes, [{ ip: '74.120.253.118', path: 'overseas' }]);
+  const single = splitDnsForest(lanes, [{ ip: '208.67.222.222', path: 'overseas' }]);
   assert.equal(single.length, 1);
   assert.equal(single[0].key, 'all');
 });
@@ -290,7 +290,7 @@ test('mixed DNS lanes are sliced by source samples instead of duplicated', () =>
     failures: {},
     results: [
       {
-        ip: '219.141.176.11',
+        ip: '1.12.12.12',
         geo: 'CN · 北京 · 中国联通',
         country_code: 'CN',
         samples: 8,
@@ -300,8 +300,8 @@ test('mixed DNS lanes are sliced by source samples instead of duplicated', () =>
     ],
   });
   const trees = splitDnsForest(lanes, [
-    { ip: '140.210.32.232', path: 'domestic', country_code: 'CN' },
-    { ip: '74.120.253.118', path: 'overseas', country_code: 'US' },
+    { ip: '223.6.6.6', path: 'domestic', country_code: 'CN' },
+    { ip: '208.67.222.222', path: 'overseas', country_code: 'US' },
   ]);
   const domestic = trees.find((tree) => tree.key === 'domestic');
   const overseas = trees.find((tree) => tree.key === 'overseas');
@@ -350,8 +350,8 @@ test('sliced DNS lane geo stays attached to its representative member', () => {
     ],
   });
   const domestic = splitDnsForest(lanes, [
-    { ip: '140.210.32.232', path: 'domestic', country_code: 'CN' },
-    { ip: '74.120.253.118', path: 'overseas', country_code: 'US' },
+    { ip: '223.6.6.6', path: 'domestic', country_code: 'CN' },
+    { ip: '208.67.222.222', path: 'overseas', country_code: 'US' },
   ]).find((tree) => tree.key === 'domestic');
   const lane = domestic?.lanes.find((item) => item.kind === 'exit');
 
@@ -368,7 +368,7 @@ test('two domestic HTTP observations do not fabricate an overseas tree', () => {
     failures: {},
     results: [
       {
-        ip: '202.106.20.185',
+        ip: '180.76.76.76',
         geo: 'CN · 北京 · 联通',
         country_code: 'CN',
         samples: 1,
@@ -378,8 +378,8 @@ test('two domestic HTTP observations do not fabricate an overseas tree', () => {
     ],
   });
   const trees = splitDnsForest(lanes, [
-    { ip: '140.210.32.232', country_code: 'CN' },
-    { ip: '124.126.3.108', country_code: 'CN' },
+    { ip: '223.6.6.6', country_code: 'CN' },
+    { ip: '223.5.5.5', country_code: 'CN' },
   ]);
   assert.deepEqual(
     trees.map((tree) => tree.key),

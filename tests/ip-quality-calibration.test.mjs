@@ -325,7 +325,7 @@ test('frozen real observations preserve independently documented public-service 
       assert.equal(omitted.scoreStatus, 'provisional');
       if (row.publicService) assert.equal(omitted.kind, 'public-service');
     }
-  for (const address of ['124.126.3.108', '74.120.253.118']) {
+  for (const address of ['223.5.5.5', '208.67.222.222']) {
     const row = result.rows.find((item) => item.ip === address);
     assert.equal(row.labelStatus, 'unlabelled');
     assert.equal(row.agreement, null);

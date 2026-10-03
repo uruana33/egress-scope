@@ -71,6 +71,8 @@ pnpm install --frozen-lockfile
 pnpm worker:dev    # Vite + 本地 Worker，打开 http://127.0.0.1:8787
 ```
 
+可选：复制 `.dev.vars.example` 为 `.dev.vars` 填入上表中的 key，本地 Worker 会启用对应数据源；不配也能跑。
+
 ```bash
 pnpm build         # 类型检查 + 生产构建
 pnpm test          # Worker dry-run + Node 测试

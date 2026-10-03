@@ -1,0 +1,22 @@
+# Optional API keys for `pnpm worker:dev`. All sources work without them;
+# each key just enables one extra data source. Never commit real values —
+# `.dev.vars` is gitignored. In production set these as Worker secrets
+# (Settings → Variables and Secrets), not here.
+
+# IPQualityScore: fraud score / anonymity flags / usage type
+IPQS_API_KEY=
+
+# AbuseIPDB: abuse confidence / report count
+ABUSEIPDB_API_KEY=
+
+# IPregistry: use your own key; falls back to ipregistry.co's public
+# lookup-page demo key (rate limited) when unset
+IPREGISTRY_API_KEY=
+
+# MXToolbox: reads DNSBL via their API when the account has network quota;
+# falls back to querying public DNSBL zones directly when unset
+MXTOOLBOX_API_KEY=
+
+# Tianditu (China national map): prefer Tianditu tiles for the egress map;
+# falls back to OpenStreetMap when unset
+TIANDITU_TOKEN=

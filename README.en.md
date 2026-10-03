@@ -71,6 +71,10 @@ pnpm install --frozen-lockfile
 pnpm worker:dev    # Vite + local Worker at http://127.0.0.1:8787
 ```
 
+Optional: copy `.dev.vars.example` to `.dev.vars` and fill in keys from the
+table above to enable those data sources for the local Worker. Everything
+works without keys.
+
 ```bash
 pnpm build         # typecheck + production build
 pnpm test          # Worker dry-run + Node tests

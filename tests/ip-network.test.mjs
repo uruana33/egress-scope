@@ -81,11 +81,11 @@ test('RIPE failure returns unavailable without inventing route data', async () =
 
 test('RDAP bootstrap chooses the longest matching IPv4 or IPv6 registration prefix', () => {
   const services = [
-    [['124.0.0.0/8'], ['https://rdap.apnic.net/']],
-    [['124.127.0.0/16'], ['https://specific.example/']],
+    [['119.0.0.0/8'], ['https://rdap.apnic.net/']],
+    [['119.29.0.0/16'], ['https://specific.example/']],
     [['2001:db8::/32'], ['https://v6.example/']],
   ];
-  assert.equal(registrationServer('124.127.77.179', services), 'https://specific.example/');
+  assert.equal(registrationServer('119.29.29.29', services), 'https://specific.example/');
   assert.equal(registrationServer('2001:db8::1', services), 'https://v6.example/');
   assert.equal(registrationServer('8.8.8.8', services), undefined);
 });

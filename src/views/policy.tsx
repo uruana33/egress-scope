@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 
 import { t } from '@/i18n';
+import { REPO_URL } from '@/lib/utils';
 
 const UPDATED = '2026-09-26';
 
@@ -42,6 +43,7 @@ const terms = [
     body: t(
       '点开第三方链接或走他们的接口，同时遵守对方条款。本站源码按仓库中的 AGPL-3.0 许可使用。'
     ),
+    href: REPO_URL,
   },
   {
     title: t('服务调整'),
@@ -160,6 +162,13 @@ export default function PolicyPage({ page }: { page: 'terms' | 'privacy' }) {
         <section key={section.title} className="policy-section">
           <h2>{section.title}</h2>
           <p>{section.body}</p>
+          {'href' in section && section.href ? (
+            <p>
+              <a href={section.href} target="_blank" rel="noreferrer">
+                GitHub
+              </a>
+            </p>
+          ) : null}
           {'sources' in section && section.sources ? (
             <dl className="policy-sources">
               {privacySources.map((row) => (

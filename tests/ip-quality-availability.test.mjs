@@ -8,7 +8,7 @@ import { buildReport } from '../src/views/ip/model/report.ts';
 const corpus = JSON.parse(
   readFileSync(new URL('../scripts/ip-quality-data/samples.json', import.meta.url))
 );
-const complete = corpus.samples.find((sample) => sample.ip === '74.120.253.118');
+const complete = corpus.samples.find((sample) => sample.ip === '208.67.222.222');
 const now = Date.parse(complete.collectedAt);
 const run = (coffee, cross) => assessQuality(coffee, cross, { now });
 

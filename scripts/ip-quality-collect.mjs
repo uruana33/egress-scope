@@ -7,7 +7,7 @@ const options = {
   labels: 'scripts/ip-quality-data/labels.json',
   out: 'scripts/ip-quality-data/samples.json',
   base: 'http://127.0.0.1:5137',
-  extra: '124.126.3.108,74.120.253.118',
+  extra: '223.5.5.5,208.67.222.222',
 };
 for (let i = 0; i < args.length; i += 2) {
   const key = args[i].replace(/^--/, '');

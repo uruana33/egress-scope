@@ -44,8 +44,8 @@ test('colo chips keep POP codes and drop header names', () => {
   assert.equal(cdnNodeLabel('28637:fJ.sjc1:co:1610'), 'sjc1');
   assert.equal(cdnNodeLabel('us-west2'), 'us-west2');
   assert.equal(cdnNodeLabel('cache12.bjdaxingqu-cu.ix'), 'bjdaxingqu');
-  assert.equal(cdnNodeLabel('|74.120.253.118|23.215.44.12|'), '23.215.44.12');
-  assert.equal(cdnLeafKind('23.215.44.12'), 'ip');
+  assert.equal(cdnNodeLabel('|208.67.222.222|9.9.9.10|'), '9.9.9.10');
+  assert.equal(cdnLeafKind('9.9.9.10'), 'ip');
   assert.equal(cdnLeafKind('SJC'), 'text');
 });
 
@@ -206,8 +206,8 @@ test('split HTTP exits become two CDN subtrees', () => {
   const trees = splitCdnForest(
     lanes,
     [
-      { ip: '140.210.32.232', country_code: 'CN', path: 'domestic' },
-      { ip: '74.120.253.118', country_code: 'US', path: 'overseas' },
+      { ip: '223.6.6.6', country_code: 'CN', path: 'domestic' },
+      { ip: '208.67.222.222', country_code: 'US', path: 'overseas' },
     ],
     false
   );
@@ -215,8 +215,8 @@ test('split HTTP exits become two CDN subtrees', () => {
     trees.map((tree) => tree.key),
     ['domestic', 'overseas']
   );
-  assert.equal(trees[0].origin?.ip, '140.210.32.232');
-  assert.equal(trees[1].origin?.ip, '74.120.253.118');
+  assert.equal(trees[0].origin?.ip, '223.6.6.6');
+  assert.equal(trees[1].origin?.ip, '208.67.222.222');
   assert.deepEqual(
     trees[0].lanes.map((lane) => lane.family),
     ['netease', 'wangsu']
@@ -238,8 +238,8 @@ test('two domestic HTTP observations do not fabricate an overseas CDN tree', () 
     }),
   ]);
   const trees = splitCdnForest(lanes, [
-    { ip: '140.210.32.232', country_code: 'CN' },
-    { ip: '124.126.3.108', country_code: 'CN' },
+    { ip: '223.6.6.6', country_code: 'CN' },
+    { ip: '223.5.5.5', country_code: 'CN' },
   ]);
   assert.deepEqual(
     trees.map((tree) => tree.key),

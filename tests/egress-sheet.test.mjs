@@ -52,7 +52,7 @@ test('probe duration stays compact and status copy does not repeat success', () 
   assert.equal(formatProbeMs(undefined), undefined);
   const ok = {
     ...cf,
-    geo: { ip: '74.120.253.118', country: 'United States' },
+    geo: { ip: '208.67.222.222', country: 'United States' },
     diagnostic: {
       status: 'ok',
       networkMs: 940,

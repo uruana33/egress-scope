@@ -3,7 +3,7 @@ import { test } from 'node:test';
 
 import { consensusPlace, normCity } from '../src/views/ip/model/place.ts';
 
-const IP = '74.120.253.118';
+const IP = '208.67.222.222';
 
 const coffee = {
   ip: IP,

@@ -14,14 +14,14 @@ const source = (id, transport, ip) => ({
 });
 
 test('default AI egress display prefers HTTP evidence over WebRTC', () => {
-  const ipsb = source('ipsb', 'http', '74.120.253.118');
+  const ipsb = source('ipsb', 'http', '208.67.222.222');
   const webrtc = source('webrtc', 'udp', '203.0.113.10');
 
   assert.equal(selectDefaultExitDisplaySource([webrtc, ipsb]), ipsb);
 
   const result = summarizeDefaultExit([ipsb, webrtc]);
   assert.equal(result.verdict, 'split');
-  assert.equal(result.ip, '74.120.253.118');
+  assert.equal(result.ip, '208.67.222.222');
   assert.equal(result.displaySource, ipsb);
 });
 
@@ -60,10 +60,10 @@ test('matching UDP and HTTP observations do not verify an HTTP route', () => {
 
 test('domestic HTTP observation exposes a distinct route', () => {
   const result = summarizeDefaultExit([
-    source('ipsb', 'http', '74.120.253.118'),
-    source('domestic', 'http', '140.210.32.232'),
+    source('ipsb', 'http', '208.67.222.222'),
+    source('domestic', 'http', '223.6.6.6'),
   ]);
   assert.equal(result.verdict, 'split');
   assert.equal(result.displaySource.id, 'ipsb');
-  assert.equal(result.sources[1].ip, '140.210.32.232');
+  assert.equal(result.sources[1].ip, '223.6.6.6');
 });

@@ -36,8 +36,8 @@ test('DNS parsers keep resolvers and capture Fastly client IP separately', () =>
   assert.deepEqual(parseDnsResponse('Fastly', { client_ip_info: { ip: '1.2.3.4' } }), []);
   assert.deepEqual(
     parseDnsResponse('NetEase', {
-      ip: '140.210.32.232',
-      dns: '202.106.20.185',
+      ip: '223.6.6.6',
+      dns: '180.76.76.76',
       ip_province: '北京市',
       ip_city: '北京市',
       ip_isp: '联通',
@@ -45,16 +45,16 @@ test('DNS parsers keep resolvers and capture Fastly client IP separately', () =>
       dns_city: '北京市',
       dns_isp: '联通',
     }),
-    [{ ip: '202.106.20.185', geo: 'CN · 北京市 · 联通', country_code: 'CN' }]
+    [{ ip: '180.76.76.76', geo: 'CN · 北京市 · 联通', country_code: 'CN' }]
   );
   assert.deepEqual(
     parseDnsClient('NetEase', {
-      ip: '140.210.32.232',
-      dns: '202.106.20.185',
+      ip: '223.6.6.6',
+      dns: '180.76.76.76',
       ip_province: '北京市',
       ip_isp: '联通',
     }),
-    { ip: '140.210.32.232', geo: 'CN · 北京市 · 联通', country_code: 'CN' }
+    { ip: '223.6.6.6', geo: 'CN · 北京市 · 联通', country_code: 'CN' }
   );
 });
 
@@ -80,8 +80,8 @@ test('multi-source probes merge results, retain failures and use fresh domains',
     return Response.json(data);
   };
   dnsScriptProbe.read = async () => ({
-    ip: '140.210.32.232',
-    dns: '202.106.20.185',
+    ip: '223.6.6.6',
+    dns: '180.76.76.76',
     ip_province: '北京市',
     ip_isp: '联通',
     dns_province: '北京市',
@@ -96,11 +96,11 @@ test('multi-source probes merge results, retain failures and use fresh domains',
     const google = result.results.find((item) => item.ip === '8.8.8.8');
     assert.equal(google?.samples, 13);
     assert.equal(google?.sources.length, 3);
-    const china = result.results.find((item) => item.ip === '202.106.20.185');
+    const china = result.results.find((item) => item.ip === '180.76.76.76');
     assert.equal(china?.samples, 5);
     assert.deepEqual(china?.sources, ['NetEase']);
     const fastlyClient = result.clients.find((item) => item.ip === '1.2.3.4');
-    const nstoolClient = result.clients.find((item) => item.ip === '140.210.32.232');
+    const nstoolClient = result.clients.find((item) => item.ip === '223.6.6.6');
     assert.equal(fastlyClient?.samples, 5);
     assert.equal(nstoolClient?.samples, 5);
     assert.equal(result.clients.length, 2);

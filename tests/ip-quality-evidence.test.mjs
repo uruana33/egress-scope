@@ -5,7 +5,7 @@ import { test } from 'node:test';
 import { parseIpinfo, parseProxyCheck } from '../public/worker/ip-cross.js';
 import { assessQuality } from '../src/views/ip/model/quality.ts';
 
-const ip = '124.126.3.108';
+const ip = '223.5.5.5';
 const coffee = {
   ip,
   trust_score: 97,
@@ -231,7 +231,7 @@ test('conflicting reputation readings are unknown regardless of input order', ()
 test('increasing the same provider risk cannot improve the reference index', () => {
   const complete = JSON.parse(
     readFileSync(new URL('../scripts/ip-quality-data/samples.json', import.meta.url))
-  ).samples.find((sample) => sample.ip === '74.120.253.118');
+  ).samples.find((sample) => sample.ip === '208.67.222.222');
   let previous = Infinity;
   for (const risk of [0, 25, 26, 65, 66, 100]) {
     const cross = {
@@ -254,7 +254,7 @@ test('increasing the same provider risk cannot improve the reference index', () 
 test('coverage falls when a source remains ready but loses its fraud reading', () => {
   const complete = JSON.parse(
     readFileSync(new URL('../scripts/ip-quality-data/samples.json', import.meta.url))
-  ).samples.find((sample) => sample.ip === '74.120.253.118');
+  ).samples.find((sample) => sample.ip === '208.67.222.222');
   const full = assessQuality(complete.coffee, complete.cross, {
     now: Date.parse(complete.collectedAt),
   });

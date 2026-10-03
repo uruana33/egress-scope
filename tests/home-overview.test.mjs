@@ -4,8 +4,8 @@ import { test } from 'node:test';
 import { assessHomeExits, selectHomeCards } from '../src/views/home/overview.ts';
 
 const fail = { isPending: false, isError: true };
-const domestic = { data: { ip: '124.126.3.108' } };
-const external = { data: { ip: '43.156.138.45' } };
+const domestic = { data: { ip: '223.5.5.5' } };
+const external = { data: { ip: '8.26.56.26' } };
 test('one failed probe cannot move the other into its role or claim agreement', () => {
   const cards = selectHomeCards([fail, external]);
   assert.deepEqual(

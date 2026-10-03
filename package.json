@@ -4,6 +4,12 @@
   "private": true,
   "description": "IP diagnostics SPA with Cloudflare Workers",
   "license": "AGPL-3.0-only",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uruana33/egress-scope.git"
+  },
+  "homepage": "https://github.com/uruana33/egress-scope",
+  "bugs": "https://github.com/uruana33/egress-scope/issues",
   "type": "module",
   "packageManager": "pnpm@10.32.1",
   "engines": {

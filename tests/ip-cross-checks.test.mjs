@@ -6,27 +6,27 @@ import { displayCrossReadings } from '../src/views/ip/model/cross-intel.ts';
 import { localScores, parseAbuseRaw } from '../src/views/ip/model/scores.ts';
 
 test('cross-checks open the queried IP on each site, never a domain or ASN page', () => {
-  const checks = crossChecks('74.120.253.118');
+  const checks = crossChecks('208.67.222.222');
   assert.deepEqual(
     checks.map((item) => [item.id, item.href]),
     [
-      ['ipinfo', 'https://ipinfo.io/74.120.253.118'],
-      ['ip2location', 'https://www.ip2location.io/74.120.253.118'],
-      ['ipapi', 'https://ip-api.com/#74.120.253.118'],
+      ['ipinfo', 'https://ipinfo.io/208.67.222.222'],
+      ['ip2location', 'https://www.ip2location.io/208.67.222.222'],
+      ['ipapi', 'https://ip-api.com/#208.67.222.222'],
       [
         'ipqs',
-        'https://www.ipqualityscore.com/free-ip-lookup-proxy-vpn-test/lookup/74.120.253.118',
+        'https://www.ipqualityscore.com/free-ip-lookup-proxy-vpn-test/lookup/208.67.222.222',
       ],
-      ['scamalytics', 'https://scamalytics.com/ip/74.120.253.118'],
-      ['abuseipdb', 'https://www.abuseipdb.com/check/74.120.253.118'],
-      ['ippure', 'https://ippure.com/?ip=74.120.253.118'],
-      ['proxycheck', 'https://proxycheck.io/v3/74.120.253.118'],
+      ['scamalytics', 'https://scamalytics.com/ip/208.67.222.222'],
+      ['abuseipdb', 'https://www.abuseipdb.com/check/208.67.222.222'],
+      ['ippure', 'https://ippure.com/?ip=208.67.222.222'],
+      ['proxycheck', 'https://proxycheck.io/v3/208.67.222.222'],
       [
         'dnsbl',
-        'https://mxtoolbox.com/SuperTool.aspx?action=blacklist%3a74.120.253.118&run=toolpage',
+        'https://mxtoolbox.com/SuperTool.aspx?action=blacklist%3a208.67.222.222&run=toolpage',
       ],
       ['torexit', 'https://check.torproject.org/torbulkexitlist'],
-      ['ipregistry', 'https://ipregistry.co/74.120.253.118'],
+      ['ipregistry', 'https://ipregistry.co/208.67.222.222'],
     ]
   );
 });
@@ -66,7 +66,7 @@ test('Coffee abuse strings split the number from the band', () => {
 
 test('local scores print Coffee answers instead of empty outbound cells', () => {
   const items = localScores({
-    ip: '74.120.253.118',
+    ip: '208.67.222.222',
     trust_score: 83,
     abuser_score: '0 (Very Low)',
     intelligence: { abuser_level: 'low', abuser_score_raw: '0 (Very Low)' },
@@ -106,14 +106,14 @@ test('cross readings keep the source name and outbound href on the cell', () => 
       value: '0',
       hint: '',
       tone: 'good',
-      href: 'https://proxycheck.io/v3/74.120.253.118',
+      href: 'https://proxycheck.io/v3/208.67.222.222',
     },
   ]);
   assert.equal(item.label, '风险分');
   assert.equal(item.source, 'proxycheck.io');
   assert.equal(item.value, '0');
   assert.match(item.hint, /越高越危险/);
-  assert.equal(item.href, 'https://proxycheck.io/v3/74.120.253.118');
+  assert.equal(item.href, 'https://proxycheck.io/v3/208.67.222.222');
   assert.equal(item.kind, 'cross');
 });
 
@@ -145,7 +145,7 @@ test('IP-API bundled proxy is shown as 匿名出口（未分类型）', () => {
       value: 'Anonymous',
       hint: 'Comcast',
       tone: 'warn',
-      href: 'https://ip-api.com/#74.120.253.118',
+      href: 'https://ip-api.com/#208.67.222.222',
     },
   ]);
   assert.equal(item.value, '匿名出口（未分类型）');
@@ -160,7 +160,7 @@ test('legacy flattened privacy No remains incomplete', () => {
       value: 'No',
       hint: '',
       tone: 'good',
-      href: 'https://ipinfo.io/74.120.253.118',
+      href: 'https://ipinfo.io/208.67.222.222',
     },
   ]);
   assert.equal(item.value, '匿名检测不完整');
