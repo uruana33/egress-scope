@@ -60,9 +60,11 @@
 | `MXTOOLBOX_API_KEY`  | 有网络查询额度时经 MXToolbox 读黑名单，否则直接查公开 DNSBL   |
 | `TIANDITU_TOKEN`     | 地图优先天地图（国内更稳），未配置或不可用时 OpenStreetMap    |
 
-Worker → Settings → Variables and Secrets 以 Secret 添加，不用改代码。
+Worker → Settings → Variables and Secrets 以 Secret 添加，或 `pnpm exec wrangler secret put IPQS_API_KEY`，不用改代码。
 
-分享报告（`/api/report`、`/r/{id}`）依赖 KV：`pnpm exec wrangler kv namespace create REPORTS` 拿到 id，填回 `wrangler.toml` 里注释着的两段 `kv_namespaces`。未绑定时这两个接口返回 503，其余功能不受影响。
+分享报告（`/api/report`、`/r/{id}`）依赖 KV：在**你自己的账户**里 `pnpm exec wrangler kv namespace create REPORTS` 拿到 id，填回 `wrangler.toml` 里注释着的两段 `kv_namespaces`——id 必须属于部署所用账户，填别人的 id 部署会直接失败。未绑定时这两个接口返回 503，其余功能不受影响。
+
+需要区分私有与公开配置时，可复制 `wrangler.toml` 为 `wrangler.prod.toml`（已 gitignore）填入真实 id；`pnpm run deploy` 检测到它会优先使用，否则用 `wrangler.toml`。
 
 ## 本地开发
 
@@ -102,7 +104,7 @@ Workers Builds 和 GitHub Actions 二选一。Actions 默认只构建+测试，�
 | Secret   | `CLOUDFLARE_API_TOKEN`  | 目标账户的 Worker 部署凭证 |
 | Secret   | `CLOUDFLARE_ACCOUNT_ID` | 目标 Cloudflare 账户 ID    |
 
-推送 `main` 或手动运行 `Build and deploy egress-scope`。外部 PR 只跑测试，拿不到凭证。
+推送 `main` 或手动运行 `Build and deploy egress-scope`。外部 PR 只跑测试，拿不到凭证。Actions 部署用的是仓库里的 `wrangler.toml`；如需分享报告，先在你的 fork 里把 KV id 填好再开启。
 
 ## 目录与数据来源
 

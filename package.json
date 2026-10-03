@@ -17,7 +17,7 @@
   },
   "scripts": {
     "build": "pnpm terminal:manifest && tsc -b && vite build",
-    "deploy": "wrangler deploy",
+    "deploy": "node scripts/deploy.mjs",
     "dev": "vite",
     "format": "prettier --write .",
     "lint": "oxlint",

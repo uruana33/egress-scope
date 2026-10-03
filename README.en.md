@@ -60,9 +60,11 @@ Everything works without these; setting them enables the corresponding source:
 | `MXTOOLBOX_API_KEY`  | Read blacklist listings via MXToolbox when the account has lookup quota; otherwise public DNSBL is used |
 | `TIANDITU_TOKEN`     | Prefer Tianditu maps (better availability in mainland China); OpenStreetMap when unset or unavailable   |
 
-Add them under Worker → Settings → Variables and Secrets as Secrets; no code changes needed.
+Add them under Worker → Settings → Variables and Secrets as Secrets, or run `pnpm exec wrangler secret put IPQS_API_KEY`; no code changes needed.
 
-Shareable reports (`/api/report`, `/r/{id}`) need KV: run `pnpm exec wrangler kv namespace create REPORTS`, then fill the id into the two commented `kv_namespaces` blocks in `wrangler.toml`. Without the binding those routes return 503 while everything else stays up.
+Shareable reports (`/api/report`, `/r/{id}`) need KV: run `pnpm exec wrangler kv namespace create REPORTS` **in your own account**, then fill the id into the two commented `kv_namespaces` blocks in `wrangler.toml` — the id must belong to the account you deploy to, or `wrangler deploy` fails. Without the binding those routes return 503 while everything else stays up.
+
+To keep private and public configs apart, copy `wrangler.toml` to `wrangler.prod.toml` (gitignored) and fill in real ids there; `pnpm run deploy` prefers it when present and falls back to `wrangler.toml`.
 
 ## Local development
 
@@ -104,7 +106,7 @@ Choose Workers Builds **or** GitHub Actions, not both. Actions only builds and t
 | Secret   | `CLOUDFLARE_API_TOKEN`  | Worker deployment credentials for the target account |
 | Secret   | `CLOUDFLARE_ACCOUNT_ID` | Target Cloudflare account ID                         |
 
-Push to `main` or run `Build and deploy egress-scope`. External PRs run tests only, without deployment credentials.
+Push to `main` or run `Build and deploy egress-scope`. External PRs run tests only, without deployment credentials. Actions deploys use the committed `wrangler.toml`; if you want shareable reports, fill in your own KV id in your fork before enabling this.
 
 ## Layout & data sources
 

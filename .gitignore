@@ -15,6 +15,9 @@ worker-configuration.d.ts
 !.dev.vars.example
 .secrets.*.env
 
+# Private deployment config (real KV ids, account-specific bindings)
+wrangler.prod.toml
+
 # Logs
 logs
 *.log
