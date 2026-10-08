@@ -7,10 +7,18 @@ test('IP classification validates results, caches exact IPs and suppresses unava
   const originalFetch = globalThis.fetch;
   const originalCaches = globalThis.caches;
   const saved = new Map();
+  let matches = 0;
+  let puts = 0;
   globalThis.caches = {
     default: {
-      match: async (key) => saved.get(key.url)?.clone(),
-      put: async (key, response) => saved.set(key.url, response),
+      match: async (key) => {
+        matches += 1;
+        return saved.get(key.url)?.clone();
+      },
+      put: async (key, response) => {
+        puts += 1;
+        saved.set(key.url, response);
+      },
     },
   };
   try {
@@ -21,6 +29,7 @@ test('IP classification validates results, caches exact IPs and suppresses unava
       { hosting: false, mobile: false, proxy: false },
     ]) {
       saved.clear();
+      globalThis.__egressScopeCache?.type?.clear();
       globalThis.fetch = async (url) => {
         assert.equal(
           url,
@@ -41,6 +50,7 @@ test('IP classification validates results, caches exact IPs and suppresses unava
       });
     }
     saved.clear();
+    globalThis.__egressScopeCache?.type?.clear();
     for (const response of [
       Response.json({ status: 'success', query: '8.8.8.9', hosting: true }),
       Response.json({ status: 'success', query: '8.8.8.8' }),
@@ -69,7 +79,10 @@ test('IP classification validates results, caches exact IPs and suppresses unava
       available: false,
     });
     assert.equal(calls, 1);
+    assert.equal(matches, 0);
+    assert.equal(puts, 0);
   } finally {
+    globalThis.__egressScopeCache?.type?.clear();
     globalThis.fetch = originalFetch;
     if (originalCaches === undefined) delete globalThis.caches;
     else globalThis.caches = originalCaches;

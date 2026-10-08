@@ -128,9 +128,14 @@ export async function boundedText(response, maxBytes = 400_000) {
 }
 
 export async function upstream(url, init = {}, maxBytes = 2_000_000) {
+  const timeout = AbortSignal.timeout(10_000);
+  const signal = init.signal ? AbortSignal.any([init.signal, timeout]) : timeout;
   let response;
   try {
-    response = await fetch(url, { ...init, signal: AbortSignal.timeout(10_000) });
+    response = await fetch(url, {
+      ...init,
+      signal,
+    });
   } catch {
     throw new HttpError(502, '外部数据源连接失败或超时');
   }

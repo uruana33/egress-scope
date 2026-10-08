@@ -13,26 +13,51 @@ import { createReport, handleReportPage, readReport } from './report.js';
 import { handleSeo, serveOgImage } from './seo.js';
 import { normalizeStatus } from './service-status.js';
 import services from './services.json';
-import { STATUS_CACHE_CONTROL, cachedStatus } from './status-cache.js';
+import { cachedStatus, unavailableStatus } from './status-cache.js';
 import { reportWebRtc } from './webrtc.js';
 import { lookupRegistration } from './whois.js';
 
+const STATUS_BUDGET_MS = 8_000;
+
 async function loadServiceStatus(service) {
-  const data = await (service.group === 'VPS' ||
-  ['aws', 'google-cloud', 'oracle-cloud', '34', 'aliyun', 'tencent-cloud', 'azure'].includes(
-    service.id
-  )
-    ? getCloudStatus(service)
-    : getAiStatus(service));
-  return {
-    ...normalizeStatus(data),
-    evidence: data.evidence ?? {
-      kind: 'official',
-      label: '官方状态接口',
-    },
-    fetchedAt: new Date().toISOString(),
-    source: service.url,
-  };
+  const budget = AbortSignal.timeout(STATUS_BUDGET_MS);
+  const cloud =
+    service.group === 'VPS' ||
+    ['aws', 'google-cloud', 'oracle-cloud', '34', 'aliyun', 'tencent-cloud', 'azure'].includes(
+      service.id
+    );
+  try {
+    const load = (cloud ? getCloudStatus(service, budget) : getAiStatus(service, budget))
+      .then((data) => ({ data }))
+      .catch((error) => ({ error }));
+    const timeout = new Promise((resolve) => {
+      const finish = () => resolve({ error: budget.reason });
+      if (budget.aborted) finish();
+      else budget.addEventListener('abort', finish, { once: true });
+    });
+    const outcome = await Promise.race([load, timeout]);
+    if (outcome.error || !outcome.data) throw outcome.error ?? new Error('EmptyStatus');
+    const data = outcome.data;
+    return {
+      ...normalizeStatus(data),
+      evidence: data.evidence ?? {
+        kind: 'official',
+        label: '官方状态接口',
+      },
+      fetchedAt: new Date().toISOString(),
+      source: service.url,
+    };
+  } catch (error) {
+    // Service id only. Upstream bodies and visitor addresses stay out of logs.
+    console.info(
+      JSON.stringify({
+        event: 'status_unavailable',
+        service: service.id,
+        type: error?.name ?? 'Error',
+      })
+    );
+    return unavailableStatus(service);
+  }
 }
 
 /** @type {ExportedHandler<Env>} */
@@ -122,11 +147,11 @@ export default {
         if (!service) throw new HttpError(404, '未知服务');
         if (!service.url)
           throw new HttpError(503, '该服务未提供已接入的公开状态接口，请查看官方状态页');
-        const result = await cachedStatus(request, service, () => loadServiceStatus(service));
+        const result = await cachedStatus(service, () => loadServiceStatus(service));
         return json(
           result.data,
           200,
-          result.cacheable ? { 'Cache-Control': STATUS_CACHE_CONTROL } : {}
+          result.cacheable ? { 'Cache-Control': result.cacheControl } : {}
         );
       }
       throw new HttpError(404, '接口不存在');

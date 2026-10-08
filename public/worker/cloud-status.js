@@ -1,4 +1,5 @@
 import { HttpError, upstream } from './http.js';
+import { statusFetch, withStatusSignal } from './status-cache.js';
 
 const fail502 = () => new HttpError(502, '官方状态数据暂不可用');
 
@@ -10,7 +11,6 @@ const intoSummary = (indicator, description, incidents) => ({
 const MAX_SOURCE_BYTES = 2_000_000;
 const AZURE_MAX_BYTES = 8_000_000;
 const TENCENT_DETAIL_CONCURRENCY = 4;
-const FETCH_TIMEOUT_MS = 10_000;
 
 const DMIT_STATES = {
   operational: 'none',
@@ -294,8 +294,11 @@ const TENCENT_BANNER_URL =
 const TENCENT_REGION_EVENTS =
   'https://status.tencentcloud.com/v1/api/status/DescribeProductEventForRegionInPeriod?';
 
-async function tencentStatus(url) {
-  const [regionData, bannerData] = await Promise.all([upstream(url), upstream(TENCENT_BANNER_URL)]);
+async function tencentStatus(url, signal) {
+  const [regionData, bannerData] = await Promise.all([
+    upstream(url, withStatusSignal(signal)),
+    upstream(TENCENT_BANNER_URL, withStatusSignal(signal)),
+  ]);
   const regions = tencentRegions(regionData);
   const date = new Date().toISOString().slice(0, 10);
   const details = await Promise.all(
@@ -309,7 +312,10 @@ async function tencentStatus(url) {
             NumOfDay: '1',
             EndDate: date,
           });
-          return parseTencentProducts(await upstream(TENCENT_REGION_EVENTS + query), region);
+          return parseTencentProducts(
+            await upstream(TENCENT_REGION_EVENTS + query, withStatusSignal(signal)),
+            region
+          );
         })
       )
   );
@@ -365,9 +371,9 @@ export function parseAzure(html) {
 }
 
 // AWS serves UTF-16 JSON; BandwagonHost currently exposes a small HTML summary.
-async function sourceText(url, maxBytes = MAX_SOURCE_BYTES) {
-  const response = await fetch(url, {
-    signal: AbortSignal.timeout(FETCH_TIMEOUT_MS),
+async function sourceText(url, maxBytes = MAX_SOURCE_BYTES, signal) {
+  const response = await statusFetch(url, {
+    signal,
     redirect: 'manual',
   });
   if (!response.ok) {
@@ -439,25 +445,29 @@ export function parseQwenStatus(catalog, current) {
 }
 
 const CLOUD_HANDLERS = {
-  aliyun: (service) => upstream(service.url).then(parseAliyun),
-  'tencent-cloud': (service) => tencentStatus(service.url),
-  azure: (service) => sourceText(service.url, AZURE_MAX_BYTES).then(parseAzure),
-  dmit: (service) => upstream(service.url).then(parseDmit),
-  bandwagonhost: (service) => sourceText(service.url).then(parseBandwagon),
-  'google-cloud': (service) => upstream(service.url).then(parseGoogleCloud),
-  aws: async (service) => parseAws(JSON.parse(await sourceText(service.url))),
+  aliyun: (service, signal) => upstream(service.url, withStatusSignal(signal)).then(parseAliyun),
+  'tencent-cloud': (service, signal) => tencentStatus(service.url, signal),
+  azure: (service, signal) => sourceText(service.url, AZURE_MAX_BYTES, signal).then(parseAzure),
+  dmit: (service, signal) => upstream(service.url, withStatusSignal(signal)).then(parseDmit),
+  bandwagonhost: (service, signal) =>
+    sourceText(service.url, MAX_SOURCE_BYTES, signal).then(parseBandwagon),
+  'google-cloud': (service, signal) =>
+    upstream(service.url, withStatusSignal(signal)).then(parseGoogleCloud),
+  aws: async (service, signal) =>
+    parseAws(JSON.parse(await sourceText(service.url, MAX_SOURCE_BYTES, signal))),
 };
 
-export async function getCloudStatus(service) {
+export async function getCloudStatus(service, signal) {
   if (service.id === '34') {
     const [catalog, current] = await Promise.all([
       upstream(
-        'https://status.aliyun.com/api/status/listProductForAllTypeInRegion?regionId=non-regional'
+        'https://status.aliyun.com/api/status/listProductForAllTypeInRegion?regionId=non-regional',
+        withStatusSignal(signal)
       ),
-      upstream(service.url),
+      upstream(service.url, withStatusSignal(signal)),
     ]);
     return parseQwenStatus(catalog, current);
   }
   const handler = CLOUD_HANDLERS[service.id];
-  return handler ? handler(service) : upstream(service.url);
+  return handler ? handler(service, signal) : upstream(service.url, withStatusSignal(signal));
 }
