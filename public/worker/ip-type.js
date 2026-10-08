@@ -1,3 +1,4 @@
+import { edgeMemory, remember, rememberEdge } from './edge-memory.js';
 import { boundedJson, json, publicIp } from './http.js';
 
 const ENDPOINT = 'http://ip-api.com/json';
@@ -12,10 +13,10 @@ const unavailable = () => json({ available: false });
 
 export async function ipType(value, origin) {
   const ip = publicIp(value);
-  const store = globalThis.caches?.default;
-  const cacheKey = new Request(`${origin}/api/ip-type/${encodeURIComponent(ip)}?v=2`);
-  const hit = await store?.match(cacheKey).catch(() => undefined);
-  if (hit) return hit;
+  const cacheKey = `${origin}\0${ip}`;
+  const memory = rememberEdge() ? edgeMemory().type : null;
+  const hit = memory?.get(cacheKey);
+  if (hit && hit.expires > Date.now()) return hit.response.clone();
   if (Date.now() < pausedUntil) return unavailable();
 
   let response;
@@ -51,7 +52,13 @@ export async function ipType(value, origin) {
       { available: true, hosting: data.hosting, mobile: data.mobile, proxy: data.proxy },
       { headers: { 'Cache-Control': CACHE_TTL, 'X-Content-Type-Options': 'nosniff' } }
     );
-    await store?.put(cacheKey, result.clone()).catch(() => {});
+    if (memory)
+      remember(
+        memory,
+        cacheKey,
+        { expires: Date.now() + 3_600_000, response: result.clone() },
+        100
+      );
     return result;
   } catch {
     return unavailable();

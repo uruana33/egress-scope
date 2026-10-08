@@ -298,19 +298,32 @@ test('WebRTC report compares leak addresses within the same IP family', async ()
   assert.deepEqual(result.leakIps, []);
   assert.equal(result.splitTunnel, false);
 });
-test('status API caches valid public status responses with Cache API', async () => {
+function resetEdgeMemory() {
+  const store = globalThis.__egressScopeCache;
+  if (!store) return;
+  for (const bucket of [store.status, store.inflight, store.cross, store.type]) bucket?.clear();
+}
+
+test('status API reuses a fresh result without the Cache API', async () => {
   const originalCaches = Object.getOwnPropertyDescriptor(globalThis, 'caches');
-  const cached = new Map();
+  let matches = 0;
+  let puts = 0;
   Object.defineProperty(globalThis, 'caches', {
     configurable: true,
     value: {
       default: {
-        match: async (request) => cached.get(request.url)?.clone(),
-        put: async (request, response) => cached.set(request.url, response.clone()),
+        match: async () => {
+          matches += 1;
+          return undefined;
+        },
+        put: async () => {
+          puts += 1;
+        },
       },
     },
   });
   let calls = 0;
+  resetEdgeMemory();
   try {
     await withFetch(
       async (url) => {
@@ -323,47 +336,52 @@ test('status API caches valid public status responses with Cache API', async () 
         });
       },
       async () => {
-        const first = await worker.fetch(request('/api/status/0'), env);
+        const [first, second] = await Promise.all([
+          worker.fetch(request('/api/status/0'), env),
+          worker.fetch(request('/api/status/0'), env),
+        ]);
         assert.equal(first.headers.get('Cache-Control'), 'public, max-age=60, s-maxage=60');
         const firstBody = await first.json();
-        const second = await worker.fetch(request('/api/status/0'), env);
         const secondBody = await second.json();
+        const third = await worker.fetch(request('/api/status/0'), env);
+        const thirdBody = await third.json();
         assert.equal(calls, 1);
+        assert.equal(matches, 0);
+        assert.equal(puts, 0);
         assert.equal(secondBody.fetchedAt, firstBody.fetchedAt);
-        assert.equal(secondBody.source, firstBody.source);
+        assert.equal(thirdBody.fetchedAt, firstBody.fetchedAt);
+        assert.equal(thirdBody.source, firstBody.source);
       }
     );
   } finally {
+    resetEdgeMemory();
     if (originalCaches) Object.defineProperty(globalThis, 'caches', originalCaches);
     else delete globalThis.caches;
   }
 });
 
-test('status cache ignores payloads from the previous schema version', async () => {
+test('status reads ignore Cache API hits and serve the live payload', async () => {
   const originalCaches = Object.getOwnPropertyDescriptor(globalThis, 'caches');
-  const cached = new Map();
+  let matches = 0;
   Object.defineProperty(globalThis, 'caches', {
     configurable: true,
     value: {
       default: {
-        match: async (request) => cached.get(request.url)?.clone(),
-        put: async (request, response) => cached.set(request.url, response.clone()),
+        match: async () => {
+          matches += 1;
+          return Response.json({
+            status: { indicator: 'major', description: 'cached outage' },
+            fetchedAt: new Date().toISOString(),
+            source: 'https://www.cloudflarestatus.com/api/v2/summary.json',
+          });
+        },
+        put: async () => {},
       },
     },
   });
   let calls = 0;
+  resetEdgeMemory();
   try {
-    const legacyKey = new Request('https://tools.example.com/api/status/0', {
-      method: 'GET',
-    });
-    cached.set(
-      legacyKey.url,
-      Response.json({
-        status: { indicator: 'none', description: '正常运行' },
-        fetchedAt: new Date().toISOString(),
-        source: 'https://www.cloudflarestatus.com/api/v2/summary.json',
-      })
-    );
     await withFetch(
       async () => {
         calls += 1;
@@ -377,27 +395,34 @@ test('status cache ignores payloads from the previous schema version', async () 
         const response = await worker.fetch(request('/api/status/0'), env);
         assert.equal(response.status, 200);
         assert.equal(calls, 1);
-        assert.equal((await response.json()).evidence.kind, 'official');
+        assert.equal(matches, 0);
+        const body = await response.json();
+        assert.equal(body.evidence.kind, 'official');
+        assert.equal(body.status.indicator, 'none');
       }
     );
   } finally {
+    resetEdgeMemory();
     if (originalCaches) Object.defineProperty(globalThis, 'caches', originalCaches);
     else delete globalThis.caches;
   }
 });
 test('status API does not cache successful responses with invalid status schema', async () => {
   const originalCaches = Object.getOwnPropertyDescriptor(globalThis, 'caches');
-  const cached = new Map();
+  let puts = 0;
   Object.defineProperty(globalThis, 'caches', {
     configurable: true,
     value: {
       default: {
-        match: async (request) => cached.get(request.url)?.clone(),
-        put: async (request, response) => cached.set(request.url, response.clone()),
+        match: async () => undefined,
+        put: async () => {
+          puts += 1;
+        },
       },
     },
   });
   let calls = 0;
+  resetEdgeMemory();
   try {
     await withFetch(
       async () => {
@@ -410,12 +435,75 @@ test('status API does not cache successful responses with invalid status schema'
         assert.equal(first.headers.get('Cache-Control'), 'no-store');
         assert.equal(second.headers.get('Cache-Control'), 'no-store');
         assert.equal(calls, 2);
-        assert.equal(cached.size, 0);
+        assert.equal(puts, 0);
       }
     );
   } finally {
+    resetEdgeMemory();
     if (originalCaches) Object.defineProperty(globalThis, 'caches', originalCaches);
     else delete globalThis.caches;
+  }
+});
+
+test('status API keeps the last good result when a later read fails', async () => {
+  const originalCaches = Object.getOwnPropertyDescriptor(globalThis, 'caches');
+  Object.defineProperty(globalThis, 'caches', {
+    configurable: true,
+    value: {
+      default: {
+        match: async () => undefined,
+        put: async () => {},
+      },
+    },
+  });
+  resetEdgeMemory();
+  let fail = false;
+  try {
+    await withFetch(
+      async () => {
+        if (fail) return new Response('down', { status: 503 });
+        return Response.json({
+          page: { status: 'UP' },
+          activeIncidents: [],
+          activeMaintenances: [],
+        });
+      },
+      async () => {
+        const first = await worker.fetch(request('/api/status/0'), env);
+        assert.equal((await first.json()).status.indicator, 'none');
+        const entry = globalThis.__egressScopeCache.status.values().next().value;
+        entry.freshUntil = 0;
+        fail = true;
+        const second = await worker.fetch(request('/api/status/0'), env);
+        assert.equal(second.status, 200);
+        assert.equal((await second.json()).status.indicator, 'none');
+        assert.equal(second.headers.get('Cache-Control'), 'public, max-age=60, s-maxage=60');
+      }
+    );
+  } finally {
+    resetEdgeMemory();
+    if (originalCaches) Object.defineProperty(globalThis, 'caches', originalCaches);
+    else delete globalThis.caches;
+  }
+});
+
+test('status API returns an unknown result when the upstream fails', async () => {
+  resetEdgeMemory();
+  try {
+    await withFetch(
+      async () => new Response('blocked', { status: 403 }),
+      async () => {
+        const response = await worker.fetch(request('/api/status/0'), env);
+        assert.equal(response.status, 200);
+        const body = await response.json();
+        assert.equal(body.status.indicator, 'unknown');
+        assert.equal(body.status.description, '官方状态暂时不可达');
+        assert.equal(body.temporary, undefined);
+        assert.equal(response.headers.get('Cache-Control'), 'public, max-age=15, s-maxage=15');
+      }
+    );
+  } finally {
+    resetEdgeMemory();
   }
 });
 test('removed legacy risk endpoint returns 404', async () => {

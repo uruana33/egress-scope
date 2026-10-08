@@ -1,5 +1,6 @@
 import { isIP } from 'node:net';
 
+import { edgeMemory, remember, rememberEdge } from './edge-memory.js';
 import { boundedText, publicIp } from './http.js';
 import { prefixFromRdap } from './whois.js';
 
@@ -1147,11 +1148,13 @@ async function pullPrefix(ip) {
  */
 export async function ipCross(value, origin, env) {
   const ip = publicIp(value);
-  const cache = globalThis.caches?.default;
   const keyTag = `${CACHE_VERSION}${env?.IPQS_API_KEY ? '-q' : ''}${env?.ABUSEIPDB_API_KEY ? '-a' : ''}${env?.MXTOOLBOX_API_KEY ? '-m' : ''}`;
-  const key = new Request(`${origin}/api/ip/cross/${encodeURIComponent(ip)}?${keyTag}`);
-  const cached = await cache?.match(key).catch(() => undefined);
-  if (cached) return cached;
+  const cacheKey = `${origin}\0${ip}\0${keyTag}`;
+  // Cache API match/put shows up as edgeWorkerCacheAPI 504/500. Remember a
+  // successful reading in the isolate instead, and only when that API exists.
+  const memory = rememberEdge() ? edgeMemory().cross : null;
+  const hit = memory?.get(cacheKey);
+  if (hit && hit.expires > Date.now()) return hit.response.clone();
 
   const pulls = [
     pull('ippure', async () => {
@@ -1269,6 +1272,7 @@ export async function ipCross(value, origin, env) {
       },
     }
   );
-  if (readings.length) await cache?.put(key, result.clone()).catch(() => {});
+  if (memory && readings.length)
+    remember(memory, cacheKey, { expires: Date.now() + 60_000, response: result.clone() }, 100);
   return result;
 }

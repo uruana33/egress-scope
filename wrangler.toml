@@ -38,7 +38,9 @@ enabled = true
 [observability.logs]
 enabled = true
 head_sampling_rate = 0.1
-invocation_logs = false
+# 10% of requests, including invocation logs. Workers Logs includes 200k events/day
+# on the Free plan and 20M/month on Paid, then $0.60 per extra million.
+invocation_logs = true
 
 [observability.traces]
 enabled = false
