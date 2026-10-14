@@ -40,6 +40,7 @@ export const queryKeys = {
   ip: {
     classification: (ip: string) => ['lookup-ip-coffee', ip] as const,
     cross: (ip: string) => ['lookup-ip-cross', ip] as const,
+    grade: (ip: string, options: string) => ['lookup-ip-grade', ip, options] as const,
     /**
      * A latency run belongs to the address it measured, so the result is
      * cached per IP and survives tab switches and back navigation.

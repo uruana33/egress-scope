@@ -14,3 +14,4 @@
 @import './styles/motion.css'; /* motion choreography: route entrances, unified hover lift */
 @import './styles/folio.css'; /* address-lookup folio: one document after a query */
 @import './styles/scenario.css'; /* scenario panel, BGP graph, profile leftovers */
+@import './styles/grade.css'; /* signup verdict: five gates + quality tier board */

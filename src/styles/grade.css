@@ -1,0 +1,397 @@
+/* 开号判定（五门 + 品质分档）：沿用 folio 的文档式版面。 */
+
+.ip-grade {
+  display: grid;
+  gap: 14px;
+  margin-top: 14px;
+  padding: 16px 20px;
+  border-radius: 16px;
+  background: color-mix(in srgb, var(--muted) 42%, transparent);
+}
+
+.ip-grade-head .ip-folio-kicker {
+  margin-bottom: 4px;
+}
+
+.ip-grade-lede,
+.ip-grade-note {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--muted-foreground);
+}
+
+.ip-grade-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 14px;
+}
+
+.ip-grade-advanced {
+  flex: 1 1 260px;
+  min-width: 240px;
+}
+
+.ip-grade-advanced > summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  font-size: 12.5px;
+  color: var(--muted-foreground);
+  list-style: none;
+  user-select: none;
+}
+
+.ip-grade-advanced > summary::-webkit-details-marker {
+  display: none;
+}
+
+.ip-grade-advanced[open] > summary svg {
+  transform: rotate(180deg);
+}
+
+.ip-grade-options {
+  display: grid;
+  gap: 10px;
+  margin-top: 10px;
+  max-width: 460px;
+}
+
+.ip-grade-options label {
+  display: grid;
+  gap: 4px;
+  font-size: 12.5px;
+  color: var(--muted-foreground);
+}
+
+.ip-grade-stable {
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 8px !important;
+  color: var(--foreground) !important;
+}
+
+.ip-grade-rerun-hint {
+  font-size: 12px;
+  color: var(--muted-foreground);
+}
+
+.ip-grade-result {
+  display: grid;
+  gap: 14px;
+}
+
+.ip-grade-verdict {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--card);
+}
+
+.ip-grade-verdict strong {
+  display: block;
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+.ip-grade-verdict-meta {
+  display: block;
+  margin-top: 4px;
+  font-size: 12px;
+  color: var(--muted-foreground);
+}
+
+.ip-grade-verdict[data-tone='good'] {
+  border-color: color-mix(in srgb, var(--success) 35%, transparent);
+}
+.ip-grade-verdict[data-tone='good'] svg {
+  color: var(--success);
+}
+.ip-grade-verdict[data-tone='warn'] {
+  border-color: color-mix(in srgb, var(--warning) 40%, transparent);
+}
+.ip-grade-verdict[data-tone='warn'] svg {
+  color: var(--warning);
+}
+.ip-grade-verdict[data-tone='bad'] {
+  border-color: color-mix(in srgb, var(--danger) 40%, transparent);
+  background: color-mix(in srgb, var(--danger) 7%, var(--card));
+}
+.ip-grade-verdict[data-tone='bad'] svg {
+  color: var(--danger);
+}
+
+.ip-grade-tier {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px dashed var(--border);
+}
+
+.ip-grade-tier-code {
+  flex: none;
+  min-width: 56px;
+  padding: 6px 10px;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  background: color-mix(in srgb, var(--muted) 80%, transparent);
+}
+
+.ip-grade-tier[data-tone='good'] .ip-grade-tier-code {
+  color: var(--success-text);
+  background: color-mix(in srgb, var(--success) 12%, transparent);
+}
+.ip-grade-tier[data-tone='warn'] .ip-grade-tier-code {
+  color: var(--warning);
+  background: color-mix(in srgb, var(--warning) 12%, transparent);
+}
+.ip-grade-tier[data-tone='bad'] .ip-grade-tier-code {
+  color: var(--danger);
+  background: color-mix(in srgb, var(--danger) 12%, transparent);
+}
+
+.ip-grade-tier-copy {
+  min-width: 0;
+}
+
+.ip-grade-tier-copy strong {
+  font-size: 14px;
+}
+
+.ip-grade-tier-copy p {
+  margin: 4px 0 0;
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--muted-foreground);
+}
+
+.ip-grade-tier-copy small {
+  display: block;
+  margin-top: 6px;
+  font-size: 11.5px;
+  color: var(--muted-foreground);
+  opacity: 0.85;
+}
+
+.ip-grade-gates {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ip-grade-gate {
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--card);
+}
+
+.ip-grade-gate-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ip-grade-gate-num {
+  flex: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+  color: var(--muted-foreground);
+  background: color-mix(in srgb, var(--muted) 80%, transparent);
+}
+
+.ip-grade-gate-head strong {
+  font-size: 13.5px;
+}
+
+.ip-grade-gate-status {
+  margin-left: auto;
+  padding: 1px 8px;
+  border-radius: 999px;
+  font-size: 11.5px;
+  font-weight: 600;
+}
+
+.ip-grade-gate-status[data-tone='good'] {
+  color: var(--success-text);
+  background: color-mix(in srgb, var(--success) 10%, transparent);
+}
+.ip-grade-gate-status[data-tone='warn'] {
+  color: var(--warning);
+  background: color-mix(in srgb, var(--warning) 12%, transparent);
+}
+.ip-grade-gate-status[data-tone='bad'] {
+  color: var(--danger);
+  background: color-mix(in srgb, var(--danger) 10%, transparent);
+}
+
+.ip-grade-gate[data-tone='bad'] {
+  border-color: color-mix(in srgb, var(--danger) 35%, transparent);
+}
+
+.ip-grade-gate-detail {
+  margin: 6px 0 0 28px;
+  font-size: 12.5px;
+  line-height: 1.65;
+  color: var(--foreground);
+}
+
+.ip-grade-gate-expected {
+  margin-left: 28px;
+}
+
+.ip-grade-gate-expected > summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 6px;
+  cursor: pointer;
+  font-size: 11.5px;
+  color: var(--muted-foreground);
+  list-style: none;
+}
+
+.ip-grade-gate-expected > summary::-webkit-details-marker {
+  display: none;
+}
+
+.ip-grade-gate-expected[open] > summary svg {
+  transform: rotate(180deg);
+}
+
+.ip-grade-gate-expected p {
+  margin: 6px 0 0;
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--muted-foreground);
+}
+
+.ip-grade-sources {
+  border-top: 1px dashed var(--border);
+  padding-top: 10px;
+}
+
+.ip-grade-sources > summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  list-style: none;
+  user-select: none;
+}
+
+.ip-grade-sources > summary::-webkit-details-marker {
+  display: none;
+}
+
+.ip-grade-sources[open] > summary .ip-folio-details-action svg {
+  transform: rotate(180deg);
+}
+
+.ip-grade-source-grid {
+  display: grid;
+  gap: 10px;
+  margin-top: 10px;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+}
+
+.ip-grade-source {
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  font-size: 12px;
+}
+
+.ip-grade-source[data-ok='false'] {
+  opacity: 0.75;
+}
+
+.ip-grade-source h4 {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  margin: 0 0 6px;
+  font-size: 12.5px;
+}
+
+.ip-grade-source h4 em {
+  font-style: normal;
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--warning);
+}
+
+.ip-grade-source dl {
+  display: grid;
+  gap: 2px;
+  margin: 0;
+}
+
+.ip-grade-source dl > div {
+  display: flex;
+  gap: 8px;
+  align-items: baseline;
+}
+
+.ip-grade-source dt {
+  flex: none;
+  min-width: 58px;
+  color: var(--muted-foreground);
+}
+
+.ip-grade-source dd {
+  margin: 0;
+  min-width: 0;
+  word-break: break-word;
+}
+
+.ip-grade-source > dl > dt {
+  min-width: 0;
+  color: var(--muted-foreground);
+}
+
+.ip-grade-source > dl > dd {
+  font-weight: 500;
+}
+
+.ip-grade-notes h3 {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0 0 6px;
+  font-size: 13px;
+}
+
+.ip-grade-notes ul {
+  display: grid;
+  gap: 4px;
+  margin: 0;
+  padding-left: 18px;
+}
+
+.ip-grade-notes li {
+  font-size: 12.5px;
+  line-height: 1.65;
+  color: var(--muted-foreground);
+}

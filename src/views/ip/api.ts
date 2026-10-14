@@ -3,6 +3,7 @@ import { endpoint, request } from '@/lib/network';
 
 import { type CoffeeIp, adaptCoffee } from './coffee.ts';
 import type { CrossIntel } from './model/cross-intel';
+import type { GradeOptions, GradeReport } from './model/grade';
 import { parseCoffeeIp } from './model/schema.ts';
 
 /** IPv6 has many spellings for one address; compare canonical forms. */
@@ -21,6 +22,18 @@ export async function lookupIp(ip: string, signal?: AbortSignal) {
 
 export async function lookupCross(ip: string, signal?: AbortSignal) {
   return endpoint<CrossIntel>(`/ip/cross/${encodeURIComponent(ip)}`, {
+    signal,
+    cache: 'no-store',
+  });
+}
+
+export async function lookupGrade(ip: string, options: GradeOptions, signal?: AbortSignal) {
+  const params = new URLSearchParams();
+  if (options.expectState) params.set('expect_state', options.expectState);
+  if (options.expectTz) params.set('expect_tz', options.expectTz);
+  if (options.stableConfirmed) params.set('stable', '1');
+  const suffix = params.size ? `?${params}` : '';
+  return endpoint<GradeReport>(`/ip/grade/${encodeURIComponent(ip)}${suffix}`, {
     signal,
     cache: 'no-store',
   });

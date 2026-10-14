@@ -16,7 +16,13 @@ export async function ipType(value, origin) {
   const cacheKey = `${origin}\0${ip}`;
   const memory = rememberEdge() ? edgeMemory().type : null;
   const hit = memory?.get(cacheKey);
-  if (hit && hit.expires > Date.now()) return hit.response.clone();
+  // Cache the payload, not the Response: workerd cannot return a Response
+  // created by an earlier request.
+  if (hit && hit.expires > Date.now()) {
+    return Response.json(hit.payload, {
+      headers: { 'Cache-Control': CACHE_TTL, 'X-Content-Type-Options': 'nosniff' },
+    });
+  }
   if (Date.now() < pausedUntil) return unavailable();
 
   let response;
@@ -48,18 +54,16 @@ export async function ipType(value, origin) {
       publicIp(data.query) === ip;
     if (!usable) return unavailable();
 
-    const result = Response.json(
-      { available: true, hosting: data.hosting, mobile: data.mobile, proxy: data.proxy },
-      { headers: { 'Cache-Control': CACHE_TTL, 'X-Content-Type-Options': 'nosniff' } }
-    );
-    if (memory)
-      remember(
-        memory,
-        cacheKey,
-        { expires: Date.now() + 3_600_000, response: result.clone() },
-        100
-      );
-    return result;
+    const payload = {
+      available: true,
+      hosting: data.hosting,
+      mobile: data.mobile,
+      proxy: data.proxy,
+    };
+    if (memory) remember(memory, cacheKey, { expires: Date.now() + 3_600_000, payload }, 100);
+    return Response.json(payload, {
+      headers: { 'Cache-Control': CACHE_TTL, 'X-Content-Type-Options': 'nosniff' },
+    });
   } catch {
     return unavailable();
   }

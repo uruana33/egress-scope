@@ -4,6 +4,7 @@ import { cfGeo, geoIp, secondaryGeo } from './geo.js';
 import { HttpError, inputJson, json, publicIp } from './http.js';
 import { siteIcon } from './icons.js';
 import { ipCross } from './ip-cross.js';
+import { ipGrade } from './ip-grade.js';
 import { ipHealth } from './ip-health.js';
 import { ipNetwork } from './ip-network.js';
 import { ipType } from './ip-type.js';
@@ -114,6 +115,8 @@ export default {
         return await readReport(decodeURIComponent(path.slice(8)), env);
       if (path.startsWith('/ip/cross/'))
         return await ipCross(decodeURIComponent(path.slice(10)), url.origin, env);
+      if (path.startsWith('/ip/grade/'))
+        return await ipGrade(decodeURIComponent(path.slice(10)), url);
       if (path.startsWith('/ip-type/'))
         return await ipType(decodeURIComponent(path.slice(9)), url.origin);
       if (path.startsWith('/geoip/'))

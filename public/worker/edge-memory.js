@@ -5,6 +5,7 @@ export function edgeMemory() {
     status: new Map(),
     inflight: new Map(),
     cross: new Map(),
+    grade: new Map(),
     type: new Map(),
   });
 }

@@ -1154,7 +1154,16 @@ export async function ipCross(value, origin, env) {
   // successful reading in the isolate instead, and only when that API exists.
   const memory = rememberEdge() ? edgeMemory().cross : null;
   const hit = memory?.get(cacheKey);
-  if (hit && hit.expires > Date.now()) return hit.response.clone();
+  // Store the payload, not the Response: a Response created in an earlier
+  // request cannot be returned (or cloned) in a later one on workerd.
+  if (hit && hit.expires > Date.now()) {
+    return Response.json(hit.payload, {
+      headers: {
+        'Cache-Control': 'private, no-store',
+        'X-Content-Type-Options': 'nosniff',
+      },
+    });
+  }
 
   const pulls = [
     pull('ippure', async () => {
@@ -1255,24 +1264,21 @@ export async function ipCross(value, origin, env) {
   for (const job of jobs)
     if (!job.items.length && job.reason) unavailableReasons[job.name] = job.reason;
 
-  const result = Response.json(
-    {
-      ip,
-      checkedAt: new Date().toISOString(),
-      readings,
-      places,
-      unavailable,
-      unavailableReasons,
-      prefix: prefix ?? null,
-    },
-    {
-      headers: {
-        'Cache-Control': 'private, no-store',
-        'X-Content-Type-Options': 'nosniff',
-      },
-    }
-  );
+  const payload = {
+    ip,
+    checkedAt: new Date().toISOString(),
+    readings,
+    places,
+    unavailable,
+    unavailableReasons,
+    prefix: prefix ?? null,
+  };
   if (memory && readings.length)
-    remember(memory, cacheKey, { expires: Date.now() + 60_000, response: result.clone() }, 100);
-  return result;
+    remember(memory, cacheKey, { expires: Date.now() + 60_000, payload }, 100);
+  return Response.json(payload, {
+    headers: {
+      'Cache-Control': 'private, no-store',
+      'X-Content-Type-Options': 'nosniff',
+    },
+  });
 }
