@@ -18,6 +18,7 @@ import PingPanel from '@/views/ping';
 import WhoisPanel from '@/views/whois';
 
 import type { CoffeeLookup } from './coffee';
+import { GradeBoard } from './components/grade-board';
 import { QualityBoard } from './components/quality-board';
 import { RawPayload } from './components/raw-payload';
 import { SourceList } from './components/source-list';
@@ -162,6 +163,8 @@ export function IpDetails({
           onTerminalClear={terminal.clear}
         />
       </header>
+
+      <GradeBoard ip={d.ip} hidden={hidden} />
 
       <div className="ip-folio-sheet">
         <section className="ip-folio-col">
